@@ -2,13 +2,25 @@
 <view class='container'>
     <view class='kill'>
         <view class='item'>
-            <image class='item-img' src='/images/icon/pic3.png' mode='aspectFill'></image>
+            <image class='item-img' src='/images/icon/pic1.png' mode='aspectFill'></image>
             <view class='item-info'>
-                <view class='item-name'>哈哈哈哈啊哈哈哈啊哈哈</view>
-                <view class='item-club'>啊啊啊啊啊啊啊啊啊</view>
+                <view class='item-name'>BODYPUMP塑形杠铃操</view>
+                <view class='item-club'>朝外SOHO健身俱乐部</view>
                 <view class='item-bottom'>
-                    <view class='price'>$123</view>
-                    <view class='time'>2018-1-1 10：00</view>
+                    <view class='price'>10元/次</view>
+                    <view class='time'>2018-3-3 10：00</view>
+                </view>
+            </view>
+        </view>
+
+        <view class='item'>
+            <image class='item-img' src='/images/icon/pic2.png' mode='aspectFill'></image>
+            <view class='item-info'>
+                <view class='item-name'>BODYPUMP塑形杠自由器械</view>
+                <view class='item-club'>朝外SOHO健身俱乐部</view>
+                <view class='item-bottom'>
+                    <view class='price'>10元/次</view>
+                    <view class='time'>2018-3-3 10：00</view>
                 </view>
             </view>
         </view>
@@ -16,35 +28,23 @@
         <view class='item'>
             <image class='item-img' src='/images/icon/pic3.png' mode='aspectFill'></image>
             <view class='item-info'>
-                <view class='item-name'>哈哈哈哈啊哈哈哈啊哈哈</view>
-                <view class='item-club'>啊啊啊啊啊啊啊啊啊</view>
+                <view class='item-name'>BODYPUMP拉丁舞</view>
+                <view class='item-club'>朝外SOHO健身俱乐部</view>
                 <view class='item-bottom'>
-                    <view class='price'>$123</view>
-                    <view class='time'>2018-1-1 10：00</view>
+                    <view class='price'>10元/次</view>
+                    <view class='time'>2018-3-3 10：00</view>
                 </view>
             </view>
         </view>
 
         <view class='item'>
-            <image class='item-img' src='/images/icon/pic3.png' mode='aspectFill'></image>
+            <image class='item-img' src='/images/icon/pic1.png' mode='aspectFill'></image>
             <view class='item-info'>
-                <view class='item-name'>哈哈哈哈啊哈哈哈啊哈哈</view>
-                <view class='item-club'>啊啊啊啊啊啊啊啊啊</view>
+                <view class='item-name'>BODYPUMP普拉提</view>
+                <view class='item-club'>朝外SOHO健身俱乐部</view>
                 <view class='item-bottom'>
-                    <view class='price'>$123</view>
-                    <view class='time'>2018-1-1 10：00</view>
-                </view>
-            </view>
-        </view>
-
-        <view class='item'>
-            <image class='item-img' src='/images/icon/pic3.png' mode='aspectFill'></image>
-            <view class='item-info'>
-                <view class='item-name'>哈哈哈哈啊哈哈哈啊哈哈</view>
-                <view class='item-club'>啊啊啊啊啊啊啊啊啊</view>
-                <view class='item-bottom'>
-                    <view class='price'>$123</view>
-                    <view class='time'>2018-1-1 10：00</view>
+                    <view class='price'>10元/次</view>
+                    <view class='time'>2018-3-3 10：00</view>
                 </view>
             </view>
         </view>

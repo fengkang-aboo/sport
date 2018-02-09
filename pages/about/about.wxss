@@ -1,1 +1,20 @@
 /* pages/about/about.wxss */
+.container {
+  border-top: solid 1px #efefef;
+  background: #fff;
+}
+.img{
+  width: 140rpx;
+  height: 140rpx;
+  margin:40rpx auto; 
+}
+image{
+   width: 140rpx;
+  height: 140rpx;
+  display: block;
+}
+.about {
+  padding: 30rpx;
+  font-size: 14px;
+  color: #333;
+}

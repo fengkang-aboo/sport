@@ -1,2 +1,6 @@
 <!--pages/agreement/agreement.wxml-->
-<text>pages/agreement/agreement.wxml</text>
+<view class='container'>
+  <view class='agg'>
+    用户协议用户协议用户协议用户协议用户协议用户协议 用户协议用户协议用户协议用户协议用户协议用户协议 用户协议用户协议用户协议用户协议用户协议用户协议 用户协议用户协议用户协议用户协议用户协议用户协议 用户协议用户协议用户协议用户协议用户协议用户协议 用户协议用户协议用户协议用户协议用户协议用户协议 用户协议用户协议用户协议用户协议
+  </view>
+</view>

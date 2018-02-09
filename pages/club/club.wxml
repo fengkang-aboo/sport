@@ -23,71 +23,25 @@
   <view class="boxs">
     <view class="lesson" hidden="{{currentTabsIndex!=0}}">
       <view class='lesson-tabs'>
-        <block wx:for="{{timeArr}}">
+        <block wx:for="{{week}}">
           <view bindtap="onLessonItemTap" data-index="{{index}}" class="lesson-tab {{lessonIndex==index?'on':''}}">{{item}}</view>
         </block>
       </view>
       <view class='lesson-box'>
-        <view class='lesson-item'>
-          <image class='item-img' src='/images/icon/head.png'></image>
-          <view class='item-content'>
-            <view class='item-name'>TRX全身塑形</view>
-            <view class='item-teacher'>JSAON</view>
-            <view class='item-desc'>
-              <view class='item-time'>08:00-09:30</view>
-              <view class='item-price'>￥128.00</view>
+        <block wx:for="{{lessons[lessonIndex]}}">
+          <view class='lesson-item' data-id="{{item.time_id}}" bindtap='clubTap'>
+            <image class='item-img' src='{{item.course_img}}'></image>
+            <view class='item-content'>
+              <view class='item-name'>{{item.course_name}}</view>
+              <view class='item-teacher'>{{item.teacher_name}}</view>
+              <view class='item-desc'>
+                <view class='item-time'>{{item.time}}</view>
+                <view class='item-price'>￥{{item.price}}</view>
+              </view>
             </view>
+            <view class='item-btn'>预约</view>
           </view>
-          <view class='item-btn' data-id="1" bindtap='clubTap'>预约</view>
-        </view>
-        <view class='lesson-item'>
-          <image class='item-img' src='/images/icon/head.png'></image>
-          <view class='item-content'>
-            <view class='item-name'>TRX全身塑形</view>
-            <view class='item-teacher'>JSAON</view>
-            <view class='item-desc'>
-              <view class='item-time'>08:00-09:30</view>
-              <view class='item-price'>￥128.00</view>
-            </view>
-          </view>
-          <view class='item-btn'>预约</view>
-        </view>
-        <view class='lesson-item'>
-          <image class='item-img' src='/images/icon/head.png'></image>
-          <view class='item-content'>
-            <view class='item-name'>TRX全身塑形</view>
-            <view class='item-teacher'>JSAON</view>
-            <view class='item-desc'>
-              <view class='item-time'>08:00-09:30</view>
-              <view class='item-price'>￥128.00</view>
-            </view>
-          </view>
-          <view class='item-btn'>预约</view>
-        </view>
-        <view class='lesson-item'>
-          <image class='item-img' src='/images/icon/head.png'></image>
-          <view class='item-content'>
-            <view class='item-name'>TRX全身塑形</view>
-            <view class='item-teacher'>JSAON</view>
-            <view class='item-desc'>
-              <view class='item-time'>08:00-09:30</view>
-              <view class='item-price'>￥128.00</view>
-            </view>
-          </view>
-          <view class='item-btn'>预约</view>
-        </view>
-        <view class='lesson-item'>
-          <image class='item-img' src='/images/icon/head.png'></image>
-          <view class='item-content'>
-            <view class='item-name'>TRX全身塑形</view>
-            <view class='item-teacher'>JSAON</view>
-            <view class='item-desc'>
-              <view class='item-time'>08:00-09:30</view>
-              <view class='item-price'>￥128.00</view>
-            </view>
-          </view>
-          <view class='item-btn'>预约</view>
-        </view>
+        </block>
       </view>
     </view>
     <view class="club" hidden="{{currentTabsIndex!=1}}">

@@ -1,2 +1,38 @@
 <!--pages/question/question.wxml-->
-<text>pages/question/question.wxml</text>
+
+<view class='container'>
+  <view class='question'>
+    <view class='title'>1、常见问题</view>
+    <view class='answer'>
+      问题内容问题内容问题内容问题内容问题内容问题内容问 题内容问题内容问题内容
+    </view>
+    <view class='title'>2、常见问题</view>
+    <view class='answer'>
+      问题内容问题内容问题内容问题内容问题内容问题内容问 题内容问题内容问题内容
+    </view>
+    <view class='title'>3、常见问题</view>
+    <view class='answer'>
+      问题内容问题内容问题内容问题内容问题内容问题内容问 题内容问题内容问题内容
+    </view>
+    <view class='title'>4、常见问题</view>
+    <view class='answer'>
+      问题内容问题内容问题内容问题内容问题内容问题内容问 题内容问题内容问题内容
+    </view>
+    <view class='title'>5、常见问题</view>
+    <view class='answer'>
+      问题内容问题内容问题内容问题内容问题内容问题内容问 题内容问题内容问题内容
+    </view>
+    <view class='title'>6、常见问题</view>
+    <view class='answer'>
+      问题内容问题内容问题内容问题内容问题内容问题内容问 题内容问题内容问题内容
+    </view>
+    <view class='title'>7、常见问题</view>
+    <view class='answer'>
+      问题内容问题内容问题内容问题内容问题内容问题内容问 题内容问题内容问题内容
+    </view>
+    <view class='title'>8、常见问题</view>
+    <view class='answer'>
+      问题内容问题内容问题内容问题内容问题内容问题内容问 题内容问题内容问题内容
+    </view>
+  </view>
+</view>

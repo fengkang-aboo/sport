@@ -1,1 +1,12 @@
 /* pages/agreement/agreement.wxss */
+
+.container {
+  border-top: solid 1px #efefef;
+  background: #fff;
+}
+
+.agg {
+  padding: 30rpx;
+  font-size: 14px;
+  color: #333;
+}

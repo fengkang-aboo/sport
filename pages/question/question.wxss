@@ -1,1 +1,22 @@
 /* pages/question/question.wxss */
+
+.container {
+  background: #fff;
+  border-top: solid 1px #efefef;
+}
+
+.question {
+  padding: 30rpx;
+}
+
+.title {
+  margin-top: 20rpx;
+  font-size: 14px;
+  color: #333;
+}
+
+.answer {
+  margin-top: 20rpx;
+  font-size: 14px;
+  color: #666;
+}

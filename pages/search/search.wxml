@@ -1,0 +1,16 @@
+<!--pages/search/search.wxml-->
+<view class='container'>
+  <view class='search'>
+    <image class='search-img' src='/images/icon/ico_search.png'></image>
+    <input class='search-input' placeholder='搜索你想去的健身俱乐部'></input>
+  </view>
+
+  <view class="tabs-box">
+    <block wx:for="{{['课程','场馆']}}">
+      <view bindtap="onTabsItemTap" data-index="{{index}}" class="tabs-item {{currentTabsIndex==index?'selected':''}}">
+        {{item}}
+      </view>
+    </block>
+  </view>
+
+</view>

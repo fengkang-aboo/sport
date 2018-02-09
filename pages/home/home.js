@@ -98,7 +98,12 @@ Page({
 			url: '../club/club?id=' + id,
 		})
 	},
-
+  //
+  search:function(){
+    wx.navigateTo({
+      url: '../search/search',
+    })
+  },
 	//收藏
 	collection: function (event) {
 		var status = home.getDataSet(event, 'status');
@@ -110,6 +115,8 @@ Page({
 				console.log(res);
 				if (res.code == 200) {
 					this.data.clubList[index].collection.status = 2;
+          console.log(this.data.clubList[index].collection.status)
+
 					this.setData({
 						clubList: this.data.clubList
 					});
