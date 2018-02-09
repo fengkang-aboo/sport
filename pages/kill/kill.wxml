@@ -1,0 +1,62 @@
+<!--pages/kill/kill.wxml-->
+<view class='container'>
+    <view class='kill'>
+        <view class='item'>
+            <image class='item-img' src='/images/icon/pic3.png' mode='aspectFill'></image>
+            <view class='item-info'>
+                <view class='item-name'>哈哈哈哈啊哈哈哈啊哈哈</view>
+                <view class='item-club'>啊啊啊啊啊啊啊啊啊</view>
+                <view class='item-bottom'>
+                    <view class='price'>$123</view>
+                    <view class='time'>2018-1-1 10：00</view>
+                </view>
+            </view>
+        </view>
+
+        <view class='item'>
+            <image class='item-img' src='/images/icon/pic3.png' mode='aspectFill'></image>
+            <view class='item-info'>
+                <view class='item-name'>哈哈哈哈啊哈哈哈啊哈哈</view>
+                <view class='item-club'>啊啊啊啊啊啊啊啊啊</view>
+                <view class='item-bottom'>
+                    <view class='price'>$123</view>
+                    <view class='time'>2018-1-1 10：00</view>
+                </view>
+            </view>
+        </view>
+
+        <view class='item'>
+            <image class='item-img' src='/images/icon/pic3.png' mode='aspectFill'></image>
+            <view class='item-info'>
+                <view class='item-name'>哈哈哈哈啊哈哈哈啊哈哈</view>
+                <view class='item-club'>啊啊啊啊啊啊啊啊啊</view>
+                <view class='item-bottom'>
+                    <view class='price'>$123</view>
+                    <view class='time'>2018-1-1 10：00</view>
+                </view>
+            </view>
+        </view>
+
+        <view class='item'>
+            <image class='item-img' src='/images/icon/pic3.png' mode='aspectFill'></image>
+            <view class='item-info'>
+                <view class='item-name'>哈哈哈哈啊哈哈哈啊哈哈</view>
+                <view class='item-club'>啊啊啊啊啊啊啊啊啊</view>
+                <view class='item-bottom'>
+                    <view class='price'>$123</view>
+                    <view class='time'>2018-1-1 10：00</view>
+                </view>
+            </view>
+        </view>
+
+    </view>
+    <view class='none'>
+        <view class='none-bg'></view>
+        <view class='none-info'>
+            <view class='none-title'>秒杀活动</view>
+            <view class='none-title'>即将开始</view>
+            <view class='none-time'>活动时间：19:00-20:00</view>
+        </view>
+    </view>
+    <view></view>
+</view>

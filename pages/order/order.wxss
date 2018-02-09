@@ -1,0 +1,95 @@
+@import "../tpls/base.wxss";
+
+.order-container {
+    border-top: solid 1px #e6e6e6;
+    background: #efefef;
+	margin-bottom: 100rpx;
+}
+
+/* 属性选择 */
+
+.attribute {
+    margin-top: 30rpx;
+    background: #fff;
+}
+
+.attribute:first-of-type {
+    margin-top: 0rpx;
+}
+
+.attribute-wrapper {
+    margin: 0 40rpx;
+}
+
+.attribute-item {
+    border-bottom: solid 1px #f0f0f0;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+.attribute-item:last-of-type {
+    /* border-bottom:  none;  */
+}
+
+.picker-view {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+	padding: 30rpx 0;
+}
+
+.pick-left {
+    width: 160rpx;
+    font-size: 14px;
+    color: #333;
+}
+
+.pick-middle {
+    padding-right: 20rpx;
+    text-align: right;
+    flex: 1;
+    font-size: 14px;
+    color: #333;
+}
+
+.pick-right {
+    width: 32rpx;
+    height: 32rpx;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.total {
+    font-size: 14px;
+    color: #00b4d0;
+}
+
+.person {
+    font-size: 14px;
+    color: #00b4d0;
+    padding-right: 20rpx;
+}
+
+.footer-account-box {
+    position: fixed;
+    bottom: 0;
+    height: 100rpx;
+    width: 100%;
+    display: flex;
+}
+
+.pay {
+    background-image: linear-gradient(90deg, #00bed1 0%, #00d0b9 100%);
+    font-size: 18px;
+    font-weight: 500;
+    color: #fff;
+    flex: 1;
+    line-height: 100rpx;
+    text-align: center;
+}
+
+.pay.disabled {
+    color: #fff;
+    background: #4d4d4d;
+}

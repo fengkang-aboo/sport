@@ -1,0 +1,53 @@
+<view class="container">
+  <swiper indicator-dots="{{true}}">
+    <block wx:for="{{product.course_img}}">
+      <swiper-item>
+        <image src="{{item}}" class="slide-image" />
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class='view-info'>
+    <view class='product-name'>{{product.course_name}}</view>
+    <view class='product-club'>{{product.venue_name}}</view>
+    <view class='price'>
+      <text class='price1'>￥{{product.discount_price?product.discount_price:product.price}}</text>
+      <text class='price2' wx:if="{{product.discount_price}}">￥{{product.price}}</text>
+    </view>
+  </view>
+
+  <view class='view-info'>
+    <view class='time'>{{product.time}}</view>
+    <view class='address'>{{product.address}}</view>
+  </view>
+
+  <view class='view-info'>
+    <view class='title'>老师介绍</view>
+    <view class='teacher'>
+      <image class='teacher-img' src='{{product.teacher.img}}'></image>
+      <view class='teacher-desc'>
+        <view class='teacher-text'>{{product.teacher.name}}</view>
+        <view class='teacher-text'>{{product.teacher.content}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class='view-info'>
+    <view class='title'>课程介绍</view>
+    <view class='address'>
+      {{product.course_content}}  
+    </view>
+  </view>
+
+  <view class='view-info' style='margin-bottom:100rpx;'>
+    <view class='title'>注意事项</view>
+    <view class='address'>
+      详情介绍详情介绍详情介绍详情介绍详情介绍详情介绍详情介绍详情介绍详情介绍详情介绍 详情介绍详情介绍详情介绍详情介绍详情介绍详情介绍详情介绍详情介绍详情介绍详情介绍详情介绍详情介绍详情介绍详情介绍 详情介绍详情介绍详情介绍详情介绍详情介绍详情介绍详情介绍详情介绍详情介绍详情介绍详情介绍
+    </view>
+  </view>
+
+  <view class='bottom'>
+    <view class='toatl'>￥{{product.discount_price?product.discount_price:product.price}}</view>
+    <view class='order' bindtap='goOrder'>立即预约</view>
+  </view>
+
+</view>

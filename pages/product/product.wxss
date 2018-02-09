@@ -1,0 +1,128 @@
+/* pages/product/product.wxss */
+
+.container {
+    background: #fff;
+}
+
+swiper {
+    width: 100%;
+    height: 400rpx;
+}
+
+swiper>swiper-item {
+    width: 100%;
+    height: 400rpx;
+}
+
+swiper image {
+    display: block;
+    width: 100%;
+    height: 400rpx;
+}
+
+.view-info {
+    margin: 0 30rpx;
+    padding: 30rpx 0;
+    border-bottom: solid 1px #efefef;
+}
+
+.product-name {
+    font-size: 18px;
+    color: #333;
+}
+
+.product-club {
+    margin-top: 10rpx;
+    font-size: 14px;
+    color: #666;
+}
+
+.price {
+    margin-top: 10rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+}
+
+.price1 {
+    font-size: 20px;
+    color: #00b4d0;
+    margin-right: 14rpx;
+}
+
+.price2 {
+    font-size: 14px;
+    color: #666;
+    text-decoration: line-through;
+}
+
+.time {
+    font-size: 14px;
+    color: #666;
+}
+
+.address {
+    margin-top: 10rpx;
+    font-size: 14px;
+    color: #666;
+}
+
+.title {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10rpx;
+}
+
+.teacher {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.teacher-img {
+    width: 100rpx;
+    height: 100rpx;
+    margin-right: 40rpx;
+    display: inline-block;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.teacher-desc {
+    flex: 1;
+}
+
+.teacher-text {
+    font-size: 14px;
+    color: #666;
+}
+
+.bottom{
+	height: 100rpx;
+	background: #fff;
+	width: 100%;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	display: flex;
+	flex-direction: row;
+	line-height: 100rpx;
+	border-top: solid 1px #efefef
+}
+.toatl{
+	width: 300rpx;
+	height: 100rpx;
+	text-align: center;
+	font-size: 20px;
+	color: #00b4d0;
+}
+.order{
+	flex: 1;
+	height: 100rpx;
+	background-image: linear-gradient(90deg, 
+		#00bed1 0%, 
+		#00d0b9 100%);
+	text-align: center;
+	color: #fff;
+}
