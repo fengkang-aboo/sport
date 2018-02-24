@@ -1,11 +1,7 @@
 
 import { Order } from '../order/order-model.js';
-// import { Cart } from '../cart/cart-model.js';
-// import { Address } from '../../utils/address.js';
 
 var order = new Order();
-// var cart = new Cart();
-// var address = new Address();
 
 Page({
 

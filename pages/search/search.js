@@ -26,12 +26,12 @@ Page({
   },
 
   _loadData: function (longitude, latitude) {
-    Search.getClubList(longitude, latitude, (res) => {
-      console.log(res);
-      // this.setData({
+    // Search.getClubList(longitude, latitude, (res) => {
+    //   console.log(res);
+    //   this.setData({
 
-      // })
-    })
+    //   })
+    // })
   },
   //切换详情面板
   onTabsItemTap: function (event) {

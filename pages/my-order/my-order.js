@@ -1,12 +1,8 @@
 // my-order.js
 
-import { Address } from '../../utils/address.js';
-import { Order } from '../order/order-model.js';
-import { My } from '../my/my-model.js';
+import { OrderList } from 'my-order-model.js';
 
-var address = new Address();
-var order = new Order();
-var my = new My();
+var orderlist = new OrderList();
 
 Page({
 
@@ -43,7 +39,7 @@ Page({
 
 	//获取所有订单信息
 	_getAllOrders: function (callback) {
-		order.getOrders(this.data.pageIndex, (res) => {
+		orderlist.getOrders(this.data.pageIndex, (res) => {
 			var data = res.data;
 			if (data.length > 0) {
 				this.data.orderArr.push.apply(this.data.orderArr, data);
@@ -61,28 +57,16 @@ Page({
 
 	//进入订单详情
 	showOrderDetailInfo: function (options) {
-		var id = order.getDataSet(options, 'id');
-		var type = order.getDataSet(options, 'type');
-		// if(type==null||type==undefined||type==''){
-			//传统商品
-			wx.navigateTo({
-				url: '../order-detail/orderDetail?id=' + id,
-			})
-		// }else{
-		// 	console.log(2);
-		// 	//预约课程
-		// 	var lock = order.getDataSet(options, 'lock');
-		// 	wx.navigateTo({
-		// 		url: '../order-detail/timeOrderDetail?id=' + id + '&lock=' + lock,
-		// 	})
-
-		// }
+		var id = orderlist.getDataSet(options, 'id');
+		wx.navigateTo({
+			url: '../order-detail/orderDetail?id=' + id,
+		})
 	},
 
 	//在订单里面进行二次支付
 	_execPay: function (id, index) {
 	    var that = this;
-	    order.execPay(id, (statusCode) => {
+		orderlist.execPay(id, (statusCode) => {
 	        if (statusCode > 0) {
 	            var flag = statusCode;
 	            if (statusCode == 2) {
@@ -103,33 +87,6 @@ Page({
 	        } else {
 	            that.showTips('支付失败', '商品已下架活库存不足！')
 	        }
-	    })
-	},
-
-	/*下拉刷新页面*/
-	// onPullDownRefresh: function () {
-	// 	this._refresh();
-	// },
-
-	// _refresh: function () {
-	// 	var that = this;
-	// 	that.data.orderArr = [];  //订单初始化
-	// 	that._getAllOrders(() => {
-	// 		that.data.isLoadedAll = false;  //是否加载完全
-	// 		that.data.pageIndex = 1;
-	// 		wx.stopPullDownRefresh();
-	// 		order.execSetStorageSync(false);  //更新标志位
-	// 	});
-	// },
-
-	//开锁
-	onTestTap: function (options) {
-		var id = order.getDataSet(options, 'type');
-		var lock = order.getDataSet(options, 'lock');
-		var uid = order.getDataSet(options, 'uid');
-		console.log(lock);
-		wx.navigateTo({
-	        url: '../result/result?timeId='+id+'&lock='+lock+'&uid='+uid, 
 	    })
 	},
 

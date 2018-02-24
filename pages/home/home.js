@@ -98,12 +98,12 @@ Page({
 			url: '../club/club?id=' + id,
 		})
 	},
-  //
-  search:function(){
-    wx.navigateTo({
-      url: '../search/search',
-    })
-  },
+	//搜索
+	search: function () {
+		wx.navigateTo({
+			url: '../search/search',
+		})
+	},
 	//收藏
 	collection: function (event) {
 		var status = home.getDataSet(event, 'status');
@@ -115,8 +115,6 @@ Page({
 				console.log(res);
 				if (res.code == 200) {
 					this.data.clubList[index].collection.status = 2;
-          console.log(this.data.clubList[index].collection.status)
-
 					this.setData({
 						clubList: this.data.clubList
 					});
@@ -127,7 +125,7 @@ Page({
 					})
 				} else {
 					wx.showModal({
-						title: '黑弧文艺社',
+						title: '区块练',
 						content: res.msg,
 						showCancel: false,
 						success: function (res) {
@@ -142,7 +140,6 @@ Page({
 				console.log(res);
 				if (res.code == 200) {
 					this.data.clubList[index].collection.status = 1;
-					console.log(this.data.clubList[index].collection.status)
 					this.setData({
 						clubList: this.data.clubList
 					});
@@ -153,7 +150,7 @@ Page({
 					})
 				} else {
 					wx.showModal({
-						title: '黑弧文艺社',
+						title: '区块练',
 						content: res.msg,
 						showCancel: false,
 						success: function (res) {

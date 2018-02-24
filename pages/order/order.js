@@ -94,7 +94,7 @@ Page({
         this.doOrder(orderInfo);
       }else{
         wx.showModal({
-          title: '黑弧文艺社',
+          title: '区块练',
           content: '手机号码错误！',
           showCancel: false,
           success: function (res) {
@@ -104,7 +104,7 @@ Page({
       }
     } else {
       wx.showModal({
-        title: '黑弧文艺社',
+		  title: '区块练',
         content: '请先填写预约信息！',
         showCancel: false,
         success: function (res) {

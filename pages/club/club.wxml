@@ -53,8 +53,8 @@
         <view class='club-title'>地址</view>
         <view class='club-desc'>{{clubInfo.business_hours}}</view>
         <view class='club-desc'>{{clubInfo.address}}</view>
-        <view class='club-map'>
-          <map class='club-map' markers="{{markers}}"></map>
+        <view class='club-map' bindtap='onAddressTap'>
+          <map class='club-map' longitude="{{longitude}}" latitude="{{latitude}}" scale="16" markers="{{markers}}"></map>
         </view>
       </view>
       <view class='club-info'>

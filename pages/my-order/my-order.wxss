@@ -1,5 +1,5 @@
 @import "../tpls/base.wxss";
-
+@import "../tpls/list/orderList/orderList.wxss";
 .my-container {
     background-color: #fff;
 	border-top: solid 1px #f0f0f0;

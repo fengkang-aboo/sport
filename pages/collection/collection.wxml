@@ -1,40 +1,20 @@
 <!--pages/collection/collection.wxml-->
 <view class='container'>
     <view class='collection'>
+        <block wx:for="{{collection}}">
 
-        <view class='item'>
-            <image class='item-img' src='/images/icon/pic1.png'></image>
-            <view class='item-desc'>
-                <view class='item-name'>朝外SOHO健身俱乐部朝外SOHO健身俱乐部朝外SOHO健身俱乐部</view>
-                <view class='item-club'>北京市朝阳区朝外大街朝外SOHOA座北京市朝阳区朝外大街朝外SOHOA座北京市朝阳区朝外大街朝外SOHOA座</view>
-                <view class='item-bottom'>
-                    <view class='item-distance'>1.5KM</view>
-                    <image class='item-heart' src='/images/icon/btn_sel_collect.png'></image>
+            <view class='item'>
+                <image data-id='{{item.venue_id}}' bindtap='tap' class='item-img' src='{{item.img}}'></image>
+                <view class='item-desc'>
+                    <view class='item-name' data-id='{{item.venue_id}}' bindtap='tap'>{{item.name}}</view>
+                    <view class='item-club' data-id='{{item.venue_id}}' bindtap='tap'>{{item.address}}</view>
+                    <view class='item-bottom'>
+                        <view class='item-distance' data-id='{{item.venue_id}}' bindtap='tap'>{{item.distance}}</view>
+						<image class='item-heart' data-id='{{item.venue_id}}' data-index="{{index}}" data-status="{{item.status}}" bindtap='collection' mode="aspectFill"
+      src='{{item.status==1?"/images/icon/btn_sel_collect.png":"/images/icon/btn_nor_collect2.png"}}'></image>
+                    </view>
                 </view>
             </view>
-        </view>
-        <view class='item'>
-            <image class='item-img' src='/images/icon/pic1.png'></image>
-            <view class='item-desc'>
-                <view class='item-name'>朝外SOHO健身俱乐部朝外SOHO健身俱乐部朝外SOHO健身俱乐部</view>
-                <view class='item-club'>北京市朝阳区朝外大街朝外SOHOA座北京市朝阳区朝外大街朝外SOHOA座北京市朝阳区朝外大街朝外SOHOA座</view>
-                <view class='item-bottom'>
-                    <view class='item-distance'>1.5KM</view>
-                    <image class='item-heart' src='/images/icon/btn_sel_collect.png'></image>
-                </view>
-            </view>
-        </view>
-        <view class='item'>
-            <image class='item-img' src='/images/icon/pic1.png'></image>
-            <view class='item-desc'>
-                <view class='item-name'>朝外SOHO健身俱乐部朝外SOHO健身俱乐部朝外SOHO健身俱乐部</view>
-                <view class='item-club'>北京市朝阳区朝外大街朝外SOHOA座北京市朝阳区朝外大街朝外SOHOA座北京市朝阳区朝外大街朝外SOHOA座</view>
-                <view class='item-bottom'>
-                    <view class='item-distance'>1.5KM</view>
-                    <image class='item-heart' src='/images/icon/btn_sel_collect.png'></image>
-                </view>
-            </view>
-        </view>
-
+        </block>
     </view>
 </view>

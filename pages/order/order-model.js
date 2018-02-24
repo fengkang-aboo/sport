@@ -87,19 +87,19 @@ class Order extends Base{
     // }
 
     /*获得订单的具体内容*/
-    // getOrderInfoById(id,callback){
-    //     var that=this;
-    //     var allParams = {
-    //         url: 'order/'+id,
-    //         sCallback: function (data) {
-    //             callback &&callback(data);
-    //         },
-    //         eCallback:function(){
+    getOrderInfoById(id,callback){
+        var that=this;
+        var allParams = {
+            url: 'order/'+id,
+            sCallback: function (data) {
+                callback &&callback(data);
+            },
+            eCallback:function(){
 
-    //         }
-    //     };
-    //     this.request(allParams);
-    // }
+            }
+        };
+        this.request(allParams);
+    }
 
     /*本地缓存 保存／更新*/
     // execSetStorageSync(data){
