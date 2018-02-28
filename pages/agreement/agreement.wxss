@@ -1,12 +1,28 @@
 /* pages/agreement/agreement.wxss */
 
 .container {
-  border-top: solid 1px #efefef;
-  background: #fff;
+    background: #fff;
+    border-top: solid 1px #efefef;
 }
 
-.agg {
-  padding: 30rpx;
-  font-size: 14px;
-  color: #333;
+.agreement {
+    padding: 0 30rpx 30rpx 30rpx;
+}
+
+.agreement-title {
+    margin-top: 20rpx;
+    font-size: 14px;
+    color: #333;
+}
+
+.title {
+    margin-top: 20rpx;
+    font-size: 14px;
+    color: #333;
+}
+
+.answer {
+    margin-top: 20rpx;
+    font-size: 14px;
+    color: #666;
 }

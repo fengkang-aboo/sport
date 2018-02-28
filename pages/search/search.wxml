@@ -1,16 +1,70 @@
 <!--pages/search/search.wxml-->
 <view class='container'>
-  <view class='search'>
-    <image class='search-img' src='/images/icon/ico_search.png'></image>
-    <input class='search-input' placeholder='搜索你想去的健身俱乐部'></input>
-  </view>
+    <view class='search'>
+        <image class='search-img' src='/images/icon/ico_search.png'></image>
+        <input class='search-input' confirm-type="search" bindconfirm='search' placeholder='搜索你想去的健身俱乐部'></input>
+    </view>
 
-  <view class="tabs-box">
-    <block wx:for="{{['课程','场馆']}}">
-      <view bindtap="onTabsItemTap" data-index="{{index}}" class="tabs-item {{currentTabsIndex==index?'selected':''}}">
-        {{item}}
-      </view>
-    </block>
-  </view>
+    <view class="tabs-box">
+        <block wx:for="{{['课程','场馆']}}">
+            <view bindtap="onTabsItemTap" data-index="{{index}}" class="tabs-item {{currentTabsIndex==index?'selected':''}}">
+                {{item}}
+            </view>
+        </block>
+    </view>
+
+    <view class='recommend' hidden="{{isSearch}}">
+        <block wx:for="{{hot}}">
+            <view class='recommend-item' data-id="{{item.id}}" data-status="{{item.status}}">{{item.name}}</view>
+        </block>
+    </view>
+
+    <view class='box'>
+        <view class='lesson-list' hidden='{{!currentTabsIndex==0}}'>
+            <view class='lesson'>
+                <image class='lesson-img' src='/images/icon/head.png'></image>
+                <view class='lesson-content'>
+                    <view class='lesson-name'>TRX全身塑形</view>
+                    <view class='lesson-teacher'>HJ Bai</view>
+                    <view class='lesson-desc'>
+                        <view class='lesson-time'>08:00-09:30</view>
+                        <view class='lesson-price'>¥189</view>
+                    </view>
+                </view>
+                <view class='lesson-btn'>朝外SOHO</view>
+            </view>
+
+            <view class='lesson'>
+                <image class='lesson-img' src='/images/icon/head.png'></image>
+                <view class='lesson-content'>
+                    <view class='lesson-name'>TRX全身塑形</view>
+                    <view class='lesson-teacher'>HJ Bai</view>
+                    <view class='lesson-desc'>
+                        <view class='lesson-time'>08:00-09:30</view>
+                        <view class='lesson-price'>¥189</view>
+                    </view>
+                </view>
+                <view class='lesson-btn'>朝外SOHO</view>
+            </view>
+        </view>
+
+         <view class='club-list' hidden='{{!currentTabsIndex==1}}'>
+            <view class='club'>
+                <image class='club-bg' src='http://api.fitness.dayaartist.com/img/VCG211144453361.jpg' mode="aspectFill"></image>
+                <view class='club-bg2'></view>
+                <view class='club-content'>
+                    <image class='club-logo' src='/images/icon/head.png'></image>
+                    <view class='club-text'>
+                        <view class='club-title'>朝外SOHO健身俱乐部</view>
+                        <view class='club-desc'>
+                            <text class='club-address'>北京市朝阳区朝外大街朝外SOHOA座</text>
+                            <text class='club-distance'>1.5KM</text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view> 
+
+    </view>
 
 </view>

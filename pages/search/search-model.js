@@ -7,6 +7,17 @@ class Search extends Base {
     super();
   }
 
+  //获取热搜
+  getHotSearch(callback) {
+	  var params = {
+		  url: 'course/courseHot',
+		  sCallback: function (res) {
+			  callback && callback(res);
+		  }
+	  }
+	  this.request(params);
+  }
+
   //根据经纬度获取场馆列表
   getClubList(longitude, latitude, callback) {
     var params = {

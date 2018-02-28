@@ -2,37 +2,33 @@
 
 <view class='container'>
   <view class='question'>
-    <view class='title'>1、常见问题</view>
+    <view class='title'>1. 我预定的课程可以更改吗？</view>
     <view class='answer'>
-      问题内容问题内容问题内容问题内容问题内容问题内容问 题内容问题内容问题内容
+      您可以在“我的订单”中先取消已预定的课程，再重新预定其他课程。请注意，取消需在开课2小时前进行，”秒杀”课程无法更改与取消。 题内容问题内容问题内容
     </view>
-    <view class='title'>2、常见问题</view>
+    <view class='title'>2. 我预定的课程可以取消吗？</view>
     <view class='answer'>
-      问题内容问题内容问题内容问题内容问题内容问题内容问 题内容问题内容问题内容
+      已预定的课程可在开课2小时之前取消，取消方式：前往“我的”，选择“我的订单”，点击“取消”。请注意“秒杀”课程无法取消。
     </view>
-    <view class='title'>3、常见问题</view>
+    <view class='title'>3. 课程取消退款何时到账？</view>
     <view class='answer'>
-      问题内容问题内容问题内容问题内容问题内容问题内容问 题内容问题内容问题内容
+       您使用微信支付的课程款项将及时退回您的账户，请留意微信的支付通知。
     </view>
-    <view class='title'>4、常见问题</view>
+    <view class='title'>4. 如果我上课迟到，可以部分退款或延期上课吗？</view>
     <view class='answer'>
-      问题内容问题内容问题内容问题内容问题内容问题内容问 题内容问题内容问题内容
+       很抱歉，商家所售课程以整堂计算，无法因迟到退款，请务必准时上课。
     </view>
-    <view class='title'>5、常见问题</view>
+    <view class='title'>5. 什么是“秒杀”？</view>
     <view class='answer'>
-      问题内容问题内容问题内容问题内容问题内容问题内容问 题内容问题内容问题内容
+       “秒杀”活动提供超级优惠的健身课程。您可以点击主页下方的“秒杀”页面，浏览活动并在限定时间抢购课程。请注意，“秒杀”课程一旦抢购成功，无法取消。
     </view>
-    <view class='title'>6、常见问题</view>
+    <view class='title'>6. 可以开发票吗？</view>
     <view class='answer'>
-      问题内容问题内容问题内容问题内容问题内容问题内容问 题内容问题内容问题内容
+       发票由健身场馆开具。您可以在前往场馆上课时请商家为您开具发票。
     </view>
-    <view class='title'>7、常见问题</view>
+    <view class='title'>7. 用户建议与投诉</view>
     <view class='answer'>
-      问题内容问题内容问题内容问题内容问题内容问题内容问 题内容问题内容问题内容
-    </view>
-    <view class='title'>8、常见问题</view>
-    <view class='answer'>
-      问题内容问题内容问题内容问题内容问题内容问题内容问 题内容问题内容问题内容
+       客服电话：177 4972 6905
     </view>
   </view>
 </view>
