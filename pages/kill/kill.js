@@ -17,10 +17,20 @@ Page({
 
 	_loadData: function () {
 		kill.getKillList((res) => {
+			this._isTime();
 			this.setData({
-				killList:res
+				killList:res,
+				startTime: res.start_time,
+				endTime: res.end_time
 			})
 		});
+	},
+
+	//判断是否可以秒杀
+	_isTime: function (startTime, endTime){
+		var startTime = startTime;
+		var endTime = endTime;
+		console.log(new Date().toLocaleTimeString())
 	},
 
 

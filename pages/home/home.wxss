@@ -91,6 +91,7 @@
     display: flex;
     flex-direction: column;
     color: #fff;
+	overflow: hidden;
 }
 
 .item-title {
@@ -103,16 +104,19 @@
     flex: 1;
     flex-direction: row;
     justify-content: space-between;
+
 }
 
 .item-address {
+    flex: 1;
     font-size: 11px;
-    /* color: red; */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .item-distance {
     width: 100rpx;
-    /* color: red; */
     font-size: 11px;
     text-align: right;
 }

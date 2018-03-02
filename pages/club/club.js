@@ -38,8 +38,8 @@ Page({
 						id: res.id,
 						latitude: res.latitude,
 						longitude: res.longitude,
-						width: 16,
-						height: 24,
+						width: 33,
+						height: 33,
 					}
 				]
 			}

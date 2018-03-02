@@ -39,7 +39,7 @@ Page({
 		var res = wx.getSystemInfoSync();
 		var height = res.windowHeight;
 		var width = res.windowWidth;
-		height = height - 49 - 10;
+		height = height - 49 - 50;
 		width = (width - 345) / 2;
 		this.setData({
 			controls: [
@@ -96,8 +96,8 @@ Page({
 				id: data[i].id,
 				latitude: data[i].latitude,
 				longitude: data[i].longitude,
-				width: 16,
-				height: 24,
+				width: 33,
+				height: 33,
 				callout: {
 					content: data[i].name,
 					color: '#fff',

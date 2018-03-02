@@ -64,8 +64,8 @@ Page({
 				id: data[i].id,
 				latitude: data[i].latitude,
 				longitude: data[i].longitude,
-				width: 16,
-				height: 24,
+				width: 33,
+				height: 33,
 				callout: {
 					content: data[i].name,
 					color: '#fff',
