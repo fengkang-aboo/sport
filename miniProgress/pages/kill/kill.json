@@ -3,5 +3,5 @@
 	"navigationBarTitleText": "秒杀",
 	"navigationBarTextStyle": "black",
   "enablePullDownRefresh":true,
-  "backgroundColor": "#f0145a"
+  "backgroundColor": "#000"
 }

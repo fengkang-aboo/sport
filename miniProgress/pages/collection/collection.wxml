@@ -5,7 +5,7 @@
       <block wx:for="{{collection}}">
 
         <view class='item'>
-          <image data-id='{{item.venue_id}}' bindtap='tap' class='item-img' src='{{item.img}}'></image>
+          <image data-id='{{item.venue_id}}' bindtap='tap' class='item-img' src='{{item.img}}' mode='aspectFill'></image>
           <view class='item-desc'>
             <view class='item-name' data-id='{{item.venue_id}}' bindtap='tap'>{{item.name}}</view>
             <view class='item-club' data-id='{{item.venue_id}}' bindtap='tap'>{{item.address}}</view>
