@@ -100,7 +100,7 @@ Page({
         orderInfo[0]['count'] = this.data.countValue;		//数量
         orderInfo[0]['parameterA'] = this.data.name;	//规格
         orderInfo[0]['parameterB'] = this.data.tel;		//快递方式 
-        orderInfo[0]['type'] = 0;							//固定为0
+        orderInfo[0]['type'] = 1;							//固定为0
         this.doOrder(orderInfo);
       }else{
         wx.showModal({

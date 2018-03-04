@@ -39,7 +39,7 @@
       <view class="attribute-item" style='border:none'>
         <view class="picker-view">
           <view class="pick-left">姓名：</view>
-          <view class="pick-middle">{{item.userName}}</view>
+          <view class="pick-middle">{{orderInfo.userName}}</view>
         </view>
       </view>
 
