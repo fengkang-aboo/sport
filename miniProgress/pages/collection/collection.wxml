@@ -1,20 +1,26 @@
 <!--pages/collection/collection.wxml-->
 <view class='container'>
-    <view class='collection'>
-        <block wx:for="{{collection}}">
+  <view class='collection'>
+    <block wx:if="{{collection}}">
+      <block wx:for="{{collection}}">
 
-            <view class='item'>
-                <image data-id='{{item.venue_id}}' bindtap='tap' class='item-img' src='{{item.img}}'></image>
-                <view class='item-desc'>
-                    <view class='item-name' data-id='{{item.venue_id}}' bindtap='tap'>{{item.name}}</view>
-                    <view class='item-club' data-id='{{item.venue_id}}' bindtap='tap'>{{item.address}}</view>
-                    <view class='item-bottom'>
-                        <view class='item-distance' data-id='{{item.venue_id}}' bindtap='tap'>{{item.distance}}</view>
-						<image class='item-heart' data-id='{{item.venue_id}}' data-index="{{index}}" data-status="{{item.status}}" bindtap='collection' mode="aspectFill"
-      src='{{item.status==1?"/images/icon/btn_sel_collect.png":"/images/icon/btn_nor_collect2.png"}}'></image>
-                    </view>
-                </view>
+        <view class='item'>
+          <image data-id='{{item.venue_id}}' bindtap='tap' class='item-img' src='{{item.img}}'></image>
+          <view class='item-desc'>
+            <view class='item-name' data-id='{{item.venue_id}}' bindtap='tap'>{{item.name}}</view>
+            <view class='item-club' data-id='{{item.venue_id}}' bindtap='tap'>{{item.address}}</view>
+            <view class='item-bottom'>
+              <view class='item-distance' data-id='{{item.venue_id}}' bindtap='tap'>{{item.distance}}</view>
+              <image class='item-heart' data-id='{{item.venue_id}}' data-index="{{index}}" data-status="{{item.status}}" bindtap='collection' mode="aspectFill" src='{{item.status==1?"/images/icon/btn_sel_collect.png":"/images/icon/btn_nor_collect2.png"}}'></image>
             </view>
-        </block>
-    </view>
+          </view>
+        </view>
+      </block>
+    </block>
+    <block wx:else>
+      <view class='empty'>
+        <image src='/images/icon/empty.jpg'></image>
+      </view>
+    </block>
+  </view>
 </view>

@@ -18,16 +18,16 @@
     <view class="my-order">
         <view class="item-main">
              <view wx:if="{{currentTabsIndex==0}}"> 
-                <template is="orderList" data="{{products:orderArr,select:true,Tabindex:0}}"></template>
+                <template is="orderList" data="{{products:allOrder,select:true,Tabindex:0}}"></template>
              </view> 
              <view wx:if="{{currentTabsIndex==1}}">
-                <template is="orderList" data="{{products:orderArr,select:false,Tabindex:1}}"></template>
+                <template is="orderList" data="{{products:unpayOrder,select:false,Tabindex:1}}"></template>
             </view>
             <view wx:if="{{currentTabsIndex==2}}">
-                <template is="orderList" data="{{products:orderArr,select:false,Tabindex:2}}"></template>
+                <template is="orderList" data="{{products:unUseOrder,select:false,Tabindex:2}}"></template>
             </view>
             <view wx:if="{{currentTabsIndex==3}}">
-                <template is="orderList" data="{{products:orderArr,select:false,Tabindex:3}}"></template>
+                <template is="orderList" data="{{products:finsihOrder,select:false,Tabindex:3}}"></template>
             </view> 
         </view>
     </view>

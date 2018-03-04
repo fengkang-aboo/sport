@@ -20,10 +20,20 @@ Page({
   * */
   onLoad: function (options) {
     var id = options.id;
+    var from=options.from;
+    if(from=='kill'){
+      var kill = options.kill;
+      this.setData({
+        id: id,
+        kill:kill,
+      })
+    }else{
+      this.setData({
+        id: id,
+      })
+    }
     this._getProduct(id);
-    this.setData({
-      id: id,
-    })
+
   },
   //获取详情
   _getProduct: function (id) {

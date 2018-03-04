@@ -1,7 +1,7 @@
 <!--pages/about/about.wxml-->
 <view class='container'>
   <view class='img'>
-    <image src='/images/icon/head.png'></image>
+    <image src='/images/home/logo.png'></image>
   </view>
   <view class='about'>
   区块练是一款按次付费的健身预约小程序。用户可搜索附近场馆，发现健身教练，一键预约课程，同时提供优惠秒杀价格与红包，降低试鲜门槛 ，增加多元乐趣。

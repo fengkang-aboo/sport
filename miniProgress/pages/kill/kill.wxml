@@ -1,61 +1,26 @@
 <!--pages/kill/kill.wxml-->
 <view class='container'>
-    <view class='kill'>
-        <view class='item'>
-            <image class='item-img' src='/images/icon/pic1.png' mode='aspectFill'></image>
-            <view class='item-info'>
-                <view class='item-name'>BODYPUMP塑形杠铃操</view>
-                <view class='item-club'>朝外SOHO健身俱乐部</view>
-                <view class='item-bottom'>
-                    <view class='price'>10元/次</view>
-                    <view class='time'>2018-3-3 10：00</view>
-                </view>
-            </view>
+  <view class='kill'>
+    <block wx:for="{{killList}}">
+      <view class='item' data-kill='{{item.seckill_price}}' data-id="{{item.time_id}}" bindtap='killTap'>
+        <image class='item-img' src='{{item.course_img}}' mode='aspectFill'></image>
+        <view class='item-info'>
+          <view class='item-name'>{{item.course_name}}</view>
+          <view class='item-club'>{{item.venue_name}}</view>
+          <view class='item-bottom'>
+            <view class='price'>{{item.seckill_price}}元/次<text class="price2">{{item.price}}元</text></view>
+            <view class='time'>{{item.date}}</view>
+          </view>
         </view>
-
-        <view class='item'>
-            <image class='item-img' src='/images/icon/pic2.png' mode='aspectFill'></image>
-            <view class='item-info'>
-                <view class='item-name'>BODYPUMP塑形杠自由器械</view>
-                <view class='item-club'>朝外SOHO健身俱乐部</view>
-                <view class='item-bottom'>
-                    <view class='price'>10元/次</view>
-                    <view class='time'>2018-3-3 10：00</view>
-                </view>
-            </view>
-        </view>
-
-        <view class='item'>
-            <image class='item-img' src='/images/icon/pic3.png' mode='aspectFill'></image>
-            <view class='item-info'>
-                <view class='item-name'>BODYPUMP拉丁舞</view>
-                <view class='item-club'>朝外SOHO健身俱乐部</view>
-                <view class='item-bottom'>
-                    <view class='price'>10元/次</view>
-                    <view class='time'>2018-3-3 10：00</view>
-                </view>
-            </view>
-        </view>
-
-        <view class='item'>
-            <image class='item-img' src='/images/icon/pic1.png' mode='aspectFill'></image>
-            <view class='item-info'>
-                <view class='item-name'>BODYPUMP普拉提</view>
-                <view class='item-club'>朝外SOHO健身俱乐部</view>
-                <view class='item-bottom'>
-                    <view class='price'>10元/次</view>
-                    <view class='time'>2018-3-3 10：00</view>
-                </view>
-            </view>
-        </view>
-
+      </view>
+    </block>
+  </view>
+    <view class='none' hidden='{{timeUp}}'>
+    <view class='none-bg'></view>
+    <view class='none-info'>
+      <view class='none-title'>秒杀活动</view>
+      <view class='none-title'>即将开始</view>
+      <view class='none-time'>活动时间：{{startTime}}--{{endTime}}</view>
     </view>
-     <!-- <view class='none'>
-        <view class='none-bg'></view>
-        <view class='none-info'>
-            <view class='none-title'>秒杀活动</view>
-            <view class='none-title'>即将开始</view>
-            <view class='none-time'>活动时间：{{startTime}}--{{endTime}}</view>
-        </view>
-    </view>  -->
+  </view>  
 </view>

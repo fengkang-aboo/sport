@@ -12,6 +12,8 @@ image{
    width: 140rpx;
   height: 140rpx;
   display: block;
+  border-radius: 50%;
+  overflow: hidden
 }
 .about {
   padding: 30rpx;
