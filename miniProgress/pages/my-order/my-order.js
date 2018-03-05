@@ -13,7 +13,10 @@ Page({
 		loadingHidden: false,
 		currentTabsIndex:0,
 		pageIndex: 1,
-		orderArr: [],
+    allOrder: [],
+    unpayOrder: [],
+    unUseOrder: [],
+    finsihOrder: [],
 		isLoadedAll: false   //是否已经全部加载完毕
 	},
 
@@ -39,21 +42,51 @@ Page({
 
 	//获取所有订单信息
 	_getAllOrders: function (callback) {
+    var that=this;
 		orderlist.getOrders(this.data.pageIndex, (res) => {
 			var data = res.data;
 			if (data.length > 0) {
-				this.data.orderArr.push.apply(this.data.orderArr, data);
-				this.setData({
-					orderArr: this.data.orderArr,
-					loadingHidden: true
-				})
+				// this.data.orderArr.push.apply(this.data.orderArr, data);
+				// this.setData({
+				// 	orderArr: this.data.orderArr,
+				// 	loadingHidden: true
+				// })
+        that._changeList(data);
 			} else {
 				//已经全部加载完
 				this.data.isLoadedAll = true;
 			}
-			// callback && callback();
 		})
 	},
+
+  //将订单列表处理成4个列表
+  _changeList:function(data){
+    var allOrder=data;
+    var unpayOrder=[];
+    var unUseOrder=[];
+    var finsihOrder=[];
+    for(var i=0;i<data.length;i++){
+      if (data[i].status==1){
+        //代付款
+        unpayOrder.push(data[i]);
+      } else if (data[i].status == 2){
+        unUseOrder.push(data[i])
+      } else if (data[i].status == 3){
+        finsihOrder.push(data[i])
+      }
+    }
+    this.data.allOrder.push.apply(this.data.allOrder, allOrder);
+    this.data.unpayOrder.push.apply(this.data.unpayOrder, unpayOrder);
+    this.data.unUseOrder.push.apply(this.data.unUseOrder, unUseOrder);
+    this.data.finsihOrder.push.apply(this.data.finsihOrder, finsihOrder);
+    this.setData({
+      allOrder: this.data.allOrder,
+      unpayOrder: this.data.unpayOrder,
+      unUseOrder: this.data.unUseOrder,
+      finsihOrder: this.data.finsihOrder,
+      loadingHidden: true
+    })
+  },
 
 	//进入订单详情
 	showOrderDetailInfo: function (options) {

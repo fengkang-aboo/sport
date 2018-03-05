@@ -18,7 +18,9 @@ Page({
 		markers: []
 	},
 
-	onLoad: function () {
+	onShow: function () {
+    wx.showNavigationBarLoading() //在标题栏中显示加载
+
 		//地理定位
 		var that = this;
 		wx.getLocation({
@@ -48,6 +50,8 @@ Page({
 
 	_loadData: function (longitude, latitude) {
 		home.getClubList(longitude, latitude, (res) => {
+      wx.hideNavigationBarLoading() //完成停止加载
+
 			this._drawMap(res);
 			this.setData({
 				clubList: res
@@ -112,7 +116,6 @@ Page({
 		if (status == 1) {
 			//已收藏，点击取消收藏
 			home.cancle(id, (res) => {
-				console.log(res);
 				if (res.code == 200) {
 					this.data.clubList[index].collection.status = 2;
 					this.setData({

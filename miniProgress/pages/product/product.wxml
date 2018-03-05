@@ -10,7 +10,8 @@
     <view class='product-name'>{{product.course_name}}</view>
     <view class='product-club'>{{product.venue_name}}</view>
     <view class='price'>
-      <text class='price1'>￥{{product.discount_price?product.discount_price:product.price}}</text>
+      <text wx:if="{{kill}}" class='price1'>￥{{kill}}</text>
+      <text wx:if="{{!kill}}" class='price1'>￥{{product.discount_price?product.discount_price:product.price}}</text>
       <text class='price2' wx:if="{{product.discount_price}}">￥{{product.price}}</text>
     </view>
   </view>
@@ -20,7 +21,7 @@
     <view class='address'>{{product.address}}</view>
   </view>
 
-  <view class='view-info'>
+  <view class='view-info' wx:if="{{product.teacher.img&&product.teacher.name&&product.teacher.content}}">
     <view class='title'>老师介绍</view>
     <view class='teacher'>
       <image class='teacher-img' src='{{product.teacher.img}}'></image>
@@ -34,20 +35,20 @@
   <view class='view-info'>
     <view class='title'>课程介绍</view>
     <view class='address'>
-      {{product.course_content}}  
+      {{product.course_content}}
     </view>
   </view>
 
   <view class='view-info' style='margin-bottom:100rpx;'>
     <view class='title'>注意事项</view>
     <view class='address'>
-      详情介绍详情介绍详情介绍详情介绍详情介绍详情介绍详情介绍详情介绍详情介绍详情介绍 详情介绍详情介绍详情介绍详情介绍详情介绍详情介绍详情介绍详情介绍详情介绍详情介绍详情介绍详情介绍详情介绍详情介绍 详情介绍详情介绍详情介绍详情介绍详情介绍详情介绍详情介绍详情介绍详情介绍详情介绍详情介绍
+      商家所售课程以整堂计算，无法因迟到退款，请务必准时上课。
     </view>
   </view>
 
   <view class='bottom'>
-    <view class='toatl'>￥{{product.discount_price?product.discount_price:product.price}}</view>
+    <view wx:if="{{kill}}" class='toatl'>￥{{kill}}</view>
+    <view wx:if="{{!kill}}"  class='toatl'>￥{{product.discount_price?product.discount_price:product.price}}</view>
     <view class='order' bindtap='goOrder'>立即预约</view>
   </view>
-
 </view>

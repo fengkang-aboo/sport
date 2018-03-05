@@ -16,9 +16,18 @@ Page({
 	 */
 	onLoad: function (options) {
     var id=options.id;
-    this.setData({
-      id:id
-    })
+    var from = options.from;
+    if (from=='kill'){
+      var kill = options.kill;
+      this.setData({
+        id: id,
+        kill:kill
+      })
+    }else{
+      this.setData({
+        id: id,
+      })
+    }
     this._loadData(id);
 	},
 
@@ -34,9 +43,15 @@ Page({
 
   goOrder: function (event) {
     var id = this.data.id;
-		wx.navigateTo({
-			url: '../order/order?id='+id,
-		})
+    if(this.data.kill){
+      wx.navigateTo({
+        url: '../order/order?id=' + id+'&from=kill&kill='+this.data.kill,
+      })
+    }else{
+      wx.navigateTo({
+        url: '../order/order?id=' + id,
+      })
+    }
 	}
 
 

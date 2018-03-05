@@ -20,10 +20,20 @@ Page({
   * */
   onLoad: function (options) {
     var id = options.id;
+    var from=options.from;
+    if(from=='kill'){
+      var kill = options.kill;
+      this.setData({
+        id: id,
+        kill:kill,
+      })
+    }else{
+      this.setData({
+        id: id,
+      })
+    }
     this._getProduct(id);
-    this.setData({
-      id: id,
-    })
+
   },
   //获取详情
   _getProduct: function (id) {
@@ -90,7 +100,7 @@ Page({
         orderInfo[0]['count'] = this.data.countValue;		//数量
         orderInfo[0]['parameterA'] = this.data.name;	//规格
         orderInfo[0]['parameterB'] = this.data.tel;		//快递方式 
-        orderInfo[0]['type'] = 0;							//固定为0
+        orderInfo[0]['type'] = 1;							//固定为0
         this.doOrder(orderInfo);
       }else{
         wx.showModal({

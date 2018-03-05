@@ -111,3 +111,13 @@
     background: #fff !important;
     line-height: 30px !important;
 }
+
+.empty{
+  margin-top: 80rpx;
+}
+.empty image{
+  display: block;
+  margin: auto;
+  width: 338rpx;
+  height: 298rpx;
+}

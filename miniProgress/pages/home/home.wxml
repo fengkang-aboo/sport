@@ -14,7 +14,7 @@
   
     <view class='club-item'>
       <image class='item-bg' src='{{item.log_img}}' mode="aspectFill"></image>
-      <view class='item-bg2' data-id='{{item.id}}' bindtap='onClubItemTap'></view>
+      <view class='item-bg2' data-id='{{item.venue_id}}' bindtap='onClubItemTap'></view>
       <image data-id='{{item.id}}' data-index="{{index}}" data-status="{{item.collection.status}}" bindtap='collection' class='item-heart' mode="aspectFill"
       src='{{item.collection.status==1?"/images/icon/btn_sel_collect.png":"/images/icon/btn_nor_collect.png"}}'></image>
       <view class='item-content'>

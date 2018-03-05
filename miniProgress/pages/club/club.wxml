@@ -28,18 +28,24 @@
         </block>
       </view>
       <view class='lesson-box'>
-        <block wx:for="{{lessons[lessonIndex]}}">
-          <view class='lesson-item' data-id="{{item.time_id}}" bindtap='clubTap'>
-            <image class='item-img' src='{{item.course_img}}'></image>
-            <view class='item-content'>
-              <view class='item-name'>{{item.course_name}}</view>
-              <view class='item-teacher'>{{item.teacher_name}}</view>
-              <view class='item-desc'>
-                <view class='item-time'>{{item.time}}</view>
-                <view class='item-price'>￥{{item.price}}</view>
+        <block wx:if="{{lessons[lessonIndex]}}">
+          <block wx:for="{{lessons[lessonIndex]}}">
+            <view class='lesson-item' data-id="{{item.time_id}}" bindtap='clubTap'>
+              <image class='item-img' src='{{item.course_img}}'></image>
+              <view class='item-content'>
+                <view class='item-name'>{{item.course_name}}</view>
+                <view class='item-teacher'>{{item.teacher_name}}</view>
+                <view class='item-desc'>
+                  <view class='item-time'>{{item.time}}<text class='item-price'>￥{{item.price}}</text></view>
+                </view>
               </view>
+              <view class='item-btn'>预约</view>
             </view>
-            <view class='item-btn'>预约</view>
+          </block>
+        </block>
+        <block wx:else>
+          <view class='empty'>
+            <image src='/images/icon/empty.jpg'></image>
           </view>
         </block>
       </view>
@@ -59,10 +65,8 @@
       </view>
       <view class='club-info'>
         <view class='club-title'>注意事项</view>
-        <view class='club-desc'>1.事项内容事项内容事项内容事项内容事项内容</view>
-        <view class='club-desc'>2.事项内容事项内容事项内容事项内容事项内容</view>
-        <view class='club-desc'>3.事项内容事项内容事项内容事项内容事项内容</view>
-        <view class='club-desc'>4.事项内容事项内容事项内容事项内容事项内容</view>
+        <view class='club-desc'>1.发票由健身场馆开具。您可以在前往场馆上课时请商家为您开具发票。</view>
+        <view class='club-desc'>2.商家所售课程以整堂计算，无法因迟到退款，请务必准时上课。</view>
       </view>
     </view>
   </view>

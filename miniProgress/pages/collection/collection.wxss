@@ -53,6 +53,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
 }
 
 .item-distance {
@@ -61,7 +62,7 @@
 }
 
 .item-heart {
-    width: 48rpx;
-    height: 44rpx;
+    width: 100rpx;
+    height: 100rpx;
     display: inline-block;
 }

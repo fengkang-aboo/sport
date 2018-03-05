@@ -1,28 +1,28 @@
 <!--订单详情-->
 <view class="container order-container">
-    <!-- 属性选择 -->
-    <view class="attribute">
-        <view class="attribute-wrapper">
-            <view class="attribute-item">
-                <view class="picker-view">
-                    <view class="pick-left">课程：</view>
-                    <view class="pick-middle">{{product.course_name}}</view>
-                </view>
-            </view>
+  <!-- 属性选择 -->
+  <view class="attribute">
+    <view class="attribute-wrapper">
+      <view class="attribute-item">
+        <view class="picker-view">
+          <view class="pick-left">课程：</view>
+          <view class="pick-middle">{{product.course_name}}</view>
+        </view>
+      </view>
 
-            <view class="attribute-item">
-                <view class="picker-view">
-                    <text class="pick-left">时间：</text>
-                    <text class="pick-middle">{{product.time}}</text>
-                </view>
-            </view>
-            <view class="attribute-item">
-                <view class="picker-view">
-                    <view class="pick-left">地点：</view>
-                    <view class="pick-middle">{{product.address}}</view>
-                </view>
-            </view>
-            <!-- <view class="attribute-item">
+      <view class="attribute-item">
+        <view class="picker-view">
+          <text class="pick-left">时间：</text>
+          <text class="pick-middle">{{product.time}}</text>
+        </view>
+      </view>
+      <view class="attribute-item">
+        <view class="picker-view">
+          <view class="pick-left">地点：</view>
+          <view class="pick-middle">{{product.address}}</view>
+        </view>
+      </view>
+      <!-- <view class="attribute-item">
                 <picker range="{{countsArray}}" bindchange="bindPickerCount">
                     <view class="picker-view">
                         <view class="pick-left">人数：</view>
@@ -31,40 +31,39 @@
                     </view>
                 </picker>
             </view> -->
-            <view class="attribute-item" style='border-bottom:  none;'>
-                <view class="picker-view">
-                    <view class="pick-left">总价：</view>
-                    <view class="pick-middle total">{{sumMoney}}元</view>
-                </view>
-            </view>
+      <view class="attribute-item" style='border-bottom:  none;'>
+        <view class="picker-view">
+          <view class="pick-left">总价：</view>
+          <view wx:if="{{kill}}" class="pick-middle total">{{kill}}元</view>
+          <view wx:if="{{!kill}}"  class="pick-middle total">{{sumMoney}}元</view>
         </view>
+      </view>
     </view>
+  </view>
 
-    <view class="attribute">
-        <view class="attribute-wrapper">
-            <view class="attribute-item">
-                <view class="picker-view">
-                    <view class="pick-left">姓名</view>
-                    <view class="pick-middle">
-                        <input value='{{name}}' placeholder='请输入姓名' type="text"
-                        confirm-type="done" placeholder-style="color:#333" bindinput="userNameInput" />
-                    </view>
-                </view>
-            </view>
-            <view class="attribute-item">
-                <view class="picker-view">
-                    <view class="pick-left">手机</view>
-                    <view class="pick-middle">
-                        <input value='{{tel}}' placeholder='请输入手机号码' type="number"
-                        confirm-type="done" placeholder-style="color:#333" bindinput="userTelInput" />
-                    </view>
-                </view>
-            </view>
+  <view class="attribute">
+    <view class="attribute-wrapper">
+      <view class="attribute-item">
+        <view class="picker-view">
+          <view class="pick-left">姓名</view>
+          <view class="pick-middle">
+            <input value='{{name}}' placeholder='请输入姓名' type="text" confirm-type="done" placeholder-style="color:#333" bindinput="userNameInput" />
+          </view>
         </view>
+      </view>
+      <view class="attribute-item">
+        <view class="picker-view">
+          <view class="pick-left">手机</view>
+          <view class="pick-middle">
+            <input value='{{tel}}' placeholder='请输入手机号码' type="number" confirm-type="done" placeholder-style="color:#333" bindinput="userTelInput" />
+          </view>
+        </view>
+      </view>
     </view>
+  </view>
 
-    <!--结算-->
-    <view class="footer-account-box order-accounts">
-        <view class="pay" ontap="pay">提交订单，立即支付</view>
-    </view>
+  <!--结算-->
+  <view class="footer-account-box order-accounts">
+    <view class="pay" ontap="pay">提交订单，立即支付</view>
+  </view>
 </view>

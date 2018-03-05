@@ -41,6 +41,12 @@
 	font-size: 14px;
 	color: #00b4d0;
 }
+.price2{
+  margin-left: 30rpx;
+  font-size: 11px;
+  color: #666;
+  text-decoration: line-through
+}
 .time{
 	font-size: 11px;
 	color: #666666;
