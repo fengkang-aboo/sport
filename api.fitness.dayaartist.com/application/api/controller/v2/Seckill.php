@@ -27,9 +27,9 @@ class Seckill extends Controller
     {
         $time = date('H:i',time());
         if ($time < '12:00') {
-            $time = '10:00-11:00';
-            $start_time = '10:00';
-            $end_time = '11:00';
+            $time = '11:00-12:00';
+            $start_time = '11:00';
+            $end_time = '12:00';
         }else{
             $time = '18:00-19:00';
             $start_time = '18:00';
@@ -38,7 +38,9 @@ class Seckill extends Controller
 
         $seckillList = CourseArrange::getSeckillList($time);
         //print_r($seckillList->toArray());die;
-
+        if (empty($seckillList)) {
+            return '';die;
+        }
         $seckillListData = array();
         $seckillListData['start_time'] = $start_time;
         $seckillListData['end_time'] = $end_time;
@@ -46,7 +48,8 @@ class Seckill extends Controller
         foreach ($seckillList as $key => $v) {
             $courseImg = ImgModel::getOneImg($v['course']['main_img_id']); //课程图片
 
-            $seckillListData[$key] = array(
+            $seckillListData['data'][$key] = array(
+                'time_id' => $v['id'],
                 'course_img' => $courseImg['img_url'],
                 'course_name' => $v['course']['name'],
                 'venue_name' => $v['venue']['name'],

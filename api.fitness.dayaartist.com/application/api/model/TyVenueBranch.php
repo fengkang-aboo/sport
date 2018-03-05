@@ -67,4 +67,30 @@ class TyVenueBranch extends BaseModel
         $venue = self::where('key_word',$info)->select();
         return $venue;
     }
+
+    /**
+     * 搜索多个场馆
+     * @param $info 场馆名称
+     * @param bool $paginate
+     * @return \think\Paginator
+     */
+    public static function getManyVenye($venue_id)
+    {
+        $where['id'] = array('in',$venue_id);
+        $venue = self::where($where)->where('status',1)->select()->toArray();
+        return $venue;
+    }
+
+    /**
+     * 搜索多个场馆
+     * @param $info 场馆名称
+     * @param bool $paginate
+     * @return \think\Paginator
+     */
+    public static function getVenueKeyword()
+    {
+        $venue = self::where('status',1)->column('key_word');
+        return $venue;
+    }
+
 }

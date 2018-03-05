@@ -77,4 +77,15 @@ class Venue extends Controller
         return $venue;
     }
 
+    /**
+     * 场馆关键字
+     * @return \think\Paginator
+     * @throws ThemeException
+     */
+    public function getVenueKeyword()
+    {
+        $data = VenueBranch::getVenueKeyword();
+        return $data;
+    }
+
 }
