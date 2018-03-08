@@ -43,9 +43,9 @@ class LoginController extends Controller
                     if (MD5(MD5($_POST['pwd'])) == $admininfo['pwd']) {
                         $admin = array(
                             "id" => $admininfo["id"],
+                            "role_id" => $admininfo["role_id"],
                             "name" => $admininfo["name"],
-                            "shop_id" => $admininfo["shop_id"],
-                            'supplier_id' => $admininfo['supplier_id']
+                            'venue_id' => $admininfo['venue_id']
                         );
                         unset($_SESSION['admininfo']);
                         $_SESSION['admininfo'] = $admin;

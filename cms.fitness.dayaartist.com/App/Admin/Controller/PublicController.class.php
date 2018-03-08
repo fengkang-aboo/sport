@@ -22,9 +22,9 @@ class PublicController extends Controller{
 			}
 			//访问的控制器方法
 			$auth_ac = CONTROLLER_NAME.'/'.ACTION_NAME;
-			$admin_name = $_SESSION['admininfo']['name'];
+			$role_id = $_SESSION['admininfo']['role_id'];
 
-			if ($admin_name != 'admin') { //超级管理员直接跳过
+			if ($role_id != 1) { //超级管理员直接跳过
 
 				$admin_id = $_SESSION['admininfo']['id'];
 				$role_id = M('adminuser')->where('id='.$admin_id)->getField('role_id');

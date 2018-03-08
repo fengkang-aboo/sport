@@ -11,8 +11,10 @@ class VenueController extends PublicController
     //**********************************
     public function venue_index()
     {
-        $venue = M('ty_venue as venue')->field('venue.*,img.img_url')->join('ty_img as img on venue.logo_id=img.id')->select();
+        $venue = M('ty_venue_branch as venue')->field('venue.*,ty_img.img_url')->join('ty_img on venue.main_img_id=ty_img.id')->select();
+        $count = count($venue);
         $this->assign('venue',$venue);
+        $this->assign('count',$count);
         $this->display();
     }
 

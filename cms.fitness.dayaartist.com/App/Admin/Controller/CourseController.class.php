@@ -7,6 +7,51 @@ use Think\Controller;
 class CourseController extends PublicController
 {
     //***********************************
+    // 课程列表
+    //**********************************
+    public function course_index()
+    {
+        $course = M('ty_course as course')->field('course.*,ty_img.img_url')->join('ty_img on course.main_img_id=ty_img.id')->select();
+        $count = count($course);
+        $this->assign('course',$course);
+        $this->assign('count',$count);
+        $this->display();
+    }
+
+    //***********************************
+    // 老师列表
+    //**********************************
+    public function teacher_index()
+    {
+        $teacher = M('ty_teacher as teacher')->select();
+        $count = count($teacher);
+        $this->assign('teacher',$teacher);
+        $this->assign('count',$count);
+        $this->display();
+    }
+
+    //***********************************
+    // 课程表
+    //**********************************
+    public function course_time()
+    {
+        $where = array();
+        $course_time = M('ty_course_arrange as ca')
+                       ->where($where)
+                       ->field('ca.*,course.name as course_name,teacher.name as teacher_name')
+                       ->join('ty_course as course on ca.course_id=course.id')
+                       ->join('ty_teacher as teacher on ca.teacher_id=teacher.id')
+                       ->select();
+        foreach ($course_time as $key => $v) {
+            $course_time[$key]['time'] = $v['dates'].' '.date('H:i',$v['start_time']).'-'.date('H:i',$v['end_time']);
+        }
+        $count = count($course_time);
+        $this->assign('course_time',$course_time);
+        $this->assign('count',$count);
+        $this->display();
+    }
+
+    //***********************************
     // 分店列表
     //**********************************
     public function index()

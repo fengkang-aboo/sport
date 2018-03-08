@@ -6,6 +6,42 @@ use Think\Controller;
 
 class ShopController extends PublicController
 {
+    /*
+   *
+   * 构造函数，用于导入外部文件和公共方法
+   */
+    public function _initialize()
+    {
+        $this->category = M('category');
+        // 获取所有分类，进行关系划分
+        $list = $this->category->where('pid=0')->order('sort desc,id asc')->select();
+        foreach ($list as $k1 => $v1) {
+            $list[$k1]['list2'] = $this->category->where('pid=' . intval($v1['id']))->select();
+            foreach ($list[$k1]['list2'] as $k2 => $v2) {
+                $list[$k1]['list2'][$k2]['list3'] = $this->category->where('pid=' . intval($v2['id']))->select();
+            }
+        }
+
+        $this->assign('list', $list);// 赋值数据集
+
+        $this->theme = M('theme');
+        // 获取所有分类，进行关系划分
+        $themeList = $this->category->where('pid=0')->order('sort desc,id asc')->select();
+        foreach ($themeList as $k1 => $v1) {
+            $themeList[$k1]['themeList2'] = $this->theme->where('pid=' . intval($v1['id']))->select();
+            foreach ($themeList[$k1]['themeList2'] as $k2 => $v2) {
+                $themeList[$k1]['themeList2'][$k2]['themeList3'] = $this->theme->where('pid=' . intval($v2['id']))->select();
+            }
+        }
+
+        $this->assign('themeList', $themeList);// 赋值数据集
+
+//        获取所有课程进行分类
+        $this->wys_course = M('wys_course');
+        $courseList = $this->wys_course->order('id desc')->select();
+        $this->assign('courseList', $courseList);
+    }
+
     //***********************************
     // 商品列表
     //**********************************
@@ -16,18 +52,18 @@ class ShopController extends PublicController
 
             if (!empty($data)) {
                 //商品类型
-                if(($data['summary']) != '' ){
+                if (($data['summary']) != '') {
 
-                    $where['summary'] = $data['summary']; 
+                    $where['summary'] = $data['summary'];
 
-                    $this->assign('summary',$data['summary']);
+                    $this->assign('summary', $data['summary']);
                 }
                 //商品分类
                 if (!empty($data['category_id'])) {
 
                     $where['category_id'] = $data['category_id'];
 
-                    $this->assign('category_id',$data['category_id']);
+                    $this->assign('category_id', $data['category_id']);
                 }
 
                 //推荐
@@ -35,7 +71,7 @@ class ShopController extends PublicController
 
                     $where['hot'] = $data['hot'];
 
-                    $this->assign('hot',$data['hot']);
+                    $this->assign('hot', $data['hot']);
                 }
 
                 //折扣
@@ -43,7 +79,7 @@ class ShopController extends PublicController
 
                     $where['discount'] = $data['discount'];
 
-                    $this->assign('discount',$data['discount']);
+                    $this->assign('discount', $data['discount']);
                 }
 
                 //商品上下架
@@ -51,17 +87,17 @@ class ShopController extends PublicController
 
                     $where['del'] = $data['del'];
 
-                    $this->assign('del',$data['del']);
+                    $this->assign('del', $data['del']);
                 }
             }
             //print_r($where);die;
         }
-        
+
         //print_r($where);die;
         $product_data = M('product as p')
-            ->field('p.id,c.name as cname,p.name as pname,main_img_url,t.name as tname,detail,price,duration,address,describe,stock,p.from as pfrom,summary,del,content,hot,discount')
-            ->join('category as c on p.category_id=c.id','left')
-            ->join('product_tag as t on p.id=t.product_id','left')
+            ->field('p.id,c.name as cname,p.name as pname,main_img_url,t.name as tname,detail,price,duration,address,describe,stock,p.from as pfrom,summary,del,content,p.hot,discount')
+            ->join('category as c on p.category_id=c.id', 'left')
+            ->join('product_tag as t on p.id=t.product_id', 'left')
             ->where($where)
             ->select();
         foreach ($product_data as $key => $value) {
@@ -99,7 +135,7 @@ class ShopController extends PublicController
                 //上传产品小图
                 if (!empty($_FILES["file"]["tmp_name"])) {
                     //文件上传
-                    $info = $this->upload_images($_FILES["file"], array('jpg', 'png', 'jpeg'), "product/" . date(Ymd));
+                    $info = $this->upload_images($_FILES["file"], array('jpg', 'png', 'jpeg', 'mp4'), "product/" . date(Ymd));
                     if (!is_array($info)) {// 上传错误提示错误信息
                         throw new \Exception('图片上传失败.');
                     } else {// 上传成功 获取上传文件信息
@@ -117,41 +153,50 @@ class ShopController extends PublicController
 
                     }
                 }
+
                 //商品详情添加
                 if ($img_url) {
                     $data = I('post.');
-                    //print_r($data);die;
+//                    print_r($data);die;
                     $pro_array = array();
-                    if ($data['summary'] == 1) {
-                        if ($data['start_time'] > $data['end_time']) {
-                            throw new \Exception('开始时间必须大于结束时间');
-                        }
-
-                        $start_time = str_replace('-', '.', $data['start_time']);
-                        $end_time = str_replace('-', '.', $data['end_time']);
-                        $pro_array['duration'] = $start_time.'-'.$end_time;
-                        $pro_array['address'] = $data['address'];
+                    if ($data['start_time'] > $data['end_time']) {
+                        throw new \Exception('结束时间必须大于开始时间');
                     }
+
+                    $start_time = str_replace('-', '.', $data['start_time']);
+                    $end_time = str_replace('-', '.', $data['end_time']);
+                    $pro_array['duration'] = $start_time . '-' . $end_time;
+                    $pro_array['address'] = $data['address'];
+
+                    if (!empty($data['artist_id'])) {
+                        $data['category_id'] = 8;
+                    }
+
                     //print_r($pro_array);die;
                     $pro_array['name'] = $data['name'];
                     $pro_array['describe'] = $data['describe'];
                     $pro_array['unit'] = $data['unit'];
                     $pro_array['price'] = $data['price'];
+                    $pro_array['discount_price'] = $data['discount_price'];
                     $pro_array['stock'] = $data['stock'];
                     $pro_array['category_id'] = $data['category_id'];
+                    $pro_array['theme_id'] = $data['theme_id'];
                     $pro_array['main_img_url'] = $img_url;
                     $pro_array['home_img_url'] = $img_url_home;
                     $pro_array['create_time'] = time();
                     $pro_array['summary'] = $data['summary'];
                     $pro_array['content'] = $data['editorValue'];
                     $pro_array['hot'] = $data['hot'];
+                    $pro_array['artist_id'] = $data['artist_id'];
+                    $pro_array['course_id'] = $data['course_id'];
+                    $pro_array['times'] = $data['times'];
 
-                    //print_r($pro_array);die;
+//                    print_r($pro_array);die;
                     $product_id = M('product')->add($pro_array);
 
                     if ($product_id) {
 
-                        if ($data['summary'] == 1) {
+                        /*if ($data['summary'] == 1) {
                             //添加预约时间
                             if (!empty(($data['about_stime'][0]))) {
                                 for ($i = 0; $i < count($data['about_stime']); $i++) {
@@ -159,16 +204,19 @@ class ShopController extends PublicController
                                 }
                                 $product_time = M('product_time')->addAll($about_array);
                             }
-                        }
-                        
+                        }*/
+
 
                         //添加产品参数
-                        for ($i = 0; $i < count($data['parameter']); $i++) {
-                            $parameter_info = explode('：', $data['parameter'][$i]);
-                            $parameter_arr[] = array('name' => $parameter_info[0], 'detail' => $parameter_info[1], 'product_id' => $product_id);
+                        if (!empty($data['parameter'][0])) {
+                            for ($i = 0; $i < count($data['parameter']); $i++) {
+                                $parameter_info = explode('：', $data['parameter'][$i]);
+                                $parameter_arr[] = array('name' => $parameter_info[0], 'detail' => $parameter_info[1], 'product_id' => $product_id);
+                            }
+                            $product_feature = M('product_property')->addAll($parameter_arr);
                         }
-                        $product_feature = M('product_property')->addAll($parameter_arr);
-                        
+
+
                         //添加商品规格
                         //判断几个规格
                         if (!empty($data['feature'])) {
@@ -185,21 +233,26 @@ class ShopController extends PublicController
 
                         //添加商品标签
                         //判断几个标签
-                        if (strpos($data['label'], '|') == false) {
-                            $label_array = array('name' => $data['label'], 'product_id' => $product_id);
-                        } else {
+                        if (!empty($data['label'])) {
                             $label_info = explode('|', $data['label']);
                             $label_array = array('name' => $label_info[0], 'detail' => $label_info[1], 'product_id' => $product_id);
+                            $product_tag = M('product_tag')->add($label_array);
                         }
-                        $product_tag = M('product_tag')->add($label_array);
 
                     }
+                } else {
+                    throw new \Exception('请上传图片.');
                 }
 
-                if ($img_url && $product_id && $product_tag) {
+                if ($product_id) {
 
                     $Model->commit(); // 成功则提交事务
-                    $this->success('编辑成功', U('Admin/Shop/product'));
+                    if (!empty($data['artist_id'])) {
+                        $this->redirect('Artist/works_list', array('id' => $data['artist_id']), 2, '编辑成功');
+                        //$this->success('编辑成功'，U('Admin/Artist/works_list?id='.$data['artist_id']));
+                    } else {
+                        $this->success('编辑成功', U('Admin/Shop/product'));
+                    }
 
                 } else {
 
@@ -215,8 +268,10 @@ class ShopController extends PublicController
             }
 
         } else {
+            $artist_id = I('get.id');
+            $this->assign('artist_id', $artist_id);
             $category_data = M('category')->select();
-            $this->assign('category_data',$category_data);
+            $this->assign('category_data', $category_data);
             $this->display();
         }
     }
@@ -248,7 +303,7 @@ class ShopController extends PublicController
                             'url' => $img_url,
                             'create_time' => time()
                         );
-                        
+
                         $imgage_id = M('image')->add($img_array);
                     }
                 }
@@ -291,12 +346,12 @@ class ShopController extends PublicController
                 $pro_res = M('product')->where('id=' . $data['product_id'])->save($pro_array);
 
                 //添加预约时间
-                if (!empty(($data['about_stime'][0]))) {
+                /*if (!empty(($data['about_stime'][0]))) {
                     for ($i = 0; $i < count($data['about_stime']); $i++) {
                         $about_array[] = array('start_time' => $data['about_stime'][$i], 'end_time' => $data['about_etime'][$i], 'product_id' => $data['product_id']);
                     }
                     $time_res = M('product_time')->addAll($about_array);
-                }
+                }*/
 
                 if (!empty($data['feature'])) {
                     //添加商品规格
@@ -337,7 +392,7 @@ class ShopController extends PublicController
                 if ($pro_res || $tag_res || $product_property) {
                     $Model->commit(); // 成功则提交事务
                     $this->success('编辑成功', U('Admin/Shop/product'));
-                } else {    
+                } else {
 
                     throw new \Exception('编辑失败，请重新编辑');
                 }
@@ -350,9 +405,9 @@ class ShopController extends PublicController
         } else {
             $product_id = I('get.id');
             $product_data = M('product as p')
-                ->field('p.id as pid,c.id as cid,c.name as cname,p.name as pname,main_img_url,home_img_url,hot,t.name as tname,detail,price,duration,address,describe,stock,p.from as pfrom,summary,content,unit')
+                ->field('p.id as pid,c.id as cid,c.name as cname,p.name as pname,main_img_url,home_img_url,p.hot,price,duration,address,describe,stock,p.from as pfrom,summary,content,unit')
                 ->join('category as c on p.category_id=c.id')
-                ->join('product_tag as t on p.id=t.product_id')
+//                ->join('product_tag as t on p.id=t.product_id')
                 ->where('p.id=' . $product_id)
                 ->find();
 
@@ -363,13 +418,13 @@ class ShopController extends PublicController
                     foreach ($product_feature as $key => $value) {
                         $feature .= '|' . $product_feature[$key]['feature'];
                     }
-                    
-                    $product_data['feature'] = mb_substr($feature,1);
-                }else{
+
+                    $product_data['feature'] = mb_substr($feature, 1);
+                } else {
                     $product_data['feature'] = $product_feature[0]['feature'];
                 }
             }
-            
+
 
             $product_data['start_time'] = trim(substr($product_data['duration'], 0, 10));
             $product_data['end_time'] = trim(substr($product_data['duration'], -10));
@@ -378,34 +433,34 @@ class ShopController extends PublicController
             unset($product_data['duration']);
             if (empty($product_data['detail'])) {
                 $product_data['tag'] = $product_data['tname'];
-            }else{
+            } else {
                 $product_data['tag'] = $product_data['tname'] . '|' . $product_data['detail'];
             }
             unset($product_data['tname']);
             unset($product_data['detail']);
-            
+
             //商品参数
             $property_info = M('product_property')->field('name,detail')->where('product_id=' . $product_id)->select();
-            
+
             $property_count = count($property_info);
-            for ($i=0; $i < $property_count; $i++) { 
-                $property_array[] = $property_info[$i]['name'].'：'.$property_info[$i]['detail'];
+            for ($i = 0; $i < $property_count; $i++) {
+                $property_array[] = $property_info[$i]['name'] . '：' . $property_info[$i]['detail'];
             }
             $product_data['property'] = $property_array;
 
             //主题活动时间
-            $product_time_data = M('product_time')->where('product_id='.$product_id)->select();
+            $product_time_data = M('product_time')->where('product_id=' . $product_id)->select();
 
             $product_time_count = count($product_time_data);
             $product_data['product_time_data'] = $product_time_data;
-            
+
 
             //print_r($product_data);die;
             $category_data = M('category')->select();
 
-            
-            $this->assign('product_time_count',$product_time_count);
-            $this->assign('property_count',$property_count);
+
+            $this->assign('product_time_count', $product_time_count);
+            $this->assign('property_count', $property_count);
             $this->assign('category_data', $category_data);
             $this->assign('product_data', $product_data);
             $this->display();
@@ -451,11 +506,11 @@ class ShopController extends PublicController
 
                 $data = I('post.');
 
-                if (empty(($data['about_stime'][0]))) {
+                /*if (empty(($data['about_stime'][0]))) {
                     throw new \Exception('可预约时间不能为空');
                     exit();
                 }
-
+*/
                 for ($i = 0; $i < count($data['about_stime']); $i++) {
                     if (strtotime($data['about_stime'][$i]) > strtotime($data['end_time']) || strtotime($data['about_etime'][$i]) > strtotime($data['end_time'])) {
                         throw new \Exception('不在预约范围内,请重新添加');
@@ -513,34 +568,34 @@ class ShopController extends PublicController
     {
         $id = I('get.id');
         $product_data = M('product as p')
-                      ->field('p.id,c.name as cname,p.name as pname,main_img_url,t.name as tname,detail,price,duration,address,describe,stock,p.from as pfrom,summary,del,content,hot,discount,unit,main_img_url,home_img_url,discount_price')
-                      ->join('category as c on p.category_id=c.id','left')
-                      ->join('product_tag as t on p.id=t.product_id','left')
-                      ->where('p.id='.$id)
-                      ->find();
+            ->field('p.id,c.name as cname,p.name as pname,main_img_url,t.name as tname,detail,price,duration,address,describe,stock,p.from as pfrom,summary,del,content,p.hot,discount,unit,main_img_url,home_img_url,discount_price')
+            ->join('category as c on p.category_id=c.id', 'left')
+            ->join('product_tag as t on p.id=t.product_id', 'left')
+            ->where('p.id=' . $id)
+            ->find();
         //print_r($product_data);die;
         //商品参数
-        $product_property = M('product_property')->where('product_id='.$id)->select();
+        $product_property = M('product_property')->where('product_id=' . $id)->select();
         $product_data['product_property'] = $product_property;
         //商品规格
-        $product_feature = M('product_feature')->where('product_id='.$id)->select();
+        $product_feature = M('product_feature')->where('product_id=' . $id)->select();
         foreach ($product_feature as $key => $v) {
-            $feature .= ' , '.$v['feature'];
+            $feature .= ' , ' . $v['feature'];
         }
-        $feature = mb_substr($feature,2);
+        $feature = mb_substr($feature, 2);
         //预约时间
-        if ($product_data['summary'] == 2) {
-            $time_data = M('product_time')->where('product_id='.$id)->select();
+        if ($product_data['summary'] == 1) {
+            $time_data = M('product_time')->where('product_id=' . $id)->select();
             foreach ($time_data as $key => $v) {
-                $time_data[$key]['start_time'] = date('Y-m-d H:i:s',$v['start_time']);
-                $time_data[$key]['end_time'] = date('Y-m-d H:i:s',$v['end_time']);
+                $time_data[$key]['start_time'] = date('Y-m-d H:i:s', $v['start_time']);
+                $time_data[$key]['end_time'] = date('Y-m-d H:i:s', $v['end_time']);
             }
             $product_data['time_data'] = $time_data;
         }
 
         $product_data['product_feature'] = $feature;
 
-        $this->assign('product_data',$product_data);
+        $this->assign('product_data', $product_data);
         $this->display();
     }
 
@@ -551,26 +606,26 @@ class ShopController extends PublicController
     {
         if (IS_POST) {
             $data = I('post.');
-            $duration = $data['start_time'].'-'.$data['end_time'];
-            $array = array('duration'=>$duration,'discount_price'=>$data['discount_price'],'discount'=>$data['is_discount']);
+            $duration = $data['start_time'] . '-' . $data['end_time'];
+            $array = array('duration' => $duration, 'discount_price' => $data['discount_price'], 'discount' => $data['is_discount']);
             //print_r($array);die;
-            $res = M('product')->where('id='.$data['id'])->save($array);
+            $res = M('product')->where('id=' . $data['id'])->save($array);
             if ($res) {
                 $this->success('编辑成功', U('Admin/Shop/product'));
-            }else{
+            } else {
                 $this->error();
             }
-        }else{
+        } else {
             $id = I('get.id');
-            $product = M('product')->field('id,discount,price,discount_price,duration')->where('id='.$id)->find();
-            $start_time = substr($product['duration'],0,10);
-            $end_time = substr($product['duration'],11);
-            $start_time = str_replace('.','-',$start_time);
-            $end_time = str_replace('.','-',$end_time);
+            $product = M('product')->field('id,discount,price,discount_price,duration')->where('id=' . $id)->find();
+            $start_time = substr($product['duration'], 0, 10);
+            $end_time = substr($product['duration'], 11);
+            $start_time = str_replace('.', '-', $start_time);
+            $end_time = str_replace('.', '-', $end_time);
             $product['start_time'] = $start_time;
             $product['end_time'] = $end_time;
-            
-            $this->assign('product',$product);
+
+            $this->assign('product', $product);
             $this->display();
         }
     }
@@ -581,7 +636,7 @@ class ShopController extends PublicController
     public function category()
     {
         $category = M('category')->select();
-        $this->assign('category',$category);
+        $this->assign('category', $category);
         $this->display();
     }
 
@@ -596,13 +651,13 @@ class ShopController extends PublicController
         $result = array();
         $res = M('category')->where($where)->find();
         if ($res) {
-            $result = array('code'=>-1,'msg'=>'分类已存在','value'=>'');
-        }else{
+            $result = array('code' => -1, 'msg' => '分类已存在', 'value' => '');
+        } else {
             $res = M('category')->add($where);
             if ($res) {
-                $result = array('code'=>1,'msg'=>'添加成功','value'=>$res);
-            }else{
-                $result = array('code'=>2,'msg'=>'添加失败','value'=>'');
+                $result = array('code' => 1, 'msg' => '添加成功', 'value' => $res);
+            } else {
+                $result = array('code' => 2, 'msg' => '添加失败', 'value' => '');
             }
         }
         echo json_encode($result);
