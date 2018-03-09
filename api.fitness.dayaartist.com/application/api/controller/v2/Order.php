@@ -46,7 +46,19 @@ class Order extends BaseController
         (new OrderPlace())->goCheck();
         $products = input('post.products/a');
         $uid = Token::getCurrentUid();
-//        $uid = 1;
+//        判断用户是否符合秒杀条件
+        $courseArrange = TyCourseArrange::where('id', '=', $products[0]['product_id'])->find()->toArray();
+        if ($courseArrange['is_seckill'] == 1) {
+            $orderInfor = OrderModel::where('time_id', '=', $products[0]['product_id'])->where('user_id', '=', $uid)->find()->toArray();
+            if ($orderInfor) {
+                return [
+                    'code' => 400,
+                    'data' => '',
+                    'msg' => '用户不符合秒杀条件！'
+                ];
+            }
+        }
+        //        $uid = 1;
         $order = new OrderService();
         $status = $order->place($uid, $products);
         return $status;
