@@ -13,6 +13,9 @@ namespace app\api\controller\v2;
 use app\api\controller\BaseController;
 use app\api\model\BoxCourse;
 use app\api\model\BoxServiceTime;
+use app\api\model\BoxMemberService;
+use app\api\model\TyVenueBranch;
+use app\api\model\TyCourseArrange;
 use app\api\model\Order as OrderModel;
 use app\api\service\Order as OrderService;
 use app\api\service\Token;
@@ -23,6 +26,7 @@ use app\lib\exception\OrderException;
 use app\lib\exception\SuccessMessage;
 use think\Controller;
 use think\Db;
+use Qrcode\Qrcode;
 
 class Order extends BaseController
 {
@@ -65,7 +69,26 @@ class Order extends BaseController
             throw new OrderException();
         }
 //        print_r($orderDetail);die;
-        return $orderDetail->toArray();
+//        增加用户名称地址信息
+        $orderDetail->toArray();
+        $memberService = BoxMemberService::where('id', '=', $orderDetail['time'])->find()->toArray();
+        $venueBranch = TyVenueBranch::where('id', '=', $orderDetail['supplier_id'])->find()->toArray();
+        $courseArrange = TyCourseArrange::where('id', '=', $orderDetail['time_id'])->find()->toArray();
+        $orderDetail['userName'] = $memberService['yname'];
+        $orderDetail['userTel'] = $memberService['ytel'];
+        $orderDetail['address'] = $venueBranch['address'];
+        $orderDetail['time'] = $courseArrange['dates'] . '    ' . date('h:i', $courseArrange['start_time']) . '-' . date('h:i', $courseArrange['end_time']);
+//增加二维码
+        $qrcode = [
+            'order_no' => $orderDetail['order_no']
+        ];
+        $qrcode['sign'] = md5(json_encode($qrcode) . 'fitness');
+        // ini_set('display_errors','on');
+        ob_start();
+        Qrcode::png(json_encode($qrcode));
+        $orderDetail['qrcode'] = 'data:image/jpg;base64,' . base64_encode(ob_get_contents());
+        ob_end_clean();
+        return $orderDetail;
     }
 
     /**
@@ -247,7 +270,7 @@ class Order extends BaseController
     public function getOrder($num)
     {
         $data = Db::table('order')->order('id desc')->limit($num)->column('order_no');
-        foreach ($data as $value){
+        foreach ($data as $value) {
             echo $value;
             echo "<br/>";
         }
