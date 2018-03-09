@@ -12,8 +12,10 @@ namespace app\api\controller\v2;
 
 use app\api\validate\IDMustBePositiveInt;
 use think\Controller;
+use app\api\service\Token;
 use app\api\model\TyVenueBranch as VenueBranch;
 use app\api\model\TyImg as ImgModel;
+use app\api\model\TyCollection as CollectionModel;
 
 class Venue extends Controller
 {   
@@ -27,6 +29,8 @@ class Venue extends Controller
     public function getVenueList($longitude,$latitude)
     {
         $data = VenueBranch::VenueList();
+        $uid = Token::getCurrentUid();
+
         if (empty($data)) {
             return [
                 'code' => 404,
@@ -35,15 +39,25 @@ class Venue extends Controller
         }
         
         foreach ($data as $key => $v) {
-            if (empty($v['collection'])) {
-                $data[$key]['collection'] = array('status'=>2);
-            }
             $distance = getdistances($longitude,$latitude,$v['longitude'],$v['latitude']);
             $data[$key]['distance'] = round($distance/1000,2).'km';
             $main_img = ImgModel::getOneImg($v['main_img_id']);
             $logo_img = ImgModel::getOneImg($v['logo_id']);
             $data[$key]['main_img'] = $main_img['img_url'];
             $data[$key]['log_img'] = $logo_img['img_url'];
+
+            $collect = CollectionModel::getUserCollect($uid,$v['id']);
+            if (empty($collect)) {
+                $data[$key]['collect'] = 2;
+            }else{
+                if ($collect['status'] == 2) {
+                    $data[$key]['collect'] = 2;
+                }else{
+                    $data[$key]['collect'] = 1;
+                }
+            }
+
+
         }
 
         sortArrByOneField($data,'distance',false);

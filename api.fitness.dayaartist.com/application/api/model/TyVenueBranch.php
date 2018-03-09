@@ -27,7 +27,7 @@ class TyVenueBranch extends BaseModel
      */
     public static function VenueList()
     {
-    	$venue = self::with('collection')->select()->toArray();
+    	$venue = self::select()->toArray();
     	return $venue;
     }
 
