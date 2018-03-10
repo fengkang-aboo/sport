@@ -33,27 +33,28 @@
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>角色：</label>
             <div class="formControls col-xs-8 col-sm-3">
-                <span class="select-box" style="width:100%">
-                <select name="role_id" class="select" id="role">
-                    <option value="0">请选择</option>
-                    <option value="1">超级管理员</option>
-                    <option value="2">普通管理员</option>
-                    <option value="3">供应商</option>
-                </select>
-            </span>
+                <input type="text" class="input-text" name="name" disabled="true" id="name" value="{$role.role_name}">
+                <input type="hidden" name="role_id" value="{$role.id}" id='role_id'>
             </div>
         </div>
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>选择权限：</label>
-            <div class="formControls col-xs-8 col-sm-3" id="add_auth">
+            <div class="formControls col-xs-8 col-sm-3">
                 <span class="select-box" style="width:100%;margin-bottom: 10px">
-                    <select class="select" id="auth_pid">
+                    <select class="select" id="auth_pid" name='auth_pid'>
                         <option value="0">请选择</option>
                         <volist name="auth" id="v" empty="暂时没有数据">
                             <option value="{$v.id}">{$v.auth_name}</option>
                         </volist>
                     </select>
                 </span>
+            </div>
+        </div>
+
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3"></label>
+            <div class="formControls col-xs-8 col-sm-3" id="add_auth">
+                
             </div>
         </div>
         
@@ -66,14 +67,6 @@
 </div>
 <!--_footer 作为公共模版分离出去-->
 <script type="text/javascript" src="__PUBLIC__/admin/lib/jquery/1.9.1/jquery.min.js"></script>
-<script type="text/javascript" src="__PUBLIC__/admin/lib/layer/2.4/layer.js"></script>
-<script type="text/javascript" src="__PUBLIC__/admin/static/h-ui/js/H-ui.min.js"></script>
-<script type="text/javascript" src="__PUBLIC__/admin/static/h-ui.admin/js/H-ui.admin.js"></script> <!--/_footer 作为公共模版分离出去-->
-
-<!--请在下方写此页面业务相关的脚本-->
-<script type="text/javascript" src="__PUBLIC__/admin/lib/My97DatePicker/4.8/WdatePicker.js"></script>
-<script type="text/javascript" src="__PUBLIC__/admin/lib/datatables/1.10.0/jquery.dataTables.min.js"></script>
-<script type="text/javascript" src="__PUBLIC__/admin/lib/laypage/1.2/laypage.js"></script>
 
 <script>
     $('#auth_pid').on('change',function(){
@@ -81,7 +74,7 @@
         if (auth_pid == 0) {
             alert('请选择一级权限');return;
         }
-        var str = '<span class="select-box" style="width:100%"><select class="select" name="auth_id"><option value="0">请选择</option>';
+        var str = '<span class="select-box" style="width:100%"><select class="select" name="auth_id"><option value="-1">请选择</option>';
         $.ajax({
             url : 'two_auth',
             type : 'GET',
@@ -89,22 +82,22 @@
             dataType : 'json',
             success : function(data){
                 if (data.status == 0) {
-                    alert(data.message+',只有一级权限');
+                    alert('只有一级权限');
                 }else{
                     $.each(data.data,function(i,v){
                         str += '<option value="'+v.id+'">'+ v.auth_name +'</option>'
                     })
                     str += '</select></span>';
-                    $('#add_auth').append(str);
+                    $('#add_auth').html(str);
                 }
             }
         })
     })
 
     function ac_from(){
-        var role=document.getElementById('role').value;
-        if(!role){
-            alert('请选择角色！');
+        var role_id=document.getElementById('role_id').value;
+        if(!role_id){
+            alert('非法操作');
             return false;
         }
 

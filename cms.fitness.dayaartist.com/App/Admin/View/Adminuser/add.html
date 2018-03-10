@@ -48,9 +48,9 @@
             <span class="select-box" style="width:100%">
                 <select name="role_id" class="select" id="role">
                     <option value="0">请选择</option>
-                    <option value="1">超级管理员</option>
-                    <option value="2">普通管理员</option>
-                    <option value="3">供应商</option>
+                    <volist name="role" id="v" empty="暂时没有数据">
+                        <option value="{$v.id}">{$v.role_name}</option>
+                    </volist>
                 </select>
             </span>
             </div>
@@ -91,7 +91,7 @@
 <script>
     $('#role').on('change',function(){
         var role_id = $(this).val();
-        if (role_id == 3) {
+        if (role_id == 2) {
             $('#supplier').show();
         }else{
             $('#supplier').hide();

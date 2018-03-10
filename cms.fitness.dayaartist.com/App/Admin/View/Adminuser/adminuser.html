@@ -35,8 +35,9 @@
                 <th width="20"><input name="" type="checkbox" value=""></th>
                 <th width="40">ID</th>
                 <th width="150">账户名</th>
-                <th width="130">注册时间</th>
                 <th width="150">角色</th>
+                <th width="130">注册时间</th>
+                <th width="130">状态</th>
                 <th width="100">操作</th>
             </tr>
             </thead>
@@ -46,11 +47,14 @@
                     <td><input name="" type="checkbox" value=""></td>
                     <td>{$v.id}</td>
                     <td>{$v.name}</td>
-                    <td>{$v.addtime}</td>
                     <td>{$v.role_name}</td>
+                    <td>{$v.addtime}</td>
+                    <td>
+                        <if condition="$v.del eq 1 ">正常<else /> 已删除</if>
+                    </td>
                     <td class="obj_1">
                         <a href="{:U('Adminuser/add')}?id={$v.id}">修改</a> |
-                        <a onclick='del_id_urls({$v.id}'>删除</a>
+                        <a href="{:U('Adminuser/del')}?id={$v.id}">删除</a>
                     </td>
                 </tr>
             </volist>
