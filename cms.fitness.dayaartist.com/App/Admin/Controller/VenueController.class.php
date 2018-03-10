@@ -7,44 +7,58 @@ use Think\Controller;
 class VenueController extends PublicController
 {
     //***********************************
-    // 场馆列表
+    // 场馆
     //**********************************
     public function venue_index()
     {
-        $venue = M('ty_venue_branch as venue')->field('venue.*,ty_img.img_url')->join('ty_img on venue.main_img_id=ty_img.id')->select();
+        $venue = M('ty_venue as venue')->select();
         $count = count($venue);
         $this->assign('venue',$venue);
         $this->assign('count',$count);
         $this->display();
     }
 
-	//***********************************
+    //***********************************
     // 添加场馆
     //**********************************
     public function add_venue()
     {
-    	if (IS_POST) {
-    		$data = I('post.');
-    		$data['create_time'] = time();
-    		$supplier_id = M('box_supplier')->add($data);
+        if (IS_POST) {
+            $data = I('post.');
+            $data['create_time'] = time();
+            $supplier_id = M('box_supplier')->add($data);
 
-    		$cs_data = array('sid'=>(int)$data['sid'],'supplier_id'=>$supplier_id,'create_time'=>time());
-    		$cs_id = M('box_course_supplier')->add($cs_data);
+            $cs_data = array('sid'=>(int)$data['sid'],'supplier_id'=>$supplier_id,'create_time'=>time());
+            $cs_id = M('box_course_supplier')->add($cs_data);
 
-    		if ($supplier && $cs_id) {
-    			$this->success('编辑成功', U('Admin/Supplier/index'));
-    		}else{
-    			$this->error('添加失败，请重新添加');
-    		}
-    	}else{
-    		/*//分店信息
-    		$chain_data = M('chain')->select();
-    		//分类信息
-    		$category_data = M('category')->select();
-	    	$this->assign('chain_data',$chain_data);
-	    	$this->assign('category_data',$category_data);*/
-	    	$this->display();
-    	}
+            if ($supplier && $cs_id) {
+                $this->success('编辑成功', U('Admin/Supplier/index'));
+            }else{
+                $this->error('添加失败，请重新添加');
+            }
+        }else{
+            /*//分店信息
+            $chain_data = M('chain')->select();
+            //分类信息
+            $category_data = M('category')->select();
+            $this->assign('chain_data',$chain_data);
+            $this->assign('category_data',$category_data);*/
+            $this->display();
+        }
+    }
+
+    //***********************************
+    // 场馆列表
+    //**********************************
+    public function venue_branch_index()
+    {
+        $venue_id = $_GET['id'];
+        $where['venue_id'] = $venue_id;
+        $venue = M('ty_venue_branch as venue')->field('venue.*,ty_img.img_url')->join('ty_img on venue.main_img_id=ty_img.id')->where($where)->select();
+        $count = count($venue);
+        $this->assign('venue',$venue);
+        $this->assign('count',$count);
+        $this->display();
     }
 
     //***********************************

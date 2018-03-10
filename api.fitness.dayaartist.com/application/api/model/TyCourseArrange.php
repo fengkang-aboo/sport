@@ -54,7 +54,7 @@ class TyCourseArrange extends BaseModel
     public static function CourseTimeList($id,$start_date,$end_date)
     {
         //$CourseTime = self::where('venue_branch_id',$id)->whereTime('dates','between',['2018-02-05','2018-02-11'])->select();
-        $CourseTimeL = self::with(['course','teacher'])->where('venue_branch_id',$id)->where('dates','>',$start_date)->where('dates','<',$end_date)->select();
+        $CourseTimeL = self::with(['course','teacher'])->where('venue_branch_id',$id)->where('dates','>',$start_date)->where('dates','<',$end_date)->where('is_seckill',0)->select();
     	return $CourseTimeL;
     }
 
@@ -109,9 +109,9 @@ class TyCourseArrange extends BaseModel
         return $Course;
     }
 
-    public static function getSeckillList($time)
+    public static function getSeckillList($date)
     {
-        $data = self::with(['course','venue'])->where('start_time','>',time())->where('seckill_time',$time)->where('is_seckill',1)->select();
+        $data = self::with(['course','venue'])->where('dates',$date)->where('is_seckill',1)->select();
         return $data;
     }
 }

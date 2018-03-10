@@ -26,11 +26,11 @@ class Venue extends Controller
      * @return \think\Paginator
      * @throws ThemeException
      */
-    public function getVenueList($longitude,$latitude)
+    public function getVenueList($longitude='116.403963',$latitude='39.915119')
     {
         $data = VenueBranch::VenueList();
         $uid = Token::getCurrentUid();
-
+        
         if (empty($data)) {
             return [
                 'code' => 404,
@@ -40,7 +40,7 @@ class Venue extends Controller
         
         foreach ($data as $key => $v) {
             $distance = getdistances($longitude,$latitude,$v['longitude'],$v['latitude']);
-            $data[$key]['distance'] = round($distance/1000,2).'km';
+            $data[$key]['distance'] = round($distance/1000,2);
             $main_img = ImgModel::getOneImg($v['main_img_id']);
             $logo_img = ImgModel::getOneImg($v['logo_id']);
             $data[$key]['main_img'] = $main_img['img_url'];
@@ -56,11 +56,9 @@ class Venue extends Controller
                     $data[$key]['collect'] = 1;
                 }
             }
-
-
         }
-
         sortArrByOneField($data,'distance',false);
+
         return $data;
     }
 

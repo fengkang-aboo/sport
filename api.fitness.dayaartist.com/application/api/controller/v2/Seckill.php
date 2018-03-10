@@ -24,26 +24,25 @@ class Seckill extends Controller
      * @throws ThemeExceptio
      */
     public function seckillList()
-    {
-        $time = date('H:i',time());
-        if ($time < '12:00') {
-            $time = '11:00-12:00';
-            $start_time = '11:00';
-            $end_time = '12:00';
-        }else{
-            $time = '18:00-19:00';
-            $start_time = '18:00';
-            $end_time = '19:00';
+    {   
+        $seckillListData = array();
+        $date = date('Y-m-d',strtotime('+1 day'));
+
+        $seckillList = CourseArrange::getSeckillList($date);
+        if (count($seckillList) < 1) {
+            return [
+                'code' => 404,
+                'data' => ''
+            ];
         }
 
-        $seckillList = CourseArrange::getSeckillList($time);
-        //print_r($seckillList->toArray());die;
-        if (empty($seckillList)) {
-            return '';die;
+        $time = date('H:i');
+        if ($time > '08:00' && $time < '22:00') {
+            $seckillListData['status'] = 1;
+        }else{
+            $seckillListData['status'] = 2;
         }
-        $seckillListData = array();
-        $seckillListData['start_time'] = $start_time;
-        $seckillListData['end_time'] = $end_time;
+
         // print_r($data->toArray());die;
         foreach ($seckillList as $key => $v) {
             $courseImg = ImgModel::getOneImg($v['course']['main_img_id']); //课程图片
@@ -53,7 +52,7 @@ class Seckill extends Controller
                 'course_img' => $courseImg['img_url'],
                 'course_name' => $v['course']['name'],
                 'venue_name' => $v['venue']['name'],
-                'price' => $v['course']['discount_price'],
+                'price' => $v['course']['price'],
                 'seckill_price' => $v['seckill_price'],
                 'date' => date('Y.m.d',$v['start_time']).' '.date('H:i',$v['start_time']).'-'.date('H:i',$v['end_time']),
             );

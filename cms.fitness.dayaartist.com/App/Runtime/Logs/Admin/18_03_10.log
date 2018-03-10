@@ -1,0 +1,61 @@
+[ 2018-03-10T15:24:51+08:00 ] 127.0.0.1 /index.php/Admin/Venue/venue_index.html
+NOTIC: [8] Use of undefined constant SHOW_PAGE_TRACE - assumed 'SHOW_PAGE_TRACE' /Applications/MAMP/htdocs/sport/cms.fitness.dayaartist.com/App/Common/Conf/debug.php 第 4 行.
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000079s ]
+ERR: SQLSTATE[HY000] [1049] Unknown database 'fitness'
+
+[ 2018-03-10T15:25:31+08:00 ] 127.0.0.1 /index.php/Admin/Venue/venue_index.html
+NOTIC: [8] Use of undefined constant SHOW_PAGE_TRACE - assumed 'SHOW_PAGE_TRACE' /Applications/MAMP/htdocs/sport/cms.fitness.dayaartist.com/App/Common/Conf/debug.php 第 4 行.
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000084s ]
+
+[ 2018-03-10T15:26:12+08:00 ] 127.0.0.1 /index.php/Admin/Venue/venue_index.html
+NOTIC: [8] Use of undefined constant SHOW_PAGE_TRACE - assumed 'SHOW_PAGE_TRACE' /Applications/MAMP/htdocs/sport/cms.fitness.dayaartist.com/App/Common/Conf/debug.php 第 4 行.
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000028s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000102s ]
+
+[ 2018-03-10T15:26:22+08:00 ] 127.0.0.1 /index.php/Admin/Venue/venue_index.html
+NOTIC: [8] Use of undefined constant SHOW_PAGE_TRACE - assumed 'SHOW_PAGE_TRACE' /Applications/MAMP/htdocs/sport/cms.fitness.dayaartist.com/App/Common/Conf/debug.php 第 4 行.
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000064s ]
+
+[ 2018-03-10T15:26:37+08:00 ] 127.0.0.1 /index.php/Admin/Venue/venue_index.html
+NOTIC: [8] Use of undefined constant SHOW_PAGE_TRACE - assumed 'SHOW_PAGE_TRACE' /Applications/MAMP/htdocs/sport/cms.fitness.dayaartist.com/App/Common/Conf/debug.php 第 4 行.
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000065s ]
+
+[ 2018-03-10T15:34:01+08:00 ] 127.0.0.1 /index.php/Admin/Venue/venue_index.html
+NOTIC: [8] Use of undefined constant SHOW_PAGE_TRACE - assumed 'SHOW_PAGE_TRACE' /Applications/MAMP/htdocs/sport/cms.fitness.dayaartist.com/App/Common/Conf/debug.php 第 4 行.
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000074s ]
+
+[ 2018-03-10T15:47:39+08:00 ] 127.0.0.1 /index.php/Admin/Venue/venue_index.html
+NOTIC: [8] Use of undefined constant SHOW_PAGE_TRACE - assumed 'SHOW_PAGE_TRACE' /Applications/MAMP/htdocs/sport/cms.fitness.dayaartist.com/App/Common/Conf/debug.php 第 4 行.
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000070s ]
+
+[ 2018-03-10T15:47:40+08:00 ] 127.0.0.1 /index.php/Admin/Venue/venue_branch_index.html?id=3
+NOTIC: [8] Use of undefined constant SHOW_PAGE_TRACE - assumed 'SHOW_PAGE_TRACE' /Applications/MAMP/htdocs/sport/cms.fitness.dayaartist.com/App/Common/Conf/debug.php 第 4 行.
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000073s ]
+
+[ 2018-03-10T15:53:03+08:00 ] 127.0.0.1 /index.php/Admin/Venue/venue_index.html
+NOTIC: [8] Use of undefined constant SHOW_PAGE_TRACE - assumed 'SHOW_PAGE_TRACE' /Applications/MAMP/htdocs/sport/cms.fitness.dayaartist.com/App/Common/Conf/debug.php 第 4 行.
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000072s ]
+
+[ 2018-03-10T15:53:08+08:00 ] 127.0.0.1 /index.php/Admin/Venue/add_venue.html
+NOTIC: [8] Use of undefined constant SHOW_PAGE_TRACE - assumed 'SHOW_PAGE_TRACE' /Applications/MAMP/htdocs/sport/cms.fitness.dayaartist.com/App/Common/Conf/debug.php 第 4 行.
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000066s ]
+
