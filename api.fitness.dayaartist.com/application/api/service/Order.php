@@ -219,8 +219,13 @@ class Order
             $pStatus['counts'] = $oCount;
             $pStatus['price'] = $product['course']['discount_price'];
             $pStatus['main_img_url'] = $product['teacher']['img'];
-            $pStatus['totalPrice'] = $product['course']['discount_price'] * $oCount;
-
+            if (!empty($product['seckill_price'])) {
+                $pStatus['totalPrice'] = $product['seckill_price'] * $oCount;
+            } elseif (!empty($product['course']['discount_price'])) {
+                $pStatus['totalPrice'] = $product['course']['discount_price'] * $oCount;
+            } else {
+                $pStatus['totalPrice'] = $product['course']['price'] * $oCount;
+            }
             if ($product['stock'] - $oCount >= 0) {
                 $pStatus['haveStock'] = true;
             }
