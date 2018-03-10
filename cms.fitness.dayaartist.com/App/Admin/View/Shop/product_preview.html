@@ -129,7 +129,7 @@
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-2">商品图片：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <img src="{$product_data.main_img_url}" width='200'>
+                <img src="__ROOT__{$product_data.main_img_url}" width='200'>
             </div>
         </div>
 
@@ -144,7 +144,7 @@
         <div class="row cl" <if condition="$product_data.hot eq 2"> style="display: none" </if> >
             <label class="form-label col-xs-4 col-sm-2">首页展示图片：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <img src="{$product_data.home_img_url}" width='200'>
+                <img src="__ROOT__{$product_data.home_img_url}" width='200'>
             </div>
         </div>
 

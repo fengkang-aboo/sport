@@ -196,7 +196,7 @@ class ShopController extends PublicController
 
                     if ($product_id) {
 
-                        /*if ($data['summary'] == 1) {
+                        if ($data['summary'] == 1) {
                             //添加预约时间
                             if (!empty(($data['about_stime'][0]))) {
                                 for ($i = 0; $i < count($data['about_stime']); $i++) {
@@ -204,7 +204,7 @@ class ShopController extends PublicController
                                 }
                                 $product_time = M('product_time')->addAll($about_array);
                             }
-                        }*/
+                        }
 
 
                         //添加产品参数
@@ -346,12 +346,12 @@ class ShopController extends PublicController
                 $pro_res = M('product')->where('id=' . $data['product_id'])->save($pro_array);
 
                 //添加预约时间
-                /*if (!empty(($data['about_stime'][0]))) {
+                if (!empty(($data['about_stime'][0]))) {
                     for ($i = 0; $i < count($data['about_stime']); $i++) {
                         $about_array[] = array('start_time' => $data['about_stime'][$i], 'end_time' => $data['about_etime'][$i], 'product_id' => $data['product_id']);
                     }
                     $time_res = M('product_time')->addAll($about_array);
-                }*/
+                }
 
                 if (!empty($data['feature'])) {
                     //添加商品规格
@@ -506,11 +506,11 @@ class ShopController extends PublicController
 
                 $data = I('post.');
 
-                /*if (empty(($data['about_stime'][0]))) {
+                if (empty(($data['about_stime'][0]))) {
                     throw new \Exception('可预约时间不能为空');
                     exit();
                 }
-*/
+
                 for ($i = 0; $i < count($data['about_stime']); $i++) {
                     if (strtotime($data['about_stime'][$i]) > strtotime($data['end_time']) || strtotime($data['about_etime'][$i]) > strtotime($data['end_time'])) {
                         throw new \Exception('不在预约范围内,请重新添加');

@@ -68,7 +68,7 @@
                         <if condition="$v.name neq null">
                             {$v.name}
                             <else/>
-                            未填写
+                            未授权
                         </if>
                     </td>
                     <td>
@@ -77,7 +77,7 @@
                             <elseif condition="$v.gender eq 2"/>
                             <span>女</span>
                             <else/>
-                            <span>未填写</span>
+                            <span>未授权</span>
                         </if>
                     </td>
                     <td>
@@ -98,7 +98,7 @@
                         <if condition="$v.province neq null">
                             {$v.province}{$v.city}{$v.country}{$v.detail}
                             <else/>
-                            未授权
+                            未填写
                         </if>
                     </td>
                     <td>{$v.create_time}</td>
