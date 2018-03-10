@@ -95,15 +95,17 @@ class Order extends BaseController
         $orderDetail['address'] = $venueBranch['address'];
         $orderDetail['time'] = $courseArrange['dates'] . '    ' . date('h:i', $courseArrange['start_time']) . '-' . date('h:i', $courseArrange['end_time']);
 //增加二维码
-        $qrcode = [
-            'order_no' => $orderDetail['order_no']
-        ];
-        $qrcode['sign'] = md5(json_encode($qrcode) . 'fitness');
-        // ini_set('display_errors','on');
-        ob_start();
-        Qrcode::png(json_encode($qrcode));
-        $orderDetail['qrcode'] = 'data:image/jpg;base64,' . base64_encode(ob_get_contents());
-        ob_end_clean();
+        if ($orderDetail['status'] == 2) {
+            $qrcode = [
+                'order_no' => $orderDetail['order_no']
+            ];
+            $qrcode['sign'] = md5(json_encode($qrcode) . 'fitness');
+            // ini_set('display_errors','on');
+            ob_start();
+            Qrcode::png(json_encode($qrcode));
+            $orderDetail['qrcode'] = 'data:image/jpg;base64,' . base64_encode(ob_get_contents());
+            ob_end_clean();
+        }
         return $orderDetail;
     }
 
@@ -294,25 +296,3 @@ class Order extends BaseController
 //        print_r($data);
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
