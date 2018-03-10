@@ -1,76 +1,71 @@
 <!--pages/search/search.wxml-->
 <view class='container'>
-  <view class='search'>
-    <image class='search-img' src='/images/icon/ico_search.png'></image>
-    <input class='search-input' confirm-type="search" bindinput='onInput' bindconfirm='search' placeholder='搜索你想去的健身俱乐部'></input>
-  </view>
-
-  <view class="tabs-box">
-    <block wx:for="{{['课程','场馆']}}">
-      <view bindtap="onTabsItemTap" data-index="{{index}}" class="tabs-item {{currentTabsIndex==index?'selected':''}}">
-        {{item}}
-      </view>
-    </block>
-  </view>
-
-  <view class='recommend' hidden="{{isSearch||!currentTabsIndex==0}}">
-    <block wx:for="{{hotLesson}}">
-      <view class='recommend-item' bindtap='lessonLabel' data-id="{{item.id}}">{{item.name}}</view>
-    </block>
-  </view>
-  <view class='recommend' hidden="{{isSearch||!currentTabsIndex==1}}">
-    <block wx:for="{{hotClub}}">
-      <view class='recommend-item' bindtap='clubLabel' data-id="{{item}}">{{item}}</view>
-    </block>
-  </view>
-
-  <view class='box'>
-    <view class='lesson-list' hidden='{{!currentTabsIndex==0}}'>
-      <block hidden="{{lessonList}}" wx:for="{{lessonList}}">
-        <view class='lesson' data-id='{{item.time_id}}' bindtap='lessonTap'>
-          <image class='lesson-img' src='{{item.course_img}}'></image>
-          <view class='lesson-content'>
-            <view class='lesson-name'>{{item.course_name}}</view>
-            <view class='lesson-teacher'>{{item.teacher_name?item.teacher_name:'\t'}}</view>
-            <view class='lesson-desc'>
-              <view class='lesson-time'>{{item.time}}</view>
-              <view class='lesson-price'>￥{{item.price}}</view>
-            </view>
-          </view>
-          <view class='lesson-btn'>{{item.venue_key_word}}</view>
-        </view>
-      </block>
-      <block wx:if="{{lessonList.length==0&&isSearch}}">
-        <view class='empty'>
-          <image src='/images/icon/empty.jpg'></image>
-        </view>
-      </block>
+    <view class='search'>
+        <image class='search-img' src='/images/icon/ico_search.png'></image>
+        <input class='search-input' confirm-type="search" bindinput='onInput' bindconfirm='search' placeholder='搜索你想去的健身俱乐部'></input>
     </view>
 
-    <view class='club-list' hidden='{{!currentTabsIndex==1}}'>
-      <block hidden="{{clubList}}" wx:for="{{clubList}}">
-        <view class='club' data-id='{{item.venue_id}}' bindtap='clubTap'>
-          <image class='club-bg' src='{{item.main_img}}' mode="aspectFill"></image>
-          <view class='club-bg2'></view>
-          <view class='club-content'>
-            <image class='club-logo' src='{{item.log_img}}'></image>
-            <view class='club-text'>
-              <view class='club-title'>{{item.name}}</view>
-              <view class='club-desc'>
-                <text class='club-address'>{{item.address}}</text>
-                <text class='club-distance'>{{item.distance}}</text>
-              </view>
+    <view class="tabs-box">
+        <block wx:for="{{['课程','场馆']}}">
+            <view bindtap="onTabsItemTap" data-index="{{index}}" class="tabs-item {{currentTabsIndex==index?'selected':''}}">
+                {{item}}
             </view>
-          </view>
-        </view>
-      </block>
-      <block wx:if="{{clubList.length==0&&isSearch}}">
-        <view class='empty'>
-          <image src='/images/icon/empty.jpg'></image>
-        </view>
-      </block>
+        </block>
     </view>
 
-  </view>
+    <view class='recommend' hidden="{{isSearch||!currentTabsIndex==0}}">
+        <block wx:for="{{hotLesson}}">
+            <view class='recommend-item' bindtap='lessonLabel' data-id="{{item.id}}">{{item.name}}</view>
+        </block>
+    </view>
+    <view class='recommend' hidden="{{isSearch||!currentTabsIndex==1}}">
+        <block wx:for="{{hotClub}}">
+            <view class='recommend-item' bindtap='clubLabel' data-id="{{item}}">{{item}}</view>
+        </block>
+    </view>
+
+    <view class='box'>
+        <view class='lesson-list' hidden='{{!currentTabsIndex==0}}'>
+            <block hidden="{{lessonList}}" wx:for="{{lessonList}}">
+                <view class='lesson' data-id='{{item.time_id}}' bindtap='lessonTap'>
+                    <image class='lesson-img' src='{{item.course_img}}'></image>
+                    <view class='lesson-content'>
+                        <view class='lesson-name'>{{item.course_name}}</view>
+                        <view class='lesson-teacher'>{{item.teacher_name?item.teacher_name:'\t'}}</view>
+                        <view class='lesson-desc'>
+                            <view class='lesson-time'>{{item.time}}</view>
+                            <view class='lesson-price'>￥{{item.price}}</view>
+                        </view>
+                    </view>
+                    <view class='lesson-btn'>{{item.venue_key_word}}</view>
+                </view>
+            </block>
+            <block wx:if="{{lessonList.length==0&&isSearch}}">
+                <view class='empty'>
+                    <image src='/images/icon/empty.jpg'></image>
+                </view>
+            </block>
+        </view>
+
+        <view class='club-list' hidden='{{!currentTabsIndex==1}}'>
+            <block hidden="{{clubList}}" wx:for="{{clubList}}">
+                <view class='club' data-id='{{item.venue_id}}' bindtap='clubTap'>
+                    <image class='club-bg' src='{{item.main_img}}' mode="aspectFill"></image>
+                    <view class='club-bg2'></view>
+                    <view class='club-content'>
+                        <image class='club-logo' src='{{item.log_img}}' mode='aspectFill'></image>
+                        <view class='club-title'>{{item.name}}</view>
+                        <view class='club-distance'>{{item.distance}}km</view>
+                    </view>
+                </view>
+            </block>
+            <block wx:if="{{clubList.length==0&&isSearch}}">
+                <view class='empty'>
+                    <image src='/images/icon/empty.jpg'></image>
+                </view>
+            </block>
+        </view>
+
+    </view>
 
 </view>

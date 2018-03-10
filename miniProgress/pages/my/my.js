@@ -58,15 +58,27 @@ Page({
 														})
 													},
 												})
+											}else{
+												that.setData({
+													loadingHidden: true,
+													nickName: '区块练',
+													avatarUrl: '../../images/icon/user@default.png',
+												})
 											}
 										},
 										fail: function (res) {
 											that.setData({
 												loadingHidden: true,
-												nickName: 'Literature',
+												nickName: '区块练',
 												avatarUrl: '../../images/icon/user@default.png',
 											})
 										}
+									})
+								}else{
+									that.setData({
+										loadingHidden: true,
+										nickName: '区块练',
+										avatarUrl: '../../images/icon/user@default.png',
 									})
 								}
 							}
@@ -77,7 +89,7 @@ Page({
 			fail: function () {
 				that.setData({
 					loadingHidden: true,
-					nickName: 'Literature',
+					nickName: '区块练',
 					avatarUrl: '../../images/icon/user@default.png',
 				})
 			}
@@ -101,71 +113,49 @@ Page({
 		})
 	},
 
-	//获取用户地址信息
-	// _getUserAddressInfo: function () {
-	// 	address.getAddress((res) => {
-	// 		this._bindAddressInfo(res);
-	// 	})
-	// },
-	//绑定用户地址信息
-	// _bindAddressInfo: function (res) {
-	// 	this.setData({
-	// 		addressInfo: res
-	// 	})
-	// },
-	/*修改或者添加地址信息*/
-	// editAddress: function (event) {
-	// 	var that = this;
-	// 	wx.chooseAddress({
-	// 		success: function (res) {
-	// 			var addressInfo = {
-	// 				name: res.userName,
-	// 				mobile: res.telNumber,
-	// 				totalDetail: address.setAddressInfo(res)
-	// 			};
-	// 			if (res.telNumber) {
-	// 				that._bindAddressInfo(addressInfo);
-	// 				//保存地址
-	// 				address.submitAddress(res, (flag) => {
-	// 					if (!flag) {
-	// 						that.showTips('操作提示', '地址信息更新失败！');
-	// 					}
-	// 				});
-	// 			}
-	// 			//模拟器上使用
-	// 			else {
-	// 				that.showTips('操作提示', '地址信息更新失败,手机号码信息为空！');
-	// 			}
-	// 		},
-	// 		fail: function (res) {
-	// 			wx.getSetting({
-	// 				success: (res) => {
-	// 					if (!res.authSetting["scope.address"]) {
-	// 						wx.showModal({
-	// 							title: '警告',
-	// 							content: '您点击了拒绝授权,将无法查看并管理地址信息，点击确定重新获取授权。',
-	// 							success: function (res) {
-	// 								if (res.confirm) {
-	// 									wx.openSetting({
-	// 										success: (res) => {
-	// 											// console.log(res);
-	// 										},
-	// 										fail: function (res) {
+	//授权管理
+	onAuthorizationTap:function(){
+		var that=this;
+		wx.openSetting({
+			success: (res) => {
+				if (res.authSetting["scope.userInfo"]) {////如果用户重新同意了授权登录
+					wx.getUserInfo({
+						success: function (res) {
+							that._postData(res);
+							that.setData({
+								nickName: res.userInfo.nickName,
+								avatarUrl: res.userInfo.avatarUrl,
+								loadingHidden: true
+							})
+						},
+					})
+				};
+				if (res.authSetting["scope.userLocation"]){
+					wx.getLocation({
+						type: 'gcj02', //返回可以用于wx.openLocation的经纬度
+						success: function (res) {
+							var latitude = res.latitude;
+							var longitude = res.longitude;
+							wx.setStorageSync('latitude', latitude)
+							wx.setStorageSync('longitude', longitude)
+						},
+						fail: function () {
+							wx.setStorageSync('latitude', 31.236134)
+							wx.setStorageSync('longitude', 121.466781)
+						}
+					})
+				}
+			},
+			fail: function (res) {
+				that.setData({
+					loadingHidden: true,
+					nickName: '区块练',
+					avatarUrl: '../../images/icon/user@default.png',
+				})
+			}
+		})
+	},
 
-	// 										}
-	// 									})
-	// 								}
-	// 							}
-	// 						})
-	// 					};
-	// 				},
-	// 				fail: function (res) {
-
-	// 				}
-	// 			})
-	// 		}
-	// 	})
-	// },
 	//进入我的订单
 	onMyOrderTap: function () {
 		wx.navigateTo({

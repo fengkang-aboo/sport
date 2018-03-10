@@ -34,21 +34,21 @@
 
   <view class='view-info'>
     <view class='title'>课程介绍</view>
-    <view class='address'>
-      {{product.course_content}}
-    </view>
+    <view class='address'>{{product.course_content}}</view>
   </view>
-
+  <view class='view-info' wx:if="{{kill}}">
+    <view class='title'>活动规则</view>
+    <view class='address'>限时5折秒杀活动，每晚9点-10点热抢！每人每天仅限一个名额，秒杀课程不可退改。</view>
+  </view>
   <view class='view-info' style='margin-bottom:100rpx;'>
     <view class='title'>注意事项</view>
-    <view class='address'>
-      商家所售课程以整堂计算，无法因迟到退款，请务必准时上课。
-    </view>
+    <view class='address'>商家所售课程以整堂计算，无法因迟到退款，请务必准时上课。</view>
   </view>
+  
 
   <view class='bottom'>
     <view wx:if="{{kill}}" class='toatl'>￥{{kill}}</view>
-    <view wx:if="{{!kill}}"  class='toatl'>￥{{product.discount_price?product.discount_price:product.price}}</view>
+    <view wx:if="{{!kill}}" class='toatl'>￥{{product.discount_price?product.discount_price:product.price}}</view>
     <view class='order' bindtap='goOrder'>立即预约</view>
   </view>
 </view>

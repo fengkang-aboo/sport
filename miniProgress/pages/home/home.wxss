@@ -54,7 +54,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  background: rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.5);
 }
 
 .item-heart {
@@ -99,6 +99,9 @@
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
   overflow: hidden;
+  font-weight: 500;
+  color: #fff;
+  flex: 1;
 }
 
 .item-desc {
@@ -118,7 +121,8 @@
 }
 
 .item-distance {
-  width: 100rpx;
+  width: 150rpx;
   font-size: 11px;
   text-align: right;
+color: #fff;
 }

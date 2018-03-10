@@ -1,26 +1,28 @@
 <!--pages/kill/kill.wxml-->
 <view class='container'>
-  <view class='kill'>
-    <block wx:for="{{killList}}">
-      <view class='item' data-kill='{{item.seckill_price}}' data-id="{{item.time_id}}" bindtap='killTap'>
-        <image class='item-img' src='{{item.course_img}}' mode='aspectFill'></image>
-        <view class='item-info'>
-          <view class='item-name'>{{item.course_name}}</view>
-          <view class='item-club'>{{item.venue_name}}</view>
-          <view class='item-bottom'>
-            <view class='price'>{{item.seckill_price}}元/次<text class="price2">{{item.price}}元</text></view>
-            <view class='time'>{{item.date}}</view>
-          </view>
-        </view>
-      </view>
-    </block>
-  </view>
-    <view class='none' hidden='{{timeUp}}'>
-    <view class='none-bg'></view>
-    <view class='none-info'>
-      <view class='none-title'>秒杀活动</view>
-      <view class='none-title'>即将开始</view>
-      <view class='none-time'>活动时间：{{startTime}}--{{endTime}}</view>
+    <view class='kill'>
+        <block wx:for="{{killList}}">
+            <view class='item' data-kill='{{item.seckill_price}}' data-id="{{item.time_id}}" bindtap='killTap'>
+                <image class='item-img' src='{{item.course_img}}' mode='aspectFill'></image>
+                <view class='item-info'>
+                    <view class='item-name'>{{item.course_name}}</view>
+                    <view class='item-club'>{{item.venue_name}}</view>
+                    <view class='item-bottom'>
+                        <view class='price'>{{item.seckill_price}}元/次
+                            <text class="price2">{{item.price}}元</text>
+                        </view>
+                        <view class='time'>{{item.date}}</view>
+                    </view>
+                </view>
+            </view>
+        </block>
     </view>
-  </view>  
+     <view class='none' hidden='{{timeUp}}'>
+        <view class='none-bg'></view>
+        <view class='none-info'>
+            <view class='none-title'>秒杀活动</view>
+            <view class='none-title'>即将开始</view>
+            <view class='none-time'>每晚9点-10点热抢！</view>
+        </view>
+    </view> 
 </view>

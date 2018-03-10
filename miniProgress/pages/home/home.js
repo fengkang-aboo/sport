@@ -11,16 +11,10 @@ Page({
 	 * 页面的初始数据
 	 */
 	data: {
-		cityName: null,
-		adcode: 0,
-		longitude: 0,
-		latitude: 0,
 		markers: []
 	},
-
-	onShow: function () {
-    wx.showNavigationBarLoading() //在标题栏中显示加载
-
+	onLoad: function () {
+		wx.showNavigationBarLoading() //在标题栏中显示加载
 		//地理定位
 		var that = this;
 		wx.getLocation({
@@ -30,28 +24,117 @@ Page({
 				var longitude = res.longitude;
 				wx.setStorageSync('latitude', latitude)
 				wx.setStorageSync('longitude', longitude)
-				//获取数据
-				that._loadData(longitude, latitude);
 				that.setData({
 					longitude: longitude,
 					latitude: latitude
 				})
+				that._loadData(longitude, latitude);
 			},
 			fail: function () {
-				Config.cityName = '北京市';
-				Config.cityCode = 0;
-				that.setData({
-					cityName: '北京市',
-					adcode: 0
-				})
+				that.retryGetLocation();
 			}
 		})
 	},
+	//重新获取地理定位
+	retryGetLocation: function () {
+		var that = this;
+		wx.showModal({
+			title: '警告',
+			content: '本服务基于您的地理位置为您推荐健身场馆，请务必开启地理定位权限！',
+			showCancel: false,
+			success: function (res) {
+				if (res.confirm) {
+					wx.openSetting({
+						success: (res) => {
+							if (res.authSetting["scope.userLocation"]) {////如果用户重新同意了授权登录
+								wx.getLocation({
+									type: 'gcj02', //返回可以用于wx.openLocation的经纬度
+									success: function (res) {
+										var latitude = res.latitude;
+										var longitude = res.longitude;
+										wx.setStorageSync('latitude', latitude)
+										wx.setStorageSync('longitude', longitude)
+										that.setData({
+											longitude: longitude,
+											latitude: latitude
+										})
+										that._loadData(longitude, latitude);
+									},
+									fail: function () {
+										wx.setStorageSync('latitude', 31.236134)
+										wx.setStorageSync('longitude', 121.466781)
+										that.setData({
+											longitude: 121.466781,
+											latitude: 31.236134
+										})
+										that._loadData(121.466781, 31.236134);
+									}
+								})
+							} else {
+								//用户依然不同意授权
+								wx.showModal({
+									title: '警告',
+									content: '您拒绝了向我们提供您的地理位置，您可以在“我的”页面重新进行授权！',
+									showCancel: false,
+									success: function () {
+										return;
+									}
+								})
+								wx.setStorageSync('latitude', 31.236134)
+								wx.setStorageSync('longitude', 121.466781)
+								that.setData({
+									longitude: 121.466781,
+									latitude: 31.236134
+								})
+								that._loadData(121.466781, 31.236134);
+							}
+						},
+						fail: function (res) {
+							wx.setStorageSync('latitude', 31.236134)
+							wx.setStorageSync('longitude', 121.466781)
+							that.setData({
+								longitude: 121.466781,
+								latitude: 31.236134
+							})
+							that._loadData(121.466781, 31.236134);
+						}
+					})
+				}
+			}
+		})
+	},
+	onShow: function () {
+		var longitude = wx.getStorageSync('longitude');
+		var latitude = wx.getStorageSync('latitude');
+		this.setData({
+			longitude: longitude,
+			latitude: latitude
+		})
+		if (longitude && latitude) {
+			wx.showNavigationBarLoading() //在标题栏中显示加载
+			this._loadData(this.data.longitude, this.data.latitude);
+		}
+	},
+	//下拉刷新
+	// onPullDownRefresh: function () {
+	// 	wx.showNavigationBarLoading() //在标题栏中显示加载
+	// 	this._loadData(longitude, latitude);
+	// },
+
+	// onReady: function () {
+	// 	wx.showNavigationBarLoading() //在标题栏中显示加载
+	// 	//获取数据
+	// 	var longitude = wx.getStorageSync('longitude');
+	// 	var latitude = wx.getStorageSync('latitude');
+	// 	if (longitude && longitude){
+	// 		this._loadData(longitude, latitude);
+	// 		console.log(123);
+	// 	}
+	// },
 
 	_loadData: function (longitude, latitude) {
 		home.getClubList(longitude, latitude, (res) => {
-      wx.hideNavigationBarLoading() //完成停止加载
-
+			wx.hideNavigationBarLoading() //完成停止加载
 			this._drawMap(res);
 			this.setData({
 				clubList: res
@@ -83,7 +166,6 @@ Page({
 			};
 			markers.push(mark)
 		}
-		// console.log(markers)
 		this.setData({
 			markers: markers
 		})
@@ -117,7 +199,7 @@ Page({
 			//已收藏，点击取消收藏
 			home.cancle(id, (res) => {
 				if (res.code == 200) {
-					this.data.clubList[index].collection.status = 2;
+					this.data.clubList[index].collect = 2;
 					this.setData({
 						clubList: this.data.clubList
 					});
@@ -142,7 +224,7 @@ Page({
 			home.add(id, (res) => {
 				console.log(res);
 				if (res.code == 200) {
-					this.data.clubList[index].collection.status = 1;
+					this.data.clubList[index].collect = 1;
 					this.setData({
 						clubList: this.data.clubList
 					});

@@ -17,7 +17,8 @@ Page({
 	/**
 	 * 生命周期函数--监听页面加载
 	 */
-	onLoad: function (options) {
+	onShow: function (options) {
+		wx.showNavigationBarLoading() //在标题栏中显示加载
 		var longitude = wx.getStorageSync('longitude');
 		var latitude = wx.getStorageSync('latitude')
 		this.setData({
@@ -29,7 +30,7 @@ Page({
 
 	_loadData: function (longitude, latitude) {
 		collection.getClubList(longitude, latitude, (res) => {
-			console.log(res);
+			wx.hideNavigationBarLoading() //完成停止加载
 			if(res.code!=404){
 				this.setData({
 					collection: res

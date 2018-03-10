@@ -17,7 +17,7 @@
     height: 180rpx;
     width: 180rpx;
     border-radius: 100%;
-    margin: 50rpx auto;
+    margin: 50rpx auto 40rpx;
 	border: solid 2px #00b4d0
 }
 

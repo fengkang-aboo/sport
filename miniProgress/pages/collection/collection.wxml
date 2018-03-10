@@ -10,7 +10,7 @@
             <view class='item-name' data-id='{{item.venue_id}}' bindtap='tap'>{{item.name}}</view>
             <view class='item-club' data-id='{{item.venue_id}}' bindtap='tap'>{{item.address}}</view>
             <view class='item-bottom'>
-              <view class='item-distance' data-id='{{item.venue_id}}' bindtap='tap'>{{item.distance}}</view>
+              <view class='item-distance' data-id='{{item.venue_id}}' bindtap='tap'>{{item.distance}}km</view>
               <image class='item-heart' data-id='{{item.venue_id}}' data-index="{{index}}" data-status="{{item.status}}" bindtap='collection' mode="aspectFill" src='{{item.status==1?"/images/icon/btn_sel_collect.png":"/images/icon/btn_nor_collect2.png"}}'></image>
             </view>
           </view>

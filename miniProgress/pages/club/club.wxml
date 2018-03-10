@@ -2,72 +2,74 @@
 <import src="../../wxParse/wxParse.wxml" />
 
 <view class="container detail_container">
-  <view class="detail_topic_img">
-    <swiper indicator-dots="{{true}}" indicator-color="#ffffff" circular="{{false}}">
-      <block wx:for="{{clubInfo.img}}">
-        <swiper-item>
-          <image src="{{item}}" mode="aspectFill"></image>
-        </swiper-item>
-      </block>
-    </swiper>
-  </view>
+    <view class="detail_topic_img">
+        <swiper indicator-dots="{{true}}" indicator-color="#ffffff" circular="{{false}}">
+            <block wx:for="{{clubInfo.img}}">
+                <swiper-item>
+                    <image src="{{item}}" mode="aspectFill"></image>
+                </swiper-item>
+            </block>
+        </swiper>
+    </view>
 
-  <view class="tabs-box">
-    <block wx:for="{{['课程','场馆']}}">
-      <view bindtap="onTabsItemTap" data-index="{{index}}" class="tabs-item {{currentTabsIndex==index?'selected':''}}">
-        {{item}}
-      </view>
-    </block>
-  </view>
-
-  <view class="boxs">
-    <view class="lesson" hidden="{{currentTabsIndex!=0}}">
-      <view class='lesson-tabs'>
-        <block wx:for="{{week}}">
-          <view bindtap="onLessonItemTap" data-index="{{index}}" class="lesson-tab {{lessonIndex==index?'on':''}}">{{item}}</view>
-        </block>
-      </view>
-      <view class='lesson-box'>
-        <block wx:if="{{lessons[lessonIndex]}}">
-          <block wx:for="{{lessons[lessonIndex]}}">
-            <view class='lesson-item' data-id="{{item.time_id}}" bindtap='clubTap'>
-              <image class='item-img' src='{{item.course_img}}'></image>
-              <view class='item-content'>
-                <view class='item-name'>{{item.course_name}}</view>
-                <view class='item-teacher'>{{item.teacher_name}}</view>
-                <view class='item-desc'>
-                  <view class='item-time'>{{item.time}}<text class='item-price'>￥{{item.price}}</text></view>
-                </view>
-              </view>
-              <view class='item-btn'>预约</view>
+    <view class="tabs-box">
+        <block wx:for="{{['课程','场馆']}}">
+            <view bindtap="onTabsItemTap" data-index="{{index}}" class="tabs-item {{currentTabsIndex==index?'selected':''}}">
+                {{item}}
             </view>
-          </block>
         </block>
-        <block wx:else>
-          <view class='empty'>
-            <image src='/images/icon/empty.jpg'></image>
-          </view>
-        </block>
-      </view>
     </view>
-    <view class="club" hidden="{{currentTabsIndex!=1}}">
-      <view class='club-info'>
-        <view class='club-title'>{{clubInfo.name}}</view>
-        <view class='club-desc'>{{clubInfo.content}}</view>
-      </view>
-      <view class='club-info'>
-        <view class='club-title'>地址</view>
-        <view class='club-desc'>{{clubInfo.business_hours}}</view>
-        <view class='club-desc'>{{clubInfo.address}}</view>
-        <view class='club-map' bindtap='onAddressTap'>
-          <map class='club-map' longitude="{{longitude}}" latitude="{{latitude}}" scale="16" markers="{{markers}}"></map>
+
+    <view class="boxs">
+        <view class="lesson" hidden="{{currentTabsIndex!=0}}">
+            <view class='lesson-tabs'>
+                <block wx:for="{{week}}">
+                    <view bindtap="onLessonItemTap" data-index="{{index}}" class="lesson-tab {{lessonIndex==index?'on':''}}">{{item}}</view>
+                </block>
+            </view>
+            <view class='lesson-box'>
+                <block wx:if="{{lessons[lessonIndex]}}">
+                    <block wx:for="{{lessons[lessonIndex]}}">
+                        <view class='lesson-item' data-id="{{item.time_id}}" bindtap='clubTap'>
+                            <image class='item-img' src='{{item.course_img}}'></image>
+                            <view class='item-content'>
+                                <view class='item-name'>{{item.course_name}}</view>
+                                <view class='item-teacher'>{{item.teacher_name}}</view>
+                                <view class='item-desc'>
+                                    <view class='item-time'>{{item.time}}
+                                        <text class='item-price'>￥{{item.discount_price?item.discount_price:item.price}}</text>
+                                    </view>
+                                </view>
+                            </view>
+                            <view class='item-btn'>预约</view>
+                        </view>
+                    </block>
+                </block>
+                <block wx:else>
+                    <view class='empty'>
+                        <image src='/images/icon/empty.jpg'></image>
+                    </view>
+                </block>
+            </view>
         </view>
-      </view>
-      <view class='club-info'>
-        <view class='club-title'>注意事项</view>
-        <view class='club-desc'>1.发票由健身场馆开具。您可以在前往场馆上课时请商家为您开具发票。</view>
-        <view class='club-desc'>2.商家所售课程以整堂计算，无法因迟到退款，请务必准时上课。</view>
-      </view>
+        <view class="club" hidden="{{currentTabsIndex!=1}}">
+            <view class='club-info'>
+                <view class='club-title'>{{clubInfo.name}}</view>
+                <view class='club-desc'>{{clubInfo.content}}</view>
+            </view>
+            <view class='club-info'>
+                <view class='club-title'>地址</view>
+                <view class='club-desc'>{{clubInfo.business_hours}}</view>
+                <view class='club-desc'>{{clubInfo.address}}</view>
+                <view class='club-map' bindtap='onAddressTap'>
+                    <map class='club-map' longitude="{{longitude}}" latitude="{{latitude}}" scale="16" markers="{{markers}}"></map>
+                </view>
+            </view>
+            <view class='club-info'>
+                <view class='club-title'>注意事项</view>
+                <view class='club-desc'>1.发票由健身场馆开具。您可以在前往场馆上课时请商家为您开具发票。</view>
+                <view class='club-desc'>2.商家所售课程以整堂计算，无法因迟到退款，请务必准时上课。</view>
+            </view>
+        </view>
     </view>
-  </view>
 </view>
