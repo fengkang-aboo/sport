@@ -152,14 +152,12 @@ Page({
     this.setData({
       isCanPay: false
     })
-    var str = this.data.productDetailInfo.name + this.data.productDetailInfo.describe;
-    str += ' 缺货';
     wx.showModal({
       title: '下单失败',
-      content: str,
+	  content: data.msg,
       showCancel: false,
       success: function (res) {
-
+		return;
       }
     });
   },

@@ -17,12 +17,12 @@
             </view>
         </block>
     </view>
-     <view class='none' hidden='{{timeUp}}'>
+    <view class='none' hidden='{{timeUp}}'>
         <view class='none-bg'></view>
         <view class='none-info'>
             <view class='none-title'>秒杀活动</view>
             <view class='none-title'>即将开始</view>
             <view class='none-time'>每晚9点-10点热抢！</view>
         </view>
-    </view> 
+    </view>
 </view>
