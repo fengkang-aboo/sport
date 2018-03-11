@@ -52,7 +52,7 @@
                 <th>用户名</th>
                 <th>性别</th>
                 <th>头像</th>
-                <th>手机号</th>
+                <th>语言</th>
                 <th>收货地址</th>
                 <th>创建时间</th>
                 <th>登陆时间</th>
@@ -65,8 +65,8 @@
                     <td><input type="checkbox" value="1" name=""></td>
                     <td>{$v.id}</td>
                     <td>
-                        <if condition="$v.name neq null">
-                            {$v.name}
+                        <if condition="$v.nickname neq null">
+                            {$v.nickname}
                             <else/>
                             未授权
                         </if>
@@ -88,17 +88,17 @@
                         </if>
                     </td>
                     <td>
-                        <if condition="$v.mobile neq null">
-                            {$v.mobile}
+                        <if condition="$v.language neq null">
+                            {$v.language}
                             <else/>
                             未填写
                         </if>
                     </td>
                     <td class="text-l">
-                        <if condition="$v.province neq null">
-                            {$v.province}{$v.city}{$v.country}{$v.detail}
+                        <if condition="$v.country neq null">
+                            {$v.country}{$v.province}{$v.city}
                             <else/>
-                            未填写
+                            未授权
                         </if>
                     </td>
                     <td>{$v.create_time}</td>
