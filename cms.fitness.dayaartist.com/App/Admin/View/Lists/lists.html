@@ -49,12 +49,14 @@
                     <th width="100">订单编号</th>
                     <th>订单快照</th>
                     <!-- 4444444444 -->
-                    <th width="60">商品名称</th>
+                    <th width="60">课程名称</th>
                     <!-- 5555555555 -->
-                    <th width="100">商品数量</th>
+                    <th width="100">人数</th>
                     <!-- 999999999 -->
                     <th width="100">总金额</th>
                     <!-- 1010101010 -->
+                    <th width="100">上课时间</th>
+                    <!-- 999999999 -->
                     <th width="150">下单时间</th>
                     <!-- aaaaaaaaaaa -->
                     <th width="150">支付时间</th>
@@ -85,6 +87,7 @@
                         <!-- 77777777 -->
                         <td>{$v.total_price}</td>
                         <!-- 1010101010 -->
+                        <td><span class="price">{$v.course_time}</span></td>
                         <td><span class="price">{$v.create_time}</span></td>
                         <!-- aaaaaaaaa -->
                         <td><span class="price">{$v.update_time}</span></td>
@@ -100,24 +103,14 @@
                             <if condition="$v.status eq 3">
                                 <span class="label label-defaunt radius">已消费</span>
                             </if>
-                            <if condition="$v.status eq 4">
-                                <span class="label label-defaunt radius">已发货</span>
-                            </if>
                         </td>
                         <!-- dddddddddddd -->
                         <td class="td-manage">
                             <a onclick="order_id_url({$v.id})" title="消费">
                                 <if condition="$v.status eq 3">
-                                    <i class="Hui-iconfont">&#xe672;</i>
+                                    <i class="Hui-iconfont">&#xe672;</i>撤回
                                     <else/>
-                                    <i class="Hui-iconfont">&#xe673;</i>
-                                </if>
-                            </a>
-                            <a onclick="express_id_url({$v.id})" title="发货">
-                                <if condition="$v.status eq 4">
-                                    <i class="Hui-iconfont">&#xe669;</i>
-                                    <else/>
-                                    <i class="Hui-iconfont">&#xe66a;</i>
+                                    <i class="Hui-iconfont">&#xe673;</i>消费
                                 </if>
                             </a>
                         </td>

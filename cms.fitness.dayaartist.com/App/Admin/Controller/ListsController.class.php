@@ -11,11 +11,12 @@ class ListsController extends PublicController
     //**********************************
     public function lists()
     {
-        $userlist = M('order')->where($where)->order('order.id desc')->select();
+        $userlist = M('order')->field('order.id,order.order_no,order.snap_name,order.total_count,order.total_price,order.create_time,order.update_time,order.status,order.snap_img,ty_course_arrange.start_time,ty_course_arrange.end_time')->join('ty_course_arrange on ty_course_arrange.id = order.time_id', 'left')->order('order.id desc')->select();
         foreach ($userlist as $k => $v) {
             $userlist[$k]['delete_time'] = date("Y-m-d H:i", $v['delete_time']);
             $userlist[$k]['create_time'] = date("Y-m-d H:i", $v['create_time']);
             $userlist[$k]['update_time'] = date("Y-m-d H:i", $v['update_time']);
+            $userlist[$k]['course_time'] = date("Y-m-d", $v['start_time']) . ' ' . date("H:i", $v['start_time']) . '--' . date("H:i", $v['end_time']);
         }
         //=============
         //将变量输出
@@ -35,7 +36,10 @@ class ListsController extends PublicController
             $this->error('信息错误.' . __LINE__);
             exit();
         }
-
+        if ($info['status'] == 1) {
+            $this->error('订单未支付.' . __LINE__);
+            exit();
+        }
         $data = array();
         $data['status'] = $info['status'] == '2' ? 4 : 2;
         $up = M('order')->where('id=' . intval($id))->save($data);
@@ -55,6 +59,10 @@ class ListsController extends PublicController
         $info = M('order')->where('id=' . intval($id))->find();
         if (!$info) {
             $this->error('信息错误.' . __LINE__);
+            exit();
+        }
+        if ($info['status'] == 1) {
+            $this->error('非法操作，订单未支付！' . __LINE__);
             exit();
         }
 
