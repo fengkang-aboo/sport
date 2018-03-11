@@ -61,7 +61,8 @@
 				<select name="category_id" id="category_id" class="select">
 					<option value="">请选择</option>
 					<volist name="category_data" id="v" empty="暂时没有数据">
-					   <option value="{$v.id}" <if condition="$v.id eq $product_data['cid']">selected="selected"</if>>{$v.name}</option>
+					   <option value="{$v.id}" <if condition="$v.id eq $product_data['cid']">selected="selected"</if>
+                        >{$v.name}</option>
 				    </volist>
 				</select>
 				</span>
