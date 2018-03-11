@@ -140,6 +140,46 @@ class CourseController extends PublicController
     }
 
     //***********************************
+    // 老师添加
+    //**********************************
+    public function add_teacher()
+    {
+        if (IS_POST) {
+            $data = I('post.');
+            //上传产品首页展示图
+            if (!empty($_FILES["img"]["tmp_name"])) {
+                //文件上传
+                $info = $this->upload_images($_FILES["img"], array('jpg', 'png', 'jpeg'), "teacher/" . date(Ymd));
+                //print_r($info);die;
+                if (!is_array($info)) {// 上传错误提示错误信息
+                    throw new \Exception('图片上传失败.');
+                } else {// 上传成功 获取上传文件信息
+                    $data['img'] = '/Data/UploadFiles/' . $info['savepath'] . $info['savename'];
+                    $img = array('img_url' => $data['img_url'], 'status' => 1, 'create_time' => time(), 'from' => 1);
+                }
+            }
+
+            if (empty($data['id'])) {
+                $data['create_time'] = time();
+                $ty_course = M('ty_teacher')->add($data);
+            } else {
+
+                $data['update_time'] = time();
+                $ty_course = M('ty_teacher')->where('id=' . intval($_POST['id']))->save($data);
+            }
+
+        }else{
+            if (isset($_GET['id'])) {
+                $where['id'] = $_GET['id'];
+                $teacher = M('ty_teacher')->where($where)->find();
+                $this->assign('teacher',$teacher);
+            }
+            $this->display();
+        }
+    }
+
+
+    //***********************************
     // 课程表
     //**********************************
     public function course_time()
@@ -181,7 +221,7 @@ class CourseController extends PublicController
                         } else {// 上传成功 获取上传文件信息
                             $data['main_img_url'] = '/Data/UploadFiles/' . $info['savepath'] . $info['savename'];
                             $main_img = array('img_url' => $data['main_img_url'], 'status' => 1, 'create_time' => time(), 'from' => 1);
-//                        print_r($main_img);die();
+                            //print_r($main_img);die();
                             $data['main_img_id'] = M('ty_img')->add($main_img);
                         }
                     }
@@ -201,7 +241,7 @@ class CourseController extends PublicController
                 //商品详情添加
                 if ($data['main_img_id'] && $data['img_id']) {
                     $data['status'] = 1;
-//                    print_r($data);die;
+                //print_r($data);die;
                     if (empty($data['id'])) {
                         $ty_course = M('ty_course')->add($data);
                     } else {

@@ -47,9 +47,12 @@ class VenueController extends PublicController
                 $this->error('编辑失败，请重新添加');
             }
         }else{
-            $where['id'] = $_GET['id'];
-            $venue = M('ty_venue_branch')->where($where)->find();
-            $this->assign('venue',$venue);
+            if (isset($_GET['id'])) {
+                $where['id'] = $_GET['id'];
+                $venue = M('ty_venue_branch')->where($where)->find();
+                $this->assign('venue',$venue);
+            }
+            
             $this->display();
         }
     }
