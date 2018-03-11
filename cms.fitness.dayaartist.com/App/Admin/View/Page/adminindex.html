@@ -25,72 +25,113 @@
     <script type="text/javascript" src="__PUBLIC__/admin/js/action.js"></script>
 
     <title>管理首页</title>
+    <style type="text/css">
+    .page-container{
+        /*padding: 0;*/
+    }
+        .container{
+            width: 98%;
+        }
+        .item{
+            padding: 15px 30px;
+            text-align: center;
+        }
+        .item a{
+            display: inline-block;
+        }
+        .end{
+            display: none;
+        }
+    </style>
 </head>
 <script language="javascript" type="text/javascript">
 
     //js获取日期
 
-    function time()
-
-    {
-
-        var now= new Date();
-
-        var year=now.getFullYear();
-
-        var month=now.getMonth();
-
-        var date=now.getDate();
-
-//写入相应id
-
-        document.getElementById("info1").innerHTML=now;
-
-        document.getElementById("info2").innerHTML="今天是："+year+"年"+(month+1)+"月"+date+"日";
-
-    }
-
 </script>
-<body onload="time()">
-<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 管理后台 <span class="c-gray en">&gt;</span> 管理首页 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
-<!--<div class="page-container">-->
-    <!--<ul class="aaa_pts_show_6">-->
-        <!--<li>用户名：  <font><?php echo $_SESSION["admininfo"]['name'] ?></font></li>-->
-        <!--<br>-->
-        <!--<li>小程序：<font class="r1" style="color:#090"><?php echo $_SESSION["system"]['sysname'] ?></font></li>-->
+<body>
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 </nav>
 
-    <!--</ul>-->
-<!--</div>-->
 
 <div class="page-container">
-    <p class="f-20 text-success">欢迎使用区块练<span class="f-14">v1.0</span>小程序商城后台管理系统！</p>
-    <table class="table table-border table-bordered table-bg mt-20">
-        <thead>
-        <tr>
-            <th colspan="2" scope="col">区块练简介</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td>服务器脚本超时时间 </td>
-            <td>30000秒</td>
-        </tr>
-        <tr>
-            <td>服务器的语言种类 </td>
-            <td>Chinese (People's Republic of China)</td>
-        </tr>
-        <tr>
-            <td>服务器当前时间 </td>
-            <td id="info1">2014-6-14 12:06:23</td>
-        </tr>
-        <tr>
-            <td>服务器上次启动到现在已运行 </td>
-            <td>7210分钟</td>
-        </tr>
-        </tbody>
-    </table>
-</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 item">
+                <a class="wrap" href="{:U('WXuser/index')}">
+                    <img class="img-responsive center-block start" src="__PUBLIC__/admin/images/home1.png">
+                    <img class="img-responsive center-block end" src="__PUBLIC__/admin/images/home1a.png">
+                </a>
+            </div>
 
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 item">
+                <a class="wrap" href="{:U('Venue/venue_index')}">
+                    <img class="img-responsive center-block start" src="__PUBLIC__/admin/images/home2.png">
+                    <img class="img-responsive center-block end" src="__PUBLIC__/admin/images/home2a.png">
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 item">
+                <a class="wrap" href="{:U('Category/index')}">
+                    <img class="img-responsive center-block start" src="__PUBLIC__/admin/images/home3.png">
+                    <img class="img-responsive center-block end" src="__PUBLIC__/admin/images/home3a.png">
+                </a>
+            </div>
+             <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 item">
+                <a class="wrap" href="{:U('Shop/product')}">
+                    <img class="img-responsive center-block start" src="__PUBLIC__/admin/images/home4.png">
+                    <img class="img-responsive center-block end" src="__PUBLIC__/admin/images/home4a.png">
+                </a>
+            </div>
+            
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 item">
+                <a class="wrap" href="{:U('Course/course_index')}">
+                    <img class="img-responsive center-block start" src="__PUBLIC__/admin/images/home5.png">
+                    <img class="img-responsive center-block end" src="__PUBLIC__/admin/images/home5a.png">
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 item">
+                <a class="wrap" href="{:U('Video/video')}">
+                    <img class="img-responsive center-block start" src="__PUBLIC__/admin/images/home6.png">
+                    <img class="img-responsive center-block end" src="__PUBLIC__/admin/images/home6a.png">
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 item">
+                <a class="wrap" href="{:U('Lists/lists')}">
+                    <img class="img-responsive center-block start" src="__PUBLIC__/admin/images/home7.png">
+                    <img class="img-responsive center-block end" src="__PUBLIC__/admin/images/home7a.png">
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 item">
+                <a class="wrap" href="{:U('Statistics/total')}">
+                    <img class="img-responsive center-block start" src="__PUBLIC__/admin/images/home8.png">
+                    <img class="img-responsive center-block end" src="__PUBLIC__/admin/images/home8a.png">
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 item">
+                <a class="wrap" href="{:U('Adminuser/adminuser')}">
+                    <img class="img-responsive center-block start" src="__PUBLIC__/admin/images/home9.png">
+                    <img class="img-responsive center-block end" src="__PUBLIC__/admin/images/home9a.png">
+                </a>
+            </div> 
+
+
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function(){
+        $('.wrap').mouseover(function() {
+            $(this).find('.end').show();
+        $(this).find('.start').hide();
+        console.log(1);
+　　});
+        $('.wrap').mouseleave(function() {
+            $(this).find('.end').hide();
+        $(this).find('.start').show();
+        console.log(2);
+　　});
+    })
+
+</script>
 
 
 </body>
