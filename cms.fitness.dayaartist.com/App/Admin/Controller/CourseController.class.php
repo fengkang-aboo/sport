@@ -167,12 +167,18 @@ class CourseController extends PublicController
                 $data['update_time'] = time();
                 $ty_course = M('ty_teacher')->where('id=' . intval($_POST['id']))->save($data);
             }
+            if ($ty_course) {
+                $this->success('编辑成功', U('Admin/Course/teacher_index'));
 
-        }else{
+            } else {
+                throw new \Exception('编辑失败,请重新编辑');
+            }
+
+        } else {
             if (isset($_GET['id'])) {
                 $where['id'] = $_GET['id'];
                 $teacher = M('ty_teacher')->where($where)->find();
-                $this->assign('teacher',$teacher);
+                $this->assign('teacher', $teacher);
             }
             $this->display();
         }
@@ -208,52 +214,32 @@ class CourseController extends PublicController
                 $Model = M(); // 实例化一个空对象
                 $Model->startTrans(); // 开启事务
                 $data = I('post.');
-                print_r($data);
-                die();
-
-                if (empty($data['main_img_id']) && empty($data['img_id'])) {
-                    //上传商品图片
-                    if (!empty($_FILES["main_img"]["tmp_name"])) {
-                        //文件上传
-                        $info = $this->upload_images($_FILES["main_img"], array('jpg', 'png', 'jpeg', 'mp4'), "course/" . date(Ymd));
-                        if (!is_array($info)) {// 上传错误提示错误信息
-                            throw new \Exception('图片上传失败.');
-                        } else {// 上传成功 获取上传文件信息
-                            $data['main_img_url'] = '/Data/UploadFiles/' . $info['savepath'] . $info['savename'];
-                            $main_img = array('img_url' => $data['main_img_url'], 'status' => 1, 'create_time' => time(), 'from' => 1);
-                            //print_r($main_img);die();
-                            $data['main_img_id'] = M('ty_img')->add($main_img);
-                        }
-                    }
-                    //上传产品首页展示图
-                    if (!empty($_FILES["img"]["tmp_name"])) {
-                        //文件上传
-                        $info = $this->upload_images($_FILES["img"], array('jpg', 'png', 'jpeg'), "course/" . date(Ymd));
-                        if (!is_array($info)) {// 上传错误提示错误信息
-                            throw new \Exception('图片上传失败.');
-                        } else {// 上传成功 获取上传文件信息
-                            $data['img_url'] = '/Data/UploadFiles/' . $info['savepath'] . $info['savename'];
-                            $img = array('img_url' => $data['img_url'], 'status' => 1, 'create_time' => time(), 'from' => 1);
-                            $data['img_id'] = M('ty_img')->add($img);
-                        }
-                    }
+//                print_r($data);
+//                die();
+                if (empty(($data['start_times'][0]))) {
+                    throw new \Exception('时间不能为空');
+                    exit();
                 }
-                //商品详情添加
-                if ($data['main_img_id'] && $data['img_id']) {
-                    $data['status'] = 1;
-                //print_r($data);die;
+//                循环添加预约时间段
+                for ($i = 0; $i < count($data['start_times']); $i++) {
+                    if (strtotime($data['start_times'][$i]) > strtotime($data['end_times'][$i])) {
+                        throw new \Exception('结束时间必须大于开始时间,请重新添加');
+                        exit();
+                    }
+                    $times_array = array('venue_branch_id' => $data['venue_branch_id'], 'course_id' => $data['course_id'], 'teacher_id' => $data['teacher_id'], 'dates' => date('Y-m-d', strtotime($data['end_times'][$i])), 'start_time' => strtotime($data['start_times'][$i]), 'end_time' => strtotime($data['end_times'][$i]), 'is_seckill' => $data['is_seckill'], 'seckill_price' => $data['seckill_price'], 'create_time' => $data['create_time'] ? $data['create_time'] : time(), 'update_time' => time());
+
                     if (empty($data['id'])) {
-                        $ty_course = M('ty_course')->add($data);
+                        $result = M('ty_course_arrange')->add($times_array);
                     } else {
                         $data['update_time'] = time();
-                        $ty_course = M('ty_course')->where('id=' . intval($_POST['id']))->save($data);
+//                        print_r($times_array);
+//                        die();
+                        $result = M('ty_course_arrange')->where('id=' . intval($_POST['id']))->save($times_array);
                     }
-                } else {
-                    throw new \Exception('请上传图片.');
                 }
-                if ($ty_course) {
+                if ($result) {
                     $Model->commit(); // 成功则提交事务
-                    $this->success('编辑成功', U('Admin/Course/course_index'));
+                    $this->success('编辑成功', U('Admin/Course/course_time'));
 
                 } else {
                     throw new \Exception('编辑失败,请重新编辑');
@@ -265,9 +251,11 @@ class CourseController extends PublicController
             }
 
         } elseif ($_GET['id']) {
-            $course_id = I('get.id');
-            $course = M('ty_course')->where('id=' . $course_id)->find();
-            $this->assign('course', $course);
+            $arrange_id = I('get.id');
+            $arrange = M('ty_course_arrange')->where('id=' . $arrange_id)->find();
+            $arrange['start_time'] = date('y-m-d H:i', $arrange['start_time']);
+            $arrange['end_time'] = date('y-m-d H:i', $arrange['end_time']);
+            $this->assign('arrange', $arrange);
             $this->display();
         } else {
             $this->display();

@@ -1,0 +1,193 @@
+<!--_meta 作为公共模版分离出去-->
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <LINK rel="Bookmark" href="__PUBLIC__/favicon.ico">
+    <LINK rel="Shortcut Icon" href="__PUBLIC__/favicon.ico"/>
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="lib/html5.js"></script>
+    <script type="text/javascript" src="lib/respond.min.js"></script>
+    <script type="text/javascript" src="lib/PIE_IE678.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/static/h-ui/css/H-ui.min.css"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/static/h-ui.admin/css/H-ui.admin.css"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/lib/Hui-iconfont/1.0.7/iconfont.css"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/lib/icheck/icheck.css"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/static/h-ui.admin/skin/default/skin.css" id="skin"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/static/h-ui.admin/css/style.css"/>
+    <!--[if IE 6]>
+    <script type="text/javascript" src="http://lib.h-ui.net/DD_belatedPNG_0.0.8a-min.js"></script>
+    <script>DD_belatedPNG.fix('*');</script>
+    <![endif]-->
+    <!--/meta 作为公共模版分离出去-->
+
+    <link href="__PUBLIC__/lib/webuploader/0.1.5/webuploader.css" rel="stylesheet" type="text/css"/>
+    <style type="text/css">
+    </style>
+</head>
+<body>
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 课程管理 <span
+        class="c-gray en">&gt;</span> 时间安排 <a class="btn btn-success radius r"
+                                              style="line-height:1.6em;margin-top:3px"
+                                              href="javascript:location.replace(location.href);" title="刷新"><i
+        class="Hui-iconfont">&#xe68f;</i></a></nav>
+
+<div class="page-container">
+    <form action="" method="post" class="form form-horizontal" id="form-article-add" onsubmit="return ac_from();"
+          enctype="multipart/form-data">
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>关联分店：</label>
+            <div class="formControls col-xs-8 col-sm-9"> <span class="select-box" style="width:90%">
+                    <select name="venue_branch_id" id="venue_branch_id" class="select">
+                        <option value="">分店列表</option>
+                        <volist name='venueList' id="venueList">
+                                <option value="{$venueList.id}" name="one" <if condition="$venueList.id eq $arrange['venue_branch_id']">selected="selected"</if> >- {$venueList.name}</option>
+                        </volist>
+                    </select>
+                </span>
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>训练课程：</label>
+            <div class="formControls col-xs-8 col-sm-9"> <span class="select-box" style="width:90%">
+                    <select name="course_id" id="course_id" class="select">
+                        <option value="">课程内容</option>
+                        <volist name='courseList' id="courseList">
+                                <option value="{$courseList.id}" name="one" <if condition="$courseList.id eq $arrange['course_id']">selected="selected"</if> >- {$courseList.name}</option>
+                        </volist>
+                    </select>
+                </span>
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>上课老师：</label>
+            <div class="formControls col-xs-8 col-sm-9"> <span class="select-box" style="width:90%">
+                    <select name="teacher_id" id="teacher_id" class="select">
+                        <option value="">老师安排</option>
+                        <volist name='teacherList' id="teacherList">
+                                <option value="{$teacherList.id}" name="one" <if condition="$teacherList.id eq $arrange['teacher_id']">selected="selected"</if> >- {$teacherList.name}</option>
+                        </volist>
+                    </select>
+                </span>
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>上课人数：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <input type="text" name="stock" value="{$arrange.stock}" class="input-text" placeholder="请填写上课最大人数"
+                       style="width:90%">
+            </div>
+        </div>
+        <div class="row cl" id="dayTime">
+            <label class="form-label col-xs-4 col-sm-2">预约时间：</label>
+            <div id="wrap" class="formControls col-xs-8 col-sm-9">
+                <div class="col-sm-6 col-xs-6 addData" style="margin-bottom: 5px;margin-left: -15px;">
+                    <input type="text" name="start_times[]" value="{$arrange['start_time']}" placeholder="开始时间"
+                           class="input-text" style=" width:45%"
+                           onclick="WdatePicker({minDate:'%y-%M-%d 00:00',dateFmt:'yyyy-MM-dd HH:mm',alwaysUseStartDate:true})">
+                    -
+                    <input type="text" name="end_times[]" value="{$arrange['end_time']}" placeholder="结束时间"
+                           class="input-text" style=" width:45%"
+                           onclick="WdatePicker({minDate:'%y-%M-%d 00:00',dateFmt:'yyyy-MM-dd HH:mm',alwaysUseStartDate:true})">
+                </div>
+                <if condition="$arrange eq '' ">
+                    <span class="add_about"><i class="Hui-iconfont">&#xe647;</i></span>
+                </if>
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-2">加入秒杀：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                是&nbsp;&nbsp;<input type="radio" name="is_seckill" value=1 id='seckill_yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                否&nbsp;&nbsp;<input type="radio" name="is_seckill" value=0 id='seckill_no'>
+            </div>
+        </div>
+        <div class="row cl" id="seckill_price">
+            <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>价格：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <input type="text" name="seckill_price" value="{$arrange.seckill_price}" class="input-text" style="width:90%" placeholder="请填写秒杀价格">
+                元
+            </div>
+        </div>
+        <div class="row cl">
+            <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
+                <button onClick="article_save_submit();" class="btn btn-primary radius" type="submit"><i
+                        class="Hui-iconfont">&#xe632;</i>
+                    保存提交
+                </button>
+                <input type="hidden" name="id" id='id' value="{$arrange.id}">
+                <input type="hidden" name="create_time" id='create_time' value="{$arrange.create_time}">
+                <button id="back" class="btn btn-default radius" type="button">
+                    &nbsp;&nbsp;取消&nbsp;&nbsp;
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<!--_footer 作为公共模版分离出去-->
+<script type="text/javascript" src="__PUBLIC__/lib/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/lib/layer/2.1/layer.js"></script>
+<script type="text/javascript" src="__PUBLIC__/lib/icheck/jquery.icheck.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/lib/jquery.validation/1.14.0/jquery.validate.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/lib/jquery.validation/1.14.0/validate-methods.js"></script>
+<script type="text/javascript" src="__PUBLIC__/lib/jquery.validation/1.14.0/messages_zh.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/static/h-ui/js/H-ui.js"></script>
+<script type="text/javascript" src="__PUBLIC__/static/h-ui.admin/js/H-ui.admin.js"></script>
+<!--/_footer /作为公共模版分离出去-->
+
+<!--请在下方写此页面业务相关的脚本-->
+<script type="text/javascript" src="__PUBLIC__/lib/webuploader/0.1.5/webuploader.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/lib/ueditor/1.4.3/ueditor.config.js"></script>
+<script type="text/javascript" src="__PUBLIC__/lib/ueditor/1.4.3/ueditor.all.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/lib/ueditor/1.4.3/lang/zh-cn/zh-cn.js"></script>
+<script type="text/javascript" src="__PUBLIC__/lib/My97DatePicker/WdatePicker.js"></script>
+<!--添加时间插件-->
+<script src="http://cdn.bootcss.com/jquery/1.11.0/jquery.min.js" type="text/javascript"></script>
+<script>window.jQuery || document.write('<script src="__PUBLIC__/lib/timepicker/jquery-1.11.0.min.js"><\/script>')</script>
+<script type="text/javascript" src="__PUBLIC__/lib/timepicker/jquery-clock-timepicker.min.js"></script>
+<script type="text/javascript">
+    //添加预约时间
+    document.getElementsByClassName('add_about')[0].onclick = function (argument) {
+        var cNode = document.getElementsByClassName('addData')[0].cloneNode(true);
+        cNode.children[0].value = "";
+        cNode.children[1].value = "";
+        document.getElementById('wrap').appendChild(cNode);
+    }
+
+    //显示秒杀价
+    $('#seckill_yes').on('click', function () {
+        $('#seckill_price').show();
+    })
+    //隐藏秒杀价
+    $('#seckill_no').on('click', function () {
+        $('#seckill_price').hide();
+    })
+
+    //验证表单空值
+    function ac_from() {
+        var artist_id = document.getElementById('venue_branch_id').value;
+        if (artist_id.length < 1) {
+                alert("请选择分店信息");
+                return false;
+        }
+        var unit = document.getElementById("course_id").value;
+        if (unit.length < 1) {
+            alert("课程不能为空");
+            return false;
+        }
+        var unit = document.getElementById("teacher_id").value;
+        if (unit.length < 1) {
+            alert("老师不能为空");
+            return false;
+        }
+    }
+</script>
+</body>
+</html>
