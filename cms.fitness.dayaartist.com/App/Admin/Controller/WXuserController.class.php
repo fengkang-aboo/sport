@@ -39,7 +39,8 @@ class WXuserController extends PublicController
         }
 
 //        查询输出
-        $userlist = M('user')->field('user.*,user_address.name,user_address.mobile,user_address.province,user_address.city,user_address.country,user_address.detail')->join('user_address on user.id = user_address.user_id', 'left')->where($where)->order('user.id desc')->select();
+//        $userlist = M('user')->field('user.*,user_address.name,user_address.mobile,user_address.province,user_address.city,user_address.country,user_address.detail')->join('user_address on user.id = user_address.user_id', 'left')->where($where)->order('user.id desc')->select();
+        $userlist = M('user')->where($where)->order('user.id desc')->select();
         foreach ($userlist as $k => $v) {
             $userlist[$k]['delete_time'] = date("Y-m-d H:i", $v['delete_time']);
             $userlist[$k]['create_time'] = date("Y-m-d H:i", $v['create_time']);
