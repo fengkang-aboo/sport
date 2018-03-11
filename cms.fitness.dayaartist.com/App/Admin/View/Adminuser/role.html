@@ -27,30 +27,38 @@
 <body>
 <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 权限管理 <span class="c-gray en">&gt;</span> 角色权限列表 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新"><i class="Hui-iconfont">&#xe68f;</i></a></nav>
 <div class="page-container">
-    <div class="cl pd-5 bg-1 bk-gray mt-20"><span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a class="btn btn-primary radius" href="{:U('adminuser/branch_role')}"><i class="Hui-iconfont">&#xe600;</i> 分配权限</a></span> <span class="r">共有数据：<strong>54</strong> 条</span></div>
+    <div class="cl pd-5 bg-1 bk-gray mt-20"><span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a class="btn btn-primary radius" href="{:U('adminuser/add_role')}"><i class="Hui-iconfont">&#xe600;</i> 添加角色</a></span> <span class="r">共有数据：<strong>54</strong> 条</span></div>
     <div class="mt-20">
         <table class="table table-border table-bordered table-bg table-hover table-sort">
             <thead>
             <tr class="text-c">
                 <th width="20"><input name="" type="checkbox" value=""></th>
                 <th width="40">ID</th>
-                <th width="150">账户名</th>
-                <th width="130">注册时间</th>
                 <th width="150">角色</th>
+                <th width="130">创建时间</th>
+                <th width="130">状态</th>
                 <th width="100">操作</th>
             </tr>
             </thead>
             <tbody>
-            <volist name="userlist" id="v" empty="暂时没有数据">
+            <volist name="role" id="v" empty="暂时没有数据">
                 <tr class="text-c">
                     <td><input name="" type="checkbox" value=""></td>
                     <td>{$v.id}</td>
-                    <td>{$v.name}</td>
-                    <td>{$v.addtime}</td>
                     <td>{$v.role_name}</td>
+                    <td>{$v.create_time}</td>
+                    <td>
+                        <if condition="$v.status eq 1 ">正常<else /> 删除</if>
+                    </td>
                     <td class="obj_1">
-                        <a href="{:U('Adminuser/add')}?id={$v.id}">修改</a> |
-                        <a onclick='del_id_urls({$v.id}'>删除</a>
+                        <if condition="$v.role_name neq '超级管理员' ">
+                            <a href="{:U('adminuser/branch_role')}?id={$v.id}">分配权限</a> |
+                            <a href="{:U('adminuser/branch_role')}?id={$v.id}">权限</a> |
+                            <a onclick='del_id_urls({$v.id}'>删除</a>
+                        <else />
+                            不可操作
+                        </if>
+                        
                     </td>
                 </tr>
             </volist>
