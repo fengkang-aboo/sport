@@ -123,6 +123,7 @@ Page({
 	},
 	//点击查看地图
 	onAddressTap: function (event) {
+		console.log(123);
 		wx.openLocation({
 			latitude: Number(this.data.latitude),
 			longitude: Number(this.data.longitude),

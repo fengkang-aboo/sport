@@ -1,4 +1,4 @@
 <!--pages/map/map.wxml-->
-<map class='map' longitude="{{longitude}}" latitude="{{latitude}}" scale="14" 
+<map class='map' bindtap='clearId' longitude="{{longitude}}" latitude="{{latitude}}" scale="14" 
 controls="{{controls}}" bindcontroltap="controltap" markers="{{markers}}" 
 bindmarkertap="markertap" show-location></map>

@@ -3,7 +3,11 @@
     <view class='kill'>
         <block wx:for="{{killList}}">
             <view class='item' data-kill='{{item.seckill_price}}' data-id="{{item.time_id}}" bindtap='killTap'>
-                <image class='item-img' src='{{item.course_img}}' mode='aspectFill'></image>
+				<view class='img-wrapper'>
+				    <image class='item-img' src='{{item.course_img}}' mode='aspectFill'></image>
+					<view wx:if="{{item.stock>0&&timeUp}}" class='tag on'>进行中</view>
+					<view wx:if="{{item.stock<=0&&timeUp}}" class='tag off'>已抢光</view>
+				</view>
                 <view class='item-info'>
                     <view class='item-name'>{{item.course_name}}</view>
                     <view class='item-club'>{{item.venue_name}}</view>

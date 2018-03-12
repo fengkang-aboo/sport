@@ -60,9 +60,14 @@ Page({
 
 	//点击地图描点
 	markertap: function (event) {
-		console.log(event);
 		this.setData({
 			markId: event.markerId
+		})
+	},
+	//点击地图清除ID
+	clearId:function(){
+		this.setData({
+			markId: null
 		})
 	},
 

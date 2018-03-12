@@ -49,6 +49,6 @@
   <view class='bottom'>
     <view wx:if="{{kill}}" class='toatl'>￥{{kill}}</view>
     <view wx:if="{{!kill}}" class='toatl'>￥{{product.discount_price?product.discount_price:product.price}}</view>
-    <view class='order' bindtap='goOrder'>立即预约</view>
+    <view class='order {{product.stock>0?"on":"off"}}' bindtap='goOrder'>{{product.stock>0?'立即预约':'该商品已售完'}}</view>
   </view>
 </view>
