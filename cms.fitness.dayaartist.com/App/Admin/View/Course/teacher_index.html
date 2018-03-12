@@ -46,11 +46,10 @@
 <body class="pos-r">
 
 <div style="margin-left:0px;">
-    <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 课程管理 <span class="c-gray en">&gt;</span> 老师列表<a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新"><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+    <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 课程管理 <span class="c-gray en">&gt;</span> 老师安排<a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新"><i class="Hui-iconfont">&#xe68f;</i></a></nav>
 
-    <div class="cl pd-5 bg-1 bk-gray mt-20" style="margin-left: 20px"><span class="l" style="margin-right: 10px"><a
-            href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a class="btn btn-primary radius" onclick="" href="{:U('Course/add_teacher')}"><i class="Hui-iconfont">&#xe600;</i> 添加老师</a></span><a href="{:U('Excels/expSupplier')}?category_id={$category_id}&status={$status}"><input class="btn btn-success radius" id="aaa" type="button" value="Excel导出"></a> <span class="r">共有数据：<strong>{$count}</strong> 条</span>
-    </div>
+    <!--<div class="cl pd-5 bg-1 bk-gray mt-20" style="margin-left: 20px"><span class="l" style="margin-right: 10px"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a class="btn btn-primary radius" onclick="" href="{:U('Course/add_teacher')}"><i class="Hui-iconfont">&#xe600;</i> 添加老师</a></span><a href="{:U('Excels/expSupplier')}?category_id={$category_id}&status={$status}"><input class="btn btn-success radius" id="aaa" type="button" value="Excel导出"></a> <span class="r">共有数据：<strong>{$count}</strong> 条</span></div>-->
+    <div class="cl pd-5 bg-1 bk-gray mt-20" style="margin-left: 20px"><span class="l" style="margin-right: 10px"><a class="btn btn-primary radius" onclick="" href="{:U('Course/add_teacher')}"><i class="Hui-iconfont">&#xe600;</i> 添加老师</a></span><span class="r">共有数据：<strong>{$count}</strong> 条</span></div>
     <!-- <div style="margin-left: 20px;margin-top: 20px">
         <form class="form form-horizontal" action="" method="post">
             <select name="category_id" style="height: 30px;width: 80px;text-align: center;">
@@ -104,7 +103,7 @@
                             </if>
                         </td>
                         <td class="td-manage">
-                            <a style="text-decoration:none" class="ml-5" href="{:U('Venue/add_teacher')}?id={$v.id}" title="编辑">编辑</a>
+                            <a style="text-decoration:none" class="ml-5" href="{:U('Course/add_teacher')}?id={$v.id}" title="编辑">编辑</a>
                         </td>
                     </tr>
                 </volist>
