@@ -94,21 +94,22 @@
             </div>
         </div>
         <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>LOGO：</label>
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>LOGO：</label>
             <div class="formControls col-xs-8 col-sm-9">
                 <input type="file" name="logo" id="logo">
             </div>
         </div>
         <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>场馆主图：</label>
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>场馆主图：</label>
             <div class="formControls col-xs-8 col-sm-9">
                 <input type="file" name="venue_img" id="venue_img">
             </div>
         </div>
         <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>场馆照片：</label>
-            <div class="formControls col-xs-8 col-sm-9">
-                <input type="file" name="venue_imgs[]" id="venue_imgs">
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>场馆照片：</label>
+            <div class="formControls col-xs-8 col-sm-9" id='addImg'>+</div>
+            <div class="formControls col-xs-8 col-sm-9" id='venue_imgs'>
+                <input type="file" name="venue_imgs[]">
             </div>
         </div>
         <div class="row cl">
@@ -124,6 +125,12 @@
 
 
 <script>
+    $('#addImg').on('click',function(){
+        var str = "<input type='file' name='venue_imgs[]'>";
+        $('#venue_imgs').append(str);
+    })
+
+
     $('#chain').on('change',function(){
         var chain_id = $(this).val();
         if (!chain_id) {

@@ -37,6 +37,72 @@ class VenueController extends PublicController
                 $data['update_time'] = time();
                 $result = M('ty_venue_branch')->where('id=' . intval($_POST['id']))->save($data);
             }else{
+                if (!empty($_FILES["logo"]["tmp_name"])) {
+                    //文件上传
+                    $info = $this->upload_images($_FILES["logo"], array('jpg', 'png', 'jpeg', 'mp4'), "venue/logo" . date(Ymd));
+                    if (!is_array($info)) {// 上传错误提示错误信息
+                        throw new \Exception('LOGO上传失败.');
+                    } else {// 上传成功 获取上传文件信息
+                        $logo = '/Data/UploadFiles/' . $info['savepath'] . $info['savename'];
+                        $logo_img = array('img_url' => $logo, 'status' => 1, 'create_time' => time(), 'from' => 1);
+//                        print_r($main_img);die();
+                        $data['logo_id'] = M('ty_img')->add($logo_img);
+                    }
+                }
+
+                if (!empty($_FILES["venue_img"]["tmp_name"])) {
+                    //文件上传
+                    $info = $this->upload_images($_FILES["venue_img"], array('jpg', 'png', 'jpeg', 'mp4'), "venue/img" . date(Ymd));
+                    if (!is_array($info)) {// 上传错误提示错误信息
+                        throw new \Exception('图片上传失败.');
+                    } else {// 上传成功 获取上传文件信息
+                        $venue_img = '/Data/UploadFiles/' . $info['savepath'] . $info['savename'];
+                        $main_img = array('img_url' => $venue_img, 'status' => 1, 'create_time' => time(), 'from' => 1);
+//                        print_r($main_img);die();
+                        $data['main_img_id'] = M('ty_img')->add($main_img);
+                    }
+                }
+
+                //多张商品轮播图上传
+                $up_arr = array();
+                if (!empty($_FILES["venue_imgs"]["tmp_name"])) {
+                        foreach ($_FILES["venue_imgs"]['name'] as $k => $val) {
+                            $up_arr[$k]['name'] = $val;
+                        }
+
+                        foreach ($_FILES["venue_imgs"]['type'] as $k => $val) {
+                            $up_arr[$k]['type'] = $val;
+                        }
+
+                        foreach ($_FILES["venue_imgs"]['tmp_name'] as $k => $val) {
+                            $up_arr[$k]['tmp_name'] = $val;
+                        }
+
+                        foreach ($_FILES["venue_imgs"]['error'] as $k => $val) {
+                            $up_arr[$k]['error'] = $val;
+                        }
+
+                        foreach ($_FILES["venue_imgs"]['size'] as $k => $val) {
+                            $up_arr[$k]['size'] = $val;
+                        }
+                }
+                if ($up_arr) {
+                    $venue_img_id = '';
+                    foreach ($up_arr as $key => $value) {
+                        $info = $this->upload_images($value,array('jpg','png','jpeg'),"product/".date(Ymd));
+                        if(is_array($info)) {
+                            // 上传成功 获取上传文件信息保存数据库
+                            $adv_str = '/Data/UploadFiles/'.$info['savepath'].$info['savename'];
+                            $img = array('img_url' => $adv_str, 'status' => 1, 'create_time' => time(), 'from' => 1);
+
+                            $img_id = M('ty_img')->add($img);
+                            $venue_img_id .= ','.$img_id;
+                        }
+                    }
+                        
+                }
+                $data['img_id'] = trim($venue_img_id,',');
+
                 $data['create_time'] = time();
                 $result = M('ty_venue_branch')->add($data);
             }
