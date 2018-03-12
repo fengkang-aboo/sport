@@ -55,6 +55,7 @@ class Seckill extends Controller
                 'price' => $v['course']['price'],
                 'seckill_price' => $v['seckill_price'],
                 'date' => date('Y.m.d',$v['start_time']).' '.date('H:i',$v['start_time']).'-'.date('H:i',$v['end_time']),
+                'stock' => $v['stock']
             );
         }
         //print_r($seckillListData);die;
