@@ -4,8 +4,8 @@
   <view class="product-item">
     <image class="item-left" src="{{item.main_img_url}}" mode="aspectFill"></image>
     <view class="item-middle">
-      <view class="item-title">{{item.name}}</view>
-      <view class="item-price">￥{{item.price}}</view>
+      <view class="item-title">{{orderInfo.snap_name}}</view>
+      <view class="item-price">￥{{orderInfo.total_price}}</view>
     </view>
   </view>
 
@@ -15,7 +15,7 @@
       <view class="attribute-item">
         <view class="picker-view">
           <view class="pick-left">课程：</view>
-          <view class="pick-middle">{{item.name}}</view>
+          <view class="pick-middle">{{orderInfo.snap_name}}</view>
         </view>
       </view>
 
