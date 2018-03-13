@@ -140,7 +140,7 @@ class Order
         $snap['totalCount'] = $status['totalCount'];
         $snap['pStatus'] = $status['pStatusArray'];
         $snap['snapName'] = $this->products[0]['course']['name'] . '-' . $this->products[0]['teacher']['name'];
-        $snap['snapImg'] = $this->products[0]['teacher']['img'];
+        $snap['snapImg'] = config('setting.img_prefix') . $this->products[0]['teacher']['img'];
 
         if (count($this->products) > 1) {
             $snap['snapName'] .= '等';
@@ -217,7 +217,13 @@ class Order
             $pStatus['id'] = $product['id'];
             $pStatus['name'] = $product['course']['name'] . '-' . $product['teacher']['name'];
             $pStatus['counts'] = $oCount;
-            $pStatus['price'] = $product['course']['discount_price'];
+            if (!empty($product['seckill_price'])) {
+                $pStatus['price'] = $product['seckill_price'];
+            } elseif (!empty($product['course']['discount_price'])) {
+                $pStatus['price'] = $product['course']['discount_price'];
+            } else {
+                $pStatus['price'] = $product['course']['price'];
+            }
             $pStatus['main_img_url'] = $product['teacher']['img'];
             if (!empty($product['seckill_price'])) {
                 $pStatus['totalPrice'] = $product['seckill_price'] * $oCount;

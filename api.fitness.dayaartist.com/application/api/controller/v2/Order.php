@@ -50,7 +50,7 @@ class Order extends BaseController
 //        判断用户是否符合秒杀条件
         $courseArrange = TyCourseArrange::where('id', '=', $products[0]['product_id'])->find()->toArray();
         if ($courseArrange['is_seckill'] == 1) {
-            $orderInfor = OrderModel::where('time_id', '=', $products[0]['product_id'])->where('user_id', '=', $uid)->find();
+            $orderInfor = OrderModel::where('time_id', '=', $products[0]['product_id'])->where('user_id', '=', $uid)->where('status', '=', 2)->find();
             if (!empty($orderInfor)) {
                 return [
                     'code' => 400,
@@ -91,6 +91,7 @@ class Order extends BaseController
         $venueBranch = TyVenueBranch::where('id', '=', $orderDetail['supplier_id'])->find()->toArray();
         $courseArrange = TyCourseArrange::where('id', '=', $orderDetail['time_id'])->find()->toArray();
         $orderDetail['userName'] = $memberService['yname'];
+        $orderDetail['price'] = $orderDetail['total_price'];
         $orderDetail['userTel'] = $memberService['ytel'];
         $orderDetail['address'] = $venueBranch['address'];
         $orderDetail['time'] = $courseArrange['dates'] . '    ' . date('h:i', $courseArrange['start_time']) . '-' . date('h:i', $courseArrange['end_time']);
