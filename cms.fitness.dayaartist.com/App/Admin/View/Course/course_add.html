@@ -44,7 +44,8 @@
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>课程名称：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" class="input-text" style="width:90%" name="name" id="name" value="{$course.name}" placeholder="请填写课程名称信息">
+                <input type="text" class="input-text" style="width:90%" name="name" id="name" value="{$course.name}"
+                       placeholder="请填写课程名称信息">
             </div>
         </div>
         <div class="row cl">
@@ -53,7 +54,8 @@
                     <select name="type_id" class="select" id="type_id">
                         <option value="">课程分类</option>
                         <volist name='list' id="op1">
-                            <option value="{$op1.id}" id="cate_{$op1.id}" name="one" <if condition="$op1.id eq $course['venue_branch_id']">selected="selected"</if> >- {$op1.name}</option>
+                            <option value="{$op1.id}" id="cate_{$op1.id}" name="one" <if
+                                condition="$op1.id eq $course['venue_branch_id']">selected="selected"</if> >- {$op1.name}</option>
                             <volist name="op1['list2']" id="op2">
                                     <option value="{$op2.id}" id="cate_{$op2.id}"
                                             name="two">&nbsp; &nbsp;- {$op2.name}</option>
@@ -72,7 +74,8 @@
                     <select name="venue_branch_id" id="venue_branch_id" class="select">
                         <option value="">分店列表</option>
                         <volist name='venueList' id="venueList">
-                                <option value="{$venueList.id}" name="one" <if condition="$venueList.id eq $course['venue_branch_id']">selected="selected"</if> >- {$venueList.name}</option>
+                                <option value="{$venueList.id}" name="one" <if
+                                condition="$venueList.id eq $course['venue_branch_id']">selected="selected"</if> >- {$venueList.name}</option>
                         </volist>
                     </select>
                 </span>
@@ -88,14 +91,16 @@
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>价格：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" name="price" value="{$course.price}" class="input-text" style="width:90%" placeholder="请填写价格">
+                <input type="text" name="price" value="{$course.price}" class="input-text" style="width:90%"
+                       placeholder="请填写价格">
                 元
             </div>
         </div>
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-2">折扣价：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" name="discount_price" value="{$course.discount_price}" class="input-text" style="width:90%"
+                <input type="text" name="discount_price" value="{$course.discount_price}" class="input-text"
+                       style="width:90%"
                        placeholder="请填写折扣价格">
                 元
             </div>
@@ -107,9 +112,10 @@
             </div>
         </div>
         <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>详情图片：</label>
-            <div class="formControls col-xs-8 col-sm-9">
-                <input type="file" name="img" value="">
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>场馆照片：</label>
+            <div class="formControls col-xs-8 col-sm-9" id='addImg'>+</div>
+            <div class="formControls col-xs-8 col-sm-9" id='venue_imgs'>
+                <input type="file" name="venue_imgs[]">
             </div>
         </div>
         <div class="row cl">
@@ -147,6 +153,11 @@
 <script type="text/javascript" src="__PUBLIC__/lib/ueditor/1.4.3/lang/zh-cn/zh-cn.js"></script>
 <script type="text/javascript" src="__PUBLIC__/lib/My97DatePicker/WdatePicker.js"></script>
 <script type="text/javascript">
+    //    增加图片上传
+    $('#addImg').on('click',function(){
+        var str = "<input type='file' name='venue_imgs[]'>";
+        $('#venue_imgs').append(str);
+    })
 
     //验证表单空值
     function ac_from() {
@@ -157,8 +168,8 @@
         }
         var artist_id = document.getElementById('venue_branch_id').value;
         if (artist_id.length < 1) {
-                alert("请选择分店信息");
-                return false;
+            alert("请选择分店信息");
+            return false;
         }
         var unit = document.getElementById("type_id").value;
         if (unit.length < 1) {
