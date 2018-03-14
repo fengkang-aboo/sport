@@ -32,12 +32,7 @@ class VenueController extends PublicController
         if (IS_POST) {
             $data = I('post.');
 
-            if (intval($_POST['id'])) {
-                //修改
-                $data['update_time'] = time();
-                $result = M('ty_venue_branch')->where('id=' . intval($_POST['id']))->save($data);
-            }else{
-                if (!empty($_FILES["logo"]["tmp_name"])) {
+            if (!empty($_FILES["logo"]["tmp_name"])) {
                     //文件上传
                     $info = $this->upload_images($_FILES["logo"], array('jpg', 'png', 'jpeg', 'mp4'), "venue/logo" . date(Ymd));
                     if (!is_array($info)) {// 上传错误提示错误信息
@@ -99,10 +94,17 @@ class VenueController extends PublicController
                             $venue_img_id .= ','.$img_id;
                         }
                     }
-                        
+                    $data['img_id'] = trim($venue_img_id,',');   
                 }
-                $data['img_id'] = trim($venue_img_id,',');
+                
 
+
+            if (intval($_POST['id'])) {
+                //修改
+                $data['update_time'] = time();
+                $result = M('ty_venue_branch')->where('id=' . intval($_POST['id']))->save($data);
+            }else{
+                
                 $data['create_time'] = time();
                 $result = M('ty_venue_branch')->add($data);
             }

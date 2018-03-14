@@ -1,4 +1,4 @@
-<!DOCTYPE HTML>
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE HTML>
 <html>
 <head>
     <meta charset="utf-8">
@@ -7,18 +7,18 @@
     <meta name="viewport"
           content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
     <meta http-equiv="Cache-Control" content="no-siteapp"/>
-    <link rel="Bookmark" href="__PUBLIC__/admin/images/favicon.ico">
-    <link rel="Shortcut Icon" href="__PUBLIC__/admin/images/favicon.ico"/>
+    <link rel="Bookmark" href="/cms.fitness.dayaartist.com/Public/admin/images/favicon.ico">
+    <link rel="Shortcut Icon" href="/cms.fitness.dayaartist.com/Public/admin/images/favicon.ico"/>
     <!--[if lt IE 9]>
-    <script type="text/javascript" src="__PUBLIC__/admin/lib/html5shiv.js"></script>
-    <script type="text/javascript" src="__PUBLIC__/admin/lib/respond.min.js"></script>
+    <script type="text/javascript" src="/cms.fitness.dayaartist.com/Public/admin/lib/html5shiv.js"></script>
+    <script type="text/javascript" src="/cms.fitness.dayaartist.com/Public/admin/lib/respond.min.js"></script>
     <![endif]-->
-    <link href="__PUBLIC__/admin/static/h-ui/css/H-ui.min.css" rel="stylesheet" type="text/css"/>
-    <link href="__PUBLIC__/admin/static/h-ui.admin/css/H-ui.login.css" rel="stylesheet" type="text/css"/>
-    <link href="__PUBLIC__/admin/static/h-ui.admin/css/style.css" rel="stylesheet" type="text/css"/>
-    <link href="__PUBLIC__/admin/lib/Hui-iconfont/1.0.8/iconfont.css" rel="stylesheet" type="text/css"/>
+    <link href="/cms.fitness.dayaartist.com/Public/admin/static/h-ui/css/H-ui.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/cms.fitness.dayaartist.com/Public/admin/static/h-ui.admin/css/H-ui.login.css" rel="stylesheet" type="text/css"/>
+    <link href="/cms.fitness.dayaartist.com/Public/admin/static/h-ui.admin/css/style.css" rel="stylesheet" type="text/css"/>
+    <link href="/cms.fitness.dayaartist.com/Public/admin/lib/Hui-iconfont/1.0.8/iconfont.css" rel="stylesheet" type="text/css"/>
     <!--[if IE 6]>
-    <script type="text/javascript" src="__PUBLIC__/admin/lib/DD_belatedPNG_0.0.8a-min.js"></script>
+    <script type="text/javascript" src="/cms.fitness.dayaartist.com/Public/admin/lib/DD_belatedPNG_0.0.8a-min.js"></script>
     <script>DD_belatedPNG.fix('*');</script>
     <![endif]-->
     <title>区块练后台管理系统</title>
@@ -42,7 +42,7 @@
 
 <div class="loginWraper">
     <div id="loginform" class="loginBox">
-        <div class="login-logo"><img src="__PUBLIC__/admin/static/h-ui.admin/images/logo.png" alt=""></div>
+        <div class="login-logo"><img src="/cms.fitness.dayaartist.com/Public/admin/static/h-ui.admin/images/logo.png" alt=""></div>
         <form name="Form1" class="form form-horizontal" action="?key=<?php echo $key;?>" method="post" id="Form1"
               onsubmit="return chkForm()">
             <div class="row cl">
@@ -68,7 +68,7 @@
                            onfocus="if(value=='图片验证码'){value=''}" onblur="if(value==''){value='图片验证码'}"/>
                 </div>
                 <div class="formControls col-xs-3">
-                    <img style="width: 123px;margin-left: 20px;" src="{:U('Admin/Login/code')}" onclick="huan(this)"/>
+                    <img style="width: 123px;margin-left: 20px;" src="<?php echo U('Admin/Login/code');?>" onclick="huan(this)"/>
                 </div>
                 <br/>
             </div>
@@ -114,7 +114,7 @@
 </script>
 <script>
     function huan(tag) {
-        tag.src = "{:u('Admin/Login/code')}?id=" + Math.random();
+        tag.src = "<?php echo u('Admin/Login/code');?>?id=" + Math.random();
     }
 </script>
 <!--此乃百度统计代码，请自行删除-->
@@ -122,4 +122,3 @@
 <!--/此乃百度统计代码，请自行删除
 </body>
 </html>
-
