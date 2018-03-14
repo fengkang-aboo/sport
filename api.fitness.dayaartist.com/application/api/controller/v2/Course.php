@@ -69,7 +69,7 @@ class Course extends Controller
 
             $courseImg = ImgModel::getOneImg($v['course']['main_img_id']); //课程图片
             
-            $TimeInfo['time'][$v['dates']][] = array('time_id'=>$v['id'],'course_img'=>$courseImg['img_url'],'course_name'=>$v['course']['name'],'teacher_name'=>$v['teacher']['name'],'date'=>$v['dates'],'time'=>date('H:i',$v['start_time']).'-'.date('H:i',$v['end_time']),'discount_price'=>$v['course']['discount_price'],'price'=>$v['course']['discount_price'],'stock'=>$v['stock']);
+            $TimeInfo['time'][$v['dates']][] = array('time_id'=>$v['id'],'course_img'=>$courseImg['img_url'],'course_name'=>$v['course']['name'],'teacher_name'=>$v['teacher']['name'],'date'=>$v['dates'],'time'=>date('H:i',$v['start_time']).'-'.date('H:i',$v['end_time']),'discount_price'=>$v['course']['discount_price'],'price'=>$v['course']['price'],'stock'=>$v['stock']);
             $date = date("Y-m-d",strtotime("+1 day",strtotime($date)));
 
             
