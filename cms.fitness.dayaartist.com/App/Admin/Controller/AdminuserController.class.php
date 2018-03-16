@@ -74,14 +74,14 @@ class AdminuserController extends PublicController{
 		}
 		//id>0则为编辑状态
 		$adminuserinfo = $id > 0 ? M('adminuser')->where("id=$id")->find():""; 
-		$supplier = M('box_supplier')->select();
+		$venue = M('ty_venue_branch')->where('pid=0')->select();
 		$role = M('rbac_role')->select();
 		//=============
 		//将变量输出
 		//=============
 		$this->assign('id',$id);
 		$this->assign('role',$role);
-		$this->assign('supplier',$supplier);
+		$this->assign('venue',$venue);
 		$this->assign('adminuserinfo',$adminuserinfo);
 		$this->display();
 	}
