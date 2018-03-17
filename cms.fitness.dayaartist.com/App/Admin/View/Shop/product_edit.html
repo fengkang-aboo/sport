@@ -61,8 +61,7 @@
 				<select name="category_id" id="category_id" class="select">
 					<option value="">请选择</option>
 					<volist name="category_data" id="v" empty="暂时没有数据">
-					   <option value="{$v.id}" <if condition="$v.id eq $product_data['cid']">selected="selected"</if>
-                        >{$v.name}</option>
+					   <option value="{$v.id}" <if condition="$v.id eq $product_data['cid']">selected="selected"</if>>{$v.name}</option>
 				    </volist>
 				</select>
 				</span>
@@ -74,12 +73,14 @@
                <input type="text" name="unit" id="unit" class="input-text" value="{$product_data.unit}" placeholder="请填写计量单位" style="width:90%">
             </div>
         </div>
-        <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-2">副标题：</label>
-            <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" name="describe" value="{$product_data.describe}" class="input-text" style="width:90%" placeholder="请填写至多20字以内">
+        <if condition="$product_data.describe neq ''">
+            <div class="row cl">
+                <label class="form-label col-xs-4 col-sm-2">课程简介：</label>
+                <div class="formControls col-xs-8 col-sm-9">
+                    <input type="text" name="describe" value="{$product_data.describe}" class="input-text" style="width:90%" placeholder="请填写至多20字以内">
+                </div>
             </div>
-        </div>
+        </if>
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-2">价格：</label>
             <div class="formControls col-xs-8 col-sm-9">
@@ -93,45 +94,32 @@
                 <input type="text" name="stock" id="stock" value="{$product_data.stock}" class="input-text" style="width:90%" placeholder="请填写库存">
             </div>
         </div>
-        <div id="abouts" <if condition="$product_data.summary eq 2"> style="display: none" </if>>
+        <div id="abouts" <if condition="$product_data.summary neq 2"> style="display: none" </if>>
             <div class="row cl">
-                <label class="form-label col-xs-4 col-sm-2">有效时间：</label>
+                <label class="form-label col-xs-4 col-sm-2">活动时间：</label>
                 <div class="formControls col-xs-8 col-sm-9">
                     <input style="width:13%" placeholder="开始时间" class="input-text" id="start_time" name="start_time" type="text" onclick="WdatePicker({minDate:'%y-%M-{%d}'})" value="{$product_data.start_time}"/> - <input
                         style="width:13%" placeholder="结束时间" class="input-text" id="end_time" name="end_time" type="text" value="{$product_data.end_time}" onclick="WdatePicker({minDate:'%y-%M-{%d}'})"/>
                 </div>
             </div>
-            <div class="row cl" id="abouts">
-                <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>预约时间：</label>
-                <div id="wrap" class="formControls col-xs-8 col-sm-9">
-                    <for start="0" end="$product_time_count">
-                        <div class="addData" style="margin-bottom: 5px;float: left;">
-                            <input type="text" name="about_stime[]" placeholder="开始时间" class="input-text" style=" width:40%" value="{$product_data['product_time_data'][$i]['start_time']}" onclick="WdatePicker({minDate:'%y-%M-%d 00:00',dateFmt:'yyyy-MM-dd HH:mm',alwaysUseStartDate:true})">
-                             -
-                            <input type="text" name="about_etime[]" placeholder="结束时间" class="input-text" style=" width:40%" value="{$product_data['product_time_data'][$i]['end_time']}" onclick="WdatePicker({minDate:'%y-%M-%d 00:00',dateFmt:'yyyy-MM-dd HH:mm',alwaysUseStartDate:true})">
-                        </div>
-                    </for>
-                </div>
-                <span class="add_about"><i class="Hui-iconfont">&#xe647;</i></span>
-            </div>
-            <div class="row cl">
+            <!-- <div class="row cl">
                 <label class="form-label col-xs-4 col-sm-2">商品地址：</label>
                 <div class="formControls col-xs-8 col-sm-9">
                     <input type="text" name="address" value="{$product_data.address}" class="input-text" style="width:90%" placeholder="请填写活动地址">
                 </div>
-            </div>
+            </div> -->
         </div>
-        <div class="row cl">
+       <!--  <div class="row cl">
             <label class="form-label col-xs-4 col-sm-2">标签：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" name="label" id="label" value="{$product_data.tag}" placeholder="多个关键字用|（竖线）隔开，限10个关键字、2个关键词" class="input-text" style="width:90%">
+                <input type="text" name="label" id="label" value="{$product_data.tag}" placeholder="限两个标签用短横线-隔开，字数不超过10" class="input-text" style="width:90%">
             </div>
-        </div>
+        </div> -->
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-2">产品参数：</label>
             <div class="formControls col-xs-8 col-sm-9" id="par">
                 <for start="0" end="$property_count">
-                    <input type="text" name="parameter[]" placeholder="参数名和参数用中文冒号：隔开" value="{$product_data['property'][$i]}" class="input-text" style="width:90%;margin-bottom: 8px">
+                    <input type="text" name="parameter[]" placeholder="参数名和参数值用短横线-隔开" value="{$product_data['property'][$i]}" class="input-text" style="width:90%;margin-bottom: 8px">
                 </for>
             </div>
             <span class="add_parameter"><i class="Hui-iconfont">&#xe647;</i></span>
@@ -139,7 +127,7 @@
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-2">商品规格：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" name="feature" value="{$product_data.feature}" placeholder="多个关键字用|（竖线）隔开" class="input-text" style="width:90%">
+                <input type="text" name="feature" value="{$product_data.feature}" placeholder="多个商品规格用短横线-隔开" class="input-text" style="width:90%">
             </div>
         </div>
         <script type="text/javascript" src="__PUBLIC__/admin/js/mydate.js"></script>

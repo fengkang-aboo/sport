@@ -157,16 +157,17 @@ class ShopController extends PublicController
                 //商品详情添加
                 if ($img_url) {
                     $data = I('post.');
-//                    print_r($data);die;
                     $pro_array = array();
                     if ($data['start_time'] > $data['end_time']) {
                         throw new \Exception('结束时间必须大于开始时间');
                     }
-
+                if($data['start_time']&&$data['end_time']){
                     $start_time = str_replace('-', '.', $data['start_time']);
                     $end_time = str_replace('-', '.', $data['end_time']);
                     $pro_array['duration'] = $start_time . '-' . $end_time;
                     $pro_array['address'] = $data['address'];
+                }
+                    
 
                     if (!empty($data['artist_id'])) {
                         $data['category_id'] = 8;
@@ -210,7 +211,7 @@ class ShopController extends PublicController
                         //添加产品参数
                         if (!empty($data['parameter'][0])) {
                             for ($i = 0; $i < count($data['parameter']); $i++) {
-                                $parameter_info = explode('：', $data['parameter'][$i]);
+                                $parameter_info = explode('-', $data['parameter'][$i]);
                                 $parameter_arr[] = array('name' => $parameter_info[0], 'detail' => $parameter_info[1], 'product_id' => $product_id);
                             }
                             $product_feature = M('product_property')->addAll($parameter_arr);
@@ -220,10 +221,10 @@ class ShopController extends PublicController
                         //添加商品规格
                         //判断几个规格
                         if (!empty($data['feature'])) {
-                            if (strpos($data['feature'], '|') == false) {
+                            if (strpos($data['feature'], '-') == false) {
                                 $feature_array[] = array('feature' => $data['feature'], 'product_id' => $product_id);
                             } else {
-                                $feature_info = explode('|', $data['feature']);
+                                $feature_info = explode('-', $data['feature']);
                                 for ($i = 0; $i < count($feature_info); $i++) {
                                     $feature_array[] = array('feature' => $feature_info[$i], 'product_id' => $product_id);
                                 }
@@ -234,7 +235,7 @@ class ShopController extends PublicController
                         //添加商品标签
                         //判断几个标签
                         if (!empty($data['label'])) {
-                            $label_info = explode('|', $data['label']);
+                            $label_info = explode('-', $data['label']);
                             $label_array = array('name' => $label_info[0], 'detail' => $label_info[1], 'product_id' => $product_id);
                             $product_tag = M('product_tag')->add($label_array);
                         }
@@ -320,13 +321,10 @@ class ShopController extends PublicController
                 }
 
                 //商品详情修改
-                $start_time = str_replace('-', '.', $data['start_time']);
-                $end_time = str_replace('-', '.', $data['end_time']);
                 $pro_array = array(
                     'name' => $data['name'],
                     'describe' => $data['describe'],
                     'content' => $data['editorValue'],
-                    'duration' => $start_time . '-' . $end_time,
                     'address' => $data['address'],
                     'price' => (float)$data['price'],
                     'stock' => $data['stock'],
@@ -338,6 +336,12 @@ class ShopController extends PublicController
                     'hot' => $data['hot'],
                     'unit' => $data['unit']
                 );
+
+                if($data['start_time']&&$data['end_time']){
+                    $start_time = str_replace('-', '.', $data['start_time']);
+                    $end_time = str_replace('-', '.', $data['end_time']);
+                    $pro_array['duration'] = $start_time . '-' . $end_time;
+                }
 
                 $pro_array = array_filter($pro_array);
                 $pro_array['summary'] = $data['summary'];
@@ -370,7 +374,7 @@ class ShopController extends PublicController
 
                 //修改商品标签
                 //判断几个标签
-                if (strpos($data['label'], '|') == false) {
+                if (strpos($data['label'], '-') == false) {
                     $label_array = array('name' => $data['label'], 'detail' => '', 'product_id' => $data['product_id']);
                     $tag_res = M('product_tag')->where('product_id=' . $data['product_id'])->save($label_array);
                 } else {
@@ -381,15 +385,14 @@ class ShopController extends PublicController
 
                 //修改产品参数
                 for ($i = 0; $i < count($data['parameter']); $i++) {
-                    $parameter_info = explode('：', $data['parameter'][$i]);
+                    $parameter_info = explode('-', $data['parameter'][$i]);
                     $parameter_arr[] = array('name' => $parameter_info[0], 'detail' => $parameter_info[1], 'product_id' => $data['product_id']);
                 }
-
-
+                // 删除原产品参数，再次添加编辑参数
                 M('product_property')->where('product_id=' . $data['product_id'])->delete();
                 $product_property = M('product_property')->addAll($parameter_arr);
 
-                if ($pro_res || $tag_res || $product_property) {
+                if ($pro_res&&$product_property) {
                     $Model->commit(); // 成功则提交事务
                     $this->success('编辑成功', U('Admin/Shop/product'));
                 } else {
@@ -407,16 +410,17 @@ class ShopController extends PublicController
             $product_data = M('product as p')
                 ->field('p.id as pid,c.id as cid,c.name as cname,p.name as pname,main_img_url,home_img_url,p.hot,price,duration,address,describe,stock,p.from as pfrom,summary,content,unit')
                 ->join('category as c on p.category_id=c.id')
-//                ->join('product_tag as t on p.id=t.product_id')
+                // ->join('product_tag as t on p.id=t.product_id'),t.name as tname,t.detail
                 ->where('p.id=' . $product_id)
                 ->find();
+                // print_r($product_data);die();
 
 
             $product_feature = M('product_feature')->where('product_id=' . $product_id)->select();
             if ($product_feature) {
                 if (count($product_feature) > 1) {
                     foreach ($product_feature as $key => $value) {
-                        $feature .= '|' . $product_feature[$key]['feature'];
+                        $feature .= '-' . $value['feature'];
                     }
 
                     $product_data['feature'] = mb_substr($feature, 1);
@@ -434,7 +438,7 @@ class ShopController extends PublicController
             if (empty($product_data['detail'])) {
                 $product_data['tag'] = $product_data['tname'];
             } else {
-                $product_data['tag'] = $product_data['tname'] . '|' . $product_data['detail'];
+                $product_data['tag'] = $product_data['tname'] . '-' . $product_data['detail'];
             }
             unset($product_data['tname']);
             unset($product_data['detail']);
@@ -444,7 +448,7 @@ class ShopController extends PublicController
 
             $property_count = count($property_info);
             for ($i = 0; $i < $property_count; $i++) {
-                $property_array[] = $property_info[$i]['name'] . '：' . $property_info[$i]['detail'];
+                $property_array[] = $property_info[$i]['name'] . '-' . $property_info[$i]['detail'];
             }
             $product_data['property'] = $property_array;
 
