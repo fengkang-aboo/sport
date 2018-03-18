@@ -109,7 +109,7 @@ class Search extends Controller
         //print_r($venue);die;
         foreach ($venue as $key => $v) {
             $distance = getdistances($longitude,$latitude,$v['longitude'],$v['latitude']);
-            $venue[$key]['distance'] = round($distance/1000,2);
+            $venue[$key]['distance'] = round($distance/1000,1);
             $main_img = ImgModel::getOneImg($v['main_img_id']);
             $logo_img = ImgModel::getOneImg($v['logo_id']);
             $venue[$key]['main_img'] = $main_img['img_url'];

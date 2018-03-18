@@ -41,7 +41,7 @@ class Venue extends Controller
         foreach ($data as $key => $v) {
             $data[$key]['venue_id'] = $v['id'];
             $distance = getdistances($longitude,$latitude,$v['longitude'],$v['latitude']);
-            $data[$key]['distance'] = round($distance/1000,2);
+            $data[$key]['distance'] = round($distance/1000,1);
             $main_img = ImgModel::getOneImg($v['main_img_id']);
             $logo_img = ImgModel::getOneImg($v['logo_id']);
             $data[$key]['main_img'] = $main_img['img_url'];

@@ -106,7 +106,7 @@ class Collection extends Controller
         $collectionData = array();
         foreach ($collection as $key => $v) {
             $distance = getdistances($longitude,$latitude,$v['venue']['longitude'],$v['venue']['latitude']);
-            $distance = round($distance/1000,2);
+            $distance = round($distance/1000,1);
             $venue_img = ImgModel::getOneImg($v['venue']['main_img_id']);
             $collectionData[] = array('venue_id'=>$v['venue']['id'],'name'=>$v['venue']['name'],'address'=>$v['venue']['address'],'img'=>$venue_img['img_url'],'status'=>$v['status'],'distance'=>$distance);
         }

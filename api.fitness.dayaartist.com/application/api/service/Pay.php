@@ -75,7 +75,7 @@ class Pay
         $wxOrderData->SetBody('区块练生活秀');
         $wxOrderData->SetOpenid($openid);
 //        $wxOrderData->SetNotify_url(config('secure.pay_back_url'));
-        $wxOrderData->SetNotify_url('https://api.fitness.dayaartist.com/index.php/api/v2/pay/notify');
+        $wxOrderData->SetNotify_url('https://api.blocktrain.com.cn/index.php/api/v2/pay/notify');
 
         return $this->getPaySignature($wxOrderData);
     }
