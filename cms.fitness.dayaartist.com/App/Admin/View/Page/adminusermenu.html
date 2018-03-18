@@ -1,64 +1,68 @@
 <aside class="Hui-aside">
     <div class="menu_dropdown bk_2">
-        <dl id="menu-article">
-            <dt><i class="Hui-iconfont">&#xe62c;</i> 用户管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
-            <dd>
-                <ul>
-                    <li>
-                        <a data-title="用户列表" data-href="{:U('WXuser/index')}" href="{:U('WXuser/index')}"
-                           target="iframe">用户列表</a>
-                    </li>
-                </ul>
-            </dd>
-        </dl>
-        <dl id="menu-picture">
-            <dt><i class="Hui-iconfont">&#xe620;</i> 场馆管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
-            <dd>
-                <ul>
-                    <li>
-                        <a data-title="场馆列表" data-href="{:U('Venue/venue_index')}" href="{:U('Venue/venue_index')}"
-                           target="iframe">场馆列表</a>
-                    </li>
-                    <li>
-                        <a data-title="添加场馆" data-href="{:U('Venue/add_venue')}" href="{:U('Venue/add_venue')}"
-                           target="iframe">添加场馆</a>
-                    </li>
-                </ul>
-            </dd>
-        </dl>
-        <dl id="menu-system">
-            <dt><i class="Hui-iconfont">&#xe62e;</i> 分类管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
-            <dd>
-                <ul>
-                    <li>
-                        <a data-title="添加分类" data-href="{:U('Category/add')}" href="{:U('Category/add')}"
-                           target="iframe">添加分类</a>
-                    </li>
-                    <li>
-                        <a data-title="分类管理" data-href="{:U('Category/index')}" href="{:U('Category/index')}"
-                           target="iframe">分类列表</a>
-                    </li>
-                </ul>
-            </dd>
-        </dl>
-        <dl id="menu-picture">
-            <dt><i class="Hui-iconfont">&#xe620;</i> 商品管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
-            <dd>
-                <ul>
-                    <li>
-                        <a data-title="全部商品" data-href="{:U('Shop/product')}" href="{:U('Shop/product')}"
-                           target="iframe">商品列表</a>
-                    </li>
-                    <li>
-                        <a data-title="添加商品" data-href="{:U('Shop/addGoods')}" href="{:U('Shop/addGoods')}"
-                           target="iframe">添加商品</a>
-                    </li>
-                    <!--<li>-->
-                    <!--<a data-title="商品分类" data-href="{:U('Shop/category')}" href="{:U('Shop/category')}" target="iframe">商品分类</a>-->
-                    <!--</li>-->
-                </ul>
-            </dd>
-        </dl>
+        <div
+        <if condition="$_SESSION['admininfo']['role_id'] neq 1"> style="display:none"</if>
+        >
+            <dl id="menu-article">
+                <dt><i class="Hui-iconfont">&#xe62c;</i> 用户管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+                <dd>
+                    <ul>
+                        <li>
+                            <a data-title="用户列表" data-href="{:U('WXuser/index')}" href="{:U('WXuser/index')}"
+                               target="iframe">用户列表</a>
+                        </li>
+                    </ul>
+                </dd>
+            </dl>
+            <dl id="menu-picture">
+                <dt><i class="Hui-iconfont">&#xe620;</i> 场馆管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+                <dd>
+                    <ul>
+                        <li>
+                            <a data-title="场馆列表" data-href="{:U('Venue/venue_index')}" href="{:U('Venue/venue_index')}"
+                               target="iframe">场馆列表</a>
+                        </li>
+                        <li>
+                            <a data-title="添加场馆" data-href="{:U('Venue/add_venue')}" href="{:U('Venue/add_venue')}"
+                               target="iframe">添加场馆</a>
+                        </li>
+                    </ul>
+                </dd>
+            </dl>
+            <dl id="menu-system">
+                <dt><i class="Hui-iconfont">&#xe62e;</i> 分类管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+                <dd>
+                    <ul>
+                        <li>
+                            <a data-title="添加分类" data-href="{:U('Category/add')}" href="{:U('Category/add')}"
+                               target="iframe">添加分类</a>
+                        </li>
+                        <li>
+                            <a data-title="分类管理" data-href="{:U('Category/index')}" href="{:U('Category/index')}"
+                               target="iframe">分类列表</a>
+                        </li>
+                    </ul>
+                </dd>
+            </dl>
+            <dl id="menu-picture">
+                <dt><i class="Hui-iconfont">&#xe620;</i> 商品管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+                <dd>
+                    <ul>
+                        <li>
+                            <a data-title="全部商品" data-href="{:U('Shop/product')}" href="{:U('Shop/product')}"
+                               target="iframe">商品列表</a>
+                        </li>
+                        <li>
+                            <a data-title="添加商品" data-href="{:U('Shop/addGoods')}" href="{:U('Shop/addGoods')}"
+                               target="iframe">添加商品</a>
+                        </li>
+                        <!--<li>-->
+                        <!--<a data-title="商品分类" data-href="{:U('Shop/category')}" href="{:U('Shop/category')}" target="iframe">商品分类</a>-->
+                        <!--</li>-->
+                    </ul>
+                </dd>
+            </dl>
+        </div>
         <dl id="menu-product">
             <dt><i class="Hui-iconfont">&#xe643;</i> 课程管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
@@ -76,19 +80,6 @@
                 </ul>
             </dd>
         </dl>
-        <dl id="menu-product">
-            <dt><i class="Hui-iconfont">&#xe650;</i> 视频管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
-            <dd>
-                <ul>
-                    <li>
-                        <a data-title="添加视频" data-href="{:U('Video/add')}" href="{:U('Video/add')}" target="iframe">添加视频</a>
-                    </li>
-                    <li>
-                        <a data-title="视频列表" data-href="{:U('Video/video')}" href="{:U('Video/video')}" target="iframe">视频列表</a>
-                    </li>
-                </ul>
-            </dd>
-        </dl>
         <dl id="menu-member">
             <dt><i class="Hui-iconfont">&#xe627;</i> 订单管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
@@ -102,35 +93,52 @@
                 </ul>
             </dd>
         </dl>
-        <dl id="menu-article">
-            <dt><i class="Hui-iconfont">&#xe621;</i> 财务统计<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
-            <dd>
-                <!--<ul>-->
-                    <!--<li>-->
-                        <!--<a data-title="个人财务统计" data-href="{:U('Statistics/index')}" href="{:U('Statistics/index')}"-->
-                           <!--target="iframe">个人财务统计</a>-->
-                    <!--</li>-->
-                    <!--<li>-->
-                        <!--<a data-title="财务统计" data-href="{:U('Statistics/total')}" href="{:U('Statistics/total')}"-->
-                           <!--target="iframe">财务总计</a>-->
-                    <!--</li>-->
-                    <!--<li>-->
-                <!--</ul>-->
-            </dd>
-        </dl>
-        <dl id="menu-admin">
-            <dt><i class="Hui-iconfont">&#xe653;</i> 权限管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
-            <dd>
-                <ul>
-                    <li><a data-href="{:U('Adminuser/adminuser')}" data-title="管理员列表" href="{:U('Adminuser/adminuser')}"
-                           target="iframe">管理员列表</a></li>
-                    <li><a data-href="{:U('Adminuser/role')}" data-title="角色管理" href="{:U('Adminuser/role')}"
-                           target="iframe">角色管理</a></li>
-                    <li><a data-href="{:U('Adminuser/auth')}" data-title="权限管理" href="{:U('Adminuser/auth')}"
-                           target="iframe">权限管理</a></li>
-                </ul>
-            </dd>
-        </dl>
+        <div
+        <if condition="$_SESSION['admininfo']['role_id'] neq 1"> style="display:none"</if>
+        >
+            <dl id="menu-product">
+                <dt><i class="Hui-iconfont">&#xe650;</i> 视频管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+                <dd>
+                    <ul>
+                        <li>
+                            <a data-title="添加视频" data-href="{:U('Video/add')}" href="{:U('Video/add')}" target="iframe">添加视频</a>
+                        </li>
+                        <li>
+                            <a data-title="视频列表" data-href="{:U('Video/video')}" href="{:U('Video/video')}" target="iframe">视频列表</a>
+                        </li>
+                    </ul>
+                </dd>
+            </dl>
+            <dl id="menu-article">
+                <dt><i class="Hui-iconfont">&#xe621;</i> 财务统计<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+                <dd>
+                    <!--<ul>-->
+                        <!--<li>-->
+                            <!--<a data-title="个人财务统计" data-href="{:U('Statistics/index')}" href="{:U('Statistics/index')}"-->
+                               <!--target="iframe">个人财务统计</a>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<a data-title="财务统计" data-href="{:U('Statistics/total')}" href="{:U('Statistics/total')}"-->
+                               <!--target="iframe">财务总计</a>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                    <!--</ul>-->
+                </dd>
+            </dl>
+            <dl id="menu-admin">
+                <dt><i class="Hui-iconfont">&#xe653;</i> 权限管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+                <dd>
+                    <ul>
+                        <li><a data-href="{:U('Adminuser/adminuser')}" data-title="管理员列表" href="{:U('Adminuser/adminuser')}"
+                               target="iframe">管理员列表</a></li>
+                        <li><a data-href="{:U('Adminuser/role')}" data-title="角色管理" href="{:U('Adminuser/role')}"
+                               target="iframe">角色管理</a></li>
+                        <li><a data-href="{:U('Adminuser/auth')}" data-title="权限管理" href="{:U('Adminuser/auth')}"
+                               target="iframe">权限管理</a></li>
+                    </ul>
+                </dd>
+            </dl>
+        </div>
     </div>
 
 </aside>

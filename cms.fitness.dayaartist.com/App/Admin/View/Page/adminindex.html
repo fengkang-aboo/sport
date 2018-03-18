@@ -56,42 +56,37 @@
 <div class="page-container">
     <div class="container">
         <div class="row">
-            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 item">
-                <a class="wrap" href="{:U('WXuser/index')}">
-                    <img class="img-responsive center-block start" src="__PUBLIC__/admin/images/home1.png">
-                    <img class="img-responsive center-block end" src="__PUBLIC__/admin/images/home1a.png">
-                </a>
-            </div>
+            <div <if condition="$_SESSION['admininfo']['role_id'] neq 1"> style="display:none"</if>>
+                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 item">
+                    <a class="wrap" href="{:U('WXuser/index')}">
+                        <img class="img-responsive center-block start" src="__PUBLIC__/admin/images/home1.png">
+                        <img class="img-responsive center-block end" src="__PUBLIC__/admin/images/home1a.png">
+                    </a>
+                </div>
 
-            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 item">
-                <a class="wrap" href="{:U('Venue/venue_index')}">
-                    <img class="img-responsive center-block start" src="__PUBLIC__/admin/images/home2.png">
-                    <img class="img-responsive center-block end" src="__PUBLIC__/admin/images/home2a.png">
-                </a>
+                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 item">
+                    <a class="wrap" href="{:U('Venue/venue_index')}">
+                        <img class="img-responsive center-block start" src="__PUBLIC__/admin/images/home2.png">
+                        <img class="img-responsive center-block end" src="__PUBLIC__/admin/images/home2a.png">
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 item">
+                    <a class="wrap" href="{:U('Category/index')}">
+                        <img class="img-responsive center-block start" src="__PUBLIC__/admin/images/home3.png">
+                        <img class="img-responsive center-block end" src="__PUBLIC__/admin/images/home3a.png">
+                    </a>
+                </div>
+                 <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 item">
+                    <a class="wrap" href="{:U('Shop/product')}">
+                        <img class="img-responsive center-block start" src="__PUBLIC__/admin/images/home4.png">
+                        <img class="img-responsive center-block end" src="__PUBLIC__/admin/images/home4a.png">
+                    </a>
+                </div>
             </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 item">
-                <a class="wrap" href="{:U('Category/index')}">
-                    <img class="img-responsive center-block start" src="__PUBLIC__/admin/images/home3.png">
-                    <img class="img-responsive center-block end" src="__PUBLIC__/admin/images/home3a.png">
-                </a>
-            </div>
-             <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 item">
-                <a class="wrap" href="{:U('Shop/product')}">
-                    <img class="img-responsive center-block start" src="__PUBLIC__/admin/images/home4.png">
-                    <img class="img-responsive center-block end" src="__PUBLIC__/admin/images/home4a.png">
-                </a>
-            </div>
-            
             <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 item">
                 <a class="wrap" href="{:U('Course/course_index')}">
                     <img class="img-responsive center-block start" src="__PUBLIC__/admin/images/home5.png">
                     <img class="img-responsive center-block end" src="__PUBLIC__/admin/images/home5a.png">
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 item">
-                <a class="wrap" href="{:U('Video/video')}">
-                    <img class="img-responsive center-block start" src="__PUBLIC__/admin/images/home6.png">
-                    <img class="img-responsive center-block end" src="__PUBLIC__/admin/images/home6a.png">
                 </a>
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 item">
@@ -100,20 +95,27 @@
                     <img class="img-responsive center-block end" src="__PUBLIC__/admin/images/home7a.png">
                 </a>
             </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 item">
-                <a class="wrap" href="#">
-                    <img class="img-responsive center-block start" src="__PUBLIC__/admin/images/home8.png">
-                    <img class="img-responsive center-block end" src="__PUBLIC__/admin/images/home8a.png">
-                </a>
+            <div <if condition="$_SESSION['admininfo']['role_id'] neq 1"> style="display:none"</if>>
+                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 item">
+                    <a class="wrap" href="{:U('Video/video')}">
+                        <img class="img-responsive center-block start" src="__PUBLIC__/admin/images/home6.png">
+                        <img class="img-responsive center-block end" src="__PUBLIC__/admin/images/home6a.png">
+                    </a>
+                </div>
+                
+                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 item">
+                    <a class="wrap" href="#">
+                        <img class="img-responsive center-block start" src="__PUBLIC__/admin/images/home8.png">
+                        <img class="img-responsive center-block end" src="__PUBLIC__/admin/images/home8a.png">
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 item">
+                    <a class="wrap" href="{:U('Adminuser/adminuser')}">
+                        <img class="img-responsive center-block start" src="__PUBLIC__/admin/images/home9.png">
+                        <img class="img-responsive center-block end" src="__PUBLIC__/admin/images/home9a.png">
+                    </a>
+                </div> 
             </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 item">
-                <a class="wrap" href="{:U('Adminuser/adminuser')}">
-                    <img class="img-responsive center-block start" src="__PUBLIC__/admin/images/home9.png">
-                    <img class="img-responsive center-block end" src="__PUBLIC__/admin/images/home9a.png">
-                </a>
-            </div> 
-
-
         </div>
     </div>
 </div>
