@@ -22,8 +22,10 @@ class PublicController extends Controller{
 			}
 			//访问的控制器方法
 			$auth_ac = CONTROLLER_NAME.'/'.ACTION_NAME;
+			//echo $auth_ac;die;
 			$role_id = $_SESSION['admininfo']['role_id'];
-
+			$this->userInfo = $_SESSION['admininfo'];
+			
 			if ($role_id != 1) { //超级管理员直接跳过
 
 				$admin_id = $_SESSION['admininfo']['id'];

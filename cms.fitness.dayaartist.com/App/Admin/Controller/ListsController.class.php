@@ -11,7 +11,12 @@ class ListsController extends PublicController
     //**********************************
     public function lists()
     {
-        $userlist = M('order')->field('order.id,order.order_no,order.snap_name,order.total_count,order.total_price,order.create_time,order.update_time,order.status,order.snap_img,ty_course_arrange.start_time,ty_course_arrange.end_time')->join('ty_course_arrange on ty_course_arrange.id = order.time_id', 'left')->order('order.id desc')->select();
+        $userInfo = $this->userInfo;
+        $where = array();
+        if (!empty($userInfo['venue_id'])) {
+            $where = array('supplier_id' => $userInfo['venue_id']);
+        }
+        $userlist = M('order')->field('order.id,order.order_no,order.snap_name,order.total_count,order.total_price,order.create_time,order.update_time,order.status,order.snap_img,ty_course_arrange.start_time,ty_course_arrange.end_time')->join('ty_course_arrange on ty_course_arrange.id = order.time_id', 'left')->where($where)->order('order.id desc')->select();
         foreach ($userlist as $k => $v) {
             $userlist[$k]['delete_time'] = date("Y-m-d H:i", $v['delete_time']);
             $userlist[$k]['create_time'] = date("Y-m-d H:i", $v['create_time']);

@@ -46,7 +46,12 @@ class CourseController extends PublicController
     //**********************************
     public function course_index()
     {
-        $course = M('ty_course as course')->field('course.*,ty_img.img_url')->join('ty_img on course.main_img_id=ty_img.id')->select();
+        $userInfo = $this->userInfo;
+        $where = array();
+        if (!empty($userInfo['venue_id'])) {
+            $where = array('venue_branch_id' => $userInfo['venue_id']);
+        }
+        $course = M('ty_course as course')->field('course.*,ty_img.img_url')->join('ty_img on course.main_img_id=ty_img.id')->where($where)->select();
         $count = count($course);
 //        print_r($course);die();
         $this->assign('course', $course);
@@ -196,7 +201,12 @@ class CourseController extends PublicController
     //**********************************
     public function teacher_index()
     {
-        $teacher = M('ty_teacher as teacher')->select();
+        $userInfo = $this->userInfo;
+        $where = array();
+        if (!empty($userInfo['venue_id'])) {
+            $where = array('venue_id' => $userInfo['venue_id']);
+        }
+        $teacher = M('ty_teacher as teacher')->where($where)->select();
         $count = count($teacher);
         $this->assign('teacher', $teacher);
         $this->assign('count', $count);
@@ -255,6 +265,11 @@ class CourseController extends PublicController
     public function course_time()
     {
         $where = array();
+        $userInfo = $this->userInfo;
+        $where = array();
+        if (!empty($userInfo['venue_id'])) {
+            $where = array('ca.venue_branch_id' => $userInfo['venue_id']);
+        }
         $course_time = M('ty_course_arrange as ca')
             ->where($where)
             ->field('ca.*,course.name as course_name,teacher.name as teacher_name,venue.name as venue_name')
@@ -280,7 +295,7 @@ class CourseController extends PublicController
                 $data = I('post.');
 //                print_r($data);
 //                die();
-                if (empty(($data['start_times'][0]))) {
+                if (empty($data['start_times'][0])) {
                     throw new \Exception('时间不能为空');
                     exit();
                 }
