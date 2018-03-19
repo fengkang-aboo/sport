@@ -123,13 +123,19 @@ Page({
 	},
 	//点击查看地图
 	onAddressTap: function (event) {
-		console.log(123);
 		wx.openLocation({
 			latitude: Number(this.data.latitude),
 			longitude: Number(this.data.longitude),
 			scale: 28,
 			name: this.data.name,
 			address: this.data.address
+		})
+	},
+	//打电话
+	tel: function (event){
+		var tel = club.getDataSet(event, 'tel');
+		wx.makePhoneCall({
+			phoneNumber: tel 
 		})
 	},
 

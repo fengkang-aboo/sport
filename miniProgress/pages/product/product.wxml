@@ -1,54 +1,55 @@
 <view class="container">
-  <swiper indicator-dots="{{true}}">
-    <block wx:for="{{product.course_img}}">
-      <swiper-item>
-        <image src="{{item}}" class="slide-image" />
-      </swiper-item>
-    </block>
-  </swiper>
-  <view class='view-info'>
-    <view class='product-name'>{{product.course_name}}</view>
-    <view class='product-club'>{{product.venue_name}}</view>
-    <view class='price'>
-      <text wx:if="{{kill}}" class='price1'>￥{{kill}}</text>
-      <text wx:if="{{!kill}}" class='price1'>￥{{product.discount_price?product.discount_price:product.price}}</text>
-      <text class='price2' wx:if="{{product.discount_price}}">￥{{product.price}}</text>
+    <swiper indicator-dots="{{true}}">
+        <block wx:for="{{product.course_img}}">
+            <swiper-item>
+                <image src="{{item}}" class="slide-image" />
+            </swiper-item>
+        </block>
+    </swiper>
+    <view class='view-info'>
+        <view class='product-name'>{{product.course_name}}</view>
+        <view class='product-club'>{{product.venue_name}}</view>
+        <view class='price'>
+            <text wx:if="{{kill}}" class='price1'>￥{{kill}}</text>
+            <text wx:if="{{!kill}}" class='price1'>￥{{product.discount_price?product.discount_price:product.price}}</text>
+            <text class='price2' wx:if="{{product.discount_price}}">￥{{product.price}}</text>
+        </view>
     </view>
-  </view>
 
-  <view class='view-info'>
-    <view class='time'>{{product.time}}</view>
-    <view class='address'>{{product.address}}</view>
-  </view>
-
-  <view class='view-info' wx:if="{{product.teacher.img&&product.teacher.name&&product.teacher.content}}">
-    <view class='title'>老师介绍</view>
-    <view class='teacher'>
-      <image class='teacher-img' src='{{product.teacher.img}}'></image>
-      <view class='teacher-desc'>
-        <view class='teacher-text'>{{product.teacher.name}}</view>
-        <view class='teacher-text'>{{product.teacher.content}}</view>
-      </view>
+    <view class='view-info'>
+        <view class='time'>{{product.time}}</view>
+        <view class='address'>{{product.address}}</view>
     </view>
-  </view>
 
-  <view class='view-info'>
-    <view class='title'>课程介绍</view>
-    <view class='address'>{{product.course_content}}</view>
-  </view>
-  <view class='view-info' wx:if="{{kill}}">
-    <view class='title'>活动规则</view>
-    <view class='address'>限时5折秒杀活动，每晚9点-10点热抢！每人每天仅限一个名额，秒杀课程不可退改。</view>
-  </view>
-  <view class='view-info' style='margin-bottom:100rpx;'>
-    <view class='title'>注意事项</view>
-    <view class='address'>商家所售课程以整堂计算，无法因迟到退款，请务必准时上课。</view>
-  </view>
-  
+    <view class='view-info' wx:if="{{product.teacher.img&&product.teacher.name&&product.teacher.content}}">
+        <view class='title'>老师介绍</view>
+        <view class='teacher'>
+            <image class='teacher-img' src='{{product.teacher.img}}'></image>
+            <view class='teacher-desc'>
+                <view class='teacher-text'>{{product.teacher.name}}</view>
+                <view class='teacher-text'>{{product.teacher.content}}</view>
+            </view>
+        </view>
+    </view>
 
-  <view class='bottom'>
-    <view wx:if="{{kill}}" class='toatl'>￥{{kill}}</view>
-    <view wx:if="{{!kill}}" class='toatl'>￥{{product.discount_price?product.discount_price:product.price}}</view>
-    <view class='order {{product.stock>0?"on":"off"}}' bindtap='goOrder'>{{product.stock>0?'立即预约':'该商品已售完'}}</view>
-  </view>
+    <view class='view-info'>
+        <view class='title'>课程介绍</view>
+        <view class='address'>{{product.course_content}}</view>
+    </view>
+    <view class='view-info' wx:if="{{kill}}">
+        <view class='title'>活动规则</view>
+        <view class='address'>限时5折秒杀活动，每晚9点-10点热抢！每人每天仅限一个名额，秒杀课程不可退改。</view>
+    </view>
+    <view class='view-info' style='margin-bottom:100rpx;'>
+        <view class='title'>注意事项</view>
+        <view class='address'>1.商家所售课程以整堂计算，无法因迟到退款，请务必准时上课。</view>
+        <view class='address'>2.开课前6小时内无法退改。</view>
+    </view>
+
+
+    <view class='bottom'>
+        <view wx:if="{{kill}}" class='toatl'>￥{{kill}}</view>
+        <view wx:if="{{!kill}}" class='toatl'>￥{{product.discount_price?product.discount_price:product.price}}</view>
+        <view class='order {{product.stock>0?"on":"off"}}' bindtap='goOrder'>{{product.stock>0?'立即预约':'该商品已售完'}}</view>
+    </view>
 </view>

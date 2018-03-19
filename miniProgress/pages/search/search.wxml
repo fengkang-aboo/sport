@@ -15,12 +15,12 @@
 
     <view class='recommend' hidden="{{isSearch||!currentTabsIndex==0}}">
         <block wx:for="{{hotLesson}}">
-            <view class='recommend-item' bindtap='lessonLabel' data-id="{{item.id}}">{{item.name}}</view>
+            <view wx:if="{{item}}" class='recommend-item' bindtap='lessonLabel' data-id="{{item.id}}">{{item.name}}</view>
         </block>
     </view>
     <view class='recommend' hidden="{{isSearch||!currentTabsIndex==1}}">
         <block wx:for="{{hotClub}}">
-            <view class='recommend-item' bindtap='clubLabel' data-id="{{item}}">{{item}}</view>
+            <view wx:if="{{item}}" class='recommend-item' bindtap='clubLabel' data-id="{{item}}">{{item}}</view>
         </block>
     </view>
 
@@ -54,7 +54,10 @@
                     <view class='club-bg2'></view>
                     <view class='club-content'>
                         <image class='club-logo' src='{{item.log_img}}' mode='aspectFill'></image>
-                        <view class='club-title'>{{item.name}}</view>
+                        <view class='item-text'>
+                            <view class='club-title'>{{item.name}}</view>
+                            <view wx:if="{{item.key_word}}" class='club-address'>{{item.key_word}}</view>
+                        </view>
                         <view class='club-distance'>{{item.distance}}km</view>
                     </view>
                 </view>
