@@ -6,5 +6,5 @@
  * Time: 14:08
  */
 return [
-    'img_prefix' => 'http://cms.fitness.dayaartist.com'
+    'img_prefix' => 'http://cms.blocktrain.com.cn'
 ];
