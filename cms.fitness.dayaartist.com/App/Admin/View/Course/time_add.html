@@ -33,26 +33,27 @@
 </head>
 <body>
 <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 课程管理 <span
-        class="c-gray en">&gt;</span> 时间安排 <a class="btn btn-success radius r"
-                                              style="line-height:1.6em;margin-top:3px"
-                                              href="javascript:location.replace(location.href);" title="刷新"><i
+        class="c-gray en">&gt;</span> 时间安排 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新"><i
         class="Hui-iconfont">&#xe68f;</i></a></nav>
 
 <div class="page-container">
-    <form action="" method="post" class="form form-horizontal" id="form-article-add" onsubmit="return ac_from();"
-          enctype="multipart/form-data">
-        <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>关联分店：</label>
-            <div class="formControls col-xs-8 col-sm-9"> <span class="select-box" style="width:90%">
-                    <select name="venue_branch_id" id="venue_branch_id" class="select">
-                        <option value="">分店列表</option>
-                        <volist name='venueList' id="venueList">
-                                <option value="{$venueList.id}" name="one" <if condition="$venueList.id eq $arrange['venue_branch_id']">selected="selected"</if> >- {$venueList.name}</option>
-                        </volist>
-                    </select>
-                </span>
+    <form action="" method="post" class="form form-horizontal" id="form-article-add" onsubmit="return ac_from();" enctype="multipart/form-data">
+        <if condition="$venue_id eq '' ">
+            <div class="row cl">
+                <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>场馆：</label>
+                <div class="formControls col-xs-8 col-sm-9"> <span class="select-box" style="width:90%">
+                        <select name="venue_branch_id" id="venue_branch_id" class="select">
+                            <option value="">场馆列表</option>
+                            <volist name='venueList' id="venueList">
+                                    <option value="{$venueList.id}" name="one" <if condition="$venueList.id eq $arrange['venue_branch_id']">selected="selected"</if> >- {$venueList.name}</option>
+                            </volist>
+                        </select>
+                    </span>
+                </div>
             </div>
-        </div>
+        <else /> 
+            <input type="hidden" name="venue_branch_id" value="{$venue_id}">
+        </if>
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>训练课程：</label>
             <div class="formControls col-xs-8 col-sm-9"> <span class="select-box" style="width:90%">

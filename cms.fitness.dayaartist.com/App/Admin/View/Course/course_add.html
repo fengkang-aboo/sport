@@ -68,19 +68,23 @@
                 </span>
             </div>
         </div>
-        <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>关联分店：</label>
-            <div class="formControls col-xs-8 col-sm-9"> <span class="select-box" style="width:90%">
-                    <select name="venue_branch_id" id="venue_branch_id" class="select">
-                        <option value="">分店列表</option>
-                        <volist name='venueList' id="venueList">
-                                <option value="{$venueList.id}" name="one" <if
-                                condition="$venueList.id eq $course['venue_branch_id']">selected="selected"</if> >- {$venueList.name}</option>
-                        </volist>
-                    </select>
-                </span>
+        <if condition="$venue_id eq '' ">
+            <div class="row cl">
+                <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>场馆：</label>
+                <div class="formControls col-xs-8 col-sm-9"> <span class="select-box" style="width:90%">
+                        <select name="venue_branch_id" id="venue_branch_id" class="select">
+                            <option value="">场馆列表</option>
+                            <volist name='venueList' id="venueList">
+                                    <option value="{$venueList.id}" name="one" <if
+                                    condition="$venueList.id eq $course['venue_branch_id']">selected="selected"</if> >- {$venueList.name}</option>
+                            </volist>
+                        </select>
+                    </span>
+                </div>
             </div>
-        </div>
+        <else /> 
+            <input type="hidden" name="venue_branch_id" value="{$venue_id}">
+        </if>
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>课程描述：</label>
             <div class="formControls col-xs-8 col-sm-9">

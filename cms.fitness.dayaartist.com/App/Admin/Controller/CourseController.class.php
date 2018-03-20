@@ -13,6 +13,7 @@ class CourseController extends PublicController
 */
     public function _initialize()
     {
+        $userInfo = $_SESSION['admininfo'];
         $this->category = M('category');
         // 获取所有分类，进行关系划分
         $list = $this->category->where('pid=0')->order('sort desc,id asc')->select();
@@ -31,13 +32,22 @@ class CourseController extends PublicController
         $this->assign('venueList', $venueList);
 
         //        获取所有课程信息
+        $course_where = array();
+
+        if ($userInfo['role_id'] == 2) {
+            $course_where['venue_branch_id'] = $userInfo['venue_id'];
+        }
         $this->ty_course = M('ty_course');
-        $courseList = $this->ty_course->order('id desc')->select();
+        //print_r($course_where);die;
+        $courseList = $this->ty_course->where($course_where)->order('id desc')->select();
         $this->assign('courseList', $courseList);
 
         //        获取所有老师信息
         $this->ty_teacher = M('ty_teacher');
-        $teacherList = $this->ty_teacher->order('id desc')->select();
+        if ($userInfo['role_id'] == 2) {
+            $teacher_where['venue_id'] = $userInfo['venue_id'];
+        }
+        $teacherList = $this->ty_teacher->where($teacher_where)->order('id desc')->select();
         $this->assign('teacherList', $teacherList);
     }
 
@@ -165,9 +175,17 @@ class CourseController extends PublicController
         } elseif ($_GET['id']) {
             $course_id = I('get.id');
             $course = M('ty_course')->where('id=' . $course_id)->find();
+
+            $userInfo = $this->userInfo;
+            //echo $userInfo['venue_id'];die;
+            $this->assign('venue_id',$userInfo['venue_id']);
+
             $this->assign('course', $course);
             $this->display();
         } else {
+            $userInfo = $this->userInfo;
+            //echo $userInfo['venue_id'];die;
+            $this->assign('venue_id',$userInfo['venue_id']);
             $this->display();
         }
     }
@@ -206,6 +224,7 @@ class CourseController extends PublicController
         if (!empty($userInfo['venue_id'])) {
             $where = array('venue_id' => $userInfo['venue_id']);
         }
+
         $teacher = M('ty_teacher as teacher')->where($where)->select();
         $count = count($teacher);
         $this->assign('teacher', $teacher);
@@ -254,6 +273,11 @@ class CourseController extends PublicController
                 $teacher = M('ty_teacher')->where($where)->find();
                 $this->assign('teacher', $teacher);
             }
+
+            $userInfo = $this->userInfo;
+            //echo $userInfo['venue_id'];die;
+            $this->assign('venue_id',$userInfo['venue_id']);
+
             $this->display();
         }
     }
@@ -310,7 +334,7 @@ class CourseController extends PublicController
                         'course_id' => $data['course_id'],
                         'teacher_id' => $data['teacher_id'],
                         'stock' => $data['stock'],
-                        'dates' => date('Y-m-d', strtotime($data['end_times'][$i])),
+                        'dates' => date('Y年m月d', strtotime($data['end_times'][$i])),
                         'start_time' => strtotime($data['start_times'][$i]),
                         'end_time' => strtotime($data['end_times'][$i]),
                         'is_seckill' => $data['is_seckill'], 'seckill_price' => $data['seckill_price'],
@@ -344,9 +368,19 @@ class CourseController extends PublicController
             $arrange = M('ty_course_arrange')->where('id=' . $arrange_id)->find();
             $arrange['start_time'] = date('y-m-d H:i', $arrange['start_time']);
             $arrange['end_time'] = date('y-m-d H:i', $arrange['end_time']);
+
+            $userInfo = $this->userInfo;
+            //echo $userInfo['venue_id'];die;
+            $this->assign('venue_id',$userInfo['venue_id']);
+
             $this->assign('arrange', $arrange);
             $this->display();
         } else {
+
+            $userInfo = $this->userInfo;
+            //print_r($userInfo);die;
+            $this->assign('venue_id',$userInfo['venue_id']);
+
             $this->display();
         }
     }
