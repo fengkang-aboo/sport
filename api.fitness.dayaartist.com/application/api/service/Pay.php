@@ -72,7 +72,7 @@ class Pay
         $wxOrderData->SetOut_trade_no($this->orderNo);
         $wxOrderData->SetTrade_type('JSAPI');
         $wxOrderData->SetTotal_fee($totalPrice * 100);
-        $wxOrderData->SetBody('区块练生活秀');
+        $wxOrderData->SetBody('区块练');
         $wxOrderData->SetOpenid($openid);
 //        $wxOrderData->SetNotify_url(config('secure.pay_back_url'));
         $wxOrderData->SetNotify_url('https://api.blocktrain.com.cn/index.php/api/v2/pay/notify');
