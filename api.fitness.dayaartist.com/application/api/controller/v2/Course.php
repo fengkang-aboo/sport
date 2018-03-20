@@ -130,7 +130,7 @@ class Course extends Controller
             'venue_name'=>$course['venue']['name'],
             'price'=>$course['course']['price'],
             'discount_price' =>$course['course']['discount_price'],
-            'time' => $course['dates'].' '.date('H:i',$course['start_time']).'-'.date('H:i',$course['end_time']),
+            'time' => $course['dates'].' '.date('H:i',$course['start_time']).' - '.date('H:i',$course['end_time']),
             'address' => $course['venue']['address'],
             'teacher' => array('img'=>$course['teacher']['img'],'name'=>$course['teacher']['name'],'content'=>$course['teacher']['content']),
             'course_content' => $course['course']['content'],
