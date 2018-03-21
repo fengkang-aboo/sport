@@ -26,7 +26,7 @@ class Seckill extends Controller
     public function seckillList()
     {   
         $seckillListData = array();
-        $date = date('Y-m-d',strtotime('+1 day'));
+        $date = date('Y年m月d',strtotime('+1 day'));
 
         $seckillList = CourseArrange::getSeckillList($date);
         if (count($seckillList) < 1) {
@@ -37,7 +37,7 @@ class Seckill extends Controller
         }
 
         $time = date('H:i');
-        if ($time > '08:00' && $time < '22:00') {
+        if ($time > '21:00' && $time < '22:00') {
             $seckillListData['status'] = 1;
         }else{
             $seckillListData['status'] = 2;
@@ -58,7 +58,7 @@ class Seckill extends Controller
                 'stock' => $v['stock']
             );
         }
-        //print_r($seckillListData);die;
+        
         return $seckillListData;
     }
 }
