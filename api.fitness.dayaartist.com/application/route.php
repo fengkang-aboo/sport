@@ -42,9 +42,7 @@ Route::get('api/:version/seckill/lists', 'api/:version.Seckill/seckillList');
 //12. 下单
 //12. 支付
 //Sample
-//Route::get('api/:version/sample/:key', 'api/:version.Sample/getSample');
-Route::get('api/:version/sample/sms', 'api/:version.Sample/sendSMS');
-Route::get('api/:version/sample/test4', 'api/:version.Sample/test4');
+Route::get('api/:version/sample/test', 'api/:version.Sample/test');
 
 //Token
 Route::post('api/:version/token/user', 'api/:version.Token/getToken');

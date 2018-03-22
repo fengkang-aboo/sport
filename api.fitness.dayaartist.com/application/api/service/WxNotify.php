@@ -8,8 +8,12 @@
 
 namespace app\api\service;
 
+use app\api\model\BoxMemberService;
 use app\api\model\Order as OrderModel;
+use app\api\model\TyCourse;
 use app\api\model\TyCourseArrange;
+use app\api\model\TyTeacher;
+use app\api\model\TyVenueBranch;
 use app\api\service\Order as OrderService;
 use app\lib\enum\OrderStatusEnum;
 use think\Db;
@@ -57,9 +61,8 @@ class WxNotify extends \WxPayNotify
                     if ($stockStatus['pass']) {
                         $this->updateOrderStatus($order->id, true);
                         $this->reduceStock($stockStatus);
-//                        $this->addCodeImgById($order->id);
-//                        $this->sendSMS($order->feature,$order->express,$order->order_no,$order->total_count);
-
+                        $this->sendCustomersSMS($order->id);
+                        $this->sendVenueSMS($order->id);
                     } else {
                         $this->updateOrderStatus($order->id, false);
                     }
@@ -94,41 +97,47 @@ class WxNotify extends \WxPayNotify
             ->update(['status' => $status]);
     }
 
-    /**
-     * 增加二维码图片路径
-     * @param $orderId
-     * @return mixed
-     */
-    private function addCodeImgById($orderId)
-    {
-        $order = OrderModel::where('id', '=', $orderId)->find();
-        $save_path = isset($_GET['save_path']) ? $_GET['save_path'] : BASE_PATH . 'qrcode/';  //图片存储的绝对路径
-        //echo $save_path;die;
-        $web_path = 'http://' . $_SERVER['HTTP_HOST'] . '/qrcode/';        //图片在网页上显示的路径
-
-        $qr_data = isset($_GET['qr_data']) ? $_GET['qr_data'] : $order['order_no'];
-
-        $qr_level = isset($_GET['qr_level']) ? $_GET['qr_level'] : 'H';
-
-        $qr_size = isset($_GET['qr_size']) ? $_GET['qr_size'] : '10';
-
-        $save_prefix = isset($_GET['save_prefix']) ? $_GET['save_prefix'] : 'ZETA';
-
-        if ($filename = createQRcode($save_path, $qr_data, $qr_level, $qr_size, $save_prefix)) {
-
-            $pic = $web_path . $filename;
-
-        }
-        $img_path = '/qrcode/' . $filename;
-        OrderModel::where('order_no', '=', $order['order_no'])->update(['code_img' => $img_path]);
-    }
-
-    private function sendSMS($name,$phone,$code,$count)
+//发送顾客短信
+    private function sendCustomersSMS($orderID)
     {
 // 调用示例：
+        $orderData = OrderModel::where('order_no', '=', $orderID)->find();
+        $venueData = TyVenueBranch::where('id', '=', $orderData->supplier_id)->find();
+        $courseData = TyCourse::where('id', '=', $orderData->sid)->find();
+        $teacherData = TyTeacher::where('id', '=', $orderData->service_id)->find();
+        $timeData = TyCourseArrange::where('id', '=', $orderData->time_id)->find();
+        $memberServiceData = BoxMemberService::where('id', '=', $orderData->time)->find();
+        $phone = $memberServiceData->ytel;
+        $name = $memberServiceData->yname;
+        $venue_name = $venueData->name;
+        $course_name = $courseData->name;
+        $time = date("h:i", $timeData->start_time) . '--' . date("h:i", $timeData->end_time);
+        $teacher = $teacherData->name;
         set_time_limit(0);
         header('Content-Type: text/plain; charset=utf-8');
-        SmsDemo::sendSms($name,$phone,$code,$count);
+        return SmsDemo::sendCustomersSMS($phone, $name, $venue_name, $course_name, $time, $teacher);
+    }
+
+//发送健身馆短信
+    private function sendVenueSMS($orderID)
+    {
+// 调用示例：
+        $orderData = OrderModel::where('order_no', '=', $orderID)->find();
+        $venueData = TyVenueBranch::where('id', '=', $orderData->supplier_id)->find();
+        $courseData = TyCourse::where('id', '=', $orderData->sid)->find();
+        $teacherData = TyTeacher::where('id', '=', $orderData->service_id)->find();
+        $timeData = TyCourseArrange::where('id', '=', $orderData->time_id)->find();
+        $memberServiceData = BoxMemberService::where('id', '=', $orderData->time)->find();
+        $tel = $memberServiceData->ytel;
+        $name = $memberServiceData->yname;
+        $venue_name = $venueData->name;
+        $phone = $venueData->tel;
+        $course_name = $courseData->name;
+        $time = date("h:i", $timeData->start_time) . '--' . date("h:i", $timeData->end_time);
+        $teacher = $teacherData->name;
+        set_time_limit(0);
+        header('Content-Type: text/plain; charset=utf-8');
+        return SmsDemo::sendVenueSMS($phone, $venue_name, $name, $course_name, $time, $teacher, $tel);
     }
 
 }

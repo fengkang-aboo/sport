@@ -7,18 +7,18 @@
     <meta name="viewport"
           content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
     <meta http-equiv="Cache-Control" content="no-siteapp"/>
-    <link rel="Bookmark" href="/cms.fitness.dayaartist.com/Public/admin/images/favicon.ico">
-    <link rel="Shortcut Icon" href="/cms.fitness.dayaartist.com/Public/admin/images/favicon.ico"/>
+    <link rel="Bookmark" href="/Public/admin/images/favicon.ico">
+    <link rel="Shortcut Icon" href="/Public/admin/images/favicon.ico"/>
     <!--[if lt IE 9]>
-    <script type="text/javascript" src="/cms.fitness.dayaartist.com/Public/admin/lib/html5shiv.js"></script>
-    <script type="text/javascript" src="/cms.fitness.dayaartist.com/Public/admin/lib/respond.min.js"></script>
+    <script type="text/javascript" src="/Public/admin/lib/html5shiv.js"></script>
+    <script type="text/javascript" src="/Public/admin/lib/respond.min.js"></script>
     <![endif]-->
-    <link href="/cms.fitness.dayaartist.com/Public/admin/static/h-ui/css/H-ui.min.css" rel="stylesheet" type="text/css"/>
-    <link href="/cms.fitness.dayaartist.com/Public/admin/static/h-ui.admin/css/H-ui.login.css" rel="stylesheet" type="text/css"/>
-    <link href="/cms.fitness.dayaartist.com/Public/admin/static/h-ui.admin/css/style.css" rel="stylesheet" type="text/css"/>
-    <link href="/cms.fitness.dayaartist.com/Public/admin/lib/Hui-iconfont/1.0.8/iconfont.css" rel="stylesheet" type="text/css"/>
+    <link href="/Public/admin/static/h-ui/css/H-ui.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/Public/admin/static/h-ui.admin/css/H-ui.login.css" rel="stylesheet" type="text/css"/>
+    <link href="/Public/admin/static/h-ui.admin/css/style.css" rel="stylesheet" type="text/css"/>
+    <link href="/Public/admin/lib/Hui-iconfont/1.0.8/iconfont.css" rel="stylesheet" type="text/css"/>
     <!--[if IE 6]>
-    <script type="text/javascript" src="/cms.fitness.dayaartist.com/Public/admin/lib/DD_belatedPNG_0.0.8a-min.js"></script>
+    <script type="text/javascript" src="/Public/admin/lib/DD_belatedPNG_0.0.8a-min.js"></script>
     <script>DD_belatedPNG.fix('*');</script>
     <![endif]-->
     <title>区块练后台管理系统</title>
@@ -42,7 +42,7 @@
 
 <div class="loginWraper">
     <div id="loginform" class="loginBox">
-        <div class="login-logo"><img src="/cms.fitness.dayaartist.com/Public/admin/static/h-ui.admin/images/logo.png" alt=""></div>
+        <div class="login-logo"><img src="/Public/admin/static/h-ui.admin/images/logo.png" alt=""></div>
         <form name="Form1" class="form form-horizontal" action="?key=<?php echo $key;?>" method="post" id="Form1"
               onsubmit="return chkForm()">
             <div class="row cl">
