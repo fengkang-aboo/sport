@@ -40,7 +40,7 @@ class VenueController extends PublicController
                     } else {// 上传成功 获取上传文件信息
                         $logo = '/Data/UploadFiles/' . $info['savepath'] . $info['savename'];
                         $logo_img = array('img_url' => $logo, 'status' => 1, 'create_time' => time(), 'from' => 1);
-//                        print_r($main_img);die();
+                    //print_r($main_img);die();
                         $data['logo_id'] = M('ty_img')->add($logo_img);
                     }
                 }
@@ -53,7 +53,7 @@ class VenueController extends PublicController
                     } else {// 上传成功 获取上传文件信息
                         $venue_img = '/Data/UploadFiles/' . $info['savepath'] . $info['savename'];
                         $main_img = array('img_url' => $venue_img, 'status' => 1, 'create_time' => time(), 'from' => 1);
-//                        print_r($main_img);die();
+                    //print_r($main_img);die();
                         $data['main_img_id'] = M('ty_img')->add($main_img);
                     }
                 }
@@ -96,15 +96,15 @@ class VenueController extends PublicController
                     }
                     $data['img_id'] = trim($venue_img_id,',');   
                 }
-                
 
-
+            $data['facilities_id'] = implode(',',$data['facilities_id']);
+            $data['category_id'] = implode(',',$data['category_id']);
             if (intval($_POST['id'])) {
                 //修改
                 $data['update_time'] = time();
                 $result = M('ty_venue_branch')->where('id=' . intval($_POST['id']))->save($data);
             }else{
-                
+                //print_r($data);die;
                 $data['create_time'] = time();
                 $result = M('ty_venue_branch')->add($data);
             }
@@ -120,7 +120,12 @@ class VenueController extends PublicController
                 $venue = M('ty_venue_branch')->where($where)->find();
                 $this->assign('venue',$venue);
             }
+
+            $category = M('category')->field('id,name')->select();
+            $facilities = M('ty_facilities')->where('status=1')->select();
             
+            $this->assign('category',$category);
+            $this->assign('facilities',$facilities);
             $this->display();
         }
     }
