@@ -1,0 +1,65 @@
+{
+	"description": "项目配置文件。",
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "1.5.4",
+	"appid": "wxbfef62f9fafd9057",
+	"projectname": "sell",
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": [
+				{
+					"id": 0,
+					"name": "order",
+					"pathName": "pages/order/order",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "product",
+					"pathName": "pages/product/product",
+					"query": ""
+				},
+				{
+					"id": 2,
+					"name": "order-detail",
+					"pathName": "pages/order-detail/order-detail",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "pages/check/c-menu/c-menu",
+					"pathName": "pages/check/c-menu/c-menu",
+					"query": ""
+				},
+				{
+					"id": 4,
+					"name": "pages/check/c-detail/c-detail",
+					"pathName": "pages/check/c-detail/c-detail",
+					"query": "code=AC1509502669"
+				},
+				{
+					"id": -1,
+					"name": "menu",
+					"pathName": "pages/check/c-menu/c-menu",
+					"query": ""
+				}
+			]
+		}
+	}
+}

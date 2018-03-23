@@ -1,0 +1,29 @@
+/**app.wxss**/
+
+@import "wxParse/wxParse.wxss";
+
+
+.container {
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  background-color: #fff;
+  font-family: "PingFang SC", "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "Microsoft Yahei", STHeiti, sans-serif;
+}
+
+.empty{
+	display: block;
+	margin-top: 140rpx;
+	margin-left: 234rpx;
+	width: 338rpx;
+	height: 302rpx;
+}
+.empty-wrapper{
+	width: 100%;
+	background: #fff;
+}
+image{
+	overflow: hidden;
+}

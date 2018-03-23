@@ -62,13 +62,21 @@
                     <view class='club-title'>营业时间</view>
                     <view class='club-desc'>{{clubInfo.business_hours}}</view>
                 </view>
-				<image wx:if="{{clubInfo.tel}}" class='club-tel' bindtap='tel' src='/images/icon/ico_phone.png' data-tel='{{clubInfo.tel}}'></image>
+                <image wx:if="{{clubInfo.tel}}" class='club-tel' bindtap='tel' src='/images/icon/ico_phone.png' data-tel='{{clubInfo.tel}}'></image>
             </view>
             <view class='club-info'>
                 <view class='club-title'>地址</view>
                 <text selectable='true' class='club-desc'>{{clubInfo.address}}</text>
                 <view class='club-map'>
                     <map class='club-map' bindtap='onAddressTap' longitude="{{longitude}}" latitude="{{latitude}}" scale="16" markers="{{markers}}"></map>
+                </view>
+            </view>
+            <view class='club-info'>
+                <view class='club-title'>基础设施</view>
+                <view class='facilities'>
+                    <block wx:for="{{clubInfo.facilities}}">
+                        <view class='facilities-item'>{{item.name}}</view>
+                    </block>
                 </view>
             </view>
             <view class='club-info'>
