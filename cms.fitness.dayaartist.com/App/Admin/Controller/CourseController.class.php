@@ -334,7 +334,7 @@ class CourseController extends PublicController
                         'course_id' => $data['course_id'],
                         'teacher_id' => $data['teacher_id'],
                         'stock' => $data['stock'],
-                        'dates' => date('Y年m月d', strtotime($data['end_times'][$i])),
+                        'dates' => date('Y年m月d日', strtotime($data['end_times'][$i])),
                         'start_time' => strtotime($data['start_times'][$i]),
                         'end_time' => strtotime($data['end_times'][$i]),
                         'is_seckill' => $data['is_seckill'], 'seckill_price' => $data['seckill_price'],

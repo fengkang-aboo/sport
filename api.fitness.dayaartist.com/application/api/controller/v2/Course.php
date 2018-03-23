@@ -32,8 +32,8 @@ class Course extends Controller
       (new IDMustBePositiveInt())->goCheck();
         
 
-        $start_date = date('Y-m-d', strtotime('-1 days'));
-        $end_date = date('Y-m-d', strtotime('+7 days'));
+        $start_date = date('Y年m月d日', strtotime('-1 days'));
+        $end_date = date('Y年m月d日', strtotime('+7 days'));
 
         $TimeInfo = array();
 
@@ -60,17 +60,17 @@ class Course extends Controller
         }
 
         //$weekarray=array("日","一","二","三","四","五","六");
-        $date = date('Y-m-d');
-        $TimeInfo['dates'] = array();
+        //$date = date('Y-m-d');
+        //$TimeInfo['dates'] = array();
         foreach ($CourseTime as $key => $v) {
-            if ($v['dates'] != $date) {
+            /*if ($v['dates'] != $date) {
                 $TimeInfo['time'][$date] = '';
-            }
+            }*/
 
             $courseImg = ImgModel::getOneImg($v['course']['main_img_id']); //课程图片
             
             $TimeInfo['time'][$v['dates']][] = array('time_id'=>$v['id'],'course_img'=>$courseImg['img_url'],'course_name'=>$v['course']['name'],'teacher_name'=>$v['teacher']['name'],'date'=>$v['dates'],'time'=>date('H:i',$v['start_time']).'-'.date('H:i',$v['end_time']),'discount_price'=>$v['course']['discount_price'],'price'=>$v['course']['price'],'stock'=>$v['stock']);
-            $date = date("Y-m-d",strtotime("+1 day",strtotime($date)));
+            //$date = date("Y-m-d",strtotime("+1 day",strtotime($date)));
 
             
             /*if (!in_array($v['dates'], $TimeInfo['dates'])) {
@@ -78,17 +78,30 @@ class Course extends Controller
             }*/
             
         }
+        
         /*echo '<pre>';
         print_r($TimeInfo);die;*/
-        $dates = date('Y-m-d');
+        $dates = date('Y年m月d日');
+        $datess = date('Y-m-d');
         for ($i=0; $i < 7; $i++) { 
             if (!isset($TimeInfo['time'][$dates])) {
                 $TimeInfo['time'][$dates] = '';
             }
-            $dates = date("Y-m-d",strtotime("+1 day",strtotime($dates)));
+            
+            $dates = date("Y年m月d日",strtotime("+1 day",strtotime($datess)));
+            $datess = date("Y-m-d",strtotime("+1 day",strtotime($datess)));
+        }
+        
+        ksort($TimeInfo['time']);
+
+        $i=0;
+        foreach($TimeInfo['time'] as $key => $value){
+            $TimeInfo['time'][$i] = $value;
+            unset($TimeInfo['time'][$key]);
+            $i++;
         }
 
-        $TimeInfo['time'] = array_values($TimeInfo['time']);
+        //$TimeInfo['time'] = array_values($TimeInfo['time']);
         /*echo '<pre>';
         print_r($TimeInfo);die;*/
         return $TimeInfo;

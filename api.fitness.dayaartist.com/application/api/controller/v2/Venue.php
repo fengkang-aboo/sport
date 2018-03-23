@@ -16,6 +16,7 @@ use app\api\service\Token;
 use app\api\model\TyVenueBranch as VenueBranch;
 use app\api\model\TyImg as ImgModel;
 use app\api\model\TyCollection as CollectionModel;
+use app\api\model\TyFacilities as FacilitiesModel;
 
 class Venue extends Controller
 {   
@@ -74,6 +75,7 @@ class Venue extends Controller
         (new IDMustBePositiveInt())->goCheck();
         $venue = VenueBranch::VenueDetails($id);
 
+        $venue['facilities'] = FacilitiesModel::getFacilities($venue['facilities_id']);
         if (empty($venue)) {
             return [
                 'code' => 404,
@@ -86,7 +88,7 @@ class Venue extends Controller
         foreach ($img as $key => $v) {
             $venue['img'][] = $v['img_url'];
         }
-
+        print_r($venue);die;
         return $venue;
     }
 
