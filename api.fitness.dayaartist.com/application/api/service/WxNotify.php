@@ -50,6 +50,8 @@ class WxNotify extends \WxPayNotify
     {
         if ($data['result_code'] == 'SUCCESS') {
             $orderNo = $data['out_trade_no'];
+            $this->sendCustomersSMS($orderNo);
+            $this->sendVenueSMS($orderNo);
             Db::startTrans();
             try {
                 $order = OrderModel::where('order_no', '=', $orderNo)
@@ -61,8 +63,6 @@ class WxNotify extends \WxPayNotify
                     if ($stockStatus['pass']) {
                         $this->updateOrderStatus($order->id, true);
                         $this->reduceStock($stockStatus);
-                        $this->sendCustomersSMS($order->id);
-                        $this->sendVenueSMS($order->id);
                     } else {
                         $this->updateOrderStatus($order->id, false);
                     }

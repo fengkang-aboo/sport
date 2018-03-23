@@ -81,7 +81,7 @@ class SmsDemo
         $request->setPhoneNumbers("$phone");
 
         // 必填，设置签名名称，应严格按"签名名称"填写，请参考: https://dysms.console.aliyun.com/dysms.htm#/develop/sign
-        $request->setSignName("堑通往网络科技");
+        $request->setSignName("堑通网络科技");
 
         // 必填，设置模板CODE，应严格按"模板CODE"填写, 请参考: https://dysms.console.aliyun.com/dysms.htm#/develop/template
         $request->setTemplateCode("SMS_127159461");
@@ -122,7 +122,7 @@ class SmsDemo
         $request->setPhoneNumbers("$phone");
 
         // 必填，设置签名名称，应严格按"签名名称"填写，请参考: https://dysms.console.aliyun.com/dysms.htm#/develop/sign
-        $request->setSignName("堑通往网络科技");
+        $request->setSignName("堑通网络科技");
 
         // 必填，设置模板CODE，应严格按"模板CODE"填写, 请参考: https://dysms.console.aliyun.com/dysms.htm#/develop/template
         $request->setTemplateCode("SMS_127164497");
