@@ -275,7 +275,7 @@ class CourseController extends PublicController
             }
 
             $userInfo = $this->userInfo;
-            //echo $userInfo['venue_id'];die;
+//            echo $userInfo['venue_id'];die;
             $this->assign('venue_id',$userInfo['venue_id']);
 
             $this->display();
@@ -340,13 +340,10 @@ class CourseController extends PublicController
                         'is_seckill' => $data['is_seckill'], 'seckill_price' => $data['seckill_price'],
                         'create_time' => $data['create_time'] ? $data['create_time'] : time(),
                         'update_time' => time());
-
                     if (empty($data['id'])) {
                         $result = M('ty_course_arrange')->add($times_array);
                     } else {
                         $data['update_time'] = time();
-//                        print_r($times_array);
-//                        die();
                         $result = M('ty_course_arrange')->where('id=' . intval($_POST['id']))->save($times_array);
                     }
                 }
