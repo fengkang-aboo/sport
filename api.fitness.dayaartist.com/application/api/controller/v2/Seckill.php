@@ -17,17 +17,16 @@ use app\api\model\TyImg as ImgModel;
 use app\api\model\TyCourseArrange as CourseArrange;
 
 class Seckill extends Controller
-{   
+{
     /**
-     * 
+     *
      * @return \think\Paginator
      * @throws ThemeExceptio
      */
     public function seckillList()
-    {   
+    {
         $seckillListData = array();
-        $date = date('Y年m月d',strtotime('+1 day'));
-
+        $date = strtotime(date('Y-m-d',strtotime('+1 day')));
         $seckillList = CourseArrange::getSeckillList($date);
         if (count($seckillList) < 1) {
             return [
@@ -58,7 +57,7 @@ class Seckill extends Controller
                 'stock' => $v['stock']
             );
         }
-        
+        //print_r($seckillListData);die;
         return $seckillListData;
     }
 }
