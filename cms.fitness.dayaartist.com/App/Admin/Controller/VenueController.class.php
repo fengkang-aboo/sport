@@ -99,6 +99,7 @@ class VenueController extends PublicController
 
             $data['facilities_id'] = implode(',',$data['facilities_id']);
             $data['category_id'] = implode(',',$data['category_id']);
+            
             if (intval($_POST['id'])) {
                 //修改
                 $data['update_time'] = time();

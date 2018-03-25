@@ -47,4 +47,29 @@ class TyCourse extends BaseModel
         return $course;
     }
     
+    /**
+     * 搜索课程（功效）
+     * @param $info 搜索内容
+     * @return \think\Paginator
+     */
+    public static function searchEffectCourse($effect_id)
+    {
+        $where['effect_id'] = array('in',$effect_id);
+
+        $Course = self::where($where)->where('status',1)->select();
+        return $Course;
+    }
+
+    /**
+     * 搜索课程（分类）
+     * @param $info 搜索内容
+     * @return \think\Paginator
+     */
+    public static function searchTypeCourse($type_id)
+    {
+        $where['type_id'] = array('in',$type_id);
+        $Course = self::where($where)->where('status',1)->select();
+        return $Course;
+    }
+
 }

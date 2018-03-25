@@ -16,90 +16,70 @@ use app\api\model\TyCourse as CourseModel;
 use app\api\model\TyCourseArrange as CourseArrange;
 use app\api\model\TyImg as ImgModel;
 use app\api\model\TyVenueBranch as VenueBranch;
+use app\api\model\TyEffect as EffectModel;
+use app\api\model\Category as CategoryModel;
 
 class Search extends Controller
 {   
     /**
-     * 
+     * 搜索
      * @param int info 搜索内容
      * @param int typer 类型 1课程 2
      * @return \think\Paginator
      * @throws ThemeExceptio
      */
-    public function getSearchInfo($type,$info,$longitude='116.353892',$latitude='39.968871')
+    public function getSearchInfo($name,$effect_id,$type_id,$longitude='116.353892',$latitude='39.968871')
     {
-        if ($type == 1) {
-            if (strpos($info,'场馆')) {
-                $end = strpos($info,'场馆');
-                $info = substr($info,0,$end);
-                $venue = VenueBranch::searchVenueName($info);
+        $venue_id = '';
+        $course_id = '';
 
-                if (empty($venue)) {
-                    return [
-                        'code' =>404,
-                        'msg' => '搜索内容不存在',
-                        'data' => ''
-                    ];
-                }
+        if (!empty($name)) { 
 
-                $venue = $venue->toArray();
-                $venue_id = '';
-                foreach ($venue as $key => $v) {
-                    $venue_id .= ','.$v['id'];
-                }
-                $venue_id = trim($venue_id,',');
+            $course = CourseModel::searchCourseName($name);
+            $venue = VenueBranch::searchVenueName($name);
 
-                $courseTime = CourseArrange::getVenueCourseTime($venue_id);
-
-            }else{
-
-                $course = CourseModel::searchCourseName($info);
-
-                $course_id = '';
-                $venue_id = '';
-                foreach ($course as $key => $v) {
-                    $venue_id .= ','.$v['venue_branch_id'];
-                    $course_id .= ','.$v['id'];
-                }
-                $venue_id = trim($venue_id,',');
-                $course_id = trim($course_id,',');
-
-                $venue = VenueBranch::getManyVenye($venue_id);
-                $courseTime = CourseArrange::searchCourseTime($course_id);
-
-            }
-
-        }else if($type == 2){
-
-            $course = CourseModel::searchCourseType($info);
-
-            $course_id = '';
-            $venue_id = '';
             foreach ($course as $key => $v) {
                 $venue_id .= ','.$v['venue_branch_id'];
                 $course_id .= ','.$v['id'];
             }
 
-            $venue_id = trim($venue_id,',');
-            $course_id = trim($course_id,',');
-            //echo $course_id;die;
-            $venue = VenueBranch::getManyVenye($venue_id);
-            
-            $courseTime = CourseArrange::searchCourseTime($course_id);
+        }else{
 
-        }else if($type == 3){
-            $data = VenueBranch::searchVenueKeyWord($info);
-            $venue = $data->toArray();
-            $venue_id = '';
-            foreach ($venue as $key => $v) {
-                $venue_id .= ','.$v['id'];
+            if (!empty($effect_id)) {
+                $course = CourseModel::searchEffectCourse($effect_id);
+                /*echo '<pre>';
+                print_r($course->toArray());die;*/
+                foreach ($course as $key => $v) {
+                    $venue_id .= ','.$v['venue_branch_id'];
+                    $course_id .= ','.$v['id'];
+                }
             }
-            $venue_id = trim($venue_id,',');
 
-            $courseTime = CourseArrange::getVenueCourseTime($venue_id);
+            if (!empty($type_id)) {
+                $course = CourseModel::searchTypeCourse($type_id);
+
+                foreach ($course as $key => $v) {
+                    $venue_id .= ','.$v['venue_branch_id'];
+                    $course_id .= ','.$v['id'];
+                }
+            }
         }
-            
 
+        //去掉两边逗号
+        $venue_id = trim($venue_id,',');
+        $course_id = trim($course_id,',');
+
+        $venue_id = explode(',', $venue_id);
+        $course_id = explode(',', $course_id);
+
+        $venue_id = array_unique($venue_id);
+        $course_id = array_unique($course_id);
+
+        $venue_id = implode(',', $venue_id);
+        $course_id = implode(',', $course_id);
+
+        $venue = VenueBranch::getManyVenye($venue_id);
+        $courseTime = CourseArrange::searchCourseTime($course_id);
 
         $courseData = array();
         foreach ($courseTime as $key => $v) {
@@ -119,80 +99,52 @@ class Search extends Controller
         sortArrByOneField($venue,'distance',false);
 
         $returnData = array('courseData'=>$courseData,'venue'=>$venue);
+
         return [
             'code' => 200,
             'data' => $returnData
         ];
-        //print_r($returnData);die;
+    }
 
-        /*if ($type == 1 || $type == 2) {
-            if ($type == 1) {
-                $course = CourseModel::searchCourseName($info);
-            }else{
-                $course = CourseModel::searchCourseType($info);
-            }
-            
-            if (empty($course)) {
-                return [
-                    'code' =>404,
-                    'msg' => '搜索内容不存在',
-                    'data' => ''
-                ];
-            }else{
-                $course = $course->toArray();
-            }
-            
-            $course_id = '';
-            foreach ($course as $key => $v) {
-                $course_id .= ','.$v['id'];
-            }
-            $course_id = trim($course_id,',');
-
-            $courseTime = CourseArrange::searchCourseTime($course_id);
-
-            $courseData = array();
-            foreach ($courseTime as $key => $v) {
-                $course_img = ImgModel::getOneImg($v['course']['main_img_id']);
-                $courseData[] = array('time_id'=>$v['id'],'course_img'=>$course_img['img_url'],'course_name'=>$v['course']['name'],'teacher_name'=>$v['teacher']['name'],'date'=>date('Y-m-d',$v['start_time']),'time'=>date('H:i:s',$v['start_time']).'-'.date('H:i:s',$v['end_time']),'price'=>$v['course']['price'],'venue_key_word'=>$v['venue']['key_word']);
-            }
-
+    /**
+     * 功效
+     * @return \think\Paginator
+     * @throws ThemeExceptio
+     */
+    public function effectList()
+    {
+        $effectList = EffectModel::EffectList();
+        if (!empty($effectList)) {
             return [
                 'code' => 200,
-                'data' => $courseData
+                'data' => $effectList
             ];
         }else{
-            if ($type == 2) {
-                $data = VenueBranch::searchVenueName($info);
-            }else{
-                $data = VenueBranch::searchVenueKeyWord($info);
-            }
+            return [
+                'code' => 404,
+                'msg' => '暂无数据'
+            ];
+        }
+    }
 
-            if (empty($data)) {
-                return [
-                    'code' =>404,
-                    'msg' => '搜索内容不存在',
-                    'data' => ''
-                ];
-            }else{
-                $data = $data->toArray();
-            }
-
-            foreach ($data as $key => $v) {
-                $distance = getdistances($longitude,$latitude,$v['longitude'],$v['latitude']);
-                $data[$key]['distance'] = round($distance/1000,2).'km';
-                $main_img = ImgModel::getOneImg($v['main_img_id']);
-                $logo_img = ImgModel::getOneImg($v['logo_id']);
-                $data[$key]['main_img'] = $main_img['img_url'];
-                $data[$key]['log_img'] = $logo_img['img_url'];
-            }
-
-            sortArrByOneField($data,'distance',false);
-            echo '<pre>';
-            print_r($data);die;
+    /**
+     * 分类
+     * @return \think\Paginator
+     * @throws ThemeExceptio
+     */
+    public function typeList()
+    {
+        $TypeList = CategoryModel::TypeList();
+        if (!empty($TypeList)) {
             return [
                 'code' => 200,
-                'data' => $data
+                'data' => $TypeList
             ];
-        }*/
+        }else{
+            return [
+                'code' => 404,
+                'msg' => '暂无数据'
+            ];
+        }
     }
 }

@@ -33,6 +33,8 @@ Route::get('api/:version/collection/cancel', 'api/:version.Collection/cancelColl
 Route::get('api/:version/collection/collectionList', 'api/:version.Collection/collectionList');
 //搜索
 Route::get('api/:version/search', 'api/:version.Search/getSearchInfo');
+Route::get('api/:version/search/effect', 'api/:version.Search/effectList');
+Route::get('api/:version/search/type', 'api/:version.Search/typeList');
 
 //秒杀
 Route::get('api/:version/seckill/lists', 'api/:version.Seckill/seckillList');
