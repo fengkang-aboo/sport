@@ -32,6 +32,17 @@ class ListsController extends PublicController
         $this->display();
     }
 
+    public function lists_preview()
+    {
+        $id = $_GET['id'];
+        $order = M('order')->where('id='.$id)->find();
+        $user = M('user')->where('id='.$order['user_id'])->getField('nickName,avatarUrl');
+        $venue = M('ty_venue_branch')->where('id='.$order['supplier_id'])->getField('name');
+        $course = M('ty_course')->where('id='.$order['service_id'])->getField('name');
+        $arrange = M('ty_course_arrange')->where('id='.$order['service_id'])->getField('name');
+        $this->display();
+    }
+
 //    更改发货状态
     public function express()
     {

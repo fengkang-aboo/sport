@@ -76,59 +76,46 @@ class CourseController extends PublicController
                 $Model = M(); // 实例化一个空对象
                 $Model->startTrans(); // 开启事务
                 $data = I('post.');
-//                print_r($data);
-//                die();
-
-                if (empty($data['main_img_id']) && empty($data['img_id'])) {
-                    //上传商品图片
-                    if (!empty($_FILES["main_img"]["tmp_name"])) {
-                        //文件上传
-                        $info = $this->upload_images($_FILES["main_img"], array('jpg', 'png', 'jpeg', 'mp4'), "course/" . date(Ymd));
-                        if (!is_array($info)) {// 上传错误提示错误信息
-                            throw new \Exception('图片上传失败.');
-                        } else {// 上传成功 获取上传文件信息
-                            $data['main_img_url'] = '/Data/UploadFiles/' . $info['savepath'] . $info['savename'];
-                            $main_img = array('img_url' => $data['main_img_url'], 'status' => 1, 'create_time' => time(), 'from' => 1);
+                //上传商品图片
+                if (!empty($_FILES["main_img"]["tmp_name"])) {
+                    //文件上传
+                    $info = $this->upload_images($_FILES["main_img"], array('jpg', 'png', 'jpeg', 'mp4'), "course/" . date(Ymd));
+                    if (!is_array($info)) {// 上传错误提示错误信息
+                        throw new \Exception('图片上传失败.');
+                    } else {// 上传成功 获取上传文件信息
+                        $data['main_img_url'] = '/Data/UploadFiles/' . $info['savepath'] . $info['savename'];
+                        $main_img = array('img_url' => $data['main_img_url'], 'status' => 1, 'create_time' => time(), 'from' => 1);
 //                        print_r($main_img);die();
-                            $data['main_img_id'] = M('ty_img')->add($main_img);
-                        }
+                        $data['main_img_id'] = M('ty_img')->add($main_img);
                     }
-                    //上传产品首页展示图
-//                    if (!empty($_FILES["img"]["tmp_name"])) {
-//                        //文件上传
-//                        $info = $this->upload_images($_FILES["img"], array('jpg', 'png', 'jpeg'), "course/" . date(Ymd));
-//                        if (!is_array($info)) {// 上传错误提示错误信息
-//                            throw new \Exception('图片上传失败.');
-//                        } else {// 上传成功 获取上传文件信息
-//                            $data['img_url'] = '/Data/UploadFiles/' . $info['savepath'] . $info['savename'];
-//                            $img = array('img_url' => $data['img_url'], 'status' => 1, 'create_time' => time(), 'from' => 1);
-//                            $data['img_id'] = M('ty_img')->add($img);
-//                        }
-//                    }
-                    //多张商品轮播图上传
-                    $up_arr = array();
-                    if (!empty($_FILES["venue_imgs"]["tmp_name"])) {
-                        foreach ($_FILES["venue_imgs"]['name'] as $k => $val) {
-                            $up_arr[$k]['name'] = $val;
-                        }
-
-                        foreach ($_FILES["venue_imgs"]['type'] as $k => $val) {
-                            $up_arr[$k]['type'] = $val;
-                        }
-
-                        foreach ($_FILES["venue_imgs"]['tmp_name'] as $k => $val) {
-                            $up_arr[$k]['tmp_name'] = $val;
-                        }
-
-                        foreach ($_FILES["venue_imgs"]['error'] as $k => $val) {
-                            $up_arr[$k]['error'] = $val;
-                        }
-
-                        foreach ($_FILES["venue_imgs"]['size'] as $k => $val) {
-                            $up_arr[$k]['size'] = $val;
-                        }
+                } else {
+                    if (empty($data['main_img_id'])) {
+                        throw new \Exception('请上传商品图片');
                     }
-                    if ($up_arr) {
+                }
+                //多张商品轮播图上传
+                $up_arr = array();
+                if (!empty($_FILES["venue_imgs"]["tmp_name"][0])) {
+                    foreach ($_FILES["venue_imgs"]['name'] as $k => $val) {
+                        $up_arr[$k]['name'] = $val;
+                    }
+
+                    foreach ($_FILES["venue_imgs"]['type'] as $k => $val) {
+                        $up_arr[$k]['type'] = $val;
+                    }
+
+                    foreach ($_FILES["venue_imgs"]['tmp_name'] as $k => $val) {
+                        $up_arr[$k]['tmp_name'] = $val;
+                    }
+
+                    foreach ($_FILES["venue_imgs"]['error'] as $k => $val) {
+                        $up_arr[$k]['error'] = $val;
+                    }
+
+                    foreach ($_FILES["venue_imgs"]['size'] as $k => $val) {
+                        $up_arr[$k]['size'] = $val;
+                    }
+                    if (is_array($up_arr)) {
                         $venue_img_id = '';
                         foreach ($up_arr as $key => $value) {
                             $info = $this->upload_images($value, array('jpg', 'png', 'jpeg'), "product/" . date(Ymd));
@@ -141,23 +128,22 @@ class CourseController extends PublicController
                                 $venue_img_id .= ',' . $img_id;
                             }
                         }
-
-                    }
-                    $data['img_id'] = trim($venue_img_id, ',');
-
-                }
-                //商品详情添加
-                if ($data['main_img_id'] && $data['img_id']) {
-                    $data['status'] = 1;
-//                    print_r($data);die;
-                    if (empty($data['id'])) {
-                        $ty_course = M('ty_course')->add($data);
+                        $data['img_id'] = trim($venue_img_id, ',');
                     } else {
-                        $data['update_time'] = time();
-                        $ty_course = M('ty_course')->where('id=' . intval($_POST['id']))->save($data);
+                        throw new \Exception('轮播图上传失败。');
                     }
                 } else {
-                    throw new \Exception('请上传图片.');
+                    if (empty($data['img_id'])) {
+                        throw new \Exception('请上传轮播图');
+                    }
+                }
+                //商品详情添加
+                $data['status'] = 1;
+                if (empty($data['id'])) {
+                    $ty_course = M('ty_course')->add($data);
+                } else {
+                    $data['update_time'] = time();
+                    $ty_course = M('ty_course')->where('id=' . intval($_POST['id']))->save($data);
                 }
                 if ($ty_course) {
                     $Model->commit(); // 成功则提交事务
@@ -178,14 +164,14 @@ class CourseController extends PublicController
 
             $userInfo = $this->userInfo;
             //echo $userInfo['venue_id'];die;
-            $this->assign('venue_id',$userInfo['venue_id']);
+            $this->assign('venue_id', $userInfo['venue_id']);
 
             $this->assign('course', $course);
             $this->display();
         } else {
             $userInfo = $this->userInfo;
             //echo $userInfo['venue_id'];die;
-            $this->assign('venue_id',$userInfo['venue_id']);
+            $this->assign('venue_id', $userInfo['venue_id']);
             $this->display();
         }
     }
@@ -203,8 +189,8 @@ class CourseController extends PublicController
         $where['id'] = array('in', $img_id);
         $img_url = M('ty_img')->where($where)->getField('img_url', true);
 //        查询分店、类型
-        $venue_branch =M('ty_venue_branch')->where('id='.$course['venue_branch_id'])->getField('name');
-        $type =M('ty_type')->where('id='.$course['type_id'])->getField('name');
+        $venue_branch = M('ty_venue_branch')->where('id=' . $course['venue_branch_id'])->getField('name');
+        $type = M('category')->where('id=' . $course['type_id'])->getField('name');
         $course['main_img'] = $main_img;
         $course['img'] = $img_url;
         $course['venue_branch'] = $venue_branch;
@@ -245,10 +231,14 @@ class CourseController extends PublicController
                 $info = $this->upload_images($_FILES["img"], array('jpg', 'png', 'jpeg'), "teacher/" . date(Ymd));
                 //print_r($info);die;
                 if (!is_array($info)) {// 上传错误提示错误信息
-                    throw new \Exception('图片上传失败.');
+                    throw new \Exception('头像上传失败.');
                 } else {// 上传成功 获取上传文件信息
                     $data['img'] = '/Data/UploadFiles/' . $info['savepath'] . $info['savename'];
                     $img = array('img_url' => $data['img_url'], 'status' => 1, 'create_time' => time(), 'from' => 1);
+                }
+            } else {
+                if (empty($data['img_id'])) {
+                    throw new \Exception('请上传头像');
                 }
             }
 
@@ -276,7 +266,7 @@ class CourseController extends PublicController
 
             $userInfo = $this->userInfo;
 //            echo $userInfo['venue_id'];die;
-            $this->assign('venue_id',$userInfo['venue_id']);
+            $this->assign('venue_id', $userInfo['venue_id']);
 
             $this->display();
         }
@@ -368,7 +358,7 @@ class CourseController extends PublicController
 
             $userInfo = $this->userInfo;
             //echo $userInfo['venue_id'];die;
-            $this->assign('venue_id',$userInfo['venue_id']);
+            $this->assign('venue_id', $userInfo['venue_id']);
 
             $this->assign('arrange', $arrange);
             $this->display();
@@ -376,7 +366,7 @@ class CourseController extends PublicController
 
             $userInfo = $this->userInfo;
             //print_r($userInfo);die;
-            $this->assign('venue_id',$userInfo['venue_id']);
+            $this->assign('venue_id', $userInfo['venue_id']);
 
             $this->display();
         }
