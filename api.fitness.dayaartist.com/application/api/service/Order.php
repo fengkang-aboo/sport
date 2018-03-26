@@ -9,12 +9,11 @@
 namespace app\api\service;
 
 
-use app\api\model\TyCourseArrange;
+use app\api\model\Order as OrderModel;
 use app\api\model\OrderProduct;
 use app\api\model\Product;
+use app\api\model\TyCourseArrange;
 use app\api\model\UserAddress;
-use app\api\model\Order as OrderModel;
-use app\api\validate\OrderPlace;
 use app\lib\enum\OrderStatusEnum;
 use app\lib\exception\OrderException;
 use app\lib\exception\UserException;
@@ -45,7 +44,6 @@ class Order
                 $status['order_id'] = -1;
                 return $status;
             }
-
             //开始创建订单
             $orderSnap = $this->snapOrder($status);
             $order = $this->createOrder($orderSnap);
@@ -57,7 +55,6 @@ class Order
                 $status['order_id'] = -1;
                 return $status;
             }
-
             //开始创建订单
             $orderSnap = $this->snapCourseOrder($status);
             $order = $this->createCourseOrder($orderSnap);
