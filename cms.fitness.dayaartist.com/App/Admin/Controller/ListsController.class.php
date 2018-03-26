@@ -35,11 +35,22 @@ class ListsController extends PublicController
     public function lists_preview()
     {
         $id = $_GET['id'];
-        $order = M('order')->where('id='.$id)->find();
-        $user = M('user')->where('id='.$order['user_id'])->getField('nickName,avatarUrl');
-        $venue = M('ty_venue_branch')->where('id='.$order['supplier_id'])->getField('name');
-        $course = M('ty_course')->where('id='.$order['service_id'])->getField('name');
-        $arrange = M('ty_course_arrange')->where('id='.$order['service_id'])->getField('name');
+        $order = M('order')->where('id=' . $id)->find();
+        $order['create_time'] = date("Y年m月d日 H:i", $order['create_time']);
+        $user = M('user')->where('id=' . $order['user_id'])->field('nickName,avatarUrl')->find();
+        $venue = M('ty_venue_branch')->where('id=' . $order['supplier_id'])->getField('name');
+        $course = M('ty_course')->where('id=' . $order['sid'])->getField('name');
+        $teacher = M('ty_teacher')->where('id=' . $order['service_id'])->getField('name');
+        $member = M('box_member_service')->where('id=' . $order['time'])->field('yname,ytel')->find();
+        $arrange = M('ty_course_arrange')->where('id=' . $order['time_id'])->field('start_time,end_time')->find();
+        $arrange['time'] = date("Y年m月d日 H:i", $arrange['start_time']) . '--' . date("H:i", $arrange['end_time']);
+        $this->assign('order', $order);
+        $this->assign('user', $user);
+        $this->assign('venue', $venue);
+        $this->assign('course', $course);
+        $this->assign('teacher', $teacher);
+        $this->assign('arrange', $arrange);
+        $this->assign('member', $member);
         $this->display();
     }
 

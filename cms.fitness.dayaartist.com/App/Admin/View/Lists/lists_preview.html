@@ -1,0 +1,115 @@
+<!--_meta 作为公共模版分离出去-->
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+
+
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/static/h-ui/css/H-ui.min.css"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/static/h-ui.admin/css/H-ui.admin.css"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/lib/Hui-iconfont/1.0.7/iconfont.css"/>
+
+    <style type="text/css">
+        .cl div {
+            margin-top: 3px
+        }
+    </style>
+</head>
+<body>
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 订单管理 <span
+        class="c-gray en">&gt;</span> 订单预览 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px"
+                                              href="javascript:location.replace(location.href);" title="刷新"><i
+        class="Hui-iconfont">&#xe68f;</i></a></nav>
+<div class="page-container">
+    <form class="form form-horizontal">
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-2">订单编号：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                {$order['order_no']}
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-2">用户昵称：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                {$user.nickname}
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-2">用户头像：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <img src="{$user['avatarurl']}" width='50'>
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-2">预约场馆：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                {$venue}
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-2">预约课程：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                {$course}
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-2">预约老师：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                {$teacher}
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-2">预约时间：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                {$arrange['time']}
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-2">下单时间：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                {$order['create_time']}
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-2">下单金额：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                {$order['total_price']}
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-2">订单快照：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <img src="{$order['snap_img']}" width='100'>
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-2">支付交易号：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                {$order['prepay_id']}
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-2">预留姓名：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                {$member['yname']}
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-2">预留手机号：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                {$member['ytel']}
+            </div>
+        </div>
+    </form>
+</div>
+
+<!--_footer 作为公共模版分离出去-->
+<script type="text/javascript" src="__PUBLIC__/lib/jquery/1.9.1/jquery.min.js"></script>
+
+</body>
+</html>
