@@ -14,7 +14,11 @@ class AdminuserController extends PublicController{
 		$userlist=M('adminuser as a')->field('a.id,a.name,a.addtime,role_name,del')->join('rbac_role as r on a.role_id=r.id')->select();
 		//print_r($userlist);die;
 		foreach ($userlist as $k => $v) {
-			$userlist[$k]['addtime']=date("Y-m-d H:i",$v['addtime']);
+			if (!empty($v['addtime'])) {
+				$userlist[$k]['addtime']=date("Y-m-d H:i",$v['addtime']);
+			}else{
+				$userlist[$k]['addtime'] = '';
+			}
 		}
 
 		//=============
@@ -44,7 +48,7 @@ class AdminuserController extends PublicController{
 		        'name' => trim($_POST['name']),
 				'pwd' => MD5(MD5($_POST['password'])),
 				'role_id' => (int)($_POST['role_id']),
-				'supplier_id'=>(int)($_POST['supplier_id']),
+				'venue_id'=>(int)($_POST['venue_id']),
 		    );
 			if(intval($_POST['admin_id'])>0){
 				//更新
