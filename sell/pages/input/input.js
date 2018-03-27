@@ -30,7 +30,7 @@ Page({
 		if (this.data.code.length==12){
 			//后台
 			wx.redirectTo({
-				url: '../c-detail/c-detail?code='+this.data.code,
+				url: '../detail/detail?code='+this.data.code,
 			})
 		}else{
 			wx.showModal({

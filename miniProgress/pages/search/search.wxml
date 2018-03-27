@@ -2,29 +2,41 @@
 <view class='container'>
     <view class='search'>
         <image class='search-img' src='/images/icon/ico_search.png'></image>
-        <input class='search-input' confirm-type="search" bindinput='onInput' bindconfirm='search' placeholder='搜索你想去的健身俱乐部'></input>
+        <input class='search-input' confirm-type="search" bindinput='onInput' bindfocus="bindfocus" placeholder='搜索你想去的健身俱乐部' value="{{name}}"></input>
     </view>
 
-    <view class="tabs-box">
+    <view class='recommend' hidden="{{isSearch}}">
+        <view class='recommend-list'>
+            <view class='recommend-title'>功效</view>
+            <view class='recommend-content'>
+                <block wx:for="{{effect}}">
+                    <view bindtap='effectSelect' data-id='{{item.id}}' data-index='{{index}}'
+					 class='recommend-item {{item.checked?"sel":""}}'>{{item.name}}</view>
+                </block>
+            </view>
+        </view>
+        <view class='recommend-list'>
+            <view class='recommend-title'>分类</view>
+            <view class='recommend-content'>
+                <block wx:for="{{type}}">
+                    <view bindtap='typeSelect' data-id='{{item.id}}'  data-index='{{index}}'
+					 class='recommend-item {{item.checked?"sel":""}}'>{{item.name}}</view>
+                </block>
+            </view>
+        </view>
+    </view>
+    <view class='search-btn-wrap' hidden="{{isSearch}}">
+        <view bindtap='search' class='search-btn'>搜索</view>
+    </view>
+
+     <view class="tabs-box" hidden="{{!isSearch}}">
         <block wx:for="{{['课程','场馆']}}">
             <view bindtap="onTabsItemTap" data-index="{{index}}" class="tabs-item {{currentTabsIndex==index?'selected':''}}">
                 {{item}}
             </view>
         </block>
     </view>
-
-    <view class='recommend' hidden="{{isSearch||!currentTabsIndex==0}}">
-        <block wx:for="{{hotLesson}}">
-            <view wx:if="{{item}}" class='recommend-item' bindtap='lessonLabel' data-id="{{item.id}}">{{item.name}}</view>
-        </block>
-    </view>
-    <view class='recommend' hidden="{{isSearch||!currentTabsIndex==1}}">
-        <block wx:for="{{hotClub}}">
-            <view wx:if="{{item}}" class='recommend-item' bindtap='clubLabel' data-id="{{item}}">{{item}}</view>
-        </block>
-    </view>
-
-    <view class='box'>
+    <view class='box' hidden="{{!isSearch}}">
         <view class='lesson-list' hidden='{{!currentTabsIndex==0}}'>
             <block hidden="{{lessonList}}" wx:for="{{lessonList}}">
                 <view class='lesson' data-id='{{item.time_id}}' bindtap='lessonTap'>
@@ -37,7 +49,7 @@
                             <view class='lesson-price'>￥{{item.price}}</view>
                         </view>
                     </view>
-                    <view class='lesson-btn'>{{item.venue_key_word}}</view>
+                    <view wx:if="{{item.venue_key_word}}" class='lesson-btn'>{{item.venue_key_word}}</view>
                 </view>
             </block>
             <block wx:if="{{lessonList.length==0&&isSearch}}">
@@ -49,12 +61,12 @@
 
         <view class='club-list' hidden='{{!currentTabsIndex==1}}'>
             <block hidden="{{clubList}}" wx:for="{{clubList}}">
-                <view class='club' data-id='{{item.venue_id}}' bindtap='clubTap'>
+                <view class='club' data-id='{{item.id}}' bindtap='clubTap'>
                     <image class='club-bg' src='{{item.main_img}}' mode="aspectFill"></image>
                     <view class='club-bg2'></view>
                     <view class='club-content'>
                         <image class='club-logo' src='{{item.log_img}}' mode='aspectFill'></image>
-                        <view class='item-text'>
+                        <view class='club-info'>
                             <view class='club-title'>{{item.name}}</view>
                             <view wx:if="{{item.key_word}}" class='club-address'>{{item.key_word}}</view>
                         </view>
@@ -68,7 +80,10 @@
                 </view>
             </block>
         </view>
+    </view> 
 
-    </view>
+
+
+
 
 </view>

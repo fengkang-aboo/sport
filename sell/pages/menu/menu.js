@@ -27,7 +27,7 @@ Page({
 				console.log(res);
 				var code = res.result;
 				wx.navigateTo({
-					url: '../c-detail/c-detail?code=' + code,
+					url: '../detail/detail?code=' + code,
 				})
 			}
 		})
@@ -35,13 +35,13 @@ Page({
 	//输入票号
 	onNumTap: function () {
 		wx.navigateTo({
-			url: '../c-input/c-input',
+			url: '../input/input',
 		})
 	},
 	//验票记录
 	onListTap: function () {
 		wx.navigateTo({
-			url: '../c-list/c-list',
+			url: '../list/list',
 		})
 	},
 	// //跳转到用户小程序

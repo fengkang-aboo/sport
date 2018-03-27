@@ -1,10 +1,10 @@
 //app.js
-import { Token } from 'utils/token.js';
+// import { Token } from 'utils/token.js';
 
 App({
   onLaunch: function () {
-      var token = new Token();
-      token.verify();
+    //   var token = new Token();
+    //   token.verify();
   },
 
   onShow:function(){

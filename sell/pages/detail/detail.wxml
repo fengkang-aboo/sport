@@ -40,7 +40,7 @@
                 <view class='detail-item-value'>{{detail.total_price}} 元</view>
             </view>
             <view class='detail-item'>
-                <view class='detail-item-key'>门票名称</view>
+                <view class='detail-item-key'>项目名称</view>
                 <view class='detail-item-value'>{{detail.snap_name}}</view>
             </view>
 

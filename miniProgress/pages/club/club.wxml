@@ -36,9 +36,9 @@
                                 <view class='item-name'>{{item.course_name}}</view>
                                 <view class='item-teacher'>{{item.teacher_name}}</view>
                                 <view class='item-desc'>
-                                    <view class='item-time'>{{item.time}}
-                                        <text class='item-price'>￥{{item.discount_price?item.discount_price:item.price}}</text>
-                                    </view>
+                                    <view class='item-time'>{{item.time}}</view>
+                                    <view class='item-price'>￥{{item.discount_price?item.discount_price:item.price}}</view>
+									<view wx:if="{{item.discount_price}}" class='item-old-price'>￥{{item.price}}</view>
                                 </view>
                             </view>
                             <view class='item-btn'>预约</view>

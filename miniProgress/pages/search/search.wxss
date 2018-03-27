@@ -41,7 +41,7 @@
 .tabs-item {
     flex: 1;
     color: #999;
-    font-size: 14px;
+    font-size: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -55,9 +55,26 @@
 }
 
 .recommend {
-    padding: 30rpx;
+    padding: 30rpx 30rpx 200rpx;
+    display: flex;
+    flex-direction: column;
+}
+
+.recommend-list {
+}
+
+.recommend-title {
+    margin-top: 10rpx;
+    font-size: 18px;
+    font-weight: 500;
+    color: #333;
+}
+
+.recommend-content {
+    margin-top: 30rpx;
     display: flex;
     flex-direction: row;
+    align-items: center;
     flex-wrap: wrap;
 }
 
@@ -73,8 +90,35 @@
     margin-bottom: 30rpx;
 }
 
+.sel {
+    background-image: linear-gradient(90deg, #00bed1 0%, #00d0b9 100%);
+    color: #fff;
+}
+
+.search-btn-wrap {
+    width: 750rpx;
+    height: 200rpx;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background: #fff;
+}
+
+.search-btn {
+    width: 690rpx;
+    height: 100rpx;
+    margin: auto;
+    background-image: linear-gradient(90deg, #00bed1 0%, #00d0b9 100%);
+    border-radius: 100px;
+    font-size: 36rpx;
+    font-weight: 500;
+    text-align: center;
+    line-height: 100rpx;
+    color: #fff;
+}
+
 .box {
-    padding-top: 30rpx;
+    padding-top: 0rpx;
 }
 
 .lesson-list {
@@ -189,6 +233,7 @@
     flex-direction: row;
     align-items: center; /*垂直居中*/
     font-size: 0;
+    justify-content: space-between;
 }
 
 .club-logo {
@@ -197,7 +242,11 @@
     border-radius: 50%;
     margin-right: 20rpx;
 }
-
+.club-info{
+	flex: 1;
+	display: flex;
+	flex-direction: column
+}
 .club-text {
     flex: 1;
     display: flex;
@@ -213,7 +262,7 @@
     -webkit-line-clamp: 2;
     overflow: hidden;
     flex: 1;
-	color: #fff;
+    color: #fff;
 }
 
 .club-desc {
@@ -231,11 +280,12 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    color: #fff;
 }
 
 .club-distance {
     width: 150rpx;
-	color: #fff;
+    color: #fff;
     font-size: 11px;
     text-align: right;
 }

@@ -10,13 +10,17 @@ Page({
 	 */
 	data: {
 		currentTabsIndex: 0,
-		isSearch:false,
+		isSearch: false,
+		effectStatus: [],
+		typeStatus: [],
+		name:''
 	},
 
 	/**
 	 * 生命周期函数--监听页面加载
 	 */
 	onLoad: function (options) {
+		wx.showNavigationBarLoading() //在标题栏中显示加载
 		var longitude = wx.getStorageSync('longitude');
 		var latitude = wx.getStorageSync('latitude')
 		this.setData({
@@ -28,87 +32,131 @@ Page({
 
 	_loadData: function (longitude, latitude) {
 		//获取热搜
-		search.getHotSearch((res) => {
-			this.setData({
-				hotLesson:res
-			})
+		search.getEffect((res) => {
+			if (res.code == 200) {
+				this.setData({
+					effect: this.echoStatus(res.data)
+				})
+				wx.hideNavigationBarLoading() //完成停止加载
+			}
+
 		})
-    search.getHotClub((res) => {
-      this.setData({
-        hotClub: res
-      })
-    })
+		search.getType((res) => {
+			if (res.code == 200) {
+				this.setData({
+					type: this.echoStatus(res.data)
+				})
+			}
+		})
 	},
 
-  //输入框
-  onInput:function(event){
-    var value = event.detail.value;
-    if(value.length>0){
-      this.setData({
-        isSearch: true
-      })
-    }else{
-      this.setData({
-        isSearch: false,
-        lessonList: [],
-        clubList: []
-      })
-    }
-  },
+	//循环获取初始状态
+	echoStatus: function (data) {
+		let arr = [];
+		for (let i = 0; i < data.length; i++) {
+			let obj = new Object;
+			obj['name'] = data[i].name;
+			obj['id'] = data[i].id;
+			obj['checked'] = false;
+			arr.push(obj);
+		}
+		return arr;
+	},
+
+	//功效选中
+	effectSelect: function (event) {
+		var index = search.getDataSet(event, 'index');
+		var id = search.getDataSet(event, 'id');
+		this.data.effect[index].checked = !this.data.effect[index].checked;
+		this.setData({
+			effect: this.data.effect
+		})
+	},
+
+	// 分类选中
+	typeSelect: function (event) {
+		var index = search.getDataSet(event, 'index');
+		var id = search.getDataSet(event, 'id');
+		this.data.type[index].checked = !this.data.type[index].checked;
+		this.setData({
+			type: this.data.type
+		})
+	},
+	//输入框
+	onInput: function (event) {
+		var value = event.detail.value;
+		this.setData({
+			name: value
+		})
+	},
+	bindfocus(event){
+		this.setData({
+			isSearch: false,
+			name: ''
+		})
+	},
+
+	//点击搜索获取功效和分类id
+	getSearchId(data) {
+		var arr = [];
+		for (let i = 0; i < data.length; i++) {
+			if (data[i].checked) {
+				arr.push(data[i].id)
+			}
+		}
+		return arr.toString();
+	},
 
 	//输入搜索
-	search:function(event){
-		var value = event.detail.value;
-    if(value){
-      search.search(1,value,this.data.longitude, this.data.latitude, (res) => {
-        this.setData({
-          lessonList: res.data.courseData,
-          clubList: res.data.venue
-        })
-      })
-    }
+	search: function (event) {
+		let effectId = this.getSearchId(this.data.effect) ? this.getSearchId(this.data.effect) : '';
+		let typeId = this.getSearchId(this.data.type) ? this.getSearchId(this.data.type) : '';
+		let name = this.data.name ? this.data.name : '';
+		if (effectId || typeId || name) {
+			search.search(name, effectId, typeId, this.data.longitude, this.data.latitude, (res) => {
+				if (res.code == 200) {
+					this.setData({
+						isSearch: true,
+						lessonList: res.data.courseData,
+						clubList: res.data.venue
+					})
+				}else{
+					wx.showModal({
+						title: '提示',
+						content: res.msg,
+						showCancel: false,
+						success: function (res) {
+							return;
+						}
+					})
+				}
+			})
+		} else {
+			wx.showModal({
+				title: '提示',
+				content: '请先选择或输入搜索内容',
+				showCancel: false,
+				success: function (res) {
+					return;
+				}
+			})
+		}
 	},
 
-  //点击课程标签
-  lessonLabel:function(event){
-    var id = search.getDataSet(event, 'id');
-    this.setData({
-      isSearch: true
-    })
-    search.search(2, id, this.data.longitude, this.data.latitude, (res) => {
-      this.setData({
-        lessonList: res.data.courseData,
-        clubList: res.data.venue
-      })
-    })
-  },
-  //点击场馆标签
-  clubLabel: function (event) {
-    var id = search.getDataSet(event, 'id');
-    this.setData({
-      isSearch: true
-    })
-    search.search(3, id, this.data.longitude, this.data.latitude, (res) => {
-      this.setData({
-        lessonList: res.data.courseData,
-        clubList: res.data.venue
-      })
-    })
-  },
-  //进入场馆
-  clubTap: function (event) {
-    var id = search.getDataSet(event, 'id');
-    wx.navigateTo({
-      url: '../club/club?id=' + id,
-    })
-  },
-  //进入课程
-  lessonTap: function (event) {
-    var id = search.getDataSet(event, 'id');
-    wx.navigateTo({
-      url: '../product/product?id=' + id,
-    })
-  },
+	//进入场馆
+	clubTap: function (event) {
+		var id = search.getDataSet(event, 'id');
+		wx.navigateTo({
+			url: '../club/club?id=' + id,
+		})
+	},
+	//进入课程
+	lessonTap: function (event) {
+		var id = search.getDataSet(event, 'id');
+		wx.navigateTo({
+			url: '../product/product?id=' + id,
+		})
+	},
 	//切换详情面板
 	onTabsItemTap: function (event) {
 		var index = search.getDataSet(event, 'index');

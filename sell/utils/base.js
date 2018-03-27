@@ -1,7 +1,7 @@
 /**
  * Created by fengkang on 2016/11/21.
  */
-import { Token } from 'token.js';
+// import { Token } from 'token.js';
 import { Config } from 'config.js';
 
 class Base {
@@ -27,8 +27,8 @@ class Base {
             data: params.data,
             method:params.type,
             header: {
-                'content-type': 'application/json',
-                'token': wx.getStorageSync('token')
+                'content-type': 'application/json'
+                // 'token': wx.getStorageSync('token')
             },
             success: function (res) {
 
@@ -56,16 +56,16 @@ class Base {
         });
     }
 
-    _processError(err){
-        console.log(err);
-    }
+    // _processError(err){
+    //     console.log(err);
+    // }
 
-    _refetch(param) {
-        var token = new Token();
-        token.getTokenFromServer((token) => {
-            this.request(param, true);
-        });
-    }
+    // _refetch(param) {
+    //     var token = new Token();
+    //     token.getTokenFromServer((token) => {
+    //         this.request(param, true);
+    //     });
+    // }
 
     /*获得元素上的绑定的值*/
     getDataSet(event, key) {

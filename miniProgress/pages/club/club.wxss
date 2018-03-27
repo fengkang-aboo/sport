@@ -139,9 +139,15 @@
 }
 
 .item-price {
-    margin-left: 30rpx;
+    margin-left: 10rpx;
     font-size: 14px;
     color: #00b4d0;
+}
+.item-old-price{
+	margin-left: 10rpx;
+    font-size: 11px;
+    color: #666;
+	text-decoration: line-through
 }
 
 .item-btn {
@@ -184,6 +190,7 @@
 }
 
 .club-title {
+	font-weight: 500;
     font-size: 18px;
     color: #333;
 }
