@@ -19,7 +19,7 @@ use app\api\model\TyCollection as CollectionModel;
 use app\api\model\TyFacilities as FacilitiesModel;
 
 class Venue extends Controller
-{   
+{
     /**
      * 场馆列表
      * @param int $longitude 经度
@@ -31,14 +31,14 @@ class Venue extends Controller
     {
         $data = VenueBranch::VenueList();
         $uid = Token::getCurrentUid();
-        
+
         if (empty($data)) {
             return [
                 'code' => 404,
                 'msg' => '暂无数据'
             ];
         }
-        
+
         foreach ($data as $key => $v) {
             $data[$key]['venue_id'] = $v['id'];
             $distance = getdistances($longitude,$latitude,$v['longitude'],$v['latitude']);
@@ -88,7 +88,6 @@ class Venue extends Controller
         foreach ($img as $key => $v) {
             $venue['img'][] = $v['img_url'];
         }
-        print_r($venue);die;
         return $venue;
     }
 

@@ -100,7 +100,7 @@ class Order extends BaseController
      * @return array
      * @throws \app\lib\exception\ParameterException
      */
-    public function getSummaryByUser($page = 1, $size = 999, $admin_id = 0)
+    public function getSummaryByUser($page = 1, $size = 10, $admin_id = 0)
     {
         (new PagingParameter())->goCheck();
         if ($admin_id == 0) {

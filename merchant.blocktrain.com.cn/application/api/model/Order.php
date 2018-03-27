@@ -40,7 +40,7 @@ class Order extends BaseModel
         return $pagingData;
     }
 
-    public static function getSummaryByAdmin($admin_id, $page = 1, $size = 15)
+    public static function getSummaryByAdmin($admin_id, $page, $size)
     {
         $pagingData = self::where('admin_id', '=', $admin_id)
             ->order('create_time desc')
@@ -65,15 +65,15 @@ class Order extends BaseModel
         return $this->belongsTo('BoxServiceTime', 'time_id', 'id');
     }
 
-    public static function getOrderDetail($id,$uid)
+    public static function getOrderDetail($id, $uid)
     {
         $orderDetail = self::get($id);
 //        print_r($orderDetail);die();
         if (!empty($orderDetail)) {
             if ($orderDetail['user_id'] == $uid) {
-            return $orderDetail->hidden(['prepay_id']);
+                return $orderDetail->hidden(['prepay_id']);
             }
-        }else{
+        } else {
             return '';
         }
     }
@@ -99,7 +99,7 @@ class Order extends BaseModel
     }
 
     //修改订单状态
-    public static function uptOrderStatus($order_no, $status,$admin_id)
+    public static function uptOrderStatus($order_no, $status, $admin_id)
     {
         $res = self::where('order_no', $order_no)->update(['status' => $status, 'admin_id' => $admin_id]);
         return $res;
