@@ -54,6 +54,7 @@ Route::post('api/:version/token/verify', 'api/:version.Token/verifyToken');
 
 //Users
 Route::post('api/:version/users/user_info', 'api/:version.Users/addUserInfo');
+Route::get('api/:version/users/newRedbag', 'api/:version.Users/getUserNewRedBag');
 
 //Address
 Route::post('api/:version/address', 'api/:version.Address/createOrUpdateAddress');
