@@ -39,6 +39,10 @@ Route::get('api/:version/search/type', 'api/:version.Search/typeList');
 //秒杀
 Route::get('api/:version/seckill/lists', 'api/:version.Seckill/seckillList');
 
+//红包
+Route::get('api/:version/redbag/receiveRedBag', 'api/:version.Redbag/receiveRedBag');
+Route::get('api/:version/redbag/shareRedBag', 'api/:version.Redbag/shareRedBag');
+
 //10. 订单列表
 //11. 订单详情
 //12. 下单

@@ -72,4 +72,28 @@ function getdistances($lng1, $lat1, $lng2, $lat2) {
     $s = 2 * asin(sqrt(pow(sin($a / 2), 2) + cos($radLat1) * cos($radLat2) * pow(sin($b / 2), 2))) * 6378.137 * 1000;
     return $s;
 }  
- 
+
+function randRedBag($price,$num){
+    $money_total = $price;
+    $personal_num = $num;
+    $min_money = 1.6;
+    $money_right = $money_total;
+    $randMoney = [];
+    for($i = 1; $i <= $personal_num; $i++){
+        if($i == $personal_num){
+            $money = $money_right;
+        }else{
+            $max = $money_right * 10 - ($personal_num - $i ) * $min_money * 10;
+            $money = rand($min_money * 10,$max) / 10;
+            $money = sprintf("%.1f",$money);
+            }
+            $randMoney[] = $money;
+            $money_right = $money_right - $money;
+            $money_right = sprintf("%.1f",$money_right);
+    }
+
+    shuffle($randMoney);
+    echo '<pre>';
+    print_r($randMoney);
+    return $randMoney;
+}

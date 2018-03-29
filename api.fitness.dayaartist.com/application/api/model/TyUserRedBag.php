@@ -13,12 +13,12 @@ class TyUserRedBag extends BaseModel
     protected $autoWriteTimestamp = true;
 
     /**
-     * 获取课程时间列表
+     * 获取用户红包
      * @return \think\Paginator
      */
-    public static function getNewRedBag()
+    public static function getUserRedBag($uid,$red_bag_id)
     {
-        $where = array('user_id'=>$user_id,'red_bag_id'=>1);
+        $where = array('user_id'=>$uid,'red_bag_id'=>$red_bag_id);
         $red_bag = self::where($where)->find();
     	return $red_bag;
     }

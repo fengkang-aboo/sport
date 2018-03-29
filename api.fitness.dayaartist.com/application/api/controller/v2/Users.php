@@ -99,7 +99,7 @@ print_r($randMoney);*/
     public function getUserNewRedBag()
     {
         $uid = Token::getCurrentUid();
-        $red_bag = TyUserRedBag::getNewRedBag($uid);
+        $red_bag = TyUserRedBag::getUserRedBag($uid,1);
         if (empty($red_bag)) {
             return [
                 'code' => 200,
