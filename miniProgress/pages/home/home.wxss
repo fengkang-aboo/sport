@@ -1,128 +1,197 @@
 .container {
-  background-color: #fff;
-  position: relative;
+    background-color: #fff;
+    position: relative;
 }
 
 .search {
-  margin: 0 20rpx 20rpx;
-  display: flex;
-  flex-direction: row;
-  align-items: center; /*垂直居中*/
-  font-size: 0;
-  background-color: #efefef;
-  border-radius: 5px;
+    margin: 0 20rpx 20rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center; /*垂直居中*/
+    font-size: 0;
+    background-color: #efefef;
+    border-radius: 5px;
 }
 
 .search-img {
-  display: inline-block;
-  width: 40rpx;
-  height: 40rpx;
-  margin: 0 20rpx;
+    display: inline-block;
+    width: 40rpx;
+    height: 40rpx;
+    margin: 0 20rpx;
 }
 
 .search-input {
-  flex: 1;
-  height: 80rpx;
-  font-size: 14px;
-  line-height: 80rpx;
-  color: #a6a6a6;
+    flex: 1;
+    height: 80rpx;
+    font-size: 14px;
+    line-height: 80rpx;
+    color: #a6a6a6;
 }
 
 .club {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .club-item {
-  width: 100%;
-  height: 360rpx;
-  position: relative;
+    width: 100%;
+    height: 360rpx;
+    position: relative;
 }
 
 .item-bg {
-  width: 100%;
-  height: 360rpx;
-  position: absolute;
-  top: 0;
-  left: 0;
+    width: 100%;
+    height: 360rpx;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .item-bg2 {
-  width: 100%;
-  height: 360rpx;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 360rpx;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
 }
 
 .item-heart {
-  position: absolute;
-  top: 0rpx;
-  right: 0rpx;
-  width: 100rpx;
-  height: 100rpx;
+    position: absolute;
+    top: 0rpx;
+    right: 0rpx;
+    width: 100rpx;
+    height: 100rpx;
 }
 
 .item-content {
-  width: 100%;
-  box-sizing: border-box;
-  position: absolute;
-  left: 0;
-  bottom: 0rpx;
-  padding: 30rpx;
-  display: flex;
-  flex-direction: row;
-  align-items: center; /*垂直居中*/
-  font-size: 0;
+    width: 100%;
+    box-sizing: border-box;
+    position: absolute;
+    left: 0;
+    bottom: 0rpx;
+    padding: 30rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center; /*垂直居中*/
+    font-size: 0;
 }
 
 .item-logo {
-  width: 96rpx;
-  height: 96rpx;
-  border-radius: 50%;
-  margin-right: 20rpx;
+    width: 96rpx;
+    height: 96rpx;
+    border-radius: 50%;
+    margin-right: 20rpx;
 }
 
 .item-text {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  color: #fff;
-  overflow: hidden;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+    overflow: hidden;
 }
 
 .item-title {
-  font-size: 14px;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  overflow: hidden;
-  font-weight: 500;
-  color: #fff;
-  flex: 1;
+    font-size: 14px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    font-weight: 500;
+    color: #fff;
+    flex: 1;
 }
 
 .item-desc {
-  margin-top: 10rpx;
-  display: flex;
-  flex: 1;
-  flex-direction: row;
-  justify-content: space-between;
+    margin-top: 10rpx;
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .item-address {
-  flex: 1;
-  font-size: 11px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+    flex: 1;
+    font-size: 11px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .item-distance {
-  width: 150rpx;
-  font-size: 11px;
-  text-align: right;
-color: #fff;
+    width: 150rpx;
+    font-size: 11px;
+    text-align: right;
+    color: #fff;
+}
+
+.dialog {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.first {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -315rpx;
+    transform: translateY(-50%);
+}
+
+.first-bottom {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.first-bg {
+    width: 630rpx;
+    height: 700rpx;
+}
+
+.first-close {
+    width: 60rpx;
+    height: 60rpx;
+    position: absolute;
+    right: 0rpx;
+    top: -100rpx;
+}
+
+.first-sure {
+    width: 204rpx;
+    height: 206rpx;
+    position: absolute;
+    left: 50%;
+    top: 60%;
+    transform: translateX(-50%);
+}
+
+.second {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -322.5rpx;
+    transform: translateY(-50%);
+}
+
+.second-bg {
+    width: 645rpx;
+    height: 778rpx;
+}
+
+.second-sure {
+    width: 330rpx;
+    height: 100rpx;
+    position: absolute;
+    left: 50%;
+    bottom: 120rpx;
+    transform: translateX(-50%);
 }

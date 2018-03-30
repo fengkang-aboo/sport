@@ -13,6 +13,10 @@
             我的收藏
             <image src="../../images/icon/arrow@right.png"></image>
         </view>
+        <view class="item-title" bindtap="onCardTap">
+            我的卡券
+            <image src="../../images/icon/arrow@right.png"></image>
+        </view>
         <view class="item-title" bindtap="onAuthorizationTap">
             授权管理
             <image src="../../images/icon/arrow@right.png"></image>
@@ -27,6 +31,10 @@
         </view>
         <view class="item-title" bindtap="onAgreementTap">
             用户协议
+            <image src="../../images/icon/arrow@right.png"></image>
+        </view>
+        <view class="item-title" bindtap="onChange">
+            切换到商家版
             <image src="../../images/icon/arrow@right.png"></image>
         </view>
     </view>

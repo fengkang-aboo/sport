@@ -46,7 +46,7 @@ Page({
 	itemTap: function (event) {
 		var id = list.getDataSet(event,'id');
 		wx.navigateTo({
-			url: '../c-search-detail/c-search-detail?id='+id,
+			url: '../search-detail/search-detail?id='+id,
 		})
 	}
 })

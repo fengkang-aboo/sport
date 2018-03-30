@@ -11,7 +11,10 @@ Page({
 	 * 页面的初始数据
 	 */
 	data: {
-		markers: []
+		markers: [],
+		isNew:true,
+		First:true,
+		Second:false,
 	},
 	onLoad: function () {
 		wx.showNavigationBarLoading() //在标题栏中显示加载
@@ -121,17 +124,6 @@ Page({
 	// 	this._loadData(longitude, latitude);
 	// },
 
-	// onReady: function () {
-	// 	wx.showNavigationBarLoading() //在标题栏中显示加载
-	// 	//获取数据
-	// 	var longitude = wx.getStorageSync('longitude');
-	// 	var latitude = wx.getStorageSync('latitude');
-	// 	if (longitude && longitude){
-	// 		this._loadData(longitude, latitude);
-	// 		console.log(123);
-	// 	}
-	// },
-
 	_loadData: function (longitude, latitude) {
 		home.getClubList(longitude, latitude, (res) => {
 			wx.hideNavigationBarLoading() //完成停止加载
@@ -190,6 +182,27 @@ Page({
 			url: '../search/search',
 		})
 	},
+
+	//红包领取
+	redBagfirst(){
+		this.setData({
+			First:false,
+			Second:true
+		})
+	},
+	//红包去使用
+	goForUse(){
+		this.setData({
+			isNew: !this.data.isNew
+		})
+	},
+	//红包关闭
+	redBagClose(){
+		this.setData({
+			isNew: !this.data.isNew
+		})
+	},
+
 	//收藏
 	collection: function (event) {
 		var status = home.getDataSet(event, 'status');

@@ -12,7 +12,7 @@
                 <view bindtap='forSure' wx:if="{{orderStatus==2}}" class='detail-btn'>确认验票</view> 
 				<view wx:if="{{orderStatus==4}}" class='del'>已作废</view>   
                 <view wx:if="{{orderStatus==3}}" class='detail-sure'>
-                    <image src='../../../images/check/ico_chenggong.png'></image>
+                    <image src='/images/check/ico_chenggong.png'></image>
                 </view>
             </view>
             <view class='detail-code'>
@@ -46,11 +46,11 @@
 
             <view class='return' bindtap='revise' wx:if="{{orderStatus==3}}">
                 <text>恢复可用</text>
-                <image src='../../../images/check/ico_chexiao.png'></image>
+                <image src='/images/check/ico_chexiao.png'></image>
             </view>
 			<view class='return' bindtap='delete' wx:if="{{orderStatus==2}}" >
                 <text>作废</text>
-                <image src='../../../images/check/ico_chexiao.png'></image>
+                <image src='/images/check/ico_chexiao.png'></image>
             </view>
         </view>
 
