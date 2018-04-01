@@ -15,7 +15,7 @@ class TyRedBag extends BaseModel
     public static function getRedBag($red_bag_id)
     {
         $where = array('id'=>$red_bag_id);
-        $red_bag = self::where($where)->find();
+        $red_bag = self::where($where)->where('end_time','>',time())->find();
         return $red_bag;
     }
 }

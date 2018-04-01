@@ -16,11 +16,22 @@ class TyShareRedBag extends BaseModel
      * 获取分享红包
      * @return \think\Paginator
      */
-    public static function getShareRedBag($uid,$order_id)
+    public static function getUserShareRedBag($uid,$order_id)
     {
         $where = array('user_id'=>$uid,'order_id'=>$order_id);
         $share_red_bag = self::where($where)->find();
     	return $share_red_bag;
+    }
+
+    /**
+     * 查找分享红包
+     * @return \think\Paginator
+     */
+    public static function getShareRedBag($id)
+    {
+        $where = array('id'=>$id);
+        $share_red_bag = self::where($where)->find();
+        return $share_red_bag;
     }
 
 }

@@ -82,7 +82,7 @@ class Redbag extends Controller
     	$uid = 1;
     	if (!empty($red_bag)) {
 
-    		$share_red_bag = TyShareRedBag::getShareRedBag($uid,$order_id);
+    		$share_red_bag = TyShareRedBag::getUserShareRedBag($uid,$order_id);
     		if (!empty($share_red_bag)) {
     			return [
 					'code' => 401,
@@ -94,13 +94,17 @@ class Redbag extends Controller
 	    	Db::table('ty_share_red_bag')->insert($data);
 	    	$res_id = Db::name('ty_share_red_bag')->getLastInsID();
 	    	//echo $res_id;die;
-	    	if ($res_id > 1) {
+	    	if ($res_id > 0) {
 
 	    		$rand_array = randRedBag($red_bag['price'],$red_bag['num']);
-
-	    		Cache::set(PREFIXRANDREDBAG.$res_id,);
-
-
+	    		//print_r($rand_array);die;
+	    		$red = Cache::set(PREFIXRANDREDBAG.$res_id,$rand_array,$red_bag['end_time']);
+	    		if ($red) {
+	    			return [
+	    				'code' => 200,
+	    				'msg' => '成功'
+	    			];
+	    		}
 	    	}else{
 	    		return [
 					'code' => 500,
@@ -110,19 +114,64 @@ class Redbag extends Controller
     	}else{
     		return [
 				'code' => 404,
-				'msg' => '红包不存在'
+				'msg' => '红包已过期'
 			];
     	}
 	}
 
 	/**
      * 领随机红包
-     * @param int $red_bag_id 活动红包ID
+     * @param int $id 分享活动红包ID
      * @return \think\Paginator
      * @throws ThemeException
      */
-    public function receiveRandRedBag($red_bag_id)
+    public function receiveRandRedBag($id)
     {
+		//$uid = Token::getCurrentUid();
+    	$uid = 11;
+    	$share_red_bag = TyShareRedBag::getShareRedBag($id);
 
+    	$returnData = array();
+
+    	$share_bag = TyUserRedBag::ReceiveShareRedBagUser($id);
+
+    	$user = array();
+    	foreach ($share_bag as $key => $v) {
+
+    		$user[$key] = array('img'=>$v['user']['avatarUrl'],'name'=>$v['user']['nickName'],'date'=>date('m-d H:i:s',strtotime($v['create_time'])),'price'=>$v['price']);
+    	}
+
+    	$returnData['user'] = $user;
+
+    	if (!empty($share_red_bag)) {
+
+    		$red_bag = TyRedBag::getRedBag($share_red_bag['red_bag_id']);
+    		//获取用户随机红包
+    		$userRandRedBag = TyUserRedBag::getUserRandRedBag($uid,$id);
+    		$returnData['price'] = $userRandRedBag['price'];
+
+    		if (!empty($userRandRedBag)) return ['code' =>200,'data'=>$returnData];
+
+    		if ($red_bag['end_time'] < time()) return ['code' => 404,'msg' => '红包已过期','data'=>$returnData];
+
+    		$red_bag_array = Cache::get(PREFIXRANDREDBAG.$id);
+
+    		if (count($red_bag_array) <= 0) return ['code' => 401,'msg' => '红包已抢完','data'=>$returnData];
+
+    		$price = array_shift($red_bag_array);
+
+    		Cache::set(PREFIXRANDREDBAG.$id,$red_bag_array,$red_bag['end_time']);
+
+    		$data = array('user_id'=>$uid,'venue_id'=>$red_bag['venue_id'],'red_bag_id'=>$red_bag['id'],'share_red_bag_id'=>$id,'price'=>$price,'type'=>$red_bag['type'],'create_time'=>time());
+				Db::table('ty_user_red_bag')->insert($data);
+				$res_id = Db::name('ty_user_red_bag')->getLastInsID();
+
+			$returnData['price'] = $price;
+
+			if ($res_id > 0) return ['code' => 200,'data' => $returnData];
+    		
+    	}else{
+    		return ['code' => 404,'msg' => '红包不存在'];
+    	}
 	}
 }

@@ -42,6 +42,7 @@ Route::get('api/:version/seckill/lists', 'api/:version.Seckill/seckillList');
 //红包
 Route::get('api/:version/redbag/receiveRedBag', 'api/:version.Redbag/receiveRedBag');
 Route::get('api/:version/redbag/shareRedBag', 'api/:version.Redbag/shareRedBag');
+Route::get('api/:version/redbag/receiveRandRedBag', 'api/:version.Redbag/receiveRandRedBag');
 
 //10. 订单列表
 //11. 订单详情

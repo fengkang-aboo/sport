@@ -93,7 +93,5 @@ function randRedBag($price,$num){
     }
 
     shuffle($randMoney);
-    echo '<pre>';
-    print_r($randMoney);
     return $randMoney;
 }
