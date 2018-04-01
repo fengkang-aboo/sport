@@ -180,9 +180,30 @@ Page({
 			url: '../agreement/agreement',
 		})
 	},
+	//收藏
 	onCollectionTap: function () {
 		wx.navigateTo({
 			url: '../collection/collection',
+		})
+	},
+	//卡券
+	onCardTap(){
+		wx.navigateTo({
+			url: '../card/card',
+		})
+	},
+	//切换
+	onChange:function(){
+		wx.navigateToMiniProgram({
+			appId: 'wxbfef62f9fafd9057',
+			path: 'pages/home/home',
+			envVersion: 'release',
+			success(res) {
+				// 打开成功
+			},
+			fail(res) {
+				
+			},
 		})
 	},
     /**

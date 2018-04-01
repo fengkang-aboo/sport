@@ -9,14 +9,14 @@ Page({
     /**
      * 页面的初始数据
      */
-    data: {
-		userName:null,
-		passWord:null
-    },
-	onLoad:function(){
+	data: {
+		userName: null,
+		passWord: null
+	},
+	onLoad: function () {
 
 	},
-	userNameInput:function(e){
+	userNameInput: function (e) {
 		this.setData({
 			userName: e.detail.value
 		})
@@ -27,17 +27,17 @@ Page({
 		})
 	},
 
-	login:function(){
-		if (this.data.userName && this.data.passWord){
-			home.check(this.data.userName, this.data.passWord,(res)=>{
+	login: function () {
+		if (this.data.userName && this.data.passWord) {
+			home.check(this.data.userName, this.data.passWord, (res) => {
 				console.log(res);
-				if (res.code == 200){
+				if (res.code == 200) {
 					var uid = res.data.id;
 					wx.setStorageSync('uid', uid);
 					wx.redirectTo({
 						url: '../menu/menu',
 					})
-				}else{
+				} else {
 					wx.showModal({
 						title: '提示',
 						content: res.msg,
@@ -49,11 +49,11 @@ Page({
 				}
 			})
 
-		}else{
+		} else {
 			wx.showModal({
 				title: '提示',
 				content: '请输入账号密码！',
-				showCancel:false,
+				showCancel: false,
 				success: function (res) {
 					if (res.confirm) {
 						console.log('用户点击确定')
@@ -67,9 +67,27 @@ Page({
 
 
 	//跳转到用户小程序
-	change:function(){
-		wx.switchTab({
-			url: '../../home/home',
+	change: function () {
+		wx.navigateToMiniProgram({
+			appId: 'wxaccd46473669e838',
+			path: 'pages/home/home',
+			extraData: {
+				foo: 'bar'
+			},
+			envVersion: 'release',
+			success(res) {
+				// 打开成功
+			},
+			fail(res) {
+				wx.showModal({
+					title: '提示',
+					content: '系统错误',
+					showCancel: false,
+					success: function (res) {
+						return;
+					}
+				})
+			},
 		})
 	}
 })

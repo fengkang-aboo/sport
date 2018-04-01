@@ -1,54 +1,55 @@
 {
-  "pages": [
-    "pages/home/home",
-    "pages/product/product",
-    "pages/my/my",
-    "pages/order/order",
-    "pages/pay-result/pay-result",
-    "pages/my-order/my-order",
-    "pages/result/result",
-    "pages/order-detail/orderDetail",
-    "pages/map/map",
-    "pages/kill/kill",
-    "pages/club/club",
-    "pages/collection/collection",
-    "pages/question/question",
-    "pages/about/about",
-    "pages/agreement/agreement",
-    "pages/search/search"
-  ],
-  "window": {
-    "navigationBarBackgroundColor": "#ffffff",
-    "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "",
-    "backgroundColor": "#eeeeee",
-    "backgroundTextStyle": "light",
-    "enablePullDownRefresh": false
-  },
-  "tabBar": {
-    "borderStyle": "black",
-    "position": "bottom",
-    "list": [
-      {
-        "pagePath": "pages/home/home",
-        "text": "主页",
-        "iconPath": "images/home/btn_nor_home.png",
-        "selectedIconPath": "images/home/btn_sel_home.png"
-      },
-      {
-        "pagePath": "pages/kill/kill",
-        "text": "秒杀",
-        "iconPath": "images/home/btn_nor_seckill.png",
-        "selectedIconPath": "images/home/btn_sel_secKill.png"
-      },
-      {
-        "pagePath": "pages/my/my",
-        "text": "我的",
-        "iconPath": "images/home/btn_nor_mine.png",
-        "selectedIconPath": "images/home/btn_sel_mine.png"
-      }
+    "pages": [
+        "pages/home/home",
+        "pages/product/product",
+        "pages/my/my",
+        "pages/order/order",
+        "pages/pay-result/pay-result",
+        "pages/my-order/my-order",
+        "pages/result/result",
+        "pages/order-detail/orderDetail",
+        "pages/map/map",
+        "pages/kill/kill",
+        "pages/club/club",
+        "pages/collection/collection",
+        "pages/question/question",
+        "pages/about/about",
+        "pages/agreement/agreement",
+        "pages/search/search",
+        "pages/card/card"
     ],
-    "selectedColor": "#00b4d0",
-    "color": "#BEBEBE"
-  }
+    "window": {
+        "navigationBarBackgroundColor": "#ffffff",
+        "navigationBarTextStyle": "black",
+        "navigationBarTitleText": "",
+        "backgroundColor": "#eeeeee",
+        "backgroundTextStyle": "light",
+        "enablePullDownRefresh": false
+    },
+    "tabBar": {
+        "borderStyle": "black",
+        "position": "bottom",
+        "list": [
+            {
+                "pagePath": "pages/home/home",
+                "text": "主页",
+                "iconPath": "images/home/btn_nor_home.png",
+                "selectedIconPath": "images/home/btn_sel_home.png"
+            },
+            {
+                "pagePath": "pages/kill/kill",
+                "text": "秒杀",
+                "iconPath": "images/home/btn_nor_seckill.png",
+                "selectedIconPath": "images/home/btn_sel_secKill.png"
+            },
+            {
+                "pagePath": "pages/my/my",
+                "text": "我的",
+                "iconPath": "images/home/btn_nor_mine.png",
+                "selectedIconPath": "images/home/btn_sel_mine.png"
+            }
+        ],
+        "selectedColor": "#00b4d0",
+        "color": "#BEBEBE"
+    }
 }

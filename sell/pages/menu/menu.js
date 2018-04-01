@@ -46,8 +46,26 @@ Page({
 	},
 	// //跳转到用户小程序
 	change: function () {
-		wx.switchTab({
-			url: '../../home/home',
+		wx.navigateToMiniProgram({
+			appId: 'wxaccd46473669e838',
+			path: 'pages/home/home',
+			extraData: {
+				foo: 'bar'
+			},
+			envVersion: 'release',
+			success(res) {
+				// 打开成功
+			},
+			fail(res) {
+				wx.showModal({
+					title: '提示',
+					content: '系统错误',
+					showCancel: false,
+					success: function (res) {
+						return;
+					}
+				})
+			},
 		})
 	}
 })

@@ -40,11 +40,6 @@
                 <view class='detail-item-key'>门票名称</view>
                 <view class='detail-item-value'>{{detail.snap_name}}</view>
             </view>
-<!-- 
-            <view class='return'>
-                <text>恢复可用</text>
-                <image src='../../../images/check/ico_chexiao.png'></image>
-            </view> -->
         </view>
 
     </view>

@@ -130,24 +130,28 @@
 .item-desc {
     display: flex;
     flex-direction: row;
-    align-items: bottom;
+    align-items: baseline;
 }
 
 .item-time {
     font-size: 14px;
     color: #666;
+    vertical-align: bottom;
 }
 
 .item-price {
     margin-left: 10rpx;
     font-size: 14px;
     color: #00b4d0;
+    vertical-align: bottom;
 }
-.item-old-price{
-	margin-left: 10rpx;
+
+.item-old-price {
+    margin-left: 10rpx;
     font-size: 11px;
     color: #666;
-	text-decoration: line-through
+    text-decoration: line-through;
+    vertical-align: bottom;
 }
 
 .item-btn {
@@ -190,7 +194,7 @@
 }
 
 .club-title {
-	font-weight: 500;
+    font-weight: 500;
     font-size: 18px;
     color: #333;
 }

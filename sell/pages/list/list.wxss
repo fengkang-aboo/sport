@@ -1,5 +1,5 @@
 /* pages/list/list.wxss */
-/* @import "../../tpls/list-tpl/list-item.wxss"; */
+ @import "../tpls/list-tpl/list-item.wxss"; 
 
 
 .container{

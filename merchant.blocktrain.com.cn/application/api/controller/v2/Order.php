@@ -12,6 +12,7 @@ namespace app\api\controller\v2;
 
 use app\api\controller\BaseController;
 use app\api\model\BoxCourse;
+use app\api\model\BoxMemberService;
 use app\api\model\BoxServiceTime;
 use app\api\model\Order as OrderModel;
 use app\api\service\Order as OrderService;
@@ -86,11 +87,17 @@ class Order extends BaseController
                 'data' => '',
                 'msg' => '订单不存在！'
             ];
+        } else {
+            $orderDetail = $orderDetail->toArray();
+            $memberService = BoxMemberService::where('id', '=', $orderDetail['time'])->find();
+            $orderDetail['feature'] = $memberService->yname;
+            $orderDetail['express'] = $memberService->ytel;
+            return [
+                'code' => 200,
+                'data' => $orderDetail
+            ];
         }
-        return [
-            'code' => 200,
-            'data' => $orderDetail->toArray()
-        ];
+
     }
 
     /**
@@ -247,7 +254,7 @@ class Order extends BaseController
     public function getOrder($num)
     {
         $data = Db::table('order')->order('id desc')->limit($num)->column('order_no');
-        foreach ($data as $value){
+        foreach ($data as $value) {
             echo $value;
             echo "<br/>";
         }
@@ -255,25 +262,4 @@ class Order extends BaseController
 //        print_r($data);
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
