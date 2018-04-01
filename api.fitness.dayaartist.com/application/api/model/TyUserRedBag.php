@@ -10,12 +10,18 @@ namespace app\api\model;
 
 class TyUserRedBag extends BaseModel
 {
-    protected $autoWriteTimestamp = true;
+    //protected $autoWriteTimestamp = true;
 
     //关联场馆
     public function user()
     {
         return $this->belongsTo('User','user_id','id');
+    }
+
+    //关联场馆
+    public function venue()
+    {
+        return $this->belongsTo('TyVenueBranch','venue_id','id');
     }
 
     /**
@@ -49,5 +55,16 @@ class TyUserRedBag extends BaseModel
         $where = array('share_red_bag_id'=>$share_red_bag_id);
         $red_bag = self::with('user')->where($where)->select();
         return $red_bag;
+    }
+
+    /**
+     * 获取领取分享用户
+     * @return \think\Paginator
+     */
+    public static function getUserAllRedBag($uid)
+    {
+        $where = array('user_id'=>$uid);
+        $user_red_bag = self::with('venue')->where($where)->where('end_time','>',time())->select();
+        return $user_red_bag;
     }
 }

@@ -78,8 +78,8 @@ class Redbag extends Controller
     public function shareRedBag($red_bag_id=2,$order_id=1)
     {
 		$red_bag = TyRedBag::getRedBag($red_bag_id);
-    	//$uid = Token::getCurrentUid();
-    	$uid = 1;
+    	$uid = Token::getCurrentUid();
+    	//$uid = 1;
     	if (!empty($red_bag)) {
 
     		$share_red_bag = TyShareRedBag::getUserShareRedBag($uid,$order_id);
@@ -127,8 +127,8 @@ class Redbag extends Controller
      */
     public function receiveRandRedBag($id)
     {
-		//$uid = Token::getCurrentUid();
-    	$uid = 11;
+		$uid = Token::getCurrentUid();
+    	//$uid = 1;
     	$share_red_bag = TyShareRedBag::getShareRedBag($id);
 
     	$returnData = array();
@@ -174,4 +174,32 @@ class Redbag extends Controller
     		return ['code' => 404,'msg' => '红包不存在'];
     	}
 	}
+
+    /**
+     * 用户红包
+     * @return \think\Paginator
+     * @throws ThemeException
+     */
+    public function getUserRedBag()
+    {
+        $uid = Token::getCurrentUid();
+        //$uid = 1;
+        $returnData  = array();
+
+        //获取用户随机红包
+        $userRandRedBag = TyUserRedBag::getUserAllRedBag($uid);
+        
+        if (empty($userRandRedBag)) return ['code' => 404,'msg' => '您还没有红包']; 
+
+        foreach ($userRandRedBag as $key => $v) {
+            if ($v['venue_id'] != -1) {
+                $returnData['venue'][] = array('venue_id'=>$v['venue_id'],'price' => $v['price'],'venue_name'=>$v['venue']['name'],'end_time' => date('Y-m-d',$v['end_time']));
+            }else{
+                $returnData['platform'][] = array('price'=>$v['price'],'end_time'=>date('Y-m-d',$v['end_time']));
+            }
+        }
+        /*echo '<pre>';
+        print_r($returnData);die;*/
+        return ['code'=>200,'daya'=>$returnData];
+    }
 }
