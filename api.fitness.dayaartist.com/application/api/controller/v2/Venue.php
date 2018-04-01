@@ -17,6 +17,8 @@ use app\api\model\TyVenueBranch as VenueBranch;
 use app\api\model\TyImg as ImgModel;
 use app\api\model\TyCollection as CollectionModel;
 use app\api\model\TyFacilities as FacilitiesModel;
+use app\api\model\TyRedBag as RedBagModel;
+use app\api\model\Category as CategoryModel;
 
 class Venue extends Controller
 {
@@ -39,6 +41,7 @@ class Venue extends Controller
             ];
         }
 
+
         foreach ($data as $key => $v) {
             $data[$key]['venue_id'] = $v['id'];
             $distance = getdistances($longitude,$latitude,$v['longitude'],$v['latitude']);
@@ -47,6 +50,16 @@ class Venue extends Controller
             $logo_img = ImgModel::getOneImg($v['logo_id']);
             $data[$key]['main_img'] = $main_img['img_url'];
             $data[$key]['log_img'] = $logo_img['img_url'];
+
+            $red_bag = RedBagModel::getVenueRedBag($v['id']);
+            if (count($red_bag) < 1) {
+                $data['red_bag'] = 2;
+            }else{
+                $data['red_bag'] = 1;
+            }
+
+            $category = CategoryModel::getManyCategory($v['category_id']);
+            $data['category'] = $category
 
             $collect = CollectionModel::getUserCollect($uid,$v['id']);
             if (empty($collect)) {

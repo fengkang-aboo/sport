@@ -18,4 +18,16 @@ class Category extends BaseModel
         $type = self::where('status',1)->select();
         return $type;
     }
+
+    /**
+     * 获取多个分类
+     * @param $id 多个id
+     * @return \think\Paginator
+     */
+    public static function getManyCategory($id)
+    {
+        $where['id'] = array('in',$id);
+        $category = self::where($where)->select()->toArray();
+        return $category;
+    }
 }
