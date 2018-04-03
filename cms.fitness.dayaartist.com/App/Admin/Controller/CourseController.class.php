@@ -336,6 +336,18 @@ class CourseController extends PublicController
                 $data = I('post.');
 //                print_r($data);
 //                die();
+                if (empty($data['venue_branch_id'])) {
+                    throw new \Exception('分店不能为空');
+                    exit();
+                }
+                if (empty($data['course_id'])) {
+                    throw new \Exception('课程不能为空');
+                    exit();
+                }
+                if (empty($data['teacher_id'])) {
+                    throw new \Exception('老师不能为空');
+                    exit();
+                }
                 if (empty($data['start_times'][0])) {
                     throw new \Exception('时间不能为空');
                     exit();
