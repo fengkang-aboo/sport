@@ -49,13 +49,13 @@
     <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 课程管理 <span class="c-gray en">&gt;</span> 课程安排<a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新"><i class="Hui-iconfont">&#xe68f;</i></a></nav>
 
     <!--<div class="cl pd-5 bg-1 bk-gray mt-20" style="margin-left: 20px"><span class="l" style="margin-right: 10px"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a class="btn btn-primary radius" onclick="" href="{:U('Course/Course_add')}"><i class="Hui-iconfont">&#xe600;</i> 添加课程</a></span><a href="{:U('Excels/expSupplier')}?category_id={$category_id}&status={$status}"><input class="btn btn-success radius" id="aaa" type="button" value="Excel导出"></a> <span class="r">共有数据：<strong>{$count}</strong> 条</span></div>-->
-    <div class="cl pd-5 bg-1 bk-gray mt-20" style="margin-left: 20px"><span class="l" style="margin-right: 10px"><a class="btn btn-primary radius" onclick="" href="{:U('Course/course_add')}"><i class="Hui-iconfont">&#xe600;</i> 添加课程</a></span><span class="r">共有数据：<strong>{$count}</strong> 条</span></div>
+    <div class="cl pd-5 bg-1 bk-gray mt-20" style="margin-left: 20px"><span class="l" style="margin-right: 10px"><a class="btn btn-primary radius" onclick="" href="{:U('Course/course_add')}"><i class="Hui-iconfont">&#xe600;</i> 添加课程</a></span><span class="l" style="margin-right: 10px"><a href="javascript:;" class="btn btn-danger radius" id='del'><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a></span><span class="r">共有数据：<strong>{$count}</strong> 条</span></div>
     <div class="page-container">
         <div class="mt-20">
             <table class="table table-border table-bordered table-bg table-hover table-sort">
                 <thead>
                 <tr class="text-c">
-                    <th width="40"><input name="" type="checkbox" value=""></th>
+                    <th width="40"><input type="checkbox" value=""></th>
                     <th width="40">ID</th>
                     <th>展示图</th>
                     <th>课程名称</th>
@@ -70,7 +70,7 @@
                 <!-- 遍历 -->
                 <volist name="course" id="v" empty="暂时没有数据">
                     <tr class="text-c va-m">
-                        <td><input name="" type="checkbox" value=""></td>
+                        <td><input type="checkbox" name="delID" value="{$v.id}"></td>
                         <td>{$v.id}</td>
                         <td><img src="{$v.img_url}" width="70"></td>
                         <td>{$v.name}</td>
@@ -81,7 +81,7 @@
                             <if condition="$v.status eq 1">
                                 <span class="label label-success radius">正常</span>
                                 <else/>
-                                <span class="label label-danger radius">关闭</span>
+                                <span class="label label-danger radius">删除</span>
                             </if>
                         </td>
                         <td class="td-manage">
@@ -111,6 +111,32 @@
             {"orderable": false, "aTargets": [0,2,3,6,7]}// 制定列不参与排序
         ]
     });
+
+    //批量删除
+    $('#del').on('click',function(){
+        var checkID = '';
+        $("input[name='delID']:checked").each(function(i){
+            checkID += ','+ $(this).val();
+        });
+        
+        checkID = checkID.substr(1);
+        $.ajax({
+            url : 'course_del',
+            type : 'GET',
+            data : {del_id : checkID},
+            dataType : 'json',
+            success : function(data){
+                
+                if (data.code == 200) {
+                    window.location.reload();
+                }else{
+                    alert(data.msg)
+                }
+                $("input[name='delID']").attr('checked',false);
+            }
+        })
+    })
+
     //显示修改状态
     $('#up_status').on('click', function () {
         var status = $(this).attr('status');
