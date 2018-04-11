@@ -199,7 +199,7 @@ class ShopController extends PublicController
 
                         if ($data['summary'] == 1) {
                             //添加预约时间
-                            if (!empty(($data['about_stime'][0]))) {
+                            if (!empty($data['about_stime'][0])) {
                                 for ($i = 0; $i < count($data['about_stime']); $i++) {
                                     $about_array[] = array('start_time' => $data['about_stime'][$i], 'end_time' => $data['about_etime'][$i], 'product_id' => $product_id);
                                 }
@@ -350,7 +350,7 @@ class ShopController extends PublicController
                 $pro_res = M('product')->where('id=' . $data['product_id'])->save($pro_array);
 
                 //添加预约时间
-                if (!empty(($data['about_stime'][0]))) {
+                if (!empty($data['about_stime'][0])) {
                     for ($i = 0; $i < count($data['about_stime']); $i++) {
                         $about_array[] = array('start_time' => $data['about_stime'][$i], 'end_time' => $data['about_etime'][$i], 'product_id' => $data['product_id']);
                     }
@@ -510,7 +510,7 @@ class ShopController extends PublicController
 
                 $data = I('post.');
 
-                if (empty(($data['about_stime'][0]))) {
+                if (empty($data['about_stime'][0])) {
                     throw new \Exception('可预约时间不能为空');
                     exit();
                 }

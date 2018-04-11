@@ -299,6 +299,32 @@ class CourseController extends PublicController
         }
     }
 
+    //***********************************
+    // 老师删除
+    //**********************************
+    public function teacher_del()
+    {
+        $checkID = I('get.del_id');
+        $checkID = explode(',', $checkID);
+        $where['id'] = array('in',$checkID);
+
+        $data = M('ty_teacher')->where($where)->select();
+        foreach ($data as $key => $v) {
+            if ($v['status'] == 2) {
+                unset($data[$key]);
+            }
+        }
+
+        $reutrn = array();
+        if (count($data) < 1) {
+            $reutrn = array('code'=>401,'msg'=>'所选内容都已删除');
+            echo json_encode($reutrn);die;
+        }
+
+        $res = M('ty_teacher')->where($where)->save(array('status'=>2));
+        $reutrn = array('code'=>200,'msg'=>'成功');
+        echo json_encode($reutrn);;
+    }
 
     //***********************************
     // 课程表
@@ -411,4 +437,30 @@ class CourseController extends PublicController
         }
     }
 
+    //***********************************
+    // 时间删除
+    //**********************************
+    public function time_del()
+    {
+        $checkID = I('get.del_id');
+        $checkID = explode(',', $checkID);
+        $where['id'] = array('in',$checkID);
+
+        $data = M('ty_course_arrange')->where($where)->select();
+        foreach ($data as $key => $v) {
+            if ($v['status'] == 2) {
+                unset($data[$key]);
+            }
+        }
+
+        $reutrn = array();
+        if (count($data) < 1) {
+            $reutrn = array('code'=>401,'msg'=>'所选内容都已删除');
+            echo json_encode($reutrn);die;
+        }
+
+        $res = M('ty_course_arrange')->where($where)->save(array('status'=>2));
+        $reutrn = array('code'=>200,'msg'=>'成功');
+        echo json_encode($reutrn);;
+    }
 }

@@ -136,60 +136,6 @@
             }
         })
     })
-
-    //显示修改状态
-    $('#up_status').on('click', function () {
-        var status = $(this).attr('status');
-        if (status == -1) {
-            var check_info = $(this).attr('check_info');
-            $('#check_info').show();
-            $('#check_info').val(check_info);
-        }
-        $('#zindex').fadeIn();
-    })
-    //隐藏修改状态
-    $(document).on('click', '#butt', function () {
-
-        //$('#butt').on('click',function(){
-        var _this = $(this);
-        var status = $('input[name="status"]:checked ').val();
-        var supplier_id = $(this).attr('ids');
-        var check_info = '';
-        var str = '';
-        if (status == -1) {
-            var check_info = $('#check_info').val();
-        }
-        $.ajax({
-            url: 'up_status',
-            type: 'GET',
-            data: {status: status, check_info: check_info, supplier_id: supplier_id},
-            dataType: 'json',
-            success: function (data) {
-                if (data != 0) {
-                    if (data.status != -1) {
-                        if (data.status == 1) {
-                            str = '<span class="label label-success radius">正常</span>';
-                            $('input[name="status"]:eq(0)').attr('checked', 'checked');
-                        } else if (data.status == 2) {
-                            str = '<span class="label label-secondary radius">待审核</span>';
-                            $('input[name="status"]:eq(1)').attr('checked', 'checked');
-                        } else if (data.status == 3) {
-                            str = '<span class="label label-danger radius">已禁用</span>';
-                            $('input[name="status"]:eq(3)').attr('checked', 'checked');
-                        }
-                    } else {
-                        str = '<span class="label label-warning radius">审核不通过</span>';
-                        $('input[name="status"]:eq(2)').attr('checked', 'checked');
-                        $('#check_info').val(data.check_info);
-                    }
-                    _this.parent().parent().parent().prev().html(str);
-                } else {
-                    alert('修改失败');
-                }
-            }
-        })
-        $('#zindex').fadeOut();
-    })
 </script>
 </body>
 </html>

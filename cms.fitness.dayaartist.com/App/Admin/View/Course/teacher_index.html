@@ -48,8 +48,8 @@
 <div style="margin-left:0px;">
     <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 课程管理 <span class="c-gray en">&gt;</span> 老师安排<a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新"><i class="Hui-iconfont">&#xe68f;</i></a></nav>
 
-    <!--<div class="cl pd-5 bg-1 bk-gray mt-20" style="margin-left: 20px"><span class="l" style="margin-right: 10px"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a class="btn btn-primary radius" onclick="" href="{:U('Course/add_teacher')}"><i class="Hui-iconfont">&#xe600;</i> 添加老师</a></span><a href="{:U('Excels/expSupplier')}?category_id={$category_id}&status={$status}"><input class="btn btn-success radius" id="aaa" type="button" value="Excel导出"></a> <span class="r">共有数据：<strong>{$count}</strong> 条</span></div>-->
-    <div class="cl pd-5 bg-1 bk-gray mt-20" style="margin-left: 20px"><span class="l" style="margin-right: 10px"><a class="btn btn-primary radius" onclick="" href="{:U('Course/add_teacher')}"><i class="Hui-iconfont">&#xe600;</i> 添加老师</a></span><span class="r">共有数据：<strong>{$count}</strong> 条</span></div>
+    <!-- <div class="cl pd-5 bg-1 bk-gray mt-20" style="margin-left: 20px"><span class="l" style="margin-right: 10px"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a class="btn btn-primary radius" onclick="" href="{:U('Course/add_teacher')}"><i class="Hui-iconfont">&#xe600;</i> 添加老师</a></span><a href="{:U('Excels/expSupplier')}?category_id={$category_id}&status={$status}"><input class="btn btn-success radius" id="aaa" type="button" value="Excel导出"></a> <span class="r">共有数据：<strong>{$count}</strong> 条</span></div> -->
+    <div class="cl pd-5 bg-1 bk-gray mt-20" style="margin-left: 20px"><span class="l" style="margin-right: 10px"><a class="btn btn-primary radius" onclick="" href="{:U('Course/add_teacher')}"><i class="Hui-iconfont">&#xe600;</i> 添加老师</a></span><span class="l" style="margin-right: 10px"><a href="javascript:;" class="btn btn-danger radius" id='del'><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a></span><span class="r">共有数据：<strong>{$count}</strong> 条</span></div>
     <!-- <div style="margin-left: 20px;margin-top: 20px">
         <form class="form form-horizontal" action="" method="post">
             <select name="category_id" style="height: 30px;width: 80px;text-align: center;">
@@ -90,7 +90,7 @@
                 <!-- 遍历 -->
                 <volist name="teacher" id="v" empty="暂时没有数据">
                     <tr class="text-c va-m">
-                        <td><input name="" type="checkbox" value=""></td>
+                        <td><input type="checkbox" name="delID" value="{$v.id}"></td>
                         <td>{$v.id}</td>
                         <td><img src="{$v.img}" width="70"></td>
                         <td>{$v.name}</td>
@@ -128,59 +128,32 @@
             {"orderable": false, "aTargets": [0,2,3,4,5,6]}// 制定列不参与排序
         ]
     });
-    //显示修改状态
-    $('#up_status').on('click', function () {
-        var status = $(this).attr('status');
-        if (status == -1) {
-            var check_info = $(this).attr('check_info');
-            $('#check_info').show();
-            $('#check_info').val(check_info);
-        }
-        $('#zindex').fadeIn();
-    })
-    //隐藏修改状态
-    $(document).on('click', '#butt', function () {
 
-        //$('#butt').on('click',function(){
-        var _this = $(this);
-        var status = $('input[name="status"]:checked ').val();
-        var supplier_id = $(this).attr('ids');
-        var check_info = '';
-        var str = '';
-        if (status == -1) {
-            var check_info = $('#check_info').val();
-        }
+    //批量删除
+    $('#del').on('click',function(){
+        var checkID = '';
+        $("input[name='delID']:checked").each(function(i){
+            checkID += ','+ $(this).val();
+        });
+        
+        checkID = checkID.substr(1);
         $.ajax({
-            url: 'up_status',
-            type: 'GET',
-            data: {status: status, check_info: check_info, supplier_id: supplier_id},
-            dataType: 'json',
-            success: function (data) {
-                if (data != 0) {
-                    if (data.status != -1) {
-                        if (data.status == 1) {
-                            str = '<span class="label label-success radius">正常</span>';
-                            $('input[name="status"]:eq(0)').attr('checked', 'checked');
-                        } else if (data.status == 2) {
-                            str = '<span class="label label-secondary radius">待审核</span>';
-                            $('input[name="status"]:eq(1)').attr('checked', 'checked');
-                        } else if (data.status == 3) {
-                            str = '<span class="label label-danger radius">已禁用</span>';
-                            $('input[name="status"]:eq(3)').attr('checked', 'checked');
-                        }
-                    } else {
-                        str = '<span class="label label-warning radius">审核不通过</span>';
-                        $('input[name="status"]:eq(2)').attr('checked', 'checked');
-                        $('#check_info').val(data.check_info);
-                    }
-                    _this.parent().parent().parent().prev().html(str);
-                } else {
-                    alert('修改失败');
+            url : 'teacher_del',
+            type : 'GET',
+            data : {del_id : checkID},
+            dataType : 'json',
+            success : function(data){
+                
+                if (data.code == 200) {
+                    window.location.reload();
+                }else{
+                    alert(data.msg)
                 }
+                $("input[name='delID']").attr('checked',false);
             }
         })
-        $('#zindex').fadeOut();
     })
+
 </script>
 </body>
 </html>
