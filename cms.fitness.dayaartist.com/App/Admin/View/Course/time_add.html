@@ -33,11 +33,13 @@
 </head>
 <body>
 <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 课程管理 <span
-        class="c-gray en">&gt;</span> 时间安排 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新"><i
+        class="c-gray en">&gt;</span> 时间安排 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px"
+                                              href="javascript:location.replace(location.href);" title="刷新"><i
         class="Hui-iconfont">&#xe68f;</i></a></nav>
 
 <div class="page-container">
-    <form action="" method="post" class="form form-horizontal" id="form-article-add" onsubmit="return ac_from();" enctype="multipart/form-data">
+    <form action="" method="post" class="form form-horizontal" id="form-article-add" onsubmit="return ac_from();"
+          enctype="multipart/form-data">
         <if condition="$venue_id eq 0">
             <div class="row cl">
                 <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>场馆：</label>
@@ -45,13 +47,14 @@
                         <select name="venue_branch_id" id="venue_branch_id" class="select">
                             <option value="">场馆列表</option>
                             <volist name='venueList' id="venueList">
-                                    <option value="{$venueList.id}" name="one" <if condition="$venueList.id eq $arrange['venue_branch_id']">selected="selected"</if> >- {$venueList.name}</option>
+                                    <option value="{$venueList.id}" name="one" <if
+                                    condition="$venueList.id eq $arrange['venue_branch_id']">selected="selected"</if> >- {$venueList.name}</option>
                             </volist>
                         </select>
                     </span>
                 </div>
             </div>
-        <else /> 
+            <else/>
             <input type="hidden" name="venue_branch_id" value="{$venue_id}">
         </if>
         <div class="row cl">
@@ -60,7 +63,8 @@
                     <select name="course_id" id="course_id" class="select">
                         <option value="">课程内容</option>
                         <volist name='courseList' id="courseList">
-                                <option value="{$courseList.id}" name="one" <if condition="$courseList.id eq $arrange['course_id']">selected="selected"</if> >- {$courseList.name}</option>
+                                <option value="{$courseList.id}" name="one" <if
+                                condition="$courseList.id eq $arrange['course_id']">selected="selected"</if> >- {$courseList.name}</option>
                         </volist>
                     </select>
                 </span>
@@ -72,7 +76,8 @@
                     <select name="teacher_id" id="teacher_id" class="select">
                         <option value="">老师安排</option>
                         <volist name='teacherList' id="teacherList">
-                                <option value="{$teacherList.id}" name="one" <if condition="$teacherList.id eq $arrange['teacher_id']">selected="selected"</if> >- {$teacherList.name}</option>
+                                <option value="{$teacherList.id}" name="one" <if
+                                condition="$teacherList.id eq $arrange['teacher_id']">selected="selected"</if> >- {$teacherList.name}</option>
                         </volist>
                     </select>
                 </span>
@@ -85,15 +90,41 @@
                        style="width:90%">
             </div>
         </div>
-        <div class="row cl" id="dayTime">
+        <!--加入排课计划-->
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-2">排课计划：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                日&nbsp;&nbsp;<input type="radio" name="plan" value=1 id='day'
+                <if condition="$arrange['plan'] eq 1">checked</if>
+                >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                周&nbsp;&nbsp;<input type="radio" name="plan" value=2 id='week'
+                <if condition="$arrange['plan'] eq 2">checked</if>
+                >
+            </div>
+        </div>
+        <if condition="$arrange['start_time']">
+            <div class="row cl">
+                <label class="form-label col-xs-4 col-sm-2">预约时间：</label>
+                <div id="" class="formControls col-xs-8 col-sm-9">
+                    <div class="col-sm-6 col-xs-6 addData" style="margin-bottom: 5px;margin-left: -15px;">
+                        <input type="text" name="edit_stime" value="{$arrange['start_time']}" placeholder="开始时间"
+                               class="input-text" style=" width:45%">
+                        -
+                        <input type="text" name="edit_etime" value="{$arrange['end_time']}" placeholder="结束时间"
+                               class="input-text" style=" width:45%">
+                    </div>
+                </div>
+            </div>
+        </if>
+        <div class="row cl" id="dayTime" style="display: none">
             <label class="form-label col-xs-4 col-sm-2">预约时间：</label>
             <div id="wrap" class="formControls col-xs-8 col-sm-9">
                 <div class="col-sm-6 col-xs-6 addData" style="margin-bottom: 5px;margin-left: -15px;">
-                    <input type="text" name="start_times[]" value="{$arrange['start_time']}" placeholder="开始时间"
+                    <input type="text" name="start_time[]" value="{$arrange['start_time']}" placeholder="开始时间"
                            class="input-text" style=" width:45%"
                            onclick="WdatePicker({minDate:'%y-%M-%d 00:00',dateFmt:'yyyy-MM-dd HH:mm',alwaysUseStartDate:true})">
                     -
-                    <input type="text" name="end_times[]" value="{$arrange['end_time']}" placeholder="结束时间"
+                    <input type="text" name="end_time[]" value="{$arrange['end_time']}" placeholder="结束时间"
                            class="input-text" style=" width:45%"
                            onclick="WdatePicker({minDate:'%y-%M-%d 00:00',dateFmt:'yyyy-MM-dd HH:mm',alwaysUseStartDate:true})">
                 </div>
@@ -102,17 +133,94 @@
                 </if>
             </div>
         </div>
+        <div class="row cl" id="weekTime" style="display: none">
+            <label class="form-label col-xs-4 col-sm-2">星期一：</label>
+            <div id="mon" class="formControls col-xs-8 col-sm-9">
+                <div class="col-sm-6 col-xs-6 addData" style="margin-bottom: 5px;margin-left: -15px;" id="">
+                    <input class="time input-text" type="text" name="about_stime[0][]" placeholder="开始时间"/>--<input
+                        class="time input-text" type="text" name="about_etime[0][]" placeholder="结束时间"/>
+                </div>
+                <if condition="$data eq '' ">
+                    <span class="add_mon"><i class="Hui-iconfont">&#xe647;</i></span>
+                </if>
+            </div>
+            <label class="form-label col-xs-4 col-sm-2">星期二：</label>
+            <div id="tue" class="formControls col-xs-8 col-sm-9">
+                <div class="col-sm-6 col-xs-6 addData" style="margin-bottom: 5px;margin-left: -15px;" id="">
+                    <input class="time input-text" type="text" name="about_stime[1][]" placeholder="开始时间"/>--<input
+                        class="time input-text" type="text" name="about_etime[1][]" placeholder="结束时间"/>
+                </div>
+                <if condition="$data eq '' ">
+                    <span class="add_tue"><i class="Hui-iconfont">&#xe647;</i></span>
+                </if>
+            </div>
+            <label class="form-label col-xs-4 col-sm-2">星期三：</label>
+            <div id="wed" class="formControls col-xs-8 col-sm-9">
+                <div class="col-sm-6 col-xs-6 addData" style="margin-bottom: 5px;margin-left: -15px;" id="">
+                    <input class="time input-text" type="text" name="about_stime[2][]" placeholder="开始时间"/>--<input
+                        class="time input-text" type="text" name="about_etime[2][]" placeholder="结束时间"/>
+                </div>
+                <if condition="$data eq '' ">
+                    <span class="add_wed"><i class="Hui-iconfont">&#xe647;</i></span>
+                </if>
+            </div>
+            <label class="form-label col-xs-4 col-sm-2">星期四：</label>
+            <div id="thu" class="formControls col-xs-8 col-sm-9">
+                <div class="col-sm-6 col-xs-6 addData" style="margin-bottom: 5px;margin-left: -15px;" id="">
+                    <input class="time input-text" type="text" name="about_stime[3][]" placeholder="开始时间"/>--<input
+                        class="time input-text" type="text" name="about_etime[3][]" placeholder="结束时间"/>
+                </div>
+                <if condition="$data eq '' ">
+                    <span class="add_thu"><i class="Hui-iconfont">&#xe647;</i></span>
+                </if>
+            </div>
+            <label class="form-label col-xs-4 col-sm-2">星期五：</label>
+            <div id="fri" class="formControls col-xs-8 col-sm-9">
+                <div class="col-sm-6 col-xs-6 addData" style="margin-bottom: 5px;margin-left: -15px;" id="">
+                    <input class="time input-text" type="text" name="about_stime[4][]" placeholder="开始时间"/>--<input
+                        class="time input-text" type="text" name="about_etime[4][]" placeholder="结束时间"/>
+                </div>
+                <if condition="$data eq '' ">
+                    <span class="add_fri"><i class="Hui-iconfont">&#xe647;</i></span>
+                </if>
+            </div>
+            <label class="form-label col-xs-4 col-sm-2">星期六：</label>
+            <div id="sat" class="formControls col-xs-8 col-sm-9">
+                <div class="col-sm-6 col-xs-6 addData" style="margin-bottom: 5px;margin-left: -15px;" id="">
+                    <input class="time input-text" type="text" name="about_stime[5][]" placeholder="开始时间"/>--<input
+                        class="time input-text" type="text" name="about_etime[5][]" placeholder="结束时间"/>
+                </div>
+                <if condition="$data eq '' ">
+                    <span class="add_sat"><i class="Hui-iconfont">&#xe647;</i></span>
+                </if>
+            </div>
+            <label class="form-label col-xs-4 col-sm-2">星期日：</label>
+            <div id="sun" class="formControls col-xs-8 col-sm-9">
+                <div class="col-sm-6 col-xs-6 addData" style="margin-bottom: 5px;margin-left: -15px;" id="">
+                    <input class="time input-text" type="text" name="about_stime[6][]" placeholder="开始时间"/>--<input
+                        class="time input-text" type="text" name="about_etime[6][]" placeholder="结束时间"/>
+                </div>
+                <if condition="$data eq '' ">
+                    <span class="add_sun"><i class="Hui-iconfont">&#xe647;</i></span>
+                </if>
+            </div>
+        </div>
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-2">加入秒杀：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                是&nbsp;&nbsp;<input type="radio" name="is_seckill" value=1 id='seckill_yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                否&nbsp;&nbsp;<input type="radio" name="is_seckill" value=0 id='seckill_no'>
+                是&nbsp;&nbsp;<input type="radio" name="is_seckill" value=1 id='seckill_yes'
+                <if condition="$arrange['is_seckill'] eq 1">checked</if>
+                >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                否&nbsp;&nbsp;<input type="radio" name="is_seckill" value=0 id='seckill_no'
+                <if condition="$arrange['is_seckill'] eq 0">checked</if>
+                >
             </div>
         </div>
-        <div class="row cl" id="seckill_price">
+        <div class="row cl" id="seckill_price" style="display: none">
             <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>价格：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" name="seckill_price" value="{$arrange.seckill_price}" class="input-text" style="width:90%" placeholder="请填写秒杀价格">
+                <input type="text" name="seckill_price" value="{$arrange.seckill_price}" class="input-text"
+                       style="width:90%" placeholder="请填写秒杀价格">
                 元
             </div>
         </div>
@@ -154,6 +262,32 @@
 <script>window.jQuery || document.write('<script src="__PUBLIC__/lib/timepicker/jquery-1.11.0.min.js"><\/script>')</script>
 <script type="text/javascript" src="__PUBLIC__/lib/timepicker/jquery-clock-timepicker.min.js"></script>
 <script type="text/javascript">
+    $(document).ready(function () {
+        $('.time').clockTimePicker({});
+    });
+    $(document).on('click', '.add_mon', function () {
+        $('.time').clockTimePicker({});
+    });
+    $(document).on('click', '.add_tue', function () {
+        $('.time').clockTimePicker({});
+    });
+    $(document).on('click', '.add_wed', function () {
+        $('.time').clockTimePicker({});
+    });
+    $(document).on('click', '.add_thu', function () {
+        $('.time').clockTimePicker({});
+    });
+    $(document).on('click', '.add_fri', function () {
+        $('.time').clockTimePicker({});
+    });
+    $(document).on('click', '.add_sat', function () {
+        $('.time').clockTimePicker({});
+    });
+    $(document).on('click', '.add_sun', function () {
+        $('.time').clockTimePicker({});
+    });
+</script>
+<script type="text/javascript">
     //添加预约时间
     document.getElementsByClassName('add_about')[0].onclick = function (argument) {
         var cNode = document.getElementsByClassName('addData')[0].cloneNode(true);
@@ -161,6 +295,44 @@
         cNode.children[1].value = "";
         document.getElementById('wrap').appendChild(cNode);
     }
+    //按星期增加时间段，星期一
+    $('.add_mon').on('click', function () {
+        $('#mon').append('<div class="col-sm-6 col-xs-6 addData" style="margin-bottom: 5px;margin-left: -15px;" id=""><input class="time input-text" type="text" name="about_stime[0][]" placeholder="开始时间"/>--<input class="time input-text" type="text" name="about_etime[0][]" placeholder="结束时间"/></div>');
+    })
+    //按星期增加时间段，星期二
+    $('.add_tue').on('click', function () {
+        $('#tue').append('<div class="col-sm-6 col-xs-6 addData" style="margin-bottom: 5px;margin-left: -15px;" id=""><input class="time input-text" type="text" name="about_stime[1][]" placeholder="开始时间"/>--<input class="time input-text" type="text" name="about_etime[1][]" placeholder="结束时间"/></div>');
+    })
+    //按星期增加时间段，星期三
+    $('.add_wed').on('click', function () {
+        $('#wed').append('<div class="col-sm-6 col-xs-6 addData" style="margin-bottom: 5px;margin-left: -15px;" id=""><input class="time input-text" type="text" name="about_stime[2][]" placeholder="开始时间"/>--<input class="time input-text" type="text" name="about_etime[2][]" placeholder="结束时间"/></div>');
+    })
+    //按星期增加时间段，星期四
+    $('.add_thu').on('click', function () {
+        $('#thu').append('<div class="col-sm-6 col-xs-6 addData" style="margin-bottom: 5px;margin-left: -15px;" id=""><input class="time input-text" type="text" name="about_stime[3][]" placeholder="开始时间"/>--<input class="time input-text" type="text" name="about_etime[3][]" placeholder="结束时间"/></div>');
+    })
+    //按星期增加时间段，星期五
+    $('.add_fri').on('click', function () {
+        $('#fri').append('<div class="col-sm-6 col-xs-6 addData" style="margin-bottom: 5px;margin-left: -15px;" id=""><input class="time input-text" type="text" name="about_stime[4][]" placeholder="开始时间"/>--<input class="time input-text" type="text" name="about_etime[4][]" placeholder="结束时间"/></div>');
+    })
+    //按星期增加时间段，星期六
+    $('.add_sat').on('click', function () {
+        $('#sat').append('<div class="col-sm-6 col-xs-6 addData" style="margin-bottom: 5px;margin-left: -15px;" id=""><input class="time input-text" type="text" name="about_stime[5][]" placeholder="开始时间"/>--<input class="time input-text" type="text" name="about_etime[5][]" placeholder="结束时间"/></div>');
+    })
+    //按星期增加时间段，星期日
+    $('.add_sun').on('click', function () {
+        $('#sun').append('<div class="col-sm-6 col-xs-6 addData" style="margin-bottom: 5px;margin-left: -15px;" id=""><input class="time input-text" type="text" name="about_stime[6][]" placeholder="开始时间"/>--<input class="time input-text" type="text" name="about_etime[6][]" placeholder="结束时间"/></div>');
+    })
+    //显示日排课时间
+    $('#day').on('click', function () {
+        $('#dayTime').show();
+        $('#weekTime').remove();
+    })
+    //显示周排课时间
+    $('#week').on('click', function () {
+        $('#dayTime').remove();
+        $('#weekTime').show();
+    })
 
     //显示秒杀价
     $('#seckill_yes').on('click', function () {
@@ -175,8 +347,8 @@
     function ac_from() {
         var artist_id = document.getElementById('venue_branch_id').value;
         if (artist_id.length < 1) {
-                alert("请选择分店信息");
-                return false;
+            alert("请选择分店信息");
+            return false;
         }
         var unit = document.getElementById("course_id").value;
         if (unit.length < 1) {

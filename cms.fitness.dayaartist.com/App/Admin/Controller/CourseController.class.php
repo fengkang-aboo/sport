@@ -183,7 +183,7 @@ class CourseController extends PublicController
     {
         $checkID = I('get.del_id');
         $checkID = explode(',', $checkID);
-        $where['id'] = array('in',$checkID);
+        $where['id'] = array('in', $checkID);
 
         $data = M('ty_course')->where($where)->select();
         foreach ($data as $key => $v) {
@@ -194,12 +194,13 @@ class CourseController extends PublicController
 
         $reutrn = array();
         if (count($data) < 1) {
-            $reutrn = array('code'=>401,'msg'=>'所选内容都已删除');
-            echo json_encode($reutrn);die;
+            $reutrn = array('code' => 401, 'msg' => '所选内容都已删除');
+            echo json_encode($reutrn);
+            die;
         }
 
-        $res = M('ty_course')->where($where)->save(array('status'=>2));
-        $reutrn = array('code'=>200,'msg'=>'成功');
+        $res = M('ty_course')->where($where)->save(array('status' => 2));
+        $reutrn = array('code' => 200, 'msg' => '成功');
         echo json_encode($reutrn);;
     }
 
@@ -306,7 +307,7 @@ class CourseController extends PublicController
     {
         $checkID = I('get.del_id');
         $checkID = explode(',', $checkID);
-        $where['id'] = array('in',$checkID);
+        $where['id'] = array('in', $checkID);
 
         $data = M('ty_teacher')->where($where)->select();
         foreach ($data as $key => $v) {
@@ -317,12 +318,13 @@ class CourseController extends PublicController
 
         $reutrn = array();
         if (count($data) < 1) {
-            $reutrn = array('code'=>401,'msg'=>'所选内容都已删除');
-            echo json_encode($reutrn);die;
+            $reutrn = array('code' => 401, 'msg' => '所选内容都已删除');
+            echo json_encode($reutrn);
+            die;
         }
 
-        $res = M('ty_teacher')->where($where)->save(array('status'=>2));
-        $reutrn = array('code'=>200,'msg'=>'成功');
+        $res = M('ty_teacher')->where($where)->save(array('status' => 2));
+        $reutrn = array('code' => 200, 'msg' => '成功');
         echo json_encode($reutrn);;
     }
 
@@ -344,8 +346,15 @@ class CourseController extends PublicController
             ->join('ty_teacher as teacher on ca.teacher_id=teacher.id')
             ->join('ty_venue_branch as venue on ca.venue_branch_id=venue.id')
             ->select();
+
         foreach ($course_time as $key => $v) {
-            $course_time[$key]['time'] = $v['dates'] . ' ' . date('H:i', $v['start_time']) . '-' . date('H:i', $v['end_time']);
+//            判断是否按周排课区别显示
+//            简写 if (strpos($v['start_time'], ":") !== false) continue;
+            if (strpos($v['start_time'], ":") !== false) {
+                $course_time[$key]['time'] = $v['dates'] . ' ' . $v['start_time'] . '--' . $v['end_time'];
+            } else {
+                $course_time[$key]['time'] = $v['dates'] . ' ' . date('H:i', $v['start_time']) . '--' . date('H:i', $v['end_time']);
+            }
         }
         $count = count($course_time);
         $this->assign('course_time', $course_time);
@@ -356,70 +365,106 @@ class CourseController extends PublicController
     public function time_add()
     {
         if (IS_POST) {
-            try {
-                $Model = M(); // 实例化一个空对象
-                $Model->startTrans(); // 开启事务
+            if (intval($_POST['id'])) {
                 $data = I('post.');
-//                print_r($data);
-//                die();
-                if (empty($data['venue_branch_id'])) {
-                    throw new \Exception('分店不能为空');
-                    exit();
+//                print_r($data);die();
+                if ($data['plan'] == 1) {
+                    $data['start_time'] = strtotime($data['edit_stime']);
+                    $data['end_time'] = strtotime($data['edit_etime']);
+                } elseif ($data['plan'] == 2) {
+                    $data['start_time'] = $data['edit_stime'];
+                    $data['end_time'] = $data['edit_etime'];
                 }
-                if (empty($data['course_id'])) {
-                    throw new \Exception('课程不能为空');
-                    exit();
+                $data['update_time'] = time();
+                $result = M('ty_course_arrange')->where('id=' . intval($_POST['id']))->save($data);
+                if ($result) {
+                    $this->success('更新成功', U('Admin/Course/course_time'));
+                } else {
+                    $this->error('更新失败');
                 }
-                if (empty($data['teacher_id'])) {
-                    throw new \Exception('老师不能为空');
-                    exit();
-                }
-                if (empty($data['start_times'][0])) {
-                    throw new \Exception('时间不能为空');
-                    exit();
-                }
-//                循环添加预约时间段
-                for ($i = 0; $i < count($data['start_times']); $i++) {
-                    if (strtotime($data['start_times'][$i]) > strtotime($data['end_times'][$i])) {
-                        throw new \Exception('结束时间必须大于开始时间,请重新添加');
+            } else {
+                try {
+                    $Model = M(); // 实例化一个空对象
+                    $Model->startTrans(); // 开启事务
+                    $data = I('post.');
+                    if (empty($data['venue_branch_id'])) {
+                        throw new \Exception('分店不能为空');
                         exit();
                     }
-                    $times_array = array(
-                        'venue_branch_id' => $data['venue_branch_id'],
-                        'course_id' => $data['course_id'],
-                        'teacher_id' => $data['teacher_id'],
-                        'stock' => $data['stock'],
-                        'dates' => date('Y年m月d日', strtotime($data['end_times'][$i])),
-                        'start_time' => strtotime($data['start_times'][$i]),
-                        'end_time' => strtotime($data['end_times'][$i]),
-                        'is_seckill' => $data['is_seckill'], 'seckill_price' => $data['seckill_price'],
-                        'create_time' => $data['create_time'] ? $data['create_time'] : time(),
-                        'update_time' => time());
-                    if (empty($data['id'])) {
-                        $result = M('ty_course_arrange')->add($times_array);
-                    } else {
-                        $data['update_time'] = time();
-                        $result = M('ty_course_arrange')->where('id=' . intval($_POST['id']))->save($times_array);
+                    if (empty($data['course_id'])) {
+                        throw new \Exception('课程不能为空');
+                        exit();
                     }
-                }
-                if ($result) {
-                    $Model->commit(); // 成功则提交事务
-                    $this->success('编辑成功', U('Admin/Course/course_time'));
+                    if (empty($data['teacher_id'])) {
+                        throw new \Exception('老师不能为空');
+                        exit();
+                    }
+//                循环添加预约时间段
+                    if ($data['plan'] == 2) {
+                        for ($i = 0; $i < count($data['about_stime']); $i++) {
 
-                } else {
-                    throw new \Exception('编辑失败,请重新编辑');
+                            for ($j = 0; $j < count($data['about_stime'][$i]); $j++) {
+                                if (!empty($data['about_stime'][$i][$j]) && !empty($data['about_etime'][$i][$j])) {
+                                    $about_array[] = array(
+                                        'venue_branch_id' => $data['venue_branch_id'],
+                                        'course_id' => $data['course_id'],
+                                        'teacher_id' => $data['teacher_id'],
+                                        'stock' => $data['stock'],
+                                        'dates' => '',
+                                        'start_time' => $data['about_stime'][$i][$j],
+                                        'end_time' => $data['about_etime'][$i][$j],
+                                        'is_seckill' => $data['is_seckill'],
+                                        'seckill_price' => $data['seckill_price'],
+                                        'create_time' => $data['create_time'] ? $data['create_time'] : time(),
+                                        'update_time' => time(),
+                                        'plan' => 2,
+                                        'weekday' => $i + 1);
+                                }
+                            }
+                        }
+                        $result = M('ty_course_arrange')->addAll($about_array);
+                        unset($about_array);
+                    } elseif ($data['plan'] == 1) {
+                        for ($i = 0; $i < count($data['start_times']); $i++) {
+                            if (strtotime($data['start_times'][$i]) > strtotime($data['end_times'][$i])) {
+                                throw new \Exception('结束时间必须大于开始时间,请重新添加');
+                                exit();
+                            }
+                            $times_array = array(
+                                'venue_branch_id' => $data['venue_branch_id'],
+                                'course_id' => $data['course_id'],
+                                'teacher_id' => $data['teacher_id'],
+                                'stock' => $data['stock'],
+                                'dates' => date('Y年m月d日', strtotime($data['end_times'][$i])),
+                                'start_time' => strtotime($data['start_times'][$i]),
+                                'end_time' => strtotime($data['end_times'][$i]),
+                                'is_seckill' => $data['is_seckill'],
+                                'seckill_price' => $data['seckill_price'],
+                                'create_time' => $data['create_time'] ? $data['create_time'] : time(),
+                                'update_time' => time(),
+                                'plan' => 1);
+                            $result = M('ty_course_arrange')->add($times_array);
+                        }
+                    }
+                    if ($result) {
+                        $Model->commit(); // 成功则提交事务
+                        $this->success('添加成功', U('Admin/Course/course_time'));
+
+                    } else {
+                        throw new \Exception('添加失败,请重新编辑');
+                    }
+                } catch (\Exception $e) {
+                    // 否则将事务回滚
+                    $Model->rollback();
+                    $this->error($e->getMessage());
                 }
-            } catch (\Exception $e) {
-                // 否则将事务回滚
-                $Model->rollback();
-                $this->error($e->getMessage());
             }
 
         } elseif ($_GET['id']) {
             $arrange_id = I('get.id');
             $arrange = M('ty_course_arrange')->where('id=' . $arrange_id)->find();
-            $arrange['start_time'] = date('y-m-d H:i', $arrange['start_time']);
-            $arrange['end_time'] = date('y-m-d H:i', $arrange['end_time']);
+            $arrange['start_time'] = strpos($arrange['start_time'], ":") ? $arrange['start_time'] : date('y-m-d H:i', $arrange['start_time']);
+            $arrange['end_time'] = strpos($arrange['end_time'], ":") ? $arrange['end_time'] : date('y-m-d H:i', $arrange['end_time']);
 
             $userInfo = $this->userInfo;
             //echo $userInfo['venue_id'];die;
@@ -444,7 +489,7 @@ class CourseController extends PublicController
     {
         $checkID = I('get.del_id');
         $checkID = explode(',', $checkID);
-        $where['id'] = array('in',$checkID);
+        $where['id'] = array('in', $checkID);
 
         $data = M('ty_course_arrange')->where($where)->select();
         foreach ($data as $key => $v) {
@@ -455,12 +500,13 @@ class CourseController extends PublicController
 
         $reutrn = array();
         if (count($data) < 1) {
-            $reutrn = array('code'=>401,'msg'=>'所选内容都已删除');
-            echo json_encode($reutrn);die;
+            $reutrn = array('code' => 401, 'msg' => '所选内容都已删除');
+            echo json_encode($reutrn);
+            die;
         }
 
-        $res = M('ty_course_arrange')->where($where)->save(array('status'=>2));
-        $reutrn = array('code'=>200,'msg'=>'成功');
+        $res = M('ty_course_arrange')->where($where)->save(array('status' => 2));
+        $reutrn = array('code' => 200, 'msg' => '成功');
         echo json_encode($reutrn);;
     }
 }
