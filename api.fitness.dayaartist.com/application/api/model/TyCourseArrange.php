@@ -16,19 +16,19 @@ class TyCourseArrange extends BaseModel
     //关联课程
     public function course()
     {
-        return $this->belongsTo('TyCourse','course_id','id');
+        return $this->belongsTo('TyCourse', 'course_id', 'id');
     }
 
     //关联老师
     public function teacher()
     {
-        return $this->belongsTo('TyTeacher','teacher_id','id');
+        return $this->belongsTo('TyTeacher', 'teacher_id', 'id');
     }
 
     //关联场馆
     public function venue()
     {
-        return $this->belongsTo('TyVenueBranch','venue_branch_id','id');
+        return $this->belongsTo('TyVenueBranch', 'venue_branch_id', 'id');
     }
 
     /**
@@ -40,9 +40,10 @@ class TyCourseArrange extends BaseModel
     public static function getCourseTime($id)
     {
         //$CourseTime = self::where('venue_branch_id',$id)->whereTime('dates','between',['2018-02-05','2018-02-11'])->select();
-        $Course = self::with(['course','teacher','venue'])->where('id',$id)->find();
+        $Course = self::with(['course', 'teacher', 'venue'])->where('id', $id)->find();
         return $Course;
     }
+
 
     /**
      * 获取课程时间列表
@@ -51,10 +52,22 @@ class TyCourseArrange extends BaseModel
      * @param $end_date   结束时间
      * @return \think\Paginator
      */
-    public static function CourseTimeList($id,$start_date,$end_date)
+    public static function CourseTimeList($id, $start_date, $end_date)
     {
         //$CourseTime = self::where('venue_branch_id',$id)->whereTime('dates','between',['2018-02-05','2018-02-11'])->select();
-        $CourseTimeL = self::with(['course','teacher'])->where('venue_branch_id',$id)->where('dates','>',$start_date)->where('dates','<',$end_date)->where('is_seckill',0)->order('start_time')->select();
+        $CourseTimeL = self::with(['course', 'teacher'])->where('venue_branch_id', $id)->where('dates', '>', $start_date)->where('dates', '<', $end_date)->where('is_seckill', 0)->where('plan', 1)->order('start_time')->select();
+        return $CourseTimeL;
+    }
+
+    /**
+     * 获取课程一周时间列表
+     * @param $sid 场馆ID
+     * @return \think\Paginator
+     */
+    public static function CourseWeekTimeList($id)
+    {
+        //$CourseTime = self::where('venue_branch_id',$id)->whereTime('dates','between',['2018-02-05','2018-02-11'])->select();
+        $CourseTimeL = self::with(['course', 'teacher'])->where('venue_branch_id', $id)->where('plan', 2)->order('weekday')->select();
         return $CourseTimeL;
     }
 
@@ -65,9 +78,9 @@ class TyCourseArrange extends BaseModel
      */
     public static function searchCourseTime($id)
     {
-        $where['course_id'] = array('in',$id);
+        $where['course_id'] = array('in', $id);
         //$CourseTime = self::where('venue_branch_id',$id)->whereTime('dates','between',['2018-02-05','2018-02-11'])->select();
-        $CourseTimeL = self::with(['course','teacher','venue'])->where($where)->where('start_time','>',time())->select();
+        $CourseTimeL = self::with(['course', 'teacher', 'venue'])->where($where)->where('start_time', '>', time())->select();
         return $CourseTimeL;
     }
 
@@ -78,10 +91,10 @@ class TyCourseArrange extends BaseModel
      */
     public static function getVenueCourseTime($venue_id)
     {
-        $where['venue_branch_id'] = array('in',$venue_id);
+        $where['venue_branch_id'] = array('in', $venue_id);
 
         //$CourseTime = self::where('venue_branch_id',$id)->whereTime('dates','between',['2018-02-05','2018-02-11'])->select();
-        $CourseTimeL = self::with(['course','teacher','venue'])->where($where)->where('start_time','>',time())->select();
+        $CourseTimeL = self::with(['course', 'teacher', 'venue'])->where($where)->where('start_time', '>', time())->select();
         return $CourseTimeL;
     }
 
@@ -92,7 +105,7 @@ class TyCourseArrange extends BaseModel
      */
     public static function getCourseWithIds($oPIDs)
     {
-        $products = self::with(['course','teacher','venue'])->where('id','in',$oPIDs)->select()->toArray();
+        $products = self::with(['course', 'teacher', 'venue'])->where('id', 'in', $oPIDs)->select()->toArray();
         return $products;
     }
 
@@ -105,14 +118,14 @@ class TyCourseArrange extends BaseModel
     public static function getCourseTimeData($id)
     {
         //$CourseTime = self::where('venue_branch_id',$id)->whereTime('dates','between',['2018-02-05','2018-02-11'])->select();
-        $Course = self::with(['course','teacher','venue'])->where('id',$id)->find();
+        $Course = self::with(['course', 'teacher', 'venue'])->where('id', $id)->find();
         return $Course;
     }
 
     public static function getSeckillList($date)
     {
 
-        $data = self::with(['course','venue'])->where('start_time','>',$date)->where('end_time','<',$date+3600*24)->where('is_seckill',1)->select();
+        $data = self::with(['course', 'venue'])->where('start_time', '>', $date)->where('end_time', '<', $date + 3600 * 24)->where('is_seckill', 1)->select();
         return $data;
     }
 }

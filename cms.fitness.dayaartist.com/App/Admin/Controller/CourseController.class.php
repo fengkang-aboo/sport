@@ -425,8 +425,8 @@ class CourseController extends PublicController
                         $result = M('ty_course_arrange')->addAll($about_array);
                         unset($about_array);
                     } elseif ($data['plan'] == 1) {
-                        for ($i = 0; $i < count($data['start_times']); $i++) {
-                            if (strtotime($data['start_times'][$i]) > strtotime($data['end_times'][$i])) {
+                        for ($i = 0; $i < count($data['start_time']); $i++) {
+                            if (strtotime($data['start_time'][$i]) > strtotime($data['end_time'][$i])) {
                                 throw new \Exception('结束时间必须大于开始时间,请重新添加');
                                 exit();
                             }
@@ -435,9 +435,9 @@ class CourseController extends PublicController
                                 'course_id' => $data['course_id'],
                                 'teacher_id' => $data['teacher_id'],
                                 'stock' => $data['stock'],
-                                'dates' => date('Y年m月d日', strtotime($data['end_times'][$i])),
-                                'start_time' => strtotime($data['start_times'][$i]),
-                                'end_time' => strtotime($data['end_times'][$i]),
+                                'dates' => date('Y年m月d日', strtotime($data['end_time'][$i])),
+                                'start_time' => strtotime($data['start_time'][$i]),
+                                'end_time' => strtotime($data['end_time'][$i]),
                                 'is_seckill' => $data['is_seckill'],
                                 'seckill_price' => $data['seckill_price'],
                                 'create_time' => $data['create_time'] ? $data['create_time'] : time(),

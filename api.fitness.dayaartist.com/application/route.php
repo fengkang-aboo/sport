@@ -20,6 +20,8 @@ Route::get('api/:version/venue/:id', 'api/:version.venue/getVenueDetails',[], ['
 Route::get('api/:version/venue/key_word', 'api/:version.venue/getVenueKeyword',[], ['id'=>'\d+']);
 //3. 预约课程列表
 Route::get('api/:version/course/courseTimeList', 'api/:version.Course/courseTimeList');
+//按周排课创建可预约时间
+Route::get('api/:version/course/creattime', 'api/:version.Course/creatBoxServiceTime');
 //5. 课程详情
 Route::get('api/:version/course/:id', 'api/:version.Course/getDetail',[], ['id'=>'\d+']);
 //6. 预约课程详情

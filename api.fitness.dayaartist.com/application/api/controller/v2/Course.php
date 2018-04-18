@@ -19,7 +19,7 @@ use app\api\model\TyCourse as CourseModel;
 use app\api\model\TyType as TypeModel;
 
 class Course extends Controller
-{   
+{
     /**
      * 课程安排
      * @param int $id 场馆分店ID
@@ -29,22 +29,21 @@ class Course extends Controller
     public function courseTimeList($id)
     {
 
-      (new IDMustBePositiveInt())->goCheck();
-        
+        (new IDMustBePositiveInt())->goCheck();
+
 
         $start_date = date('Y年m月d日', strtotime('-1 days'));
         $end_date = date('Y年m月d日', strtotime('+7 days'));
 
         $TimeInfo = array();
 
-        $CourseTime = CourseArrange::CourseTimeList($id,$start_date,$end_date); //课程时间列表
-        
+        $CourseTime = CourseArrange::CourseTimeList($id, $start_date, $end_date); //课程时间列表
         if (empty($CourseTime)) {
             return [
                 'code' => 404,
                 'msg' => '暂无课程'
             ];
-        }else{
+        } else {
             $CourseTime = $CourseTime->toArray();
         }
 
@@ -56,7 +55,7 @@ class Course extends Controller
         //$courseImg = ImgModel::getOneImg($Venue['logo_id']); //场馆图片
 
         foreach ($venueImg as $key => $v) {
-           $TimeInfo['img'][] = $v['img_url'];
+            $TimeInfo['img'][] = $v['img_url'];
         }
 
         //$weekarray=array("日","一","二","三","四","五","六");
@@ -68,44 +67,105 @@ class Course extends Controller
             }*/
 
             $courseImg = ImgModel::getOneImg($v['course']['main_img_id']); //课程图片
-            
-            $TimeInfo['time'][$v['dates']][] = array('time_id'=>$v['id'],'course_img'=>$courseImg['img_url'],'course_name'=>$v['course']['name'],'teacher_name'=>$v['teacher']['name'],'date'=>$v['dates'],'time'=>date('H:i',$v['start_time']).'-'.date('H:i',$v['end_time']),'discount_price'=>$v['course']['discount_price'],'price'=>$v['course']['price'],'stock'=>$v['stock']);
+            $TimeInfo['time'][$v['dates']][] = array('time_id' => $v['id'], 'course_img' => $courseImg['img_url'], 'course_name' => $v['course']['name'], 'teacher_name' => $v['teacher']['name'], 'date' => $v['dates'], 'time' => date('H:i', $v['start_time']) . '-' . date('H:i', $v['end_time']), 'discount_price' => $v['course']['discount_price'], 'price' => $v['course']['price'], 'stock' => $v['stock'], 'plan' => 1);
             //$date = date("Y-m-d",strtotime("+1 day",strtotime($date)));
-
-            
             /*if (!in_array($v['dates'], $TimeInfo['dates'])) {
                 $TimeInfo['dates'][] = $v['dates'];
             }*/
-            
         }
-        
+
+        //        获取按周排课数据
+        $WeekTime = CourseArrange::CourseWeekTimeList($id);
+        if (!empty($WeekTime)) {
+            $WeekTime = $WeekTime->toArray();
+        }
+        foreach ($WeekTime as $k => $v) {
+            for ($i = 0; $i <= 0; $i++) {
+                if ($v['weekday'] == 1) {
+                    $dates = date('Y年m月d日', strtotime($i . " Monday"));
+                } elseif ($v['weekday'] == 2) {
+                    $dates = date('Y年m月d日', strtotime($i . " Tuesday"));
+                } elseif ($v['weekday'] == 3) {
+                    $dates = date('Y年m月d日', strtotime($i . " Wednesday"));
+                } elseif ($v['weekday'] == 4) {
+                    $dates = date('Y年m月d日', strtotime($i . " Thursday"));
+                } elseif ($v['weekday'] == 5) {
+                    $dates = date('Y年m月d日', strtotime($i . " Friday"));
+                } elseif ($v['weekday'] == 6) {
+                    $dates = date('Y年m月d日', strtotime($i . " Saturday"));
+                } elseif ($v['weekday'] == 7) {
+                    $dates = date('Y年m月d日', strtotime($i . " Sunday"));
+                }
+                if ($v['stock'] <= 0) {
+                    continue;
+                }
+                $TimeInfo['time'][$dates][] = array('time_id' => $v['id'], 'course_img' => $courseImg['img_url'], 'course_name' => $v['course']['name'], 'teacher_name' => $v['teacher']['name'], 'date' => $dates, 'time' => $v['start_time'] . '-' . $v['end_time'], 'discount_price' => $v['course']['discount_price'], 'price' => $v['course']['price'], 'stock' => $v['stock'], 'plan' => 2);
+            }
+        }
+
         /*echo '<pre>';
         print_r($TimeInfo);die;*/
         $dates = date('Y年m月d日');
         $datess = date('Y-m-d');
-        for ($i=0; $i < 7; $i++) { 
+        for ($i = 0; $i < 7; $i++) {
             if (!isset($TimeInfo['time'][$dates])) {
                 $TimeInfo['time'][$dates] = '';
             }
-            
-            $dates = date("Y年m月d日",strtotime("+1 day",strtotime($datess)));
-            $datess = date("Y-m-d",strtotime("+1 day",strtotime($datess)));
+
+            $dates = date("Y年m月d日", strtotime("+1 day", strtotime($datess)));
+            $datess = date("Y-m-d", strtotime("+1 day", strtotime($datess)));
         }
-        
+
         ksort($TimeInfo['time']);
 
-        $i=0;
-        foreach($TimeInfo['time'] as $key => $value){
+        $i = 0;
+        foreach ($TimeInfo['time'] as $key => $value) {
             $TimeInfo['time'][$i] = $value;
             unset($TimeInfo['time'][$key]);
             $i++;
         }
-
         //$TimeInfo['time'] = array_values($TimeInfo['time']);
         /*echo '<pre>';
         print_r($TimeInfo);die;*/
         return $TimeInfo;
+    }
 
+    /**按周排课增加用户选取时间段数据
+     * @param $date
+     * @param $timeId
+     */
+    public function creatBoxServiceTime($date, $id)
+    {
+        (new IDMustBePositiveInt())->goCheck();
+        $serviceTime = TyCourseArrange::where('id', '=', $id)->find()->toArray();
+        $serviceTime['start_time'] = strtotime($date . ' ' . $serviceTime['start_time']);
+        $serviceTime['end_time'] = strtotime($date . ' ' . $serviceTime['end_time']);
+        $serviceTime['plan'] = 1;
+        $serviceTime['create_time'] = time();
+        unset($serviceTime['id']);
+        $startTime = TyCourseArrange::where('start_time', '=', $serviceTime['start_time'])->find();
+        if (empty($startTime)) {
+            $time = new TyCourseArrange();
+            $result = $time->save($serviceTime);
+            if ($result) {
+                return [
+                    'code' => 200,
+                    'msg' => '预约时间添加完成',
+                    'time_id' => $time->id
+                ];
+            } else {
+                return [
+                    'code' => 500,
+                    'msg' => '预约时间添加失败'
+                ];
+            }
+        } else {
+            return [
+                'code' => 500,
+                'msg' => '预约时间添加重复',
+                'time_id' => $startTime->id
+            ];
+        }
     }
 
     /**
@@ -124,32 +184,32 @@ class Course extends Controller
                 'code' => 400,
                 'msg' => '参数异常'
             ];
-        }else{
-           $course = $course->toArray(); 
+        } else {
+            $course = $course->toArray();
         }
         //print_r($course);die;
         $course_img = ImgModel::getManyImg($course['course']['img_id']);
-        
+
         foreach ($course_img as $key => $value) {
             $CourseImg[] = $value['img_url'];
         }
 
         $courseData = array(
-            'course_id'=>$course['course']['id'],
-            'teacher_id'=>$course['teacher']['id'],
-            'venue_id'=>$course['venue']['id'],
-            'course_img'=>$CourseImg,
-            'course_name'=>$course['course']['name'],
-            'venue_name'=>$course['venue']['name'],
-            'price'=>$course['course']['price'],
-            'discount_price' =>$course['course']['discount_price'],
-            'time' => $course['dates'].' '.date('H:i',$course['start_time']).' - '.date('H:i',$course['end_time']),
+            'course_id' => $course['course']['id'],
+            'teacher_id' => $course['teacher']['id'],
+            'venue_id' => $course['venue']['id'],
+            'course_img' => $CourseImg,
+            'course_name' => $course['course']['name'],
+            'venue_name' => $course['venue']['name'],
+            'price' => $course['course']['price'],
+            'discount_price' => $course['course']['discount_price'],
+            'time' => $course['dates'] . ' ' . date('H:i', $course['start_time']) . ' - ' . date('H:i', $course['end_time']),
             'address' => $course['venue']['address'],
-            'teacher' => array('img'=>$course['teacher']['img'],'name'=>$course['teacher']['name'],'content'=>$course['teacher']['content']),
+            'teacher' => array('img' => $course['teacher']['img'], 'name' => $course['teacher']['name'], 'content' => $course['teacher']['content']),
             'course_content' => $course['course']['content'],
             'stock' => $course['stock']
         );
-        
+
         return $courseData;
     }
 
