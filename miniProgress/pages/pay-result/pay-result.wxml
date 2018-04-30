@@ -1,15 +1,15 @@
 <!--地址-->
 <view class="container pay-result-container">
+  <image src='/images/red/bg_xiadan.png' class='bg-img'></image>
   <view class="pay-result">
     <block wx:if="{{payResult=='true'}}">
-     <image src="../../images/icon/pay@success.png"></image>
-     <view>支付成功</view>
+     <image src="../../images/red/btn_nor_duigou.png" class='icon'></image>
      <button type="primary" bindtap="viewOrder"> 查看订单 </button>
     </block>
    <block wx:else>
-    <image src="../../images/icon/pay@error.png"></image>
-    <view>支付失败</view>
-    <button type="default" bindtap="viewOrder"> 查看订单 </button>
+    <image src="../../images/red/btn_quxiao.png" class='icon'></image>
+    <view class='pay'>查看订单</view>
    </block>
+   <image src="/images/red/sharehongbao.png" class='share'></image>
   </view>
 </view>

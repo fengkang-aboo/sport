@@ -1,2 +1,59 @@
 <!--pages/card/card.wxml-->
-<text>pages/card/card.wxml</text>
+<view class='container'>
+  <view class="tabs-box">
+    <block wx:for="{{['红包','商家红包']}}">
+      <view bindtap="onTabsItemTap" data-index="{{index}}" class="tabs-item {{currentTabsIndex==index?'selected':''}}">
+        {{item}}
+      </view>
+    </block>
+  </view>
+  <view class='boxs'>
+    <view class='box' hidden="{{currentTabsIndex!=0}}">
+      <view class='item'>
+        <image class='item-img' src='/images/red/bg_kaquanhongbao.png'></image>
+        <view class='item-content'>
+          <view class='left'>￥
+            <text>20</text>
+          </view>
+          <view class='right'>
+            <view class='top'>新用户专享券</view>
+            <view class='bottom'>有效期至：2018-01-20</view>
+          </view>
+        </view>
+
+      </view>
+      <view class='item'>
+        <image class='item-img' src='/images/red/bg_kaquanhongbao.png'></image>
+        <view class='item-content'>
+          <view class='left'>￥
+            <text>20</text>
+          </view>
+          <view class='right'>
+            <view class='top'>新用户专享券</view>
+            <view class='bottom'>有效期至：2018-01-20</view>
+          </view>
+        </view>
+
+      </view>
+    </view>
+    <view class='box' hidden="{{currentTabsIndex!=1}}">
+      <view class='item'>
+        <image class='item-img' src='/images/red/bg_kaquanhongbao.png'></image>
+        <view class='item-content'>
+          <view class='left'>￥
+            <text>20</text>
+          </view>
+          <view class='right'>
+            <view class='top card-top'>朝外SOHO健身俱乐部朝外SOHO健身俱乐部朝外SOHO健身俱乐部朝外SOHO健身俱乐部朝外SOHO健身俱乐部朝外SOHO健身俱乐部</view>
+            <view class='card-bottom'>
+              <view class='time'>有效期至：2018-01-20</view>
+              <view class='button'>进店使用</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+
+  </view>
+</view>

@@ -30,13 +30,30 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
+			"current": 3,
 			"list": [
 				{
 					"id": -1,
 					"name": "sosuo",
 					"pathName": "pages/search/search",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "红包",
+					"pathName": "pages/card/card",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "红包",
+					"pathName": "pages/pay-result/pay-result",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "红包",
+					"pathName": "pages/share/share"
 				}
 			]
 		}

@@ -1,0 +1,80 @@
+<!--pages/share/share.wxml-->
+<view class='container'>
+  <view class='top-bg'>
+    <image src="/images/red/bg_xiadan.png"></image>
+  </view>
+  <view class='boxs'>
+    <view class='box'>
+      <view class='item'>
+        <image class='item-img' src='/images/red/bg_sharehongbao.png'></image>
+        <view class='item-content'>
+          <view class='left'>￥
+            <text>20</text>
+          </view>
+          <view class='right'>
+            <view class='top'>新用户专享券</view>
+            <view class='bottom'>有效期至：2018-01-20</view>
+          </view>
+        </view>
+        <view class='use'>立即使用</view>
+      </view>
+    </view>
+  </view>
+  <view class='boxs'>
+    <view class='box'>
+      <view class='item'>
+        <view class='late'>
+          <view class='late-title'>来迟了，红包已被抢完</view>
+          <view class='late-tip'>手气重要，手速也很重要</view>
+        </view>
+        <view class='use'>打开区块练</view>
+      </view>
+    </view>
+  </view>
+  <view class='list-content'>
+    <view class='title'>看朋友们的手气如何</view>
+    <view class='list-item'>
+      <view>
+        <image src="/images/red/btn_sel_duigou.png" class='item-avator'></image>
+      </view>
+      <view class='item-title'>
+        <view>唱半的歌</view>
+        <view>03.26 13:03:27</view>
+      </view>
+      <view class='price'>
+        1.6元
+      </view>
+    </view>
+    <view class='list-item'>
+      <view>
+        <image src="/images/red/btn_sel_duigou.png" class='item-avator'></image>
+      </view>
+      <view class='item-title'>
+        <view>唱半的歌</view>
+        <view>03.26 13:03:27</view>
+      </view>
+      <view class='price'>
+        1.6元
+      </view>
+    </view>
+    <view class='list-item'>
+      <view>
+        <image src="/images/red/btn_sel_duigou.png" class='item-avator'></image>
+      </view>
+      <view class='item-title'>
+        <view>唱半的歌</view>
+        <view>03.26 13:03:27</view>
+      </view>
+      <view class='price'>
+        1.6元
+      </view>
+    </view>
+  </view>
+  <view class='footer'>
+    <view class='title'>活动规则</view>
+    <view> 1.领取成功后，请到“我的-我的卡券”中查看</view>
+    <view>2.使用规则使用规则使用规则使用规则使用规则使用规则使用规则使用规则使用规则使用规则</view>
+    <view>3.使用规则使用规则使用规则使用规则使用规则</view>
+    <view>4.使用规则使用规则</view>
+  </view>
+</view>
