@@ -30,7 +30,7 @@
             <view class='lesson-box'>
                 <block wx:if="{{lessons[lessonIndex]}}">
                     <block wx:for="{{lessons[lessonIndex]}}">
-                        <view class='lesson-item' data-id="{{item.time_id}}" bindtap='clubTap'>
+                        <view class='lesson-item' data-plan="{{item.plan}}" data-id="{{item.time_id}}" bindtap='clubTap'>
                             <image class='item-img' src='{{item.course_img}}'></image>
                             <view class='item-content'>
                                 <view class='item-name'>{{item.course_name}}</view>

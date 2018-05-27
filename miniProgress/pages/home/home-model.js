@@ -40,6 +40,15 @@ class Home extends Base {
     this.request(params);
   }
 
-
+  //领取红包
+  receiveBag(id, callback){
+    var params = {
+      url: 'redbag/receiveRedBagen?red_bag_id=' + id,
+      sCallback: function (res) {
+        callback && callback(res);
+      }
+    }
+    this.request(params);
+  }
 }
 export { Home };
