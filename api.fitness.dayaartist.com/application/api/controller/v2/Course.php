@@ -99,6 +99,7 @@ class Course extends Controller
                 if ($v['stock'] <= 0) {
                     continue;
                 }
+                $courseImg = ImgModel::getOneImg($v['course']['main_img_id']); //课程图片
                 $TimeInfo['time'][$dates][] = array('time_id' => $v['id'], 'course_img' => $courseImg['img_url'], 'course_name' => $v['course']['name'], 'teacher_name' => $v['teacher']['name'], 'date' => $dates, 'time' => $v['start_time'] . '-' . $v['end_time'], 'discount_price' => $v['course']['discount_price'], 'price' => $v['course']['price'], 'stock' => $v['stock'], 'plan' => 2);
             }
         }
@@ -134,18 +135,24 @@ class Course extends Controller
      * @param $date
      * @param $timeId
      */
-    public function creatBoxServiceTime($date, $id)
+    public function creatBoxServiceTime($id,$date)
     {
         (new IDMustBePositiveInt())->goCheck();
-        $serviceTime = TyCourseArrange::where('id', '=', $id)->find()->toArray();
+//        $y = substr($date, 0, 4);
+//        $m = substr($date, -10, 2);
+//        $d = substr($date, -5, 2);
+        $dates = $date;
+//        $date = $y . '-' . $m . '-' . $d;
+        $serviceTime = CourseArrange::where('id', '=', $id)->find()->toArray();
+        $serviceTime['dates'] = $dates;
         $serviceTime['start_time'] = strtotime($date . ' ' . $serviceTime['start_time']);
         $serviceTime['end_time'] = strtotime($date . ' ' . $serviceTime['end_time']);
         $serviceTime['plan'] = 1;
         $serviceTime['create_time'] = time();
         unset($serviceTime['id']);
-        $startTime = TyCourseArrange::where('start_time', '=', $serviceTime['start_time'])->find();
+        $startTime = CourseArrange::where('start_time', '=', $serviceTime['start_time'])->find();
         if (empty($startTime)) {
-            $time = new TyCourseArrange();
+            $time = new CourseArrange();
             $result = $time->save($serviceTime);
             if ($result) {
                 return [

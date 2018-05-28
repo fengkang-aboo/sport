@@ -59,7 +59,7 @@ class Venue extends Controller
             }
 
             $category = CategoryModel::getManyCategory($v['category_id']);
-            $data['category'] = $category
+            $data['category'] = $category;
 
             $collect = CollectionModel::getUserCollect($uid,$v['id']);
             if (empty($collect)) {
