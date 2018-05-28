@@ -17,15 +17,18 @@ Page({
 	onLoad: function (options) {
 		var id = options.id;
 		var from = options.from;
+    var plan = options.plan;
 		if (from == 'kill') {
 			var kill = options.kill;
 			this.setData({
 				id: id,
-				kill: kill
+				kill: kill,
+        plan: plan
 			})
 		} else {
 			this.setData({
 				id: id,
+        plan: plan
 			})
 		}
 		this._loadData(id);
@@ -46,11 +49,11 @@ Page({
 			var id = this.data.id;
 			if (this.data.kill) {
 				wx.navigateTo({
-					url: '../order/order?id=' + id + '&from=kill&kill=' + this.data.kill,
+          url: '../order/order?id=' + id + '&from=kill&kill=' + this.data.kill +'&plan='+this.data.plan,
 				})
 			} else {
 				wx.navigateTo({
-					url: '../order/order?id=' + id,
+          url: '../order/order?id=' + id+'&plan='+this.data.plan,
 				})
 			}
 		}else{

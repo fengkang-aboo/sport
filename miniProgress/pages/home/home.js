@@ -12,9 +12,10 @@ Page({
 	 */
 	data: {
 		markers: [],
-		isNew:true,
+		isNew:false,
 		First:true,
 		Second:false,
+    red_bag:0,
 	},
 	onLoad: function () {
 		wx.showNavigationBarLoading() //在标题栏中显示加载
@@ -128,9 +129,21 @@ Page({
 		home.getClubList(longitude, latitude, (res) => {
 			wx.hideNavigationBarLoading() //完成停止加载
 			this._drawMap(res);
-			this.setData({
-				clubList: res
-			});
+      var red_bag = res.red_bag;
+      if (red_bag!=0){
+        //新用户
+        this.setData({
+          clubList: res,
+          red_bag: res.red_bag,
+          isNew:true
+        });
+      }else{
+        this.setData({
+          clubList: res,
+          red_bag: res.red_bag,
+          isNew: false
+        });
+      }
 		});
 	},
 	//地图描点
@@ -185,10 +198,13 @@ Page({
 
 	//红包领取
 	redBagfirst(){
-		this.setData({
-			First:false,
-			Second:true
-		})
+    home.receiveBag(this.data.red_bag,(res)=>{
+      congsole.log(res);
+    });
+		// this.setData({
+		// 	First:false,
+		// 	Second:true
+		// })
 	},
 	//红包去使用
 	goForUse(){

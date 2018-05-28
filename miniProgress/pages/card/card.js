@@ -12,6 +12,9 @@ Page({
     //   id: options.id
     // })
     // this._loadData();
+    card.getRedBag((res) => {
+      console.log(res);
+    })
   },
 
   /*加载所有数据*/

@@ -12,7 +12,8 @@ Page({
 		currentTabsIndex: 0,
 		lessonIndex: 0,
 		content: null,
-		markers: []
+		markers: [],
+    plan:1
 	},
 	onLoad: function (options) {
 		this.setData({
@@ -102,8 +103,9 @@ Page({
 	//商品详情点击更多商品
 	clubTap: function (event) {
 		var id = club.getDataSet(event, 'id');
+    var plan = club.getDataSet(event, 'plan');
 		wx.navigateTo({
-			url: '../product/product?id=' + id
+      url: '../product/product?id=' + id + '&plan=' + plan
 		})
 	},
 
