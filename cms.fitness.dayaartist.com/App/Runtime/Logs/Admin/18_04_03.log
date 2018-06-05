@@ -1,0 +1,1134 @@
+[ 2018-04-03T20:50:12+08:00 ] 127.0.0.1 /
+NOTIC: [8] Use of undefined constant SHOW_PAGE_TRACE - assumed 'SHOW_PAGE_TRACE' D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Common\Conf\debug.php 第 4 行.
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000027s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000085s ]
+
+[ 2018-04-03T20:50:13+08:00 ] 127.0.0.1 /index.php/Admin/Login/index.html
+NOTIC: [8] Use of undefined constant SHOW_PAGE_TRACE - assumed 'SHOW_PAGE_TRACE' D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Common\Conf\debug.php 第 4 行.
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000046s ]
+
+[ 2018-04-03T20:50:14+08:00 ] 127.0.0.1 /index.php/Admin/Login/code.html
+NOTIC: [8] Use of undefined constant SHOW_PAGE_TRACE - assumed 'SHOW_PAGE_TRACE' D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Common\Conf\debug.php 第 4 行.
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000072s ]
+
+[ 2018-04-03T20:50:14+08:00 ] 127.0.0.1 /index.php/Admin/Login/lib/jquery/1.9.1/jquery.min.js
+NOTIC: [8] Use of undefined constant SHOW_PAGE_TRACE - assumed 'SHOW_PAGE_TRACE' D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Common\Conf\debug.php 第 4 行.
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000095s ]
+ERR: 非法操作:lib
+
+[ 2018-04-03T20:50:14+08:00 ] 127.0.0.1 /index.php/Admin/Login/static/h-ui/js/H-ui.min.js
+NOTIC: [8] Use of undefined constant SHOW_PAGE_TRACE - assumed 'SHOW_PAGE_TRACE' D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Common\Conf\debug.php 第 4 行.
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000073s ]
+ERR: 非法操作:static
+
+[ 2018-04-03T20:50:27+08:00 ] 127.0.0.1 /index.php/Admin/Login/index.html?key=
+NOTIC: [8] Use of undefined constant SHOW_PAGE_TRACE - assumed 'SHOW_PAGE_TRACE' D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Common\Conf\debug.php 第 4 行.
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000046s ]
+
+[ 2018-04-03T20:50:28+08:00 ] 127.0.0.1 /index.php/Admin/Index/index.html
+NOTIC: [8] Use of undefined constant SHOW_PAGE_TRACE - assumed 'SHOW_PAGE_TRACE' D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Common\Conf\debug.php 第 4 行.
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000041s ]
+
+[ 2018-04-03T20:50:28+08:00 ] 127.0.0.1 /index.php/Admin/Page/adminindex.html
+NOTIC: [8] Use of undefined constant SHOW_PAGE_TRACE - assumed 'SHOW_PAGE_TRACE' D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Common\Conf\debug.php 第 4 行.
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000048s ]
+
+[ 2018-04-03T20:50:43+08:00 ] 127.0.0.1 /index.php/Admin/Course/course_index.html
+NOTIC: [8] Use of undefined constant SHOW_PAGE_TRACE - assumed 'SHOW_PAGE_TRACE' D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Common\Conf\debug.php 第 4 行.
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000043s ]
+
+[ 2018-04-03T21:09:17+08:00 ] 127.0.0.1 /index.php/Admin/Course/course_index.html
+NOTIC: [8] Use of undefined constant SHOW_PAGE_TRACE - assumed 'SHOW_PAGE_TRACE' D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Common\Conf\debug.php 第 4 行.
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000045s ]
+
+[ 2018-04-03T21:15:15+08:00 ] 127.0.0.1 /index.php/Admin/Course/course_index.html
+NOTIC: [8] Use of undefined constant SHOW_PAGE_TRACE - assumed 'SHOW_PAGE_TRACE' D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Common\Conf\debug.php 第 4 行.
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000065s ]
+
+[ 2018-04-03T21:15:16+08:00 ] 127.0.0.1 /
+NOTIC: [8] Use of undefined constant SHOW_PAGE_TRACE - assumed 'SHOW_PAGE_TRACE' D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Common\Conf\debug.php 第 4 行.
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000049s ]
+
+[ 2018-04-03T21:15:16+08:00 ] 127.0.0.1 /index.php/Admin/Login/index.html
+NOTIC: [8] Use of undefined constant SHOW_PAGE_TRACE - assumed 'SHOW_PAGE_TRACE' D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Common\Conf\debug.php 第 4 行.
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000060s ]
+
+[ 2018-04-03T21:15:16+08:00 ] 127.0.0.1 HTTP://www.cmssports.com/
+NOTIC: [8] Use of undefined constant SHOW_PAGE_TRACE - assumed 'SHOW_PAGE_TRACE' D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Common\Conf\debug.php 第 4 行.
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000047s ]
+
+[ 2018-04-03T21:15:16+08:00 ] 127.0.0.1 HTTP://www.cmssports.com/index.php/Admin/Login/index.html
+NOTIC: [8] Use of undefined constant SHOW_PAGE_TRACE - assumed 'SHOW_PAGE_TRACE' D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Common\Conf\debug.php 第 4 行.
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000069s ]
+
+[ 2018-04-03T21:15:16+08:00 ] 127.0.0.1 /index.php
+NOTIC: [8] Use of undefined constant SHOW_PAGE_TRACE - assumed 'SHOW_PAGE_TRACE' D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Common\Conf\debug.php 第 4 行.
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000050s ]
+
+[ 2018-04-03T21:15:48+08:00 ] 127.0.0.1 /index.php/Admin/Course/course_index.html
+NOTIC: [8] Use of undefined constant SHOW_PAGE_TRACE - assumed 'SHOW_PAGE_TRACE' D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Common\Conf\debug.php 第 4 行.
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000043s ]
+
+[ 2018-04-03T21:15:50+08:00 ] 127.0.0.1 /index.php/Admin/Course/course_index.html
+NOTIC: [8] Use of undefined constant SHOW_PAGE_TRACE - assumed 'SHOW_PAGE_TRACE' D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Common\Conf\debug.php 第 4 行.
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000047s ]
+
+[ 2018-04-03T21:20:30+08:00 ] 127.0.0.1 /index.php/Admin/Course/course_index.html
+NOTIC: [8] Use of undefined constant SHOW_PAGE_TRACE - assumed 'SHOW_PAGE_TRACE' D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Common\Conf\debug.php 第 4 行.
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000029s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000085s ]
+
+[ 2018-04-03T21:20:44+08:00 ] 127.0.0.1 /index.php/Admin/Course/course_del?del_id=45%2C44
+NOTIC: [8] Use of undefined constant SHOW_PAGE_TRACE - assumed 'SHOW_PAGE_TRACE' D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Common\Conf\debug.php 第 4 行.
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000084s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000602s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000647s ]
+SQL: SHOW COLUMNS FROM `category` [ RunTime:0.0266s ]
+SQL: SELECT * FROM `category` WHERE ( pid=0 ) ORDER BY sort desc,id asc  [ RunTime:0.0009s ]
+SQL: SELECT * FROM `category` WHERE ( pid=1 )  [ RunTime:0.0005s ]
+SQL: SELECT * FROM `category` WHERE ( pid=2 )  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `category` WHERE ( pid=3 )  [ RunTime:0.0005s ]
+SQL: SELECT * FROM `category` WHERE ( pid=4 )  [ RunTime:0.0005s ]
+SQL: SELECT * FROM `category` WHERE ( pid=5 )  [ RunTime:0.0005s ]
+SQL: SELECT * FROM `category` WHERE ( pid=6 )  [ RunTime:0.0005s ]
+SQL: SELECT * FROM `category` WHERE ( pid=7 )  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `category` WHERE ( pid=8 )  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `category` WHERE ( pid=9 )  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `category` WHERE ( pid=10 )  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `category` WHERE ( pid=11 )  [ RunTime:0.0005s ]
+SQL: SELECT * FROM `category` WHERE ( pid=12 )  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `category` WHERE ( pid=13 )  [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `ty_venue_branch` [ RunTime:0.0137s ]
+SQL: SELECT * FROM `ty_venue_branch` ORDER BY id desc  [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `ty_course` [ RunTime:0.0102s ]
+SQL: SELECT * FROM `ty_course` ORDER BY id desc  [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `ty_teacher` [ RunTime:0.0335s ]
+NOTIC: [8] Undefined variable: teacher_where D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Admin\Controller\CourseController.class.php 第 50 行.
+SQL: SELECT * FROM `ty_teacher` ORDER BY id desc  [ RunTime:0.0004s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000865s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000913s ]
+
+[ 2018-04-03T21:24:59+08:00 ] 127.0.0.1 /index.php/Admin/Course/course_index.html
+NOTIC: [8] Use of undefined constant SHOW_PAGE_TRACE - assumed 'SHOW_PAGE_TRACE' D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Common\Conf\debug.php 第 4 行.
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000047s ]
+
+[ 2018-04-03T21:25:11+08:00 ] 127.0.0.1 /index.php/Admin/Course/course_index.html
+NOTIC: [8] Use of undefined constant SHOW_PAGE_TRACE - assumed 'SHOW_PAGE_TRACE' D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Common\Conf\debug.php 第 4 行.
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000040s ]
+
+[ 2018-04-03T21:25:13+08:00 ] 127.0.0.1 /index.php/Admin/Course/course_index.html
+NOTIC: [8] Use of undefined constant SHOW_PAGE_TRACE - assumed 'SHOW_PAGE_TRACE' D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Common\Conf\debug.php 第 4 行.
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000042s ]
+
+[ 2018-04-03T21:25:21+08:00 ] 127.0.0.1 /index.php/Admin/Course/course_del?del_id=45%2C44
+NOTIC: [8] Use of undefined constant SHOW_PAGE_TRACE - assumed 'SHOW_PAGE_TRACE' D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Common\Conf\debug.php 第 4 行.
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000058s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000443s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000492s ]
+SQL: SHOW COLUMNS FROM `category` [ RunTime:0.0242s ]
+SQL: SELECT * FROM `category` WHERE ( pid=0 ) ORDER BY sort desc,id asc  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `category` WHERE ( pid=1 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=2 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=3 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `category` WHERE ( pid=4 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `category` WHERE ( pid=5 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=6 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=7 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=8 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=9 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=10 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=11 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=12 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=13 )  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `ty_venue_branch` [ RunTime:0.0109s ]
+SQL: SELECT * FROM `ty_venue_branch` ORDER BY id desc  [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `ty_course` [ RunTime:0.0103s ]
+SQL: SELECT * FROM `ty_course` ORDER BY id desc  [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `ty_teacher` [ RunTime:0.0152s ]
+NOTIC: [8] Undefined variable: teacher_where D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Admin\Controller\CourseController.class.php 第 50 行.
+SQL: SELECT * FROM `ty_teacher` ORDER BY id desc  [ RunTime:0.0003s ]
+
+[ 2018-04-03T21:28:16+08:00 ] 127.0.0.1 /index.php/Admin/Course/course_index.html
+NOTIC: [8] Use of undefined constant SHOW_PAGE_TRACE - assumed 'SHOW_PAGE_TRACE' D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Common\Conf\debug.php 第 4 行.
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000046s ]
+
+[ 2018-04-03T21:28:22+08:00 ] 127.0.0.1 /index.php/Admin/Course/course_del?del_id=45
+NOTIC: [8] Use of undefined constant SHOW_PAGE_TRACE - assumed 'SHOW_PAGE_TRACE' D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Common\Conf\debug.php 第 4 行.
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000042s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000394s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000435s ]
+SQL: SHOW COLUMNS FROM `category` [ RunTime:0.0299s ]
+SQL: SELECT * FROM `category` WHERE ( pid=0 ) ORDER BY sort desc,id asc  [ RunTime:0.0014s ]
+SQL: SELECT * FROM `category` WHERE ( pid=1 )  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `category` WHERE ( pid=2 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=3 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `category` WHERE ( pid=4 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `category` WHERE ( pid=5 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `category` WHERE ( pid=6 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=7 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=8 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `category` WHERE ( pid=9 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `category` WHERE ( pid=10 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=11 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=12 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=13 )  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `ty_venue_branch` [ RunTime:0.0110s ]
+SQL: SELECT * FROM `ty_venue_branch` ORDER BY id desc  [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `ty_course` [ RunTime:0.0114s ]
+SQL: SELECT * FROM `ty_course` ORDER BY id desc  [ RunTime:0.0007s ]
+SQL: SHOW COLUMNS FROM `ty_teacher` [ RunTime:0.0079s ]
+NOTIC: [8] Undefined variable: teacher_where D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Admin\Controller\CourseController.class.php 第 50 行.
+SQL: SELECT * FROM `ty_teacher` ORDER BY id desc  [ RunTime:0.0004s ]
+SQL: UPDATE `ty_course` SET `status`='2' WHERE `id` IN ('45') [ RunTime:0.0167s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000687s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000723s ]
+
+[ 2018-04-03T21:28:27+08:00 ] 127.0.0.1 /index.php/Admin/Course/course_index.html
+NOTIC: [8] Use of undefined constant SHOW_PAGE_TRACE - assumed 'SHOW_PAGE_TRACE' D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Common\Conf\debug.php 第 4 行.
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000039s ]
+
+[ 2018-04-03T21:29:19+08:00 ] 127.0.0.1 /index.php/Admin/Course/course_index.html
+NOTIC: [8] Use of undefined constant SHOW_PAGE_TRACE - assumed 'SHOW_PAGE_TRACE' D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Common\Conf\debug.php 第 4 行.
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000044s ]
+
+[ 2018-04-03T21:32:25+08:00 ] 127.0.0.1 /index.php/Admin/Course/course_index.html
+NOTIC: [8] Use of undefined constant SHOW_PAGE_TRACE - assumed 'SHOW_PAGE_TRACE' D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Common\Conf\debug.php 第 4 行.
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000050s ]
+
+[ 2018-04-03T21:32:28+08:00 ] 127.0.0.1 /index.php/Admin/Course/course_del?del_id=44
+NOTIC: [8] Use of undefined constant SHOW_PAGE_TRACE - assumed 'SHOW_PAGE_TRACE' D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Common\Conf\debug.php 第 4 行.
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000043s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000457s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000503s ]
+SQL: SHOW COLUMNS FROM `category` [ RunTime:0.0280s ]
+SQL: SELECT * FROM `category` WHERE ( pid=0 ) ORDER BY sort desc,id asc  [ RunTime:0.0007s ]
+SQL: SELECT * FROM `category` WHERE ( pid=1 )  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `category` WHERE ( pid=2 )  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `category` WHERE ( pid=3 )  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `category` WHERE ( pid=4 )  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `category` WHERE ( pid=5 )  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `category` WHERE ( pid=6 )  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `category` WHERE ( pid=7 )  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `category` WHERE ( pid=8 )  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `category` WHERE ( pid=9 )  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `category` WHERE ( pid=10 )  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `category` WHERE ( pid=11 )  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `category` WHERE ( pid=12 )  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `category` WHERE ( pid=13 )  [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `ty_venue_branch` [ RunTime:0.0125s ]
+SQL: SELECT * FROM `ty_venue_branch` ORDER BY id desc  [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `ty_course` [ RunTime:0.0089s ]
+SQL: SELECT * FROM `ty_course` ORDER BY id desc  [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `ty_teacher` [ RunTime:0.0093s ]
+NOTIC: [8] Undefined variable: teacher_where D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Admin\Controller\CourseController.class.php 第 50 行.
+SQL: SELECT * FROM `ty_teacher` ORDER BY id desc  [ RunTime:0.0004s ]
+SQL: UPDATE `ty_course` SET `status`='2' WHERE `id` IN ('44') [ RunTime:0.0030s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000797s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000838s ]
+
+[ 2018-04-03T21:32:30+08:00 ] 127.0.0.1 /index.php/Admin/Course/course_index.html
+NOTIC: [8] Use of undefined constant SHOW_PAGE_TRACE - assumed 'SHOW_PAGE_TRACE' D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Common\Conf\debug.php 第 4 行.
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000084s ]
+
+[ 2018-04-03T21:32:47+08:00 ] 127.0.0.1 /index.php/Admin/Course/course_del?del_id=43
+NOTIC: [8] Use of undefined constant SHOW_PAGE_TRACE - assumed 'SHOW_PAGE_TRACE' D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Common\Conf\debug.php 第 4 行.
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000070s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000448s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000489s ]
+SQL: SHOW COLUMNS FROM `category` [ RunTime:0.0724s ]
+SQL: SELECT * FROM `category` WHERE ( pid=0 ) ORDER BY sort desc,id asc  [ RunTime:0.0009s ]
+SQL: SELECT * FROM `category` WHERE ( pid=1 )  [ RunTime:0.0005s ]
+SQL: SELECT * FROM `category` WHERE ( pid=2 )  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `category` WHERE ( pid=3 )  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `category` WHERE ( pid=4 )  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `category` WHERE ( pid=5 )  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `category` WHERE ( pid=6 )  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `category` WHERE ( pid=7 )  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `category` WHERE ( pid=8 )  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `category` WHERE ( pid=9 )  [ RunTime:0.0005s ]
+SQL: SELECT * FROM `category` WHERE ( pid=10 )  [ RunTime:0.0005s ]
+SQL: SELECT * FROM `category` WHERE ( pid=11 )  [ RunTime:0.0005s ]
+SQL: SELECT * FROM `category` WHERE ( pid=12 )  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `category` WHERE ( pid=13 )  [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `ty_venue_branch` [ RunTime:0.0166s ]
+SQL: SELECT * FROM `ty_venue_branch` ORDER BY id desc  [ RunTime:0.0007s ]
+SQL: SHOW COLUMNS FROM `ty_course` [ RunTime:0.0154s ]
+SQL: SELECT * FROM `ty_course` ORDER BY id desc  [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `ty_teacher` [ RunTime:0.0104s ]
+NOTIC: [8] Undefined variable: teacher_where D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Admin\Controller\CourseController.class.php 第 50 行.
+SQL: SELECT * FROM `ty_teacher` ORDER BY id desc  [ RunTime:0.0004s ]
+SQL: UPDATE `ty_course` SET `status`='2' WHERE `id` IN ('43') [ RunTime:0.0035s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000979s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001036s ]
+
+[ 2018-04-03T21:32:48+08:00 ] 127.0.0.1 /index.php/Admin/Course/course_index.html
+NOTIC: [8] Use of undefined constant SHOW_PAGE_TRACE - assumed 'SHOW_PAGE_TRACE' D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Common\Conf\debug.php 第 4 行.
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000040s ]
+
+[ 2018-04-03T21:34:58+08:00 ] 127.0.0.1 /index.php/Admin/Course/course_index.html
+NOTIC: [8] Use of undefined constant SHOW_PAGE_TRACE - assumed 'SHOW_PAGE_TRACE' D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Common\Conf\debug.php 第 4 行.
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000044s ]
+
+[ 2018-04-03T21:35:12+08:00 ] 127.0.0.1 /index.php/Admin/Course/course_del?del_id=45
+NOTIC: [8] Use of undefined constant SHOW_PAGE_TRACE - assumed 'SHOW_PAGE_TRACE' D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Common\Conf\debug.php 第 4 行.
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000032s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000106s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000913s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001102s ]
+SQL: SHOW COLUMNS FROM `category` [ RunTime:0.0171s ]
+SQL: SELECT * FROM `category` WHERE ( pid=0 ) ORDER BY sort desc,id asc  [ RunTime:0.0005s ]
+SQL: SELECT * FROM `category` WHERE ( pid=1 )  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `category` WHERE ( pid=2 )  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `category` WHERE ( pid=3 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `category` WHERE ( pid=4 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `category` WHERE ( pid=5 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `category` WHERE ( pid=6 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=7 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=8 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=9 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=10 )  [ RunTime:0.0001s ]
+SQL: SELECT * FROM `category` WHERE ( pid=11 )  [ RunTime:0.0001s ]
+SQL: SELECT * FROM `category` WHERE ( pid=12 )  [ RunTime:0.0001s ]
+SQL: SELECT * FROM `category` WHERE ( pid=13 )  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `ty_venue_branch` [ RunTime:0.0092s ]
+SQL: SELECT * FROM `ty_venue_branch` ORDER BY id desc  [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `ty_course` [ RunTime:0.0085s ]
+SQL: SELECT * FROM `ty_course` ORDER BY id desc  [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `ty_teacher` [ RunTime:0.0127s ]
+NOTIC: [8] Undefined variable: teacher_where D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Admin\Controller\CourseController.class.php 第 50 行.
+SQL: SELECT * FROM `ty_teacher` ORDER BY id desc  [ RunTime:0.0003s ]
+SQL: UPDATE `ty_course` SET `status`='2' WHERE `id` IN ('45') [ RunTime:0.0034s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000744s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000780s ]
+
+[ 2018-04-03T21:35:39+08:00 ] 127.0.0.1 /index.php/Admin/Course/course_del?del_id=42
+NOTIC: [8] Use of undefined constant SHOW_PAGE_TRACE - assumed 'SHOW_PAGE_TRACE' D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Common\Conf\debug.php 第 4 行.
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000042s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000401s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000443s ]
+SQL: SHOW COLUMNS FROM `category` [ RunTime:0.0263s ]
+SQL: SELECT * FROM `category` WHERE ( pid=0 ) ORDER BY sort desc,id asc  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `category` WHERE ( pid=1 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=2 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=3 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=4 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=5 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=6 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=7 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=8 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=9 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=10 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=11 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `category` WHERE ( pid=12 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `category` WHERE ( pid=13 )  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `ty_venue_branch` [ RunTime:0.0103s ]
+SQL: SELECT * FROM `ty_venue_branch` ORDER BY id desc  [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `ty_course` [ RunTime:0.0091s ]
+SQL: SELECT * FROM `ty_course` ORDER BY id desc  [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `ty_teacher` [ RunTime:0.0081s ]
+NOTIC: [8] Undefined variable: teacher_where D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Admin\Controller\CourseController.class.php 第 50 行.
+SQL: SELECT * FROM `ty_teacher` ORDER BY id desc  [ RunTime:0.0003s ]
+SQL: UPDATE `ty_course` SET `status`='2' WHERE `id` IN ('42') [ RunTime:0.0035s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000652s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000682s ]
+
+[ 2018-04-03T21:35:41+08:00 ] 127.0.0.1 /index.php/Admin/Course/course_index.html
+NOTIC: [8] Use of undefined constant SHOW_PAGE_TRACE - assumed 'SHOW_PAGE_TRACE' D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Common\Conf\debug.php 第 4 行.
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000048s ]
+
+[ 2018-04-03T21:42:07+08:00 ] 127.0.0.1 /index.php/Admin/Course/course_del?del_id=45%2C44
+NOTIC: [8] Use of undefined constant SHOW_PAGE_TRACE - assumed 'SHOW_PAGE_TRACE' D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Common\Conf\debug.php 第 4 行.
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000060s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000557s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000607s ]
+SQL: SHOW COLUMNS FROM `category` [ RunTime:0.0932s ]
+SQL: SELECT * FROM `category` WHERE ( pid=0 ) ORDER BY sort desc,id asc  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `category` WHERE ( pid=1 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=2 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=3 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=4 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=5 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=6 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=7 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=8 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=9 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=10 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=11 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=12 )  [ RunTime:0.0001s ]
+SQL: SELECT * FROM `category` WHERE ( pid=13 )  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `ty_venue_branch` [ RunTime:0.0104s ]
+SQL: SELECT * FROM `ty_venue_branch` ORDER BY id desc  [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `ty_course` [ RunTime:0.0132s ]
+SQL: SELECT * FROM `ty_course` ORDER BY id desc  [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `ty_teacher` [ RunTime:0.0081s ]
+NOTIC: [8] Undefined variable: teacher_where D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Admin\Controller\CourseController.class.php 第 50 行.
+SQL: SELECT * FROM `ty_teacher` ORDER BY id desc  [ RunTime:0.0009s ]
+SQL: SELECT * FROM `ty_course` WHERE `id` IN ('45','44')  [ RunTime:0.0004s ]
+
+[ 2018-04-03T21:57:14+08:00 ] 127.0.0.1 /index.php/Admin/Course/course_index.html
+NOTIC: [8] Use of undefined constant SHOW_PAGE_TRACE - assumed 'SHOW_PAGE_TRACE' D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Common\Conf\debug.php 第 4 行.
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000053s ]
+
+[ 2018-04-03T21:57:18+08:00 ] 127.0.0.1 /index.php/Admin/Course/course_del?del_id=45
+NOTIC: [8] Use of undefined constant SHOW_PAGE_TRACE - assumed 'SHOW_PAGE_TRACE' D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Common\Conf\debug.php 第 4 行.
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000066s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000441s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000481s ]
+SQL: SHOW COLUMNS FROM `category` [ RunTime:0.0252s ]
+SQL: SELECT * FROM `category` WHERE ( pid=0 ) ORDER BY sort desc,id asc  [ RunTime:0.0006s ]
+SQL: SELECT * FROM `category` WHERE ( pid=1 )  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `category` WHERE ( pid=2 )  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `category` WHERE ( pid=3 )  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `category` WHERE ( pid=4 )  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `category` WHERE ( pid=5 )  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `category` WHERE ( pid=6 )  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `category` WHERE ( pid=7 )  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `category` WHERE ( pid=8 )  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `category` WHERE ( pid=9 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `category` WHERE ( pid=10 )  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `category` WHERE ( pid=11 )  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `category` WHERE ( pid=12 )  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `category` WHERE ( pid=13 )  [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `ty_venue_branch` [ RunTime:0.0096s ]
+SQL: SELECT * FROM `ty_venue_branch` ORDER BY id desc  [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `ty_course` [ RunTime:0.0120s ]
+SQL: SELECT * FROM `ty_course` ORDER BY id desc  [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `ty_teacher` [ RunTime:0.0086s ]
+NOTIC: [8] Undefined variable: teacher_where D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Admin\Controller\CourseController.class.php 第 50 行.
+SQL: SELECT * FROM `ty_teacher` ORDER BY id desc  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `ty_course` WHERE `id` IN ('45')  [ RunTime:0.0002s ]
+
+[ 2018-04-03T21:57:51+08:00 ] 127.0.0.1 /index.php/Admin/Course/course_index.html
+NOTIC: [8] Use of undefined constant SHOW_PAGE_TRACE - assumed 'SHOW_PAGE_TRACE' D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Common\Conf\debug.php 第 4 行.
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000048s ]
+
+[ 2018-04-03T21:57:59+08:00 ] 127.0.0.1 /index.php/Admin/Course/course_del?del_id=45
+NOTIC: [8] Use of undefined constant SHOW_PAGE_TRACE - assumed 'SHOW_PAGE_TRACE' D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Common\Conf\debug.php 第 4 行.
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000046s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000432s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000473s ]
+SQL: SHOW COLUMNS FROM `category` [ RunTime:0.0191s ]
+SQL: SELECT * FROM `category` WHERE ( pid=0 ) ORDER BY sort desc,id asc  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `category` WHERE ( pid=1 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=2 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=3 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=4 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=5 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=6 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=7 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=8 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=9 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=10 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=11 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=12 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=13 )  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `ty_venue_branch` [ RunTime:0.0093s ]
+SQL: SELECT * FROM `ty_venue_branch` ORDER BY id desc  [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `ty_course` [ RunTime:0.0102s ]
+SQL: SELECT * FROM `ty_course` ORDER BY id desc  [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `ty_teacher` [ RunTime:0.0111s ]
+NOTIC: [8] Undefined variable: teacher_where D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Admin\Controller\CourseController.class.php 第 50 行.
+SQL: SELECT * FROM `ty_teacher` ORDER BY id desc  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `ty_course` WHERE `id` IN ('45')  [ RunTime:0.0002s ]
+
+[ 2018-04-03T21:58:00+08:00 ] 127.0.0.1 /index.php/Admin/Course/course_index.html
+NOTIC: [8] Use of undefined constant SHOW_PAGE_TRACE - assumed 'SHOW_PAGE_TRACE' D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Common\Conf\debug.php 第 4 行.
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000045s ]
+
+[ 2018-04-03T21:58:34+08:00 ] 127.0.0.1 /index.php/Admin/Course/course_index.html
+NOTIC: [8] Use of undefined constant SHOW_PAGE_TRACE - assumed 'SHOW_PAGE_TRACE' D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Common\Conf\debug.php 第 4 行.
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000041s ]
+
+[ 2018-04-03T21:58:39+08:00 ] 127.0.0.1 /index.php/Admin/Course/course_index.html
+NOTIC: [8] Use of undefined constant SHOW_PAGE_TRACE - assumed 'SHOW_PAGE_TRACE' D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Common\Conf\debug.php 第 4 行.
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000043s ]
+
+[ 2018-04-03T21:58:52+08:00 ] 127.0.0.1 /index.php/Admin/Course/course_del?del_id=45
+NOTIC: [8] Use of undefined constant SHOW_PAGE_TRACE - assumed 'SHOW_PAGE_TRACE' D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Common\Conf\debug.php 第 4 行.
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000087s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000717s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000773s ]
+SQL: SHOW COLUMNS FROM `category` [ RunTime:0.0126s ]
+SQL: SELECT * FROM `category` WHERE ( pid=0 ) ORDER BY sort desc,id asc  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `category` WHERE ( pid=1 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `category` WHERE ( pid=2 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=3 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `category` WHERE ( pid=4 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `category` WHERE ( pid=5 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=6 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=7 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=8 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=9 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=10 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=11 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=12 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=13 )  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `ty_venue_branch` [ RunTime:0.0092s ]
+SQL: SELECT * FROM `ty_venue_branch` ORDER BY id desc  [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `ty_course` [ RunTime:0.0120s ]
+SQL: SELECT * FROM `ty_course` ORDER BY id desc  [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `ty_teacher` [ RunTime:0.0091s ]
+NOTIC: [8] Undefined variable: teacher_where D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Admin\Controller\CourseController.class.php 第 50 行.
+SQL: SELECT * FROM `ty_teacher` ORDER BY id desc  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `ty_course` WHERE `id` IN ('45')  [ RunTime:0.0002s ]
+
+[ 2018-04-03T21:59:29+08:00 ] 127.0.0.1 /index.php/Admin/Course/course_index.html
+NOTIC: [8] Use of undefined constant SHOW_PAGE_TRACE - assumed 'SHOW_PAGE_TRACE' D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Common\Conf\debug.php 第 4 行.
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000057s ]
+
+[ 2018-04-03T21:59:32+08:00 ] 127.0.0.1 /index.php/Admin/Course/course_index.html
+NOTIC: [8] Use of undefined constant SHOW_PAGE_TRACE - assumed 'SHOW_PAGE_TRACE' D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Common\Conf\debug.php 第 4 行.
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000066s ]
+
+[ 2018-04-03T21:59:35+08:00 ] 127.0.0.1 /index.php/Admin/Course/course_del?del_id=45
+NOTIC: [8] Use of undefined constant SHOW_PAGE_TRACE - assumed 'SHOW_PAGE_TRACE' D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Common\Conf\debug.php 第 4 行.
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000053s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001227s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001329s ]
+SQL: SHOW COLUMNS FROM `category` [ RunTime:0.0266s ]
+SQL: SELECT * FROM `category` WHERE ( pid=0 ) ORDER BY sort desc,id asc  [ RunTime:0.0008s ]
+SQL: SELECT * FROM `category` WHERE ( pid=1 )  [ RunTime:0.0008s ]
+SQL: SELECT * FROM `category` WHERE ( pid=2 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=3 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=4 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=5 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=6 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=7 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=8 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=9 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=10 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=11 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=12 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=13 )  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `ty_venue_branch` [ RunTime:0.0087s ]
+SQL: SELECT * FROM `ty_venue_branch` ORDER BY id desc  [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `ty_course` [ RunTime:0.0105s ]
+SQL: SELECT * FROM `ty_course` ORDER BY id desc  [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `ty_teacher` [ RunTime:0.0082s ]
+NOTIC: [8] Undefined variable: teacher_where D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Admin\Controller\CourseController.class.php 第 50 行.
+SQL: SELECT * FROM `ty_teacher` ORDER BY id desc  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `ty_course` WHERE `id` IN ('45')  [ RunTime:0.0002s ]
+
+[ 2018-04-03T22:00:05+08:00 ] 127.0.0.1 /index.php/Admin/Course/course_index.html
+NOTIC: [8] Use of undefined constant SHOW_PAGE_TRACE - assumed 'SHOW_PAGE_TRACE' D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Common\Conf\debug.php 第 4 行.
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000058s ]
+
+[ 2018-04-03T22:00:10+08:00 ] 127.0.0.1 /index.php/Admin/Course/course_del?del_id=45
+NOTIC: [8] Use of undefined constant SHOW_PAGE_TRACE - assumed 'SHOW_PAGE_TRACE' D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Common\Conf\debug.php 第 4 行.
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000055s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000669s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000748s ]
+SQL: SHOW COLUMNS FROM `category` [ RunTime:0.0322s ]
+SQL: SELECT * FROM `category` WHERE ( pid=0 ) ORDER BY sort desc,id asc  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `category` WHERE ( pid=1 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=2 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=3 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=4 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=5 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=6 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=7 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=8 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=9 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=10 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=11 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=12 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=13 )  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `ty_venue_branch` [ RunTime:0.0651s ]
+SQL: SELECT * FROM `ty_venue_branch` ORDER BY id desc  [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `ty_course` [ RunTime:0.0108s ]
+SQL: SELECT * FROM `ty_course` ORDER BY id desc  [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `ty_teacher` [ RunTime:0.0117s ]
+NOTIC: [8] Undefined variable: teacher_where D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Admin\Controller\CourseController.class.php 第 50 行.
+SQL: SELECT * FROM `ty_teacher` ORDER BY id desc  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `ty_course` WHERE `id` IN ('45')  [ RunTime:0.0003s ]
+
+[ 2018-04-03T22:00:17+08:00 ] 127.0.0.1 /index.php/Admin/Course/course_del?del_id=45%2C44
+NOTIC: [8] Use of undefined constant SHOW_PAGE_TRACE - assumed 'SHOW_PAGE_TRACE' D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Common\Conf\debug.php 第 4 行.
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000041s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000382s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000417s ]
+SQL: SHOW COLUMNS FROM `category` [ RunTime:0.0458s ]
+SQL: SELECT * FROM `category` WHERE ( pid=0 ) ORDER BY sort desc,id asc  [ RunTime:0.0006s ]
+SQL: SELECT * FROM `category` WHERE ( pid=1 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `category` WHERE ( pid=2 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `category` WHERE ( pid=3 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `category` WHERE ( pid=4 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `category` WHERE ( pid=5 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=6 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `category` WHERE ( pid=7 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `category` WHERE ( pid=8 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=9 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `category` WHERE ( pid=10 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `category` WHERE ( pid=11 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=12 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `category` WHERE ( pid=13 )  [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `ty_venue_branch` [ RunTime:0.0111s ]
+SQL: SELECT * FROM `ty_venue_branch` ORDER BY id desc  [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `ty_course` [ RunTime:0.0077s ]
+SQL: SELECT * FROM `ty_course` ORDER BY id desc  [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `ty_teacher` [ RunTime:0.0072s ]
+NOTIC: [8] Undefined variable: teacher_where D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Admin\Controller\CourseController.class.php 第 50 行.
+SQL: SELECT * FROM `ty_teacher` ORDER BY id desc  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `ty_course` WHERE `id` IN ('45','44')  [ RunTime:0.0002s ]
+
+[ 2018-04-03T22:00:33+08:00 ] 127.0.0.1 /index.php/Admin/Course/course_index.html
+NOTIC: [8] Use of undefined constant SHOW_PAGE_TRACE - assumed 'SHOW_PAGE_TRACE' D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Common\Conf\debug.php 第 4 行.
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000062s ]
+
+[ 2018-04-03T22:00:40+08:00 ] 127.0.0.1 /index.php/Admin/Course/course_del?del_id=45%2C44
+NOTIC: [8] Use of undefined constant SHOW_PAGE_TRACE - assumed 'SHOW_PAGE_TRACE' D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Common\Conf\debug.php 第 4 行.
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000052s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000763s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000861s ]
+SQL: SHOW COLUMNS FROM `category` [ RunTime:0.0210s ]
+SQL: SELECT * FROM `category` WHERE ( pid=0 ) ORDER BY sort desc,id asc  [ RunTime:0.0006s ]
+SQL: SELECT * FROM `category` WHERE ( pid=1 )  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `category` WHERE ( pid=2 )  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `category` WHERE ( pid=3 )  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `category` WHERE ( pid=4 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=5 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=6 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=7 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=8 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=9 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=10 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=11 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=12 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=13 )  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `ty_venue_branch` [ RunTime:0.0093s ]
+SQL: SELECT * FROM `ty_venue_branch` ORDER BY id desc  [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `ty_course` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `ty_course` ORDER BY id desc  [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `ty_teacher` [ RunTime:0.0084s ]
+NOTIC: [8] Undefined variable: teacher_where D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Admin\Controller\CourseController.class.php 第 50 行.
+SQL: SELECT * FROM `ty_teacher` ORDER BY id desc  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `ty_course` WHERE `id` IN ('45','44')  [ RunTime:0.0002s ]
+
+[ 2018-04-03T22:00:42+08:00 ] 127.0.0.1 /index.php/Admin/Course/course_index.html
+NOTIC: [8] Use of undefined constant SHOW_PAGE_TRACE - assumed 'SHOW_PAGE_TRACE' D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Common\Conf\debug.php 第 4 行.
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000041s ]
+
+[ 2018-04-03T22:01:26+08:00 ] 127.0.0.1 /index.php/Admin/Course/course_index.html
+NOTIC: [8] Use of undefined constant SHOW_PAGE_TRACE - assumed 'SHOW_PAGE_TRACE' D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Common\Conf\debug.php 第 4 行.
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000065s ]
+
+[ 2018-04-03T22:01:31+08:00 ] 127.0.0.1 /index.php/Admin/Course/course_del?del_id=45%2C44
+NOTIC: [8] Use of undefined constant SHOW_PAGE_TRACE - assumed 'SHOW_PAGE_TRACE' D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Common\Conf\debug.php 第 4 行.
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000043s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000395s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000429s ]
+SQL: SHOW COLUMNS FROM `category` [ RunTime:0.0244s ]
+SQL: SELECT * FROM `category` WHERE ( pid=0 ) ORDER BY sort desc,id asc  [ RunTime:0.0005s ]
+SQL: SELECT * FROM `category` WHERE ( pid=1 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `category` WHERE ( pid=2 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `category` WHERE ( pid=3 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `category` WHERE ( pid=4 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=5 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=6 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=7 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `category` WHERE ( pid=8 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=9 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=10 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=11 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `category` WHERE ( pid=12 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `category` WHERE ( pid=13 )  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `ty_venue_branch` [ RunTime:0.0102s ]
+SQL: SELECT * FROM `ty_venue_branch` ORDER BY id desc  [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `ty_course` [ RunTime:0.0102s ]
+SQL: SELECT * FROM `ty_course` ORDER BY id desc  [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `ty_teacher` [ RunTime:0.0139s ]
+NOTIC: [8] Undefined variable: teacher_where D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Admin\Controller\CourseController.class.php 第 50 行.
+SQL: SELECT * FROM `ty_teacher` ORDER BY id desc  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `ty_course` WHERE `id` IN ('45','44')  [ RunTime:0.0003s ]
+
+[ 2018-04-03T22:01:40+08:00 ] 127.0.0.1 /index.php/Admin/Course/course_del?del_id=41%2C40
+NOTIC: [8] Use of undefined constant SHOW_PAGE_TRACE - assumed 'SHOW_PAGE_TRACE' D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Common\Conf\debug.php 第 4 行.
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000048s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000409s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000452s ]
+SQL: SHOW COLUMNS FROM `category` [ RunTime:0.0291s ]
+SQL: SELECT * FROM `category` WHERE ( pid=0 ) ORDER BY sort desc,id asc  [ RunTime:0.0006s ]
+SQL: SELECT * FROM `category` WHERE ( pid=1 )  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `category` WHERE ( pid=2 )  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `category` WHERE ( pid=3 )  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `category` WHERE ( pid=4 )  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `category` WHERE ( pid=5 )  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `category` WHERE ( pid=6 )  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `category` WHERE ( pid=7 )  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `category` WHERE ( pid=8 )  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `category` WHERE ( pid=9 )  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `category` WHERE ( pid=10 )  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `category` WHERE ( pid=11 )  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `category` WHERE ( pid=12 )  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `category` WHERE ( pid=13 )  [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `ty_venue_branch` [ RunTime:0.0128s ]
+SQL: SELECT * FROM `ty_venue_branch` ORDER BY id desc  [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `ty_course` [ RunTime:0.0093s ]
+SQL: SELECT * FROM `ty_course` ORDER BY id desc  [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `ty_teacher` [ RunTime:0.0095s ]
+NOTIC: [8] Undefined variable: teacher_where D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Admin\Controller\CourseController.class.php 第 50 行.
+SQL: SELECT * FROM `ty_teacher` ORDER BY id desc  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `ty_course` WHERE `id` IN ('41','40')  [ RunTime:0.0002s ]
+SQL: UPDATE `ty_course` SET `status`='2' WHERE `id` IN ('41','40') [ RunTime:0.0036s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000810s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000857s ]
+
+[ 2018-04-03T22:01:59+08:00 ] 127.0.0.1 /index.php/Admin/Course/course_index.html
+NOTIC: [8] Use of undefined constant SHOW_PAGE_TRACE - assumed 'SHOW_PAGE_TRACE' D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Common\Conf\debug.php 第 4 行.
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000072s ]
+
+[ 2018-04-03T22:02:55+08:00 ] 127.0.0.1 /index.php/Admin/Course/course_index.html
+NOTIC: [8] Use of undefined constant SHOW_PAGE_TRACE - assumed 'SHOW_PAGE_TRACE' D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Common\Conf\debug.php 第 4 行.
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000043s ]
+
+[ 2018-04-03T22:03:12+08:00 ] 127.0.0.1 /index.php/Admin/Course/course_index.html
+NOTIC: [8] Use of undefined constant SHOW_PAGE_TRACE - assumed 'SHOW_PAGE_TRACE' D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Common\Conf\debug.php 第 4 行.
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000065s ]
+
+[ 2018-04-03T22:03:21+08:00 ] 127.0.0.1 /index.php/Admin/Course/course_del?del_id=45%2C44
+NOTIC: [8] Use of undefined constant SHOW_PAGE_TRACE - assumed 'SHOW_PAGE_TRACE' D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Common\Conf\debug.php 第 4 行.
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000068s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000472s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000525s ]
+SQL: SHOW COLUMNS FROM `category` [ RunTime:0.0153s ]
+SQL: SELECT * FROM `category` WHERE ( pid=0 ) ORDER BY sort desc,id asc  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `category` WHERE ( pid=1 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=2 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=3 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=4 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=5 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=6 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=7 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=8 )  [ RunTime:0.0001s ]
+SQL: SELECT * FROM `category` WHERE ( pid=9 )  [ RunTime:0.0001s ]
+SQL: SELECT * FROM `category` WHERE ( pid=10 )  [ RunTime:0.0001s ]
+SQL: SELECT * FROM `category` WHERE ( pid=11 )  [ RunTime:0.0001s ]
+SQL: SELECT * FROM `category` WHERE ( pid=12 )  [ RunTime:0.0001s ]
+SQL: SELECT * FROM `category` WHERE ( pid=13 )  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `ty_venue_branch` [ RunTime:0.0086s ]
+SQL: SELECT * FROM `ty_venue_branch` ORDER BY id desc  [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `ty_course` [ RunTime:0.0086s ]
+SQL: SELECT * FROM `ty_course` ORDER BY id desc  [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `ty_teacher` [ RunTime:0.0080s ]
+NOTIC: [8] Undefined variable: teacher_where D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Admin\Controller\CourseController.class.php 第 50 行.
+SQL: SELECT * FROM `ty_teacher` ORDER BY id desc  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `ty_course` WHERE `id` IN ('45','44')  [ RunTime:0.0002s ]
+
+[ 2018-04-03T22:04:01+08:00 ] 127.0.0.1 /index.php/Admin/Course/course_index.html
+NOTIC: [8] Use of undefined constant SHOW_PAGE_TRACE - assumed 'SHOW_PAGE_TRACE' D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Common\Conf\debug.php 第 4 行.
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000042s ]
+
+[ 2018-04-03T22:04:07+08:00 ] 127.0.0.1 /index.php/Admin/Course/course_del?del_id=45%2C44
+NOTIC: [8] Use of undefined constant SHOW_PAGE_TRACE - assumed 'SHOW_PAGE_TRACE' D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Common\Conf\debug.php 第 4 行.
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000041s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000383s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000416s ]
+SQL: SHOW COLUMNS FROM `category` [ RunTime:0.0235s ]
+SQL: SELECT * FROM `category` WHERE ( pid=0 ) ORDER BY sort desc,id asc  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `category` WHERE ( pid=1 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=2 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=3 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `category` WHERE ( pid=4 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `category` WHERE ( pid=5 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=6 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=7 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=8 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `category` WHERE ( pid=9 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=10 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=11 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=12 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=13 )  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `ty_venue_branch` [ RunTime:0.0101s ]
+SQL: SELECT * FROM `ty_venue_branch` ORDER BY id desc  [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `ty_course` [ RunTime:0.0112s ]
+SQL: SELECT * FROM `ty_course` ORDER BY id desc  [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `ty_teacher` [ RunTime:0.0079s ]
+NOTIC: [8] Undefined variable: teacher_where D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Admin\Controller\CourseController.class.php 第 50 行.
+SQL: SELECT * FROM `ty_teacher` ORDER BY id desc  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `ty_course` WHERE `id` IN ('45','44')  [ RunTime:0.0002s ]
+SQL: UPDATE `ty_course` SET `status`='2' WHERE `id` IN ('45','44') [ RunTime:0.0033s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000737s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000776s ]
+
+[ 2018-04-03T22:04:26+08:00 ] 127.0.0.1 /index.php/Admin/Course/course_index.html
+NOTIC: [8] Use of undefined constant SHOW_PAGE_TRACE - assumed 'SHOW_PAGE_TRACE' D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Common\Conf\debug.php 第 4 行.
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000042s ]
+
+[ 2018-04-03T22:04:51+08:00 ] 127.0.0.1 /index.php/Admin/Course/course_del?del_id=43%2C42%2C41
+NOTIC: [8] Use of undefined constant SHOW_PAGE_TRACE - assumed 'SHOW_PAGE_TRACE' D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Common\Conf\debug.php 第 4 行.
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000046s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000459s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000493s ]
+SQL: SHOW COLUMNS FROM `category` [ RunTime:0.0394s ]
+SQL: SELECT * FROM `category` WHERE ( pid=0 ) ORDER BY sort desc,id asc  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `category` WHERE ( pid=1 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=2 )  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `category` WHERE ( pid=3 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `category` WHERE ( pid=4 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `category` WHERE ( pid=5 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `category` WHERE ( pid=6 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `category` WHERE ( pid=7 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `category` WHERE ( pid=8 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `category` WHERE ( pid=9 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=10 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=11 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `category` WHERE ( pid=12 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `category` WHERE ( pid=13 )  [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `ty_venue_branch` [ RunTime:0.0128s ]
+SQL: SELECT * FROM `ty_venue_branch` ORDER BY id desc  [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `ty_course` [ RunTime:0.0084s ]
+SQL: SELECT * FROM `ty_course` ORDER BY id desc  [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `ty_teacher` [ RunTime:0.0079s ]
+NOTIC: [8] Undefined variable: teacher_where D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Admin\Controller\CourseController.class.php 第 50 行.
+SQL: SELECT * FROM `ty_teacher` ORDER BY id desc  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `ty_course` WHERE `id` IN ('43','42','41')  [ RunTime:0.0002s ]
+SQL: UPDATE `ty_course` SET `status`='2' WHERE `id` IN ('43','42','41') [ RunTime:0.0034s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000746s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000798s ]
+
+[ 2018-04-03T22:04:58+08:00 ] 127.0.0.1 /index.php/Admin/Course/course_index.html
+NOTIC: [8] Use of undefined constant SHOW_PAGE_TRACE - assumed 'SHOW_PAGE_TRACE' D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Common\Conf\debug.php 第 4 行.
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000040s ]
+
+[ 2018-04-03T22:07:57+08:00 ] 127.0.0.1 /index.php/Admin/Course/course_index.html
+NOTIC: [8] Use of undefined constant SHOW_PAGE_TRACE - assumed 'SHOW_PAGE_TRACE' D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Common\Conf\debug.php 第 4 行.
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000089s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000189s ]
+
+[ 2018-04-03T22:08:00+08:00 ] 127.0.0.1 /index.php/Admin/Course/course_del?del_id=45%2C44
+NOTIC: [8] Use of undefined constant SHOW_PAGE_TRACE - assumed 'SHOW_PAGE_TRACE' D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Common\Conf\debug.php 第 4 行.
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000043s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000422s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000463s ]
+SQL: SHOW COLUMNS FROM `category` [ RunTime:0.0180s ]
+SQL: SELECT * FROM `category` WHERE ( pid=0 ) ORDER BY sort desc,id asc  [ RunTime:0.0005s ]
+SQL: SELECT * FROM `category` WHERE ( pid=1 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `category` WHERE ( pid=2 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `category` WHERE ( pid=3 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `category` WHERE ( pid=4 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `category` WHERE ( pid=5 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `category` WHERE ( pid=6 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=7 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=8 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=9 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=10 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=11 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `category` WHERE ( pid=12 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `category` WHERE ( pid=13 )  [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `ty_venue_branch` [ RunTime:0.0076s ]
+SQL: SELECT * FROM `ty_venue_branch` ORDER BY id desc  [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `ty_course` [ RunTime:0.0072s ]
+SQL: SELECT * FROM `ty_course` ORDER BY id desc  [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `ty_teacher` [ RunTime:0.0087s ]
+NOTIC: [8] Undefined variable: teacher_where D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Admin\Controller\CourseController.class.php 第 50 行.
+SQL: SELECT * FROM `ty_teacher` ORDER BY id desc  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `ty_course` WHERE `id` IN ('45','44')  [ RunTime:0.0002s ]
+SQL: UPDATE `ty_course` SET `status`='2' WHERE `id` IN ('45','44') [ RunTime:0.0034s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000635s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000671s ]
+
+[ 2018-04-03T22:08:01+08:00 ] 127.0.0.1 /index.php/Admin/Course/course_index.html
+NOTIC: [8] Use of undefined constant SHOW_PAGE_TRACE - assumed 'SHOW_PAGE_TRACE' D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Common\Conf\debug.php 第 4 行.
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000060s ]
+
+[ 2018-04-03T22:08:39+08:00 ] 127.0.0.1 /index.php/Admin/Course/course_index.html
+NOTIC: [8] Use of undefined constant SHOW_PAGE_TRACE - assumed 'SHOW_PAGE_TRACE' D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Common\Conf\debug.php 第 4 行.
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000046s ]
+
+[ 2018-04-03T22:08:47+08:00 ] 127.0.0.1 /index.php/Admin/Course/course_del?del_id=43%2C42
+NOTIC: [8] Use of undefined constant SHOW_PAGE_TRACE - assumed 'SHOW_PAGE_TRACE' D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Common\Conf\debug.php 第 4 行.
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000090s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000528s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000586s ]
+SQL: SHOW COLUMNS FROM `category` [ RunTime:0.0124s ]
+SQL: SELECT * FROM `category` WHERE ( pid=0 ) ORDER BY sort desc,id asc  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `category` WHERE ( pid=1 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=2 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=3 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=4 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=5 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=6 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=7 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=8 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=9 )  [ RunTime:0.0001s ]
+SQL: SELECT * FROM `category` WHERE ( pid=10 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=11 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=12 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `category` WHERE ( pid=13 )  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `ty_venue_branch` [ RunTime:0.0114s ]
+SQL: SELECT * FROM `ty_venue_branch` ORDER BY id desc  [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `ty_course` [ RunTime:0.0097s ]
+SQL: SELECT * FROM `ty_course` ORDER BY id desc  [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `ty_teacher` [ RunTime:0.0127s ]
+NOTIC: [8] Undefined variable: teacher_where D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Admin\Controller\CourseController.class.php 第 50 行.
+SQL: SELECT * FROM `ty_teacher` ORDER BY id desc  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `ty_course` WHERE `id` IN ('43','42')  [ RunTime:0.0002s ]
+SQL: UPDATE `ty_course` SET `status`='2' WHERE `id` IN ('43','42') [ RunTime:0.0040s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000878s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000929s ]
+
+[ 2018-04-03T22:08:48+08:00 ] 127.0.0.1 /index.php/Admin/Course/course_index.html
+NOTIC: [8] Use of undefined constant SHOW_PAGE_TRACE - assumed 'SHOW_PAGE_TRACE' D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Common\Conf\debug.php 第 4 行.
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000088s ]
+
+[ 2018-04-03T22:09:03+08:00 ] 127.0.0.1 /index.php/Admin/Course/course_index.html
+NOTIC: [8] Use of undefined constant SHOW_PAGE_TRACE - assumed 'SHOW_PAGE_TRACE' D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Common\Conf\debug.php 第 4 行.
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000082s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000169s ]
+
+[ 2018-04-03T22:09:10+08:00 ] 127.0.0.1 /index.php/Admin/Course/course_del?del_id=41%2C40
+NOTIC: [8] Use of undefined constant SHOW_PAGE_TRACE - assumed 'SHOW_PAGE_TRACE' D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Common\Conf\debug.php 第 4 行.
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000063s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000408s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000466s ]
+SQL: SHOW COLUMNS FROM `category` [ RunTime:0.0293s ]
+SQL: SELECT * FROM `category` WHERE ( pid=0 ) ORDER BY sort desc,id asc  [ RunTime:0.0005s ]
+SQL: SELECT * FROM `category` WHERE ( pid=1 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `category` WHERE ( pid=2 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `category` WHERE ( pid=3 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `category` WHERE ( pid=4 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `category` WHERE ( pid=5 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `category` WHERE ( pid=6 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `category` WHERE ( pid=7 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `category` WHERE ( pid=8 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `category` WHERE ( pid=9 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `category` WHERE ( pid=10 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `category` WHERE ( pid=11 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `category` WHERE ( pid=12 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `category` WHERE ( pid=13 )  [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `ty_venue_branch` [ RunTime:0.0130s ]
+SQL: SELECT * FROM `ty_venue_branch` ORDER BY id desc  [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `ty_course` [ RunTime:0.0135s ]
+SQL: SELECT * FROM `ty_course` ORDER BY id desc  [ RunTime:0.0008s ]
+SQL: SHOW COLUMNS FROM `ty_teacher` [ RunTime:0.0141s ]
+NOTIC: [8] Undefined variable: teacher_where D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Admin\Controller\CourseController.class.php 第 50 行.
+SQL: SELECT * FROM `ty_teacher` ORDER BY id desc  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `ty_course` WHERE `id` IN ('41','40')  [ RunTime:0.0002s ]
+SQL: UPDATE `ty_course` SET `status`='2' WHERE `id` IN ('41','40') [ RunTime:0.0034s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000626s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000660s ]
+
+[ 2018-04-03T22:09:11+08:00 ] 127.0.0.1 /index.php/Admin/Course/course_index.html
+NOTIC: [8] Use of undefined constant SHOW_PAGE_TRACE - assumed 'SHOW_PAGE_TRACE' D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Common\Conf\debug.php 第 4 行.
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000041s ]
+
+[ 2018-04-03T22:09:45+08:00 ] 127.0.0.1 /index.php/Admin/Course/course_del?del_id=45%2C44
+NOTIC: [8] Use of undefined constant SHOW_PAGE_TRACE - assumed 'SHOW_PAGE_TRACE' D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Common\Conf\debug.php 第 4 行.
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000042s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000403s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000445s ]
+SQL: SHOW COLUMNS FROM `category` [ RunTime:0.0349s ]
+SQL: SELECT * FROM `category` WHERE ( pid=0 ) ORDER BY sort desc,id asc  [ RunTime:0.0006s ]
+SQL: SELECT * FROM `category` WHERE ( pid=1 )  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `category` WHERE ( pid=2 )  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `category` WHERE ( pid=3 )  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `category` WHERE ( pid=4 )  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `category` WHERE ( pid=5 )  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `category` WHERE ( pid=6 )  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `category` WHERE ( pid=7 )  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `category` WHERE ( pid=8 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `category` WHERE ( pid=9 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `category` WHERE ( pid=10 )  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `category` WHERE ( pid=11 )  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `category` WHERE ( pid=12 )  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `category` WHERE ( pid=13 )  [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `ty_venue_branch` [ RunTime:0.0164s ]
+SQL: SELECT * FROM `ty_venue_branch` ORDER BY id desc  [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `ty_course` [ RunTime:0.0098s ]
+SQL: SELECT * FROM `ty_course` ORDER BY id desc  [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `ty_teacher` [ RunTime:0.0104s ]
+NOTIC: [8] Undefined variable: teacher_where D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Admin\Controller\CourseController.class.php 第 50 行.
+SQL: SELECT * FROM `ty_teacher` ORDER BY id desc  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `ty_course` WHERE `id` IN ('45','44')  [ RunTime:0.0003s ]
+
+[ 2018-04-03T22:09:56+08:00 ] 127.0.0.1 /index.php/Admin/Course/course_index.html
+NOTIC: [8] Use of undefined constant SHOW_PAGE_TRACE - assumed 'SHOW_PAGE_TRACE' D:\phpStudy\WWW\sport\cms.fitness.dayaartist.com\App\Common\Conf\debug.php 第 4 行.
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000041s ]
+

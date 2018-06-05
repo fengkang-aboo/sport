@@ -18,6 +18,7 @@ use app\api\model\TyImg as ImgModel;
 use app\api\model\TyCollection as CollectionModel;
 use app\api\model\TyFacilities as FacilitiesModel;
 use app\api\model\TyRedBag as RedBagModel;
+use app\api\model\TyUserRedBag as UserRedBag;
 use app\api\model\Category as CategoryModel;
 
 class Venue extends Controller
@@ -73,6 +74,8 @@ class Venue extends Controller
             }
         }
         sortArrByOneField($data,'distance',false);
+
+        UserRedBag::
 
         return $data;
     }

@@ -16,12 +16,17 @@ class ListsController extends PublicController
         if (!empty($userInfo['venue_id'])) {
             $where = array('supplier_id' => $userInfo['venue_id']);
         }
-        $userlist = M('order')->field('order.id,order.order_no,order.snap_name,order.total_count,order.total_price,order.create_time,order.update_time,order.status,order.snap_img,ty_course_arrange.start_time,ty_course_arrange.end_time')->join('ty_course_arrange on ty_course_arrange.id = order.time_id', 'left')->where($where)->order('order.id desc')->select();
+        $order = M('order')->where($where)
+                              ->order('order.id desc')
+                              ->select();
         foreach ($userlist as $k => $v) {
-            $userlist[$k]['delete_time'] = date("Y-m-d H:i", $v['delete_time']);
-            $userlist[$k]['create_time'] = date("Y-m-d H:i", $v['create_time']);
-            $userlist[$k]['update_time'] = date("Y-m-d H:i", $v['update_time']);
-            $userlist[$k]['course_time'] = date("Y-m-d", $v['start_time']) . ' ' . date("H:i", $v['start_time']) . '--' . date("H:i", $v['end_time']);
+            $course_arrange  =  M('ty_course_arrange')->where(array('id'=>$v['time_id']))->find();
+            $course          =  M('ty_course')->where(array('id'=>$course_arrange['course_id']));
+            $orderData[$key] =  array(
+                'date'       =>     date('YmdHi',$v['create_time']),
+                'order_no'   =>     $v['order_no'],
+                ''
+            );
         }
         //=============
         //将变量输出
